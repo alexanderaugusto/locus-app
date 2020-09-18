@@ -1,0 +1,9 @@
+{
+  "name": "api-nodejs",
+  "version": "1.0.0",
+  "description": "This is the api of IMovel app created to Software Engineering subject",
+  "main": "src/index.js",
+  "repository": "https://github.com/alexanderaugusto/IMovel",
+  "author": "Alexander Augusto",
+  "license": "MIT"
+}

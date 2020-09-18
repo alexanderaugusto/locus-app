@@ -1,0 +1,9 @@
+/node_modules
+*.ini 
+
+.env
+
+tmp/uploads/product/*
+tmp/uploads/user/*
+!tmp/uploads/product/default-image.png
+!tmp/uploads/user/default-image.png
