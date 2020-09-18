@@ -3,7 +3,7 @@
 
 .env
 
-tmp/uploads/product/*
+tmp/uploads/property/*
 tmp/uploads/user/*
-!tmp/uploads/product/default-image.png
+!tmp/uploads/property/.gitkeep
 !tmp/uploads/user/default-image.png
