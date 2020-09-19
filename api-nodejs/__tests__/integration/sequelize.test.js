@@ -11,4 +11,8 @@ describe("Sequelize test", () => {
       expect(err).toMatch('Unable to connect to the database')
     }
   })
+
+  it("should create a user", async () => {
+    
+  })
 })

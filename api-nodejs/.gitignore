@@ -5,3 +5,5 @@ tmp/uploads/property/*
 tmp/uploads/user/*
 !tmp/uploads/property/.gitkeep
 !tmp/uploads/user/default-image.png
+
+__tests__/coverage/
