@@ -1,4 +1,5 @@
 const { factory } = require('factory-girl')
+const faker = require('faker')
 
 const {
   User,
@@ -9,7 +10,7 @@ const {
 } = require('../src/models')
 
 factory.define('User', User, {
-  email: "alexaasf_10@hotmail.com" + Math.random(1000),
+  email: faker.internet.email,
   password: "12345678",
   name: "Alexander Augusto",
   cpf: "111.111.111-11",

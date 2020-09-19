@@ -27,23 +27,27 @@ describe("Sequelize test", () => {
     const property = await factory.create('Property')
 
     expect(property.id).toBeTruthy()
+    expect(property.user_id).toBeTruthy()
   })
 
   it("should create a image", async () => {
     const image = await factory.create('Image')
 
     expect(image.id).toBeTruthy()
+    expect(image.property_id).toBeTruthy()
   })
 
   it("should create a rental", async () => {
     const rental = await factory.create('Rental')
 
-    expect(rental.id).toBeTruthy()
+    expect(rental.user_id).toBeTruthy()
+    expect(rental.property_id).toBeTruthy()
   })
 
   it("should create a favorite", async () => {
     const favorite = await factory.create('Favorite')
 
-    expect(favorite.id).toBeTruthy()
+    expect(favorite.user_id).toBeTruthy()
+    expect(favorite.property_id).toBeTruthy()
   })
 })
