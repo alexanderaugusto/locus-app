@@ -1,8 +1,6 @@
 /node_modules
 *.ini 
 
-.env
-
 tmp/uploads/property/*
 tmp/uploads/user/*
 !tmp/uploads/property/.gitkeep
