@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1600525165521" clover="3.2.0">
-  <project timestamp="1600525165521" name="All files">
-    <metrics statements="422" coveredstatements="145" conditionals="28" coveredconditionals="19" methods="18" coveredmethods="8" elements="468" coveredelements="172" complexity="0" loc="422" ncloc="422" packages="5" files="16" classes="16"/>
+<coverage generated="1600526980688" clover="3.2.0">
+  <project timestamp="1600526980689" name="All files">
+    <metrics statements="422" coveredstatements="149" conditionals="30" coveredconditionals="21" methods="18" coveredmethods="10" elements="470" coveredelements="180" complexity="0" loc="422" ncloc="422" packages="5" files="16" classes="16"/>
     <package name="src">
       <metrics statements="42" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="app.js" path="C:\Projects\AlexanderAugusto\IMovel\api-nodejs\src\app.js">
@@ -348,7 +348,7 @@
       </file>
     </package>
     <package name="src.models">
-      <metrics statements="104" coveredstatements="100" conditionals="17" coveredconditionals="17" methods="9" coveredmethods="8"/>
+      <metrics statements="104" coveredstatements="104" conditionals="18" coveredconditionals="18" methods="9" coveredmethods="9"/>
       <file name="Favorite.js" path="C:\Projects\AlexanderAugusto\IMovel\api-nodejs\src\models\Favorite.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -410,7 +410,7 @@
         <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
       <file name="User.js" path="C:\Projects\AlexanderAugusto\IMovel\api-nodejs\src\models\User.js">
-        <metrics statements="28" coveredstatements="24" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="2"/>
+        <metrics statements="28" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -423,11 +423,11 @@
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
@@ -473,12 +473,12 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="auth.js" path="C:\Projects\AlexanderAugusto\IMovel\api-nodejs\src\utils\auth.js">
-        <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
