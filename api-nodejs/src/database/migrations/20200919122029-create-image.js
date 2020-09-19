@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      propery_id: {
+      property_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Property', key: 'id' },
