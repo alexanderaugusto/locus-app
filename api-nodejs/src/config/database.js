@@ -7,7 +7,7 @@ const dbConfig = {
     database: "db_imovel_dev",
     host: "localhost",
     port: "3306",
-    dialect: "postgres",
+    dialect: "mysql",
     timezoze: "-03:00"
   },
   test: {
