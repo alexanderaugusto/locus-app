@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js --ignore __tests__",
-    "test": "jest"
+    "pretest": "cross-env NODE_ENV=test sequelize db:migrate",
+    "test": "cross-env NODE_ENV=test jest",
+    "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
