@@ -1,8 +1,12 @@
 const { sequelize } = require('../../src/models')
+const truncate = require('../utils/truncate')
 
 describe("Sequelize test", () => {
-  it("should connect to database", async () => {
+  beforeEach(async () => {
+    await truncate()
+  })
 
+  it("should connect to database", async () => {
     expect.assertions(0)
     
     try {
