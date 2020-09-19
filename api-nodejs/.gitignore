@@ -6,4 +6,5 @@ tmp/uploads/user/*
 !tmp/uploads/property/.gitkeep
 !tmp/uploads/user/default-image.png
 
-__tests__/coverage/
+__tests__/coverage
+__tests__/database.sqlite
