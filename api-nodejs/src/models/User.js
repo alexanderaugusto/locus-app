@@ -1,3 +1,5 @@
+const auth = require('../utils/auth')
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     email: DataTypes.STRING,
@@ -6,6 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     cpf: DataTypes.STRING,
     phone: DataTypes.STRING,
     avatar: DataTypes.STRING
+  }, {
+    hooks: {
+      beforeSave: async (user) => {
+        if(user.password){
+          user.password = await auth.encryptPassword(user.password)
+        }
+      }
+    }
   })
 
   User.associate = (models) => {
