@@ -21,7 +21,9 @@
     "factory-girl": "^5.0.4",
     "faker": "^5.1.0",
     "mysql2": "^2.2.2",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
