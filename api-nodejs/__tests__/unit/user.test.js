@@ -8,7 +8,7 @@ describe("User test", () => {
     await truncate()
   })
 
-  it("Should create a user using api route", async () => {
+  it("Should create a user without image using api route", async () => {
     const response = await request(app)
       .post("/user")
       .send({
@@ -22,6 +22,21 @@ describe("User test", () => {
     expect(response.status).toBe(200)
     expect(response.body.email).toBe("alexaasf_10@hotmail.com")
   })
+
+  it("Should create a user with image using api route", async () => {
+    const response = await request(app)
+      .post("/user")
+      .field("email", "alexaasf_10@hotmail.com")
+      .field("password", "12345678")
+      .field("name", "Alexander Augusto")
+      .field("cpf", "111.111.111-00")
+      .field("phone", "35984529203")
+      .attach("file", "__tests__/utils/test.jpg")
+
+    expect(response.status).toBe(200)
+    expect(response.body.email).toBe("alexaasf_10@hotmail.com")
+  })
+
   it("Should list a user using api route", async () => {
     const user = await factory.create('User')
 
@@ -31,6 +46,7 @@ describe("User test", () => {
     expect(response.status).toBe(200)
     expect(response.body.id).toBe(user.id)
   })
+
   it("Should list user properties using api route", async () => {
     const user = await factory.create('User')
     await factory.create('Property', {
@@ -46,6 +62,7 @@ describe("User test", () => {
     expect(response.status).toBe(200)
     expect(response.body.length).toBe(2)
   })
+
   it("Should list user rentals using api route", async () => {
     const user = await factory.create('User')
     await factory.create('Rental', {
@@ -61,6 +78,7 @@ describe("User test", () => {
     expect(response.status).toBe(200)
     expect(response.body.length).toBe(2)
   })
+
   it("Should list user favorites using api route", async () => {
     const user = await factory.create('User')
     await factory.create('Favorite', {
@@ -76,6 +94,7 @@ describe("User test", () => {
     expect(response.status).toBe(200)
     expect(response.body.length).toBe(2)
   })
+
   it("Should update a user using api route", async () => {
     const user = await factory.create('User')
 
@@ -88,6 +107,19 @@ describe("User test", () => {
 
     expect(response.status).toBe(204)
   })
+
+  it("Should update a user image using api route", async () => {
+    const user = await factory.create('User')
+
+    const response = await request(app)
+      .put("/user/" + user.id)
+      .field("name", "Vanessa Swerts")
+      .attach("file", "__tests__/utils/test.jpg")
+
+    expect(response.status).toBe(200)
+    expect(response.body.avatar).toBeTruthy()
+  })
+
   it("Should delete a user using api route", async () => {
     const user = await factory.create('User')
 
