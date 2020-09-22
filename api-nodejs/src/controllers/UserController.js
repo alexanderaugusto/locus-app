@@ -1,7 +1,7 @@
 const { User } = require('../models')
 
 module.exports = {
-  create: async (req, rest) => {
+  create: async (req, res) => {
     const { email, password, name, cpf, phone } = req.body
     const { key: avatar } = req.file || { key: 'default-avatar.png' }
 
