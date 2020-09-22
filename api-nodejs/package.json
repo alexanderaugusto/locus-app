@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "factory-girl": "^5.0.4",
     "faker": "^5.1.0",
+    "multer": "^1.4.2",
     "mysql2": "^2.2.2",
     "sequelize": "^6.3.5",
     "swagger-jsdoc": "^4.0.0",
