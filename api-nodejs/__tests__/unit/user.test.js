@@ -2,6 +2,7 @@ const request = require('supertest')
 const app = require('../../src/app')
 const factory = require('../factories')
 const truncate = require('../utils/truncate')
+const deleteFile = require('../../src/utils/deleteFile')
 
 describe("User test", () => {
   beforeEach(async () => {
@@ -32,6 +33,8 @@ describe("User test", () => {
       .field("cpf", "111.111.111-00")
       .field("phone", "35984529203")
       .attach("file", "__tests__/utils/test.jpg")
+
+    deleteFile("user/" + response.body.avatar)
 
     expect(response.status).toBe(200)
     expect(response.body.email).toBe("alexaasf_10@hotmail.com")
@@ -115,6 +118,8 @@ describe("User test", () => {
       .put("/user/" + user.id)
       .field("name", "Vanessa Swerts")
       .attach("file", "__tests__/utils/test.jpg")
+
+    deleteFile("user/" + response.body.avatar)
 
     expect(response.status).toBe(200)
     expect(response.body.avatar).toBeTruthy()
