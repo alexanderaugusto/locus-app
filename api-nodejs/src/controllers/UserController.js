@@ -132,7 +132,7 @@ module.exports = {
       .catch((err) => {
         return res.status(500).json({
           cod: 500,
-          msg: 'Ocorreu um erro inesperado ao atualizar o usuário. Por favor, tentar novamente.'
+          msg: 'Ocorreu um erro inesperado ao apagar o usuário. Por favor, tentar novamente.'
         })
       })
   }
