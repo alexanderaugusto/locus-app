@@ -28,9 +28,9 @@ module.exports = {
   },
 
   list: async (req, res) => {
-    const { user_id } = req.params
+    const { user_id: id } = req.params
 
-    User.findByPk(user_id)
+    User.findByPk(id)
       .then((user) => {
         return res.json(user)
       })
@@ -114,7 +114,7 @@ module.exports = {
         })
       })
   },
-  
+
   delete: async (req, res) => {
     const { user_id: id } = req.params
 
