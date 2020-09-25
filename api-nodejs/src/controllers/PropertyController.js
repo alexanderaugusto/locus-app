@@ -1,4 +1,4 @@
-const { User, Property, Image } = require('../models')
+const { Property, Image } = require('../models')
 
 module.exports = {
   create: async (req, res) => {
@@ -90,8 +90,6 @@ module.exports = {
 
   delete: async (req, res) => {
     const { property_id: id } = req.params
-
-    console.log(id)
     
     Property.destroy({ where: { id } })
       .then((deleted) => {
