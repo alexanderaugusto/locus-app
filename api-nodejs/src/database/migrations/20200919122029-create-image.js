@@ -8,7 +8,7 @@ module.exports = {
         autoIncrement: true
       },
       path: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       property_id: {

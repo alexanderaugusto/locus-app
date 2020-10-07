@@ -1,4 +1,5 @@
 const { User } = require('../models')
+const deleteFile = require('../utils/deleteFile')
 
 module.exports = {
   create: async (req, res) => {
@@ -28,9 +29,9 @@ module.exports = {
   },
 
   list: async (req, res) => {
-    const { user_id } = req.params
+    const { user_id: id } = req.params
 
-    User.findByPk(user_id)
+    User.findByPk(id)
       .then((user) => {
         return res.json(user)
       })
@@ -92,6 +93,8 @@ module.exports = {
     const { name, cpf, phone } = req.body
     const { key: avatar } = req.file || { key: undefined }
 
+    const user = await User.findByPk(id)
+
     User.update({ name, cpf, phone, avatar }, { where: { id } })
       .then(([updated]) => {
         if (!updated) {
@@ -99,6 +102,10 @@ module.exports = {
             cod: 400,
             message: 'Os dados fornecidos são inválidos. Por favor, verifique os dados enviados e tente novamente.'
           })
+        }
+
+        if (avatar && user.avatar !== 'default-avatar.png') {
+          deleteFile('user/' + user.avatar)
         }
 
         if (avatar) {
@@ -114,9 +121,11 @@ module.exports = {
         })
       })
   },
-  
+
   delete: async (req, res) => {
     const { user_id: id } = req.params
+
+    const user = await User.findByPk(id)
 
     User.destroy({ where: { id } })
       .then((deleted) => {
@@ -127,12 +136,16 @@ module.exports = {
           })
         }
 
+        if (user.avatar !== 'default-avatar.png') {
+          deleteFile('user/' + user.avatar)
+        }
+
         return res.status(204).json()
       })
       .catch((err) => {
         return res.status(500).json({
           cod: 500,
-          msg: 'Ocorreu um erro inesperado ao atualizar o usuário. Por favor, tentar novamente.'
+          msg: 'Ocorreu um erro inesperado ao apagar o usuário. Por favor, tentar novamente.'
         })
       })
   }
