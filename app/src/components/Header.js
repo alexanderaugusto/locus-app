@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
 
 import colors from '../consts/colors.json'
 
