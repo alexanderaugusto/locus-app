@@ -35,7 +35,7 @@ const TabMenu = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favorite" component={Favorite} />
-      <Tab.Screen name="Profile" component={SignIn} />      
+      <Tab.Screen name="Profile" component={Profile} />      
     </Tab.Navigator>
   )
 }
