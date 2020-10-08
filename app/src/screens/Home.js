@@ -2,31 +2,31 @@ import React, { useState, useEffect } from 'react'
 import { KeyboardAvoidingView, View, ScrollView, StyleSheet, TextInput, TouchableOpacity, Text, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
-import Header from '../components/Header'
 import ImovelCard from '../components/ImovelCard'
-
 import colors from '../consts/colors.json'
 
 export default function Home() {
 
 	listTest = {
 		names: [
-			{ 'id': 1, 'address': 'Rua Doutor Teodoro, Centro' },
-			{ 'id': 2, 'address': 'Rua Doutora Maria, Centro' },
-			{ 'id': 3, 'address': 'Rua Doutor Joaquin, Centro' },
-			{ 'id': 4, 'address': 'Rua Doutor Miguel, Centro' },
-			{ 'id': 5, 'address': 'Rua Doutor Pedro, Centro' }
+			{ 'id': 1, 'address': 'Rua Doutor Teodoro',  'city':'Centro - São Paulo' },
+			{ 'id': 2, 'address': 'Rua Portugal',  'city':'Bela Vista - Belo Horizonte' },
+			{ 'id': 3, 'address': 'Rua Paula Ney',  'city':'Vila Mariana - São Paulo' },
+			{ 'id': 4, 'address': 'Rua Doutor Teodoro',  'city':'Jardim Europa - São Paulo' },
+			{ 'id': 5, 'address': 'Rua Doutor Teodoro',  'city':'Jardim Aeroporto - Alfenas' },		
 		]
 	}
 	return (
 		<>
-			<Header title="Home" />
-
 			<KeyboardAvoidingView
 				behavior="padding"
 				enabled={Platform.OS === 'ios'}
 				style={styles.container}
-			>
+			>		
+				<View style={styles.headerTitle}>
+					<Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
+					<Image style={styles.logo} source={require('../../assets/img/house_agreement.png')} />
+				</View>
 
 				<View style={styles.inputContainer}>
 					<TextInput
@@ -48,7 +48,7 @@ export default function Home() {
 				>
 					{listTest.names.map((item, index) => (
 						<View key={item.id} style={styles.cardsContainer}>
-							<ImovelCard address={item.address} />
+							<ImovelCard address={item.address} city={item.city} />
 						</View>
 					))}
 				</ScrollView>
@@ -67,6 +67,27 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 30,
 	},
 
+	headerTitle:{
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		marginTop: 30,
+		marginBottom: 5,
+	},
+
+	title: {
+		width:220,
+		fontSize: 24,
+		fontWeight: "600",
+		color: colors['yellow'],
+		textAlign: 'left'	
+	},
+
+	logo: {
+        height: 60,
+		width: 60,		
+    },
+
 	inputContainer: {
 		backgroundColor: colors["white"],
 		alignSelf: 'stretch',
@@ -79,7 +100,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 12,
 		flexDirection: "row",
 		justifyContent: 'space-between',
-		shadowOpacity: 0.5,
+		shadowOpacity: 0.2,
 		shadowRadius: 2,
 		shadowOffset: {
 			height: 0,
