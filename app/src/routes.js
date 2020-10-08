@@ -9,6 +9,7 @@ import colors from './consts/colors.json'
 import Home from './screens/Home'
 import Profile from './screens/Profile'
 import Favorite from './screens/Favorite'
+import SignIn from './screens/SignIn'
 
 const Tab = createBottomTabNavigator()
 
@@ -34,7 +35,7 @@ const TabMenu = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favorite" component={Favorite} />
-      <Tab.Screen name="Profile" component={Profile} />      
+      <Tab.Screen name="Profile" component={SignIn} />      
     </Tab.Navigator>
   )
 }

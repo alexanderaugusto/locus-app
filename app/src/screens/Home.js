@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
 	title: {
 		width:220,
-		fontSize: 24,
+		fontSize: 26,
 		fontWeight: "600",
 		color: colors['yellow'],
 		textAlign: 'left'	

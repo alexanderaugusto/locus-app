@@ -44,9 +44,9 @@ export default function ImovelCard({ address, city }) {
 				<View style={styles.footerContainer}>					
 					<Text style={styles.price}>Aluguel R$: 1.000,00</Text>
 					<View style={styles.buttonsContainer}>
-						<TouchableOpacity style={styles.button} >
+						{/* <TouchableOpacity style={styles.button} >
 							<FontAwesome5 name={'trash-alt'} size={18} color={colors['blue']} />
-						</TouchableOpacity>
+						</TouchableOpacity> */}
 						<TouchableOpacity style={styles.button}>
 							<FontAwesome5 name={'heart'} size={18} color={colors['blue']} />
 						</TouchableOpacity>
