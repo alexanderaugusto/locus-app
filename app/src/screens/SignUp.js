@@ -5,6 +5,7 @@ import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 import colors from '../consts/colors.json'
 
 import InputArea from '../components/InputArea'
+import ImagePickerFunction from '../components/ImagePicker'
 
 export default function SignUp() {
   return (
@@ -80,7 +81,7 @@ export default function SignUp() {
 
         <ProgressStep
           label="Foto"
-          nextBtnText={'Próximo'}
+          previousBtnText={'Anterior'}
           finishBtnText={'Finalizar'}
           nextBtnStyle={styles.button}
           previousBtnStyle={styles.button}
@@ -89,7 +90,7 @@ export default function SignUp() {
           scrollable={false}
         >
           <View style={styles.containerInput}>
-            
+              <ImagePickerFunction />
           </View>
         </ProgressStep>
 
