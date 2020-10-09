@@ -28,7 +28,7 @@ export default function InputArea({ icon, placeholder, password, keyboardType })
 
 const styles = StyleSheet.create({
     inputContainer: {
-        backgroundColor: colors["white"],
+        backgroundColor: "#FFF",
         alignSelf: 'stretch',
         height: 46,
         borderWidth: 1,
@@ -53,6 +53,5 @@ const styles = StyleSheet.create({
 
     button: {
         alignSelf: 'center',
-        paddingHorizontal: 5,
     },
 })

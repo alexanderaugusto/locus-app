@@ -5,7 +5,6 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import ImovelCard from '../components/ImovelCard'
 import colors from '../consts/colors.json'
 
-import { UIImagePickerControllerQualityType } from 'expo-image-picker/build/ImagePicker.types'
 export default function Home() {
 
 	listTest = {
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     },
 
 	inputContainer: {
-		backgroundColor: colors["white"],
+		backgroundColor: '#FFF',
 		alignSelf: 'stretch',
 		height: 46,
 		borderWidth: 1,
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignSelf: 'stretch',
 		justifyContent: 'center',
-		maxHeight: 300,
 		marginBottom: 15,
 	},
 

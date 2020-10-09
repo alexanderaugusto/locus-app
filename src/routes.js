@@ -32,7 +32,7 @@ const TabMenu = () => {
       })}
       tabBarOptions={{
         activeTintColor: colors["yellow"],
-        inactiveTintColor: colors["platinum"],        
+        inactiveTintColor: colors["platinum"],              
         style: { paddingBottom: 10, paddingTop: 10, height: 60, backgroundColor: colors["blue"] }
       }}
     >
