@@ -5,15 +5,16 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import ImovelCard from '../components/ImovelCard'
 import colors from '../consts/colors.json'
 
+import { UIImagePickerControllerQualityType } from 'expo-image-picker/build/ImagePicker.types'
 export default function Home() {
 
 	listTest = {
 		names: [
-			{ 'id': 1, 'address': 'Rua Doutor Teodoro',  'city':'Centro - São Paulo' },
-			{ 'id': 2, 'address': 'Rua Portugal',  'city':'Bela Vista - Belo Horizonte' },
-			{ 'id': 3, 'address': 'Rua Paula Ney',  'city':'Vila Mariana - São Paulo' },
-			{ 'id': 4, 'address': 'Rua Doutor Teodoro',  'city':'Jardim Europa - São Paulo' },
-			{ 'id': 5, 'address': 'Rua Doutor Teodoro',  'city':'Jardim Aeroporto - Alfenas' },		
+			{ 'id': 1, 'address': 'Rua Doutor Teodoro, Centro - São Paulo' },
+			{ 'id': 2, 'address': 'Rua Portugal, Bela Vista - Belo Horizonte' },
+			{ 'id': 3, 'address': 'Rua Paula Ney, Vila Mariana - São Paulo' },
+			{ 'id': 4, 'address': 'Rua Doutor Teodoro, Jardim Europa - São Paulo' },
+			{ 'id': 5, 'address': 'Rua Doutor Teodoro, Jardim Aeroporto - Alfenas' },		
 		]
 	}
 	return (
@@ -25,7 +26,7 @@ export default function Home() {
 			>		
 				<View style={styles.headerTitle}>
 					<Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
-					<Image style={styles.logo} source={require('../../assets/img/house_agreement.png')} />
+					<Image style={styles.logo} resizeMode="cover" source={require('../../assets/img/house_agreement.png')} />
 				</View>
 
 				<View style={styles.inputContainer}>
@@ -48,7 +49,7 @@ export default function Home() {
 				>
 					{listTest.names.map((item, index) => (
 						<View key={item.id} style={styles.cardsContainer}>
-							<ImovelCard address={item.address} city={item.city} />
+							<ImovelCard address={item.address} />
 						</View>
 					))}
 				</ScrollView>

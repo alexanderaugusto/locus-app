@@ -12,6 +12,7 @@ import Favorite from './screens/Favorite'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
 import ImagePickerFunction from './components/ImagePicker' 
+import LocationFunction from './components/Location' 
 
 const Tab = createBottomTabNavigator()
 

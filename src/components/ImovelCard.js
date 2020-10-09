@@ -10,7 +10,7 @@ import colors from '../consts/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ address, city }) {
+export default function ImovelCard({ address }) {
 
 	listTest = {
 		image: [
@@ -22,7 +22,8 @@ export default function ImovelCard({ address, city }) {
 	}
 
 	return (
-		<View style={[styles.card]} >
+		<View style={[styles.card]} >			
+
 			<ScrollView
 				style={styles.scrollImages}
 				pagingEnabled
@@ -37,21 +38,15 @@ export default function ImovelCard({ address, city }) {
 				))}
 			</ScrollView>
 
+			<View style={styles.favoriteIcon}>
+				<TouchableOpacity style={styles.button}>
+					<FontAwesome5 name={'heart'} size={18} color={colors['blue']} />
+				</TouchableOpacity>
+			</View>
+
 			<View style={styles.infoContainer} >
-				<Text style={styles.type}>Casa</Text>
+				<Text style={styles.price}>Aluguel R$: 1.000,00</Text>
 				<Text style={styles.address} numberOfLines={3}>{address}</Text>
-				<Text style={styles.city} numberOfLines={3}>{city}</Text>
-				<View style={styles.footerContainer}>					
-					<Text style={styles.price}>Aluguel R$: 1.000,00</Text>
-					<View style={styles.buttonsContainer}>
-						{/* <TouchableOpacity style={styles.button} >
-							<FontAwesome5 name={'trash-alt'} size={18} color={colors['blue']} />
-						</TouchableOpacity> */}
-						<TouchableOpacity style={styles.button}>
-							<FontAwesome5 name={'heart'} size={18} color={colors['blue']} />
-						</TouchableOpacity>
-					</View>
-				</View>
 			</View>
 		</View>
 	)
@@ -63,7 +58,7 @@ const styles = StyleSheet.create({
 		borderColor: '#DDD',
 		borderRadius: 24,
 		overflow: 'hidden',
-		backgroundColor: '#FFF',		
+		backgroundColor: '#FFF',
 	},
 
 	scrollImages: {
@@ -77,47 +72,29 @@ const styles = StyleSheet.create({
 	},
 
 	infoContainer: {
-		paddingHorizontal: 15,
-		paddingVertical: 10,
+		padding: 15,
 		borderTopColor: colors['platinum'],
-		borderTopWidth: 1.5,
-	},
-
-	type: {
-		fontSize: 12,
-		fontWeight: '300',
-		color: "#999",
-		marginBottom: 5,
-	},
-
-	address: {
-		fontSize: 18,
-		fontWeight: '600',
-		lineHeight: 20,
-		color: colors['black'],		
-	},
-
-	city: {
-		fontSize: 16,
-		fontWeight: '400',
-		color: colors['black'],
-	},
-
-	footerContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',		
+		borderTopWidth: 2,
 	},
 
 	price: {
-		fontSize: 14,
-		fontWeight: '400',
-		color: '#333',
-		alignSelf: 'center'
+		fontSize: 16,
+		fontWeight: '600',
+		lineHeight: 20,
+		color: colors['black'],
 	},
 
-	buttonsContainer: {
-		flexDirection: 'row',		
+	address: {
+		paddingTop: 2,
+		fontSize: 14,
+		fontWeight: '500',
+		color: '#999',
+	},
+
+	favoriteIcon: {
+		margin: 10,
+		alignSelf: 'flex-end',
+		position: 'absolute',
 	},
 
 	button: {
@@ -126,17 +103,17 @@ const styles = StyleSheet.create({
 		borderRadius: 25,
 		borderWidth: 1,
 		borderColor: colors['platinum'],
-		backgroundColor: '#FFF',		
+		backgroundColor: '#FFF',
 		justifyContent: "center",
 		alignItems: "center",
 		marginHorizontal: 7,
 		elevation: 2,
 		shadowColor: '#000',
-        shadowOpacity: 0.08,
-        shadowRadius: 2,
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        }
+		shadowOpacity: 0.08,
+		shadowRadius: 2,
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		}
 	}
 })
