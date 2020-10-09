@@ -16,7 +16,7 @@ export default function SignIn() {
       <Image style={styles.logo} source={logo}></Image>
       <Text style={styles.title} >IMovel</Text>
 
-      <InputArea icon={'envelope'} placeholder={'Entre com o seu email'} />
+      <InputArea icon={'envelope'} placeholder={'Entre com o seu email'} keyboardType={'email-address'}/>
       <InputArea icon={'lock'} placeholder={'Entre com o sua senha'} password={true} />
 
       <TouchableOpacity
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
 
   button: {
     height: 45,
-    alignSelf: 'stretch',
     backgroundColor: colors['yellow'],
     borderRadius: 24,
     marginTop: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    alignSelf: 'stretch',
   },
 
   buttonText: {

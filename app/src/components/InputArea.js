@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons'
 
 import colors from '../consts/colors.json'
 
-export default function InputArea({ icon, placeholder, password }) {
+export default function InputArea({ icon, placeholder, password, keyboardType }) {
     return (
         <View style={styles.inputContainer}>
             <FontAwesome
@@ -16,9 +16,10 @@ export default function InputArea({ icon, placeholder, password }) {
 
             <TextInput
                 style={styles.inputText}
-                placeholder={placeholder}
-                placeholderTextColor="#999"               
-                secureTextEntry={password}                
+                placeholder={placeholder}               
+                placeholderTextColor="#d2d2d2"               
+                secureTextEntry={password} 
+                keyboardType={keyboardType}
             />
 
         </View>
