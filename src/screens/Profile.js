@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { KeyboardAvoidingView, SafeAreaView, View, Dimensions, StyleSheet, TouchableOpacity, Text, Image } from 'react-native'
+import { KeyboardAvoidingView, Platform, SafeAreaView, View, ScrollView, Dimensions, StyleSheet, TouchableOpacity, Text, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import colors from '../consts/colors.json'
@@ -27,11 +27,16 @@ export default function Profile() {
             <FontAwesome5 name={'edit'} size={18} color={colors['blue']} />
           </TouchableOpacity>
         </View>
+      </SafeAreaView>
 
-        <KeyboardAvoidingView style={styles.body} behavior="padding" enabled={Platform.OS === 'ios'}>
+      <KeyboardAvoidingView style={styles.body}
+        behavior="padding"
+        enabled={Platform.OS === 'ios'}
+      >
+        <ScrollView showsVerticalScrollIndicator={false} >
           <EditArea label={'Nome: '} text={'Pedro Henrique Silva'} edit={edit} />
           <EditArea label={'E-mail: '} text={'pedrohs@gmail.com'} keyboardType={'email-address'} edit={edit} />
-          <EditArea label={'Celular: '} text={'(35) 99988-7766'} keyboardType={'number'} edit={edit} />
+          <EditArea label={'Celular: '} text={'(35) 99988-7766'} keyboardType={'phone-pad'} edit={edit} />
 
           {
             edit ?
@@ -42,9 +47,9 @@ export default function Profile() {
                 <Text style={styles.buttonText}>Seus Imóveis</Text>
               </TouchableOpacity>
           }
+        </ScrollView>
+      </KeyboardAvoidingView>
 
-        </KeyboardAvoidingView>
-      </SafeAreaView>
     </View>
   )
 }
@@ -116,8 +121,9 @@ const styles = StyleSheet.create({
   },
 
   body: {
+    height: '100%',
     paddingHorizontal: 20,
-    marginTop: 10,
+    marginTop: CARD_HEIGHT * 0.3,
   },
 
   button: {

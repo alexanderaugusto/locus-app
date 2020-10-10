@@ -13,7 +13,7 @@ export default function Home() {
 			{ 'id': 2, 'address': 'Rua Portugal, Bela Vista - Belo Horizonte' },
 			{ 'id': 3, 'address': 'Rua Paula Ney, Vila Mariana - São Paulo' },
 			{ 'id': 4, 'address': 'Rua Doutor Teodoro, Jardim Europa - São Paulo' },
-			{ 'id': 5, 'address': 'Rua Doutor Teodoro, Jardim Aeroporto - Alfenas' },		
+			{ 'id': 5, 'address': 'Rua Doutor Teodoro, Jardim Aeroporto - Alfenas' },
 		]
 	}
 	return (
@@ -22,7 +22,7 @@ export default function Home() {
 				behavior="padding"
 				enabled={Platform.OS === 'ios'}
 				style={styles.container}
-			>		
+			>
 				<View style={styles.headerTitle}>
 					<Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
 					<Image style={styles.logo} resizeMode="cover" source={require('../../assets/img/house_agreement.png')} />
@@ -43,9 +43,7 @@ export default function Home() {
 					</TouchableOpacity>
 				</View>
 
-				<ScrollView style={styles.scrollLis}
-					showsVerticalScrollIndicator={false}
-				>
+				<ScrollView showsVerticalScrollIndicator={false}>
 					{listTest.names.map((item, index) => (
 						<View key={item.id} style={styles.cardsContainer}>
 							<ImovelCard address={item.address} />
@@ -67,7 +65,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 30,
 	},
 
-	headerTitle:{
+	headerTitle: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
@@ -76,17 +74,17 @@ const styles = StyleSheet.create({
 	},
 
 	title: {
-		width:220,
+		width: 220,
 		fontSize: 26,
 		fontWeight: "600",
 		color: colors['yellow'],
-		textAlign: 'left'	
+		textAlign: 'left'
 	},
 
 	logo: {
-        height: 60,
-		width: 60,		
-    },
+		height: 60,
+		width: 60,
+	},
 
 	inputContainer: {
 		backgroundColor: '#FFF',

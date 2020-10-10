@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: "#FFF",
     alignSelf: 'stretch',
-    height: 45,
+    height: 46,
     borderWidth: 1,
     borderColor: colors["blue"],
     borderRadius: 24,
