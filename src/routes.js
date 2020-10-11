@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import TabMenu from './components/TabMenu'
-
+import Warning from './screens/Warning'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
 import IMovelDetails from './screens/IMovelDetails'
@@ -14,10 +14,11 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="main" component={TabMenu} />
+        <Stack.Screen name="Home" component={TabMenu} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="IMovelDetails" component={IMovelDetails} />
+        <Stack.Screen name="Warning" component={Warning} />        
       </Stack.Navigator>
     </NavigationContainer>
   )

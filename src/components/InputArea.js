@@ -10,8 +10,8 @@ export default function InputArea({ icon, placeholder, password, keyboardType })
             <FontAwesome
                 style={styles.button}
                 name={icon}
-                size={18}
-                color={colors["black"]}
+                size={16}
+                color={colors["blue"]}
             />
 
             <TextInput
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 
     inputText: {
         paddingVertical: 10,
-        paddingHorizontal: 5,
+        paddingHorizontal: 8,
     },
 
     button: {

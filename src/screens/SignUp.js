@@ -9,7 +9,11 @@ import ImagePickerFunction from '../components/ImagePicker'
 
 export default function SignUp() {
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+      enabled={Platform.OS === 'ios'}
+    >
 
       <View style={styles.header} >
         <Text style={styles.message}> Cadastre-se.</Text>
@@ -44,7 +48,7 @@ export default function SignUp() {
         <ProgressStep
           label="Login"
           nextBtnText={'Próximo'}
-          previousBtnText={'Anterior'}          
+          previousBtnText={'Anterior'}
           nextBtnStyle={styles.button}
           previousBtnStyle={styles.button}
           nextBtnTextStyle={styles.buttonText}
@@ -90,7 +94,7 @@ export default function SignUp() {
           scrollable={false}
         >
           <View style={styles.containerInput}>
-              <ImagePickerFunction />
+            <ImagePickerFunction />
           </View>
         </ProgressStep>
 
@@ -158,6 +162,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-
 
 })

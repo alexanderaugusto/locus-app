@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Favorite from '../screens/Favorite'
+import Warning from '../screens/Warning'
 
 import colors from '../constants/colors.json'
 
@@ -17,8 +18,8 @@ export default function TabMenu() {
 				tabBarIcon: ({ focused, color, size }) => {
 					const icons = {
 						"Home": "home",
-						"Favorite": "favorite",
-						"Profile": "person",
+						"Favoritos": "favorite",
+						"Perfil": "person",
 					}
 
 					return <MaterialIcons name={icons[route.name]} size={size} color={color} />
@@ -31,8 +32,8 @@ export default function TabMenu() {
 			}}
 		>
 			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Favorite" component={Favorite} />
-			<Tab.Screen name="Profile" component={Profile} />
+			<Tab.Screen name="Favoritos" component={Warning} />
+			<Tab.Screen name="Perfil" component={Profile} />
 		</Tab.Navigator>
 	)
 }

@@ -95,7 +95,7 @@ export default function IMovelDetails({ navigation }) {
 
         </View>
 
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('main')}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
           <FontAwesome5 name={'arrow-left'} size={20} color={colors['yellow']} />
         </TouchableOpacity>
 
