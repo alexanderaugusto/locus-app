@@ -9,7 +9,7 @@ import {
 	Image
 } from "react-native"
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 import avatar_woman from '../../assets/img/avatar_woman.png'
 
 export default function ModalContact({ modalVisible, setModalVisible }) {
