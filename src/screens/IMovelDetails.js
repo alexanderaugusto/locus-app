@@ -1,5 +1,5 @@
-import React from 'react'
-import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text, Image, Table } from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text, Modal, Alert, TouchableHighlight } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
@@ -7,8 +7,10 @@ import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
 
 import colors from '../consts/colors.json'
 import SwiperImage from '../components/SwiperImage'
+import ModalContact from '../components/Modal'
 
-export default function IMovelDetails({navigation}) {
+export default function IMovelDetails({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false)
 
   listTest = {
     image: [
@@ -81,7 +83,11 @@ export default function IMovelDetails({navigation}) {
               <Text style={styles.priceInfo} numberOfLines={5}> R$: 2.143,00 </Text>
             </View>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
               <Text style={styles.buttonText}>Entrar em contato</Text>
             </TouchableOpacity>
 
@@ -89,9 +95,11 @@ export default function IMovelDetails({navigation}) {
 
         </View>
 
-        <TouchableOpacity style={styles.backButton} onPress={()=> navigation.navigate('main')}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('main')}>
           <FontAwesome5 name={'arrow-left'} size={20} color={colors['yellow']} />
         </TouchableOpacity>
+
+        <ModalContact modalVisible={modalVisible} setModalVisible={setModalVisible} />
 
       </ScrollView>
     </SafeAreaView>
@@ -217,11 +225,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  backButton:{
+  backButton: {
     position: 'absolute',
     left: 15,
     top: 15,
     zIndex: 5,
-  }
+  },  
 
 })

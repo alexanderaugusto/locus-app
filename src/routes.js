@@ -16,7 +16,7 @@ export default function Routes() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="main" component={TabMenu} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="SignIn" component={SignUp} />
+        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="IMovelDetails" component={IMovelDetails} />
       </Stack.Navigator>
     </NavigationContainer>

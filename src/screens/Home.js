@@ -44,7 +44,6 @@ export default function Home({ navigation }) {
 				</View>
 
 				<ScrollView 
-					bounces={false}
 					scrollsToTop={true}
 					showsVerticalScrollIndicator={false}
 				>
