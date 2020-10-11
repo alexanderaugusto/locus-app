@@ -3,7 +3,7 @@ import { TouchableOpacity, Image, View, Platform, StyleSheet, Text } from 'react
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 
 export default function ImagePickerFunction() {

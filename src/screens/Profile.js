@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { KeyboardAvoidingView, Platform, SafeAreaView, View, ScrollView, Dimensions, StyleSheet, TouchableOpacity, Text, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 import avatar from '../../assets/img/avatar.png'
 
 import EditTextField from '../components/EditTextField'

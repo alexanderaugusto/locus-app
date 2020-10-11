@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, TextInput } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 export default function InputArea({ icon, placeholder, password, keyboardType }) {
     return (

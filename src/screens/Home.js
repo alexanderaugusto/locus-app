@@ -3,7 +3,7 @@ import { KeyboardAvoidingView, View, ScrollView, StyleSheet, TextInput, Touchabl
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import ImovelCard from '../components/ImovelCard'
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 export default function Home({ navigation }) {
 

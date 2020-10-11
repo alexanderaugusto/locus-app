@@ -6,7 +6,7 @@ import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Favorite from '../screens/Favorite'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 const Tab = createBottomTabNavigator()
 

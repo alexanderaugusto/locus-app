@@ -2,7 +2,7 @@ import React from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
 
 import logo from '../../assets/img/house_agreement.png'
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 import InputArea from '../components/InputArea'
 

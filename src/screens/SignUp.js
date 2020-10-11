@@ -2,7 +2,7 @@ import React from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 import InputArea from '../components/InputArea'
 import ImagePickerFunction from '../components/ImagePicker'
