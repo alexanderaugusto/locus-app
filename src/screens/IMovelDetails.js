@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
 import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 import SwiperImage from '../components/SwiperImage'
 import ModalContact from '../components/Modal'
 

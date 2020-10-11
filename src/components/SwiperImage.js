@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import Swiper from 'react-native-swiper';
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 export default function SwiperImage({listTest}) {
   return (

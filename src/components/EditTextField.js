@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 export default function EditTextField({ label, text, edit, keyboardType }) {
   return (

@@ -4,7 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 
 import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
 import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
-import colors from '../consts/colors.json'
+import colors from '../constants/colors.json'
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
