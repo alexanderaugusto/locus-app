@@ -5,10 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Favorite from '../screens/Favorite'
-import SignIn from '../screens/SignIn'
-import SignUp from '../screens/SignUp'
-import ImagePickerFunction from './ImagePicker'
-import LocationFunction from './Location'
 
 import colors from '../consts/colors.json'
 

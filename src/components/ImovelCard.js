@@ -9,7 +9,7 @@ import colors from '../consts/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ address }) {
+export default function ImovelCard({ address, navigation }) {
 
 	listTest = {
 		image: [
@@ -38,7 +38,9 @@ export default function ImovelCard({ address }) {
 			</ScrollView>
 
 			<View style={styles.favoriteIcon}>
-				<TouchableOpacity style={styles.button}>
+				<TouchableOpacity style={styles.button}
+					onPress={()=> navigation.navigate('IMovelDetails')}
+				>
 					<FontAwesome5 name={'heart'} size={18} color={colors['blue']} />
 				</TouchableOpacity>
 			</View>

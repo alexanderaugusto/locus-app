@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import ImovelCard from '../components/ImovelCard'
 import colors from '../consts/colors.json'
 
-export default function Home() {
+export default function Home({ navigation }) {
 
 	listTest = {
 		names: [
@@ -43,10 +43,14 @@ export default function Home() {
 					</TouchableOpacity>
 				</View>
 
-				<ScrollView showsVerticalScrollIndicator={false}>
+				<ScrollView 
+					bounces={false}
+					scrollsToTop={true}
+					showsVerticalScrollIndicator={false}
+				>
 					{listTest.names.map((item, index) => (
 						<View key={item.id} style={styles.cardsContainer}>
-							<ImovelCard address={item.address} />
+							<ImovelCard address={item.address} navigation={navigation} />
 						</View>
 					))}
 				</ScrollView>

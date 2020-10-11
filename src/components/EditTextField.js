@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput } from 'react-native'
 
 import colors from '../consts/colors.json'
 
-export default function EditArea({ label, text, edit, keyboardType }) {
+export default function EditTextField({ label, text, edit, keyboardType }) {
   return (
     <View style={styles.inputContainer}>
       {

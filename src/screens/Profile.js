@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '../consts/colors.json'
 import avatar from '../../assets/img/avatar.png'
 
-import EditArea from '../components/EditArea'
+import EditTextField from '../components/EditTextField'
 import InputArea from '../components/InputArea'
 
 const CARD_HEIGHT = Dimensions.get('window').height * 0.34
@@ -34,16 +34,16 @@ export default function Profile() {
         enabled={Platform.OS === 'ios'}
       >
         <ScrollView showsVerticalScrollIndicator={false} >
-          <EditArea label={'Nome: '} text={'Pedro Henrique Silva'} edit={edit} />
-          <EditArea label={'E-mail: '} text={'pedrohs@gmail.com'} keyboardType={'email-address'} edit={edit} />
-          <EditArea label={'Celular: '} text={'(35) 99988-7766'} keyboardType={'phone-pad'} edit={edit} />
+          <EditTextField label={'Nome: '} text={'Pedro Henrique Silva'} edit={edit} />
+          <EditTextField label={'E-mail: '} text={'pedrohs@gmail.com'} keyboardType={'email-address'} edit={edit} />
+          <EditTextField label={'Celular: '} text={'(35) 99988-7766'} keyboardType={'phone-pad'} edit={edit} />
 
           {
             edit ?
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Salvar</Text>
               </TouchableOpacity>
-              : <TouchableOpacity style={styles.button}>
+              : <TouchableOpacity style={styles.button} >
                 <Text style={styles.buttonText}>Seus Imóveis</Text>
               </TouchableOpacity>
           }
