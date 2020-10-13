@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { KeyboardAvoidingView, View, ScrollView, StyleSheet, TextInput, TouchableOpacity, Text, Image } from 'react-native'
+import { KeyboardAvoidingView, View, ScrollView, Platform, StyleSheet, TextInput, TouchableOpacity, Text, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import ImovelCard from '../components/ImovelCard'
@@ -16,47 +16,45 @@ export default function Home({ navigation }) {
       { 'id': 5, 'address': 'Rua Doutor Teodoro, Jardim Aeroporto - Alfenas' },
     ]
   }
+
   return (
-    <>
-      <KeyboardAvoidingView
-        behavior="padding"
-        enabled={Platform.OS === 'ios'}
-        style={styles.container}
-      >
-        <View style={styles.headerTitle}>
-          <Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
-          <Image style={styles.logo} resizeMode="cover" source={require('../../assets/img/house_agreement.png')} />
-        </View>
+    <KeyboardAvoidingView
+      behavior="padding"
+      enabled={Platform.OS === 'ios'}
+      style={styles.container}
+    >
+      <View style={styles.headerTitle}>
+        <Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
+        <Image style={styles.logo} resizeMode="cover" source={require('../../assets/img/house_agreement.png')} />
+      </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Pesquise por localidade..."
-            placeholderTextColor="#999"
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.inputText}
+          placeholder="Pesquise por localidade..."
+          placeholderTextColor="#999"
+        />
+        <TouchableOpacity style={styles.inputButton}>
+          <FontAwesome5
+            name="search"
+            size={16}
+            color={colors["blue"]}
           />
-          <TouchableOpacity style={styles.inputButton}>
-            <FontAwesome5
-              name="search"
-              size={16}
-              color={colors["blue"]}
-            />
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
 
-        <ScrollView
-          scrollsToTop={true}
-          showsVerticalScrollIndicator={false}
-        >
-          {listTest.names.map((item, index) => (
-            <View key={item.id} style={styles.cardsContainer}>
-              <ImovelCard address={item.address} navigation={navigation} />
-            </View>
-          ))}
-        </ScrollView>
+      <ScrollView
+        scrollsToTop={true}
+        showsVerticalScrollIndicator={false}
+      >
+        {listTest.names.map((item, index) => (
+          <View key={item.id} style={styles.cardsContainer}>
+            <ImovelCard address={item.address} navigation={navigation} />
+          </View>
+        ))}
+      </ScrollView>
 
-      </KeyboardAvoidingView>
-
-    </>
+    </KeyboardAvoidingView>
   )
 }
 
