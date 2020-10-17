@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text, Modal, Alert, TouchableHighlight } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
 import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
@@ -45,14 +45,14 @@ export default function IMovelDetails({ navigation }) {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <FontAwesome5 name={'bed'} size={18} color={colors['blue']} />
+                <Icon name={'bed'} size={18} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>3 quartos</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <FontAwesome5 name={'bath'} size={20} color={colors['blue']} />
+                <Icon name={'bath'} size={20} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>1 banheiro</Text>
             </View>
@@ -63,14 +63,14 @@ export default function IMovelDetails({ navigation }) {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <FontAwesome5 name={'ruler-horizontal'} size={18} color={colors['blue']} />
+                <Icon name={'ruler-horizontal'} size={18} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>39 m²</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <FontAwesome5 name={'dog'} size={19} color={colors['blue']} />
+                <Icon name={'dog'} size={19} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>Aceita pet</Text>
             </View>
@@ -96,7 +96,7 @@ export default function IMovelDetails({ navigation }) {
         </View>
 
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
-          <FontAwesome5 name={'arrow-left'} size={20} color={colors['yellow']} />
+          <Icon name={'arrow-left'} size={20} color={colors['yellow']} />
         </TouchableOpacity>
 
         <ModalContact modalVisible={modalVisible} setModalVisible={setModalVisible} />
@@ -230,6 +230,6 @@ const styles = StyleSheet.create({
     left: 15,
     top: 15,
     zIndex: 5,
-  },  
+  },
 
 })

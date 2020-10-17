@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, StyleSheet, TextInput } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../constants/colors.json'
-import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 export default function InputArea({ prefixIcon, placeholder, password, keyboardType }) {

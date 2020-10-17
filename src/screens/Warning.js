@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { FontAwesome } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../constants/colors.json'
 
@@ -8,7 +8,7 @@ export default function Warning({ navigation }) {
   return (
     <View style={styles.container}>
 
-      <FontAwesome name="warning" size={64} color={colors['blue-secondary']} />
+      <Icon name="warning" size={64} color={colors['blue-secondary']} />
 
       <Text style={styles.message} numberOfLines={2}> Ops, para prosseguir é necessário que você faça o login!</Text>
       <Text style={styles.secondaryMessage}> Caso não tenha uma conta, cadastra-se!</Text>
@@ -22,7 +22,6 @@ export default function Warning({ navigation }) {
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
-
 
     </View>
   )

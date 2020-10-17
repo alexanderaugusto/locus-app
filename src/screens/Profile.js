@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { KeyboardAvoidingView, Platform, SafeAreaView, View, ScrollView, Dimensions, StyleSheet, TouchableOpacity, Text, Image } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import {
+  KeyboardAvoidingView, Platform, SafeAreaView,
+  View, ScrollView, Dimensions,
+  StyleSheet, TouchableOpacity, Text, Image
+} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 import avatar from '../../assets/img/avatar.png'
 
 import EditTextField from '../components/EditTextField'
-import InputArea from '../components/InputArea'
 
 const CARD_HEIGHT = Dimensions.get('window').height * 0.34
 export default function Profile() {
@@ -24,7 +27,7 @@ export default function Profile() {
           <Text style={styles.city} > Pouso Alegre (MG) </Text>
 
           <TouchableOpacity style={styles.editIcon} onPress={() => setEdit(!edit)}>
-            <FontAwesome5 name={'edit'} size={18} color={colors['blue']} />
+            <Icon name={'edit'} size={18} color={colors['blue']} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>

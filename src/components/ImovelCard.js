@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
 import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
@@ -39,7 +39,7 @@ export default function ImovelCard({ address, navigation }) {
 
       <View style={styles.favoriteIcon}>
         <TouchableOpacity style={styles.button} >
-          <FontAwesome5 name={'heart'} size={18} color={colors['blue']} />
+          <Icon name={'heart'} size={18} color={colors['blue']} />
         </TouchableOpacity>
       </View>
 
@@ -52,7 +52,6 @@ export default function ImovelCard({ address, navigation }) {
         </View>
 
         <Text style={styles.address} numberOfLines={3}>{address}</Text>
-
 
       </View>
     </View>

@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Warning /> render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E5E5E5",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 30,
+    }
+  }
+>
+  <Icon
+    color="#19294d"
+    name="warning"
+    size={64}
+  />
+  <Text
+    numberOfLines={2}
+    style={
+      Object {
+        "color": "#14213D",
+        "fontSize": 18,
+        "fontWeight": "700",
+        "marginTop": 20,
+        "textAlign": "left",
+      }
+    }
+  >
+     Ops, para prosseguir é necessário que você faça o login!
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#14213D",
+        "fontSize": 14,
+        "fontWeight": "500",
+        "marginTop": 5,
+        "textAlign": "center",
+        "width": 300,
+      }
+    }
+  >
+     Caso não tenha uma conta, cadastra-se!
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginTop": 20,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#FCA311",
+          "borderRadius": 24,
+          "height": 35,
+          "justifyContent": "center",
+          "marginHorizontal": 10,
+          "marginTop": 10,
+          "opacity": 1,
+          "width": 120,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#14213D",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Login
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#FCA311",
+          "borderRadius": 24,
+          "height": 35,
+          "justifyContent": "center",
+          "marginHorizontal": 10,
+          "marginTop": 10,
+          "opacity": 1,
+          "width": 120,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#14213D",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Cadastrar
+      </Text>
+    </View>
+  </View>
+</View>
+`;

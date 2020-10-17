@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { TouchableOpacity, Image, View, Platform, StyleSheet, Text } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
-import Constants from 'expo-constants'
 
 import colors from '../constants/colors.json'
-
 
 export default function ImagePickerFunction() {
   const [image, setImage] = useState(null)

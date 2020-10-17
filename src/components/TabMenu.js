@@ -1,5 +1,5 @@
 import React from 'react'
-import { MaterialIcons } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../screens/Home'
@@ -22,7 +22,7 @@ export default function TabMenu() {
 						"Perfil": "person",
 					}
 
-					return <MaterialIcons name={icons[route.name]} size={size} color={color} />
+					return <Icon name={icons[route.name]} size={size} color={color} />
 				},
 			})}
 			tabBarOptions={{

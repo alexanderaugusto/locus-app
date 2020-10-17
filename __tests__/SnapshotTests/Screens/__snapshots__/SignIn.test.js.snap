@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignIn /> render correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E5E5E5",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 35,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 110,
+        "width": 110,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#19294d",
+        "fontSize": 48,
+        "fontWeight": "500",
+        "textAlign": "center",
+      }
+    }
+  >
+    IMovel
+  </Text>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 24,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 46,
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Icon
+      color="#14213D"
+      name="envelope"
+      size={16}
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="email-address"
+      placeholder="Entre com o seu email"
+      placeholderTextColor="#d2d2d2"
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 24,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 46,
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Icon
+      color="#14213D"
+      name="lock"
+      size={16}
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      placeholder="Entre com a sua senha"
+      placeholderTextColor="#d2d2d2"
+      rejectResponderTermination={true}
+      secureTextEntry={true}
+      style={
+        Object {
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#FCA311",
+        "borderRadius": 24,
+        "height": 45,
+        "justifyContent": "center",
+        "marginTop": 10,
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#14213D",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Entrar
+    </Text>
+  </View>
+</View>
+`;
