@@ -2,13 +2,13 @@ import React from 'react'
 import { View, StyleSheet, TextInput } from 'react-native'
 
 import colors from '../constants/colors.json'
-import { FontAwesome } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 export default function InputArea({ prefixIcon, placeholder, password, keyboardType }) {
   return (
     <View style={styles.inputContainer}>
-      <FontAwesome
+      <Icon
         style={styles.button}
         name={prefixIcon}
         size={16}
