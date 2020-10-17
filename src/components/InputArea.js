@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
 
   inputText: {
+    width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 8,
   },

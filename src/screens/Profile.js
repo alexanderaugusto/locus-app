@@ -12,7 +12,7 @@ import avatar from '../../assets/img/avatar.png'
 import EditTextField from '../components/EditTextField'
 
 const CARD_HEIGHT = Dimensions.get('window').height * 0.34
-export default function Profile() {
+export default function Profile({ navigation }) {
 
   const [edit, setEdit] = useState(false)
 
@@ -43,10 +43,10 @@ export default function Profile() {
 
           {
             edit ?
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button} >
                 <Text style={styles.buttonText}>Salvar</Text>
               </TouchableOpacity>
-              : <TouchableOpacity style={styles.button} >
+              : <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUpImovel')}>
                 <Text style={styles.buttonText}>Seus Imóveis</Text>
               </TouchableOpacity>
           }
