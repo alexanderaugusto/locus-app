@@ -231,14 +231,14 @@ No mac, vamos instalar com o Homebrew.
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Mobile**  ([React Native](http://www.reactnative.com/)
+#### **Mobile**  ([React Native](http://www.reactnative.com/))
 
 -   **[Expo](https://expo.io/)**
 -   **[React Navigation](https://reactnavigation.org/)**
 -   **[Axios](https://github.com/axios/axios)**
 -   **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
 
-> Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
+Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
 
 ---
 
