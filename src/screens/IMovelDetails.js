@@ -22,7 +22,7 @@ export default function IMovelDetails() {
         showsVerticalScrollIndicator={false}
       >
 
-        <SwiperImage images={route.params?.item.images} />
+        <SwiperImage images={route.params ? route.params.item.images : []} />
 
         <View style={styles.body} >
           <Text style={styles.title} numberOfLines={2}>{route.params?.item.title}</Text>

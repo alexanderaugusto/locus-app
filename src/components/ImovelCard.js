@@ -1,8 +1,10 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import AsyncStorage from '@react-native-community/async-storage'
+import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
-import { STORAGE_URL } from '../services/api'
+import api, { STORAGE_URL } from '../services/api'
 
 import colors from '../constants/colors.json'
 
@@ -10,9 +12,32 @@ const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
 export default function ImovelCard({ item }) {
+  const navigation = useNavigation()
+
+  const favoriteProperty = async () => {
+    const user = await AsyncStorage.getItem("user-info")
+    if (!user) {
+      navigation.navigate("Warning", { backPath: "Home" })
+      return
+    }
+
+    const config = {
+      headers: {
+        'Authorization': 'Bearer' + user.token
+      }
+    }
+
+    api.put(`/user/favorite/${item.id}`, null, config)
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 
   return (
-    <View style={[styles.card]} >
+    <View style={[styles.card]}>
 
       <ScrollView
         style={styles.scrollImages}
@@ -23,14 +48,18 @@ export default function ImovelCard({ item }) {
         showsHorizontalScrollIndicator={true}
         horizontal={true}
       >
-        {item.images.map((item) => (
-          <Image key={item.id} style={styles.images} resizeMode="cover"
-            source={{ uri: `${STORAGE_URL}/property/${item.path}` }} />
+        {item.images.map((image) => (
+          <View key={image.id} onStartShouldSetResponder={() => true}>
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('IMovelDetails', { item })}>
+              <Image style={styles.images} resizeMode="cover"
+                source={{ uri: `${STORAGE_URL}/property/${image.path}` }} />
+            </TouchableOpacity>
+          </View>
         ))}
       </ScrollView>
 
       <View style={styles.favoriteIcon}>
-        <TouchableOpacity style={styles.button} >
+        <TouchableOpacity style={styles.button} onPress={() => favoriteProperty()}>
           <Icon name={'heart'} size={18} color={colors['blue']} />
         </TouchableOpacity>
       </View>

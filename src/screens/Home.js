@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {
   KeyboardAvoidingView,
   View,
-  ScrollView,
   Platform,
   StyleSheet,
   TextInput,
@@ -10,7 +9,8 @@ import {
   Text,
   SafeAreaView,
   FlatList,
-  Image
+  Image,
+  TouchableWithoutFeedback
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -32,10 +32,6 @@ export default function Home() {
       .catch((err) => {
         console.error(err)
       })
-  }
-
-  const toDetails = (item) => {
-    navigation.navigate('IMovelDetails', { item })
   }
 
   useEffect(() => {
@@ -71,15 +67,17 @@ export default function Home() {
       <SafeAreaView style={styles.listContainer}>
         <FlatList
           data={properties}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity
-                onPress={() => toDetails(item)}
+              <TouchableWithoutFeedback
+                onPress={() => navigation.navigate('IMovelDetails', { item })}
               >
-                <ImovelCard item={item} />
-              </TouchableOpacity>
+                <View>
+                  <ImovelCard item={item} />
+                </View>
+              </TouchableWithoutFeedback>
             )
           }}
         />
