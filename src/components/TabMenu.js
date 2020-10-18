@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Favorite from '../screens/Favorite'
-import Warning from '../screens/Warning'
 
 import colors from '../constants/colors.json'
 
@@ -32,7 +31,7 @@ export default function TabMenu() {
 			}}
 		>
 			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Favoritos" component={Warning} />
+			<Tab.Screen name="Favoritos" component={Favorite} />
 			<Tab.Screen name="Perfil" component={Profile} />
 		</Tab.Navigator>
 	)
