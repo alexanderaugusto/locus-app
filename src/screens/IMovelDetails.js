@@ -1,27 +1,18 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text, Modal, Alert, TouchableHighlight } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
-
-import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
-import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
+import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import Icon from '@expo/vector-icons/FontAwesome5'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { formatCurrency } from '../utils/util'
 
 import colors from '../constants/colors.json'
 import SwiperImage from '../components/SwiperImage'
 import ModalContact from '../components/Modal'
 
-export default function IMovelDetails({ navigation }) {
-  const [modalVisible, setModalVisible] = useState(false)
+export default function IMovelDetails() {
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  listTest = {
-    image: [
-      { 'id': 1, 'img': exemplo_house1 },
-      { 'id': 2, 'img': exemplo_house2 },
-      { 'id': 3, 'img': exemplo_house1 },
-      { 'id': 4, 'img': exemplo_house2 },
-      { 'id': 3, 'img': exemplo_house1 },
-      { 'id': 4, 'img': exemplo_house2 },
-    ]
-  }
+  const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,15 +22,15 @@ export default function IMovelDetails({ navigation }) {
         showsVerticalScrollIndicator={false}
       >
 
-        <SwiperImage listTest={listTest} />
+        <SwiperImage images={route.params?.item.images} />
 
         <View style={styles.body} >
-          <Text style={styles.title} numberOfLines={2}>Casa para alugar com 2 quartos</Text>
-          <Text style={styles.address}>Rua Conselheiro Furtado, Liberdade</Text>
-          <Text style={styles.address}>São Paulo - SP </Text>
+          <Text style={styles.title} numberOfLines={2}>{route.params?.item.title}</Text>
+          <Text style={styles.address}>{route.params?.item.street}, {route.params?.item.neighborhood}</Text>
+          <Text style={styles.address}>{route.params?.item.city} - {route.params?.item.state}</Text>
 
           <Text style={styles.label} >Sobre esse imóvel:</Text>
-          <Text style={styles.descriptionInfo} numberOfLines={5} >Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Liberdade, Estação Sé, etc.</Text>
+          <Text style={styles.descriptionInfo} numberOfLines={5} >{route.params?.item.description}</Text>
 
           <View style={styles.iconsRow}>
 
@@ -47,14 +38,14 @@ export default function IMovelDetails({ navigation }) {
               <View style={styles.iconContainer}>
                 <Icon name={'bed'} size={18} color={colors['blue']} />
               </View>
-              <Text style={styles.iconsLabel}>3 quartos</Text>
+              <Text style={styles.iconsLabel}>{route.params?.item.bedrooms} quartos</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
                 <Icon name={'bath'} size={20} color={colors['blue']} />
               </View>
-              <Text style={styles.iconsLabel}>1 banheiro</Text>
+              <Text style={styles.iconsLabel}>{route.params?.item.bathrooms} banheiro</Text>
             </View>
 
           </View>
@@ -65,14 +56,14 @@ export default function IMovelDetails({ navigation }) {
               <View style={styles.iconContainer}>
                 <Icon name={'ruler-horizontal'} size={18} color={colors['blue']} />
               </View>
-              <Text style={styles.iconsLabel}>39 m²</Text>
+              <Text style={styles.iconsLabel}>{route.params?.item.area} m²</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
                 <Icon name={'dog'} size={19} color={colors['blue']} />
               </View>
-              <Text style={styles.iconsLabel}>Aceita pet</Text>
+              <Text style={styles.iconsLabel}>{route.params?.item.animal ? "Aceita pet" : "Não aceita pet"}</Text>
             </View>
 
           </View>
@@ -80,7 +71,7 @@ export default function IMovelDetails({ navigation }) {
           <View style={styles.footer}>
             <View style={styles.price}>
               <Text style={styles.label} >Aluguel:</Text>
-              <Text style={styles.priceInfo} numberOfLines={5}> R$: 2.143,00 </Text>
+              <Text style={styles.priceInfo} numberOfLines={5}>{formatCurrency(route.params?.item.price)}</Text>
             </View>
 
             <TouchableOpacity style={styles.button}

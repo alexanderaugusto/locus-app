@@ -12,13 +12,16 @@ import {
   FlatList,
   Image
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import api from '../services/api'
 
 import ImovelCard from '../components/ImovelCard'
 import colors from '../constants/colors.json'
 
-export default function Home({ navigation }) {
+export default function Home() {
+  const navigation = useNavigation()
+
   const [properties, setProperties] = useState([])
 
   const getProperties = () => {
@@ -29,6 +32,10 @@ export default function Home({ navigation }) {
       .catch((err) => {
         console.error(err)
       })
+  }
+
+  const toDetails = (item) => {
+    navigation.navigate('IMovelDetails', { item })
   }
 
   useEffect(() => {
@@ -68,7 +75,11 @@ export default function Home({ navigation }) {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => {
             return (
-              <ImovelCard item={item} navigation={navigation} />
+              <TouchableOpacity
+                onPress={() => toDetails(item)}
+              >
+                <ImovelCard item={item} />
+              </TouchableOpacity>
             )
           }}
         />

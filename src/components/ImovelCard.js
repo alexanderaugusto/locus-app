@@ -9,7 +9,7 @@ import colors from '../constants/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ item, navigation }) {
+export default function ImovelCard({ item }) {
 
   return (
     <View style={[styles.card]} >
@@ -38,9 +38,6 @@ export default function ImovelCard({ item, navigation }) {
       <View style={styles.infoContainer} >
         <View style={styles.infoHeader}>
           <Text style={styles.price}>Aluguel {formatCurrency(item.price)}</Text>
-          <TouchableOpacity style={styles.buttonInfo} onPress={() => navigation.navigate('IMovelDetails')}>
-            <Text style={styles.buttonInfoText} >Mais info</Text>
-          </TouchableOpacity>
         </View>
 
         <Text style={styles.address} numberOfLines={3}>
