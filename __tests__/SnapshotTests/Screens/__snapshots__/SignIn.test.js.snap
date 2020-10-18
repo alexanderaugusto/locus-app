@@ -81,6 +81,7 @@ exports[`<SignIn /> render correctly 1`] = `
         Object {
           "paddingHorizontal": 8,
           "paddingVertical": 10,
+          "width": "100%",
         }
       }
       underlineColorAndroid="transparent"
@@ -128,6 +129,7 @@ exports[`<SignIn /> render correctly 1`] = `
         Object {
           "paddingHorizontal": 8,
           "paddingVertical": 10,
+          "width": "100%",
         }
       }
       underlineColorAndroid="transparent"
