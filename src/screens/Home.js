@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from 'react'
-import { KeyboardAvoidingView, View, ScrollView, Platform, StyleSheet, TextInput, TouchableOpacity, Text, Image } from 'react-native'
+import {
+  KeyboardAvoidingView,
+  View,
+  ScrollView,
+  Platform,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  SafeAreaView,
+  FlatList,
+  Image
+} from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import api from '../services/api'
 
 import ImovelCard from '../components/ImovelCard'
 import colors from '../constants/colors.json'
 
 export default function Home({ navigation }) {
+  const [properties, setProperties] = useState([])
 
-  listTest = {
-    names: [
-      { 'id': 1, 'address': 'Rua Doutor Teodoro, Centro - São Paulo' },
-      { 'id': 2, 'address': 'Rua Portugal, Bela Vista - Belo Horizonte' },
-      { 'id': 3, 'address': 'Rua Paula Ney, Vila Mariana - São Paulo' },
-      { 'id': 4, 'address': 'Rua Doutor Teodoro, Jardim Europa - São Paulo' },
-      { 'id': 5, 'address': 'Rua Doutor Teodoro, Jardim Aeroporto - Alfenas' },
-    ]
+  const getProperties = () => {
+    api.get("/properties")
+      .then((res) => {
+        setProperties(res.data)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
+
+  useEffect(() => {
+    getProperties()
+  }, [])
 
   return (
     <KeyboardAvoidingView
@@ -43,16 +61,18 @@ export default function Home({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <ScrollView
-        scrollsToTop={true}
-        showsVerticalScrollIndicator={false}
-      >
-        {listTest.names.map((item, index) => (
-          <View key={item.id} style={styles.cardsContainer}>
-            <ImovelCard address={item.address} navigation={navigation} />
-          </View>
-        ))}
-      </ScrollView>
+      <SafeAreaView style={styles.listContainer}>
+        <FlatList
+          data={properties}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => {
+            return (
+              <ImovelCard item={item} navigation={navigation} />
+            )
+          }}
+        />
+      </SafeAreaView>
 
     </KeyboardAvoidingView>
   )
@@ -117,11 +137,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 
-  cardsContainer: {
-    flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    marginBottom: 15,
-  },
-
+  listContainer: {
+    flex: 1
+  }
 })

@@ -1,24 +1,15 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import { formatCurrency } from '../utils/util'
+import { STORAGE_URL } from '../services/api'
 
-import exemplo_house1 from '../../assets/img/exemplo_house1.jpg'
-import exemplo_house2 from '../../assets/img/exemplo_house2.jpg'
 import colors from '../constants/colors.json'
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ address, navigation }) {
-
-  listTest = {
-    image: [
-      { 'id': 1, 'img': exemplo_house1 },
-      { 'id': 2, 'img': exemplo_house2 },
-      { 'id': 3, 'img': exemplo_house1 },
-      { 'id': 4, 'img': exemplo_house2 },
-    ]
-  }
+export default function ImovelCard({ item, navigation }) {
 
   return (
     <View style={[styles.card]} >
@@ -32,8 +23,9 @@ export default function ImovelCard({ address, navigation }) {
         showsHorizontalScrollIndicator={true}
         horizontal={true}
       >
-        {listTest.image.map((item) => (
-          <Image key={item.id} style={styles.images} resizeMode="cover" source={item.img} />
+        {item.images.map((item) => (
+          <Image key={item.id} style={styles.images} resizeMode="cover"
+            source={{ uri: `${STORAGE_URL}/property/${item.path}` }} />
         ))}
       </ScrollView>
 
@@ -45,14 +37,15 @@ export default function ImovelCard({ address, navigation }) {
 
       <View style={styles.infoContainer} >
         <View style={styles.infoHeader}>
-          <Text style={styles.price}>Aluguel R$: 1.000,00</Text>
+          <Text style={styles.price}>Aluguel {formatCurrency(item.price)}</Text>
           <TouchableOpacity style={styles.buttonInfo} onPress={() => navigation.navigate('IMovelDetails')}>
             <Text style={styles.buttonInfoText} >Mais info</Text>
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.address} numberOfLines={3}>{address}</Text>
-
+        <Text style={styles.address} numberOfLines={3}>
+          {`${item.street}, ${item.neighborhood} - ${item.city} (${item.state})`}
+        </Text>
       </View>
     </View>
   )
@@ -65,6 +58,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     overflow: 'hidden',
     backgroundColor: '#FFF',
+    marginVertical: 10
   },
 
   scrollImages: {
