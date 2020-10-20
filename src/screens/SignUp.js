@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 
@@ -8,6 +8,19 @@ import InputArea from '../components/InputArea'
 import ImagePickerFunction from '../components/ImagePicker'
 
 export default function SignUp() {
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    confirmEmail: "",
+    cpf: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+    avatar: null
+  })
+
+  const onChange = (type, value) => setData({ ...data, [type]: value })
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -37,11 +50,23 @@ export default function SignUp() {
         >
           <View style={styles.containerInput}>
             <Text style={styles.label}>Nome</Text>
-            <InputArea placeholder={'Ex: Pedro Henrique Santos'} />
+            <InputArea
+              placeholder={'Ex: Pedro Henrique Santos'}
+              value={data.name}
+              onChangeText={(value) => onChange("name", value)}
+            />
             <Text style={styles.label}>CPF</Text>
-            <InputArea placeholder={'xxx.xxx.xxx-xx'} />
+            <InputArea
+              placeholder={'xxx.xxx.xxx-xx'}
+              value={data.cpf}
+              onChangeText={(value) => onChange("cpf", value)}
+            />
             <Text style={styles.label}>Celular</Text>
-            <InputArea placeholder={'(xx)xxxxx-xxxx'} />
+            <InputArea
+              placeholder={'(xx)xxxxx-xxxx'}
+              value={data.phone}
+              onChangeText={(value) => onChange("phone", value)}
+            />
           </View>
         </ProgressStep>
 
@@ -58,9 +83,19 @@ export default function SignUp() {
           <View style={styles.containerInput}>
             <Text style={styles.messageEmail}>Por favor, entre com um e-mail válido!</Text>
             <Text style={styles.label}>E-mail</Text>
-            <InputArea placeholder={'Ex: pedrohs@gmail.com'} keyboardType={'email-address'} />
+            <InputArea
+              placeholder={'Ex: pedrohs@gmail.com'}
+              keyboardType={'email-address'}
+              value={data.email}
+              onChangeText={(value) => onChange("email", value)}
+            />
             <Text style={styles.label}>Confirmar e-mail</Text>
-            <InputArea placeholder={'Ex: pedrohs@gmail.com'} keyboardType={'email-address'} />
+            <InputArea
+              placeholder={'Ex: pedrohs@gmail.com'}
+              keyboardType={'email-address'}
+              value={data.confirmEmail}
+              onChangeText={(value) => onChange("confirmEmail", value)}
+            />
           </View>
         </ProgressStep>
 
@@ -77,9 +112,19 @@ export default function SignUp() {
           <View style={styles.containerInput}>
             <Text style={styles.messageEmail}>Para sua segurança, a senha deve ter no mínimo 8 caracteres, com números, letra maiúscula e minúscula e caracteres especiais.</Text>
             <Text style={styles.label}>Senha</Text>
-            <InputArea placeholder={'********'} password={true} />
+            <InputArea
+              placeholder={'********'}
+              secureTextEntry={true}
+              value={data.password}
+              onChangeText={(value) => onChange("password", value)}
+            />
             <Text style={styles.label}>Confirmar senha</Text>
-            <InputArea placeholder={'********'} password={true} />
+            <InputArea
+              placeholder={'********'}
+              secureTextEntry={true}
+              value={data.confirmPassword}
+              onChangeText={(value) => onChange("confirmPassword", value)}
+            />
           </View>
         </ProgressStep>
 
@@ -94,7 +139,7 @@ export default function SignUp() {
           scrollable={false}
         >
           <View style={styles.containerInput}>
-            <ImagePickerFunction />
+            <ImagePickerFunction onPick={(image) => onChange("avatar", image)} />
           </View>
         </ProgressStep>
 

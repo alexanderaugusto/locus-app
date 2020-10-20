@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import colors from '../constants/colors.json'
 
 
-export default function InputArea({ prefixIcon, placeholder, password, keyboardType }) {
+export default function InputArea({ prefixIcon, ...props }) {
   return (
     <View style={styles.inputContainer}>
       <Icon
@@ -16,11 +16,9 @@ export default function InputArea({ prefixIcon, placeholder, password, keyboardT
       />
 
       <TextInput
+        {...props}
         style={styles.inputText}
-        placeholder={placeholder}
         placeholderTextColor="#d2d2d2"
-        secureTextEntry={password}
-        keyboardType={keyboardType}
       />
 
     </View>

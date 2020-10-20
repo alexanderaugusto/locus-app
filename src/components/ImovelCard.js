@@ -15,15 +15,15 @@ export default function ImovelCard({ item }) {
   const navigation = useNavigation()
 
   const favoriteProperty = async () => {
-    const user = await AsyncStorage.getItem("user-info")
-    if (!user) {
-      navigation.navigate("Warning", { backPath: "Home" })
+    const token = await AsyncStorage.getItem("user-token")
+    if (!token) {
+      navigation.navigate("SignIn", { backPath: "Home" })
       return
     }
 
     const config = {
       headers: {
-        'Authorization': 'Bearer' + user.token
+        "Authorization": "Bearer " + token
       }
     }
 

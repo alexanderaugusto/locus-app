@@ -4,15 +4,15 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import api from '../services/api'
 
-export default function Favorite() {
+export default function Advertise() {
 	const navigation = useNavigation()
 
-	const [favorites, setFavorites] = useState([])
+	const [properties, setProperties] = useState([])
 
-	const getFavorites = async () => {
+	const getProperties = async () => {
 		const token = await AsyncStorage.getItem("user-token")
 		if (!token) {
-			navigation.navigate("SignIn", { backPath: "Favoritos" })
+			navigation.navigate("SignIn", { backPath: "Properties" })
 			return
 		}
 
@@ -22,9 +22,9 @@ export default function Favorite() {
 			}
 		}
 
-		api.get(`/user/favorites`, config)
+		api.get(`/user/${user.id}/properties`, config)
 			.then((res) => {
-				setFavorites(res.data)
+				setProperties(res.data)
 			})
 			.catch((err) => {
 				console.error(err)
@@ -32,14 +32,14 @@ export default function Favorite() {
 	}
 
 	useEffect(() => {
-		getFavorites()
+		getProperties()
 	}, [])
 
-	console.log(favorites)
+	console.log(properties)
 
 	return (
 		<KeyboardAvoidingView>
-			<Text>Its Favorite Screen</Text>
+			<Text>Its Properties Screen</Text>
 		</KeyboardAvoidingView>
 	)
 }

@@ -3,8 +3,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../screens/Home'
-import Profile from '../screens/Profile'
 import Favorite from '../screens/Favorite'
+import Advertise from '../screens/Advertise'
+import Account from '../screens/Account'
 
 import colors from '../constants/colors.json'
 
@@ -18,7 +19,8 @@ export default function TabMenu() {
 					const icons = {
 						"Home": "home",
 						"Favoritos": "favorite",
-						"Perfil": "person",
+						"Anúnciar": "loyalty",
+						"Minha conta": "person",
 					}
 
 					return <Icon name={icons[route.name]} size={size} color={color} />
@@ -32,7 +34,8 @@ export default function TabMenu() {
 		>
 			<Tab.Screen name="Home" component={Home} />
 			<Tab.Screen name="Favoritos" component={Favorite} />
-			<Tab.Screen name="Perfil" component={Profile} />
+			<Tab.Screen name="Anúnciar" component={Advertise} />
+			<Tab.Screen name="Minha conta" component={Account} />
 		</Tab.Navigator>
 	)
 }

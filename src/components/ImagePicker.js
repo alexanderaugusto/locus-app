@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker'
 
 import colors from '../constants/colors.json'
 
-export default function ImagePickerFunction() {
+export default function ImagePickerFunction({ onPick }) {
   const [image, setImage] = useState(null)
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function ImagePickerFunction() {
 
     if (!result.cancelled) {
       setImage(result.uri)
+      onPick(result)
     }
   };
 
