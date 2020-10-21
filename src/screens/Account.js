@@ -8,14 +8,14 @@ import {
   Text,
   Image,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  ScrollView
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import api, { STORAGE_URL } from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
-
 import EditTextField from '../components/EditTextField'
 
 const CARD_HEIGHT = Dimensions.get('window').height * 0.34
@@ -76,20 +76,19 @@ export default function Account() {
         </View>
       </SafeAreaView>
 
-      <KeyboardAvoidingView>
-        <KeyboardAvoidingView style={styles.body}
-          behavior="padding"
-          enabled={Platform.OS === 'ios'}
-        >
-          <View>
-            <EditTextField label={'Nome: '} text={'Pedro Henrique Silva'} edit={true} />
-            <EditTextField label={'E-mail: '} text={'pedrohs@gmail.com'} keyboardType={'email-address'} edit={true} />
-            <EditTextField label={'Celular: '} text={'(35) 99988-7766'} keyboardType={'phone-pad'} edit={true} />
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Salvar</Text>
-            </TouchableOpacity>
-          </View>
-        </KeyboardAvoidingView>
+      <KeyboardAvoidingView style={styles.body}
+        behavior="padding"
+        enabled={Platform.OS === 'ios'}
+      >
+        <ScrollView showsVerticalScrollIndicator={false} >
+          <EditTextField label={'Nome: '} text={userInfo.name} edit={true} />
+          <EditTextField label={'E-mail: '} text={userInfo.email} keyboardType={'email-address'} edit={true} />
+          <EditTextField label={'Celular: '} text={userInfo.phone} keyboardType={'phone-pad'} edit={true} />
+          <EditTextField label={'CPF: '} text={userInfo.cpf} keyboardType={'phone-pad'} edit={true} />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Salvar</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </KeyboardAvoidingView>
     </View>
   )
@@ -102,6 +101,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
+    height: CARD_HEIGHT,
     paddingVertical: 10,
     backgroundColor: colors["blue-secondary"],
   },
@@ -123,14 +123,14 @@ const styles = StyleSheet.create({
     borderColor: '#b2b2b2',
     overflow: 'hidden',
     marginTop: 10,
-    padding: 10,
+    padding: 8,
     flexDirection: 'column',
     alignItems: 'center',
   },
 
   avatarContainer: {
-    width: 115,
-    height: 115,
+    width: 110,
+    height: 110,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: colors["blue"],
@@ -141,14 +141,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 18,
     fontWeight: "500",
-    color: colors['blue'],
-    alignSelf: 'center',
-  },
-
-  city: {
-    marginTop: 5,
-    fontSize: 12,
-    fontWeight: "300",
     color: colors['blue'],
     alignSelf: 'center',
   },
@@ -164,16 +156,10 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
 
-  editIcon: {
-    position: 'absolute',
-    right: 18,
-    top: 18,
-  },
-
   body: {
     height: '100%',
     paddingHorizontal: 20,
-    marginTop: CARD_HEIGHT * 0.3,
+    paddingTop: CARD_HEIGHT * 0.3,
   },
 
   button: {
@@ -185,7 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 30,
+    marginTop: 15,
   },
 
   buttonText: {

@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     borderColor: colors["blue"],
     borderRadius: 4,
     marginTop: 10,
-    marginBottom: 15,
     paddingHorizontal: 12,
     flexDirection: "row",
     justifyContent: 'space-between',

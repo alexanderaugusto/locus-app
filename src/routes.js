@@ -6,7 +6,6 @@ import TabMenu from './components/TabMenu'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
 import IMovelDetails from './screens/IMovelDetails'
-import SignUpImovel from './screens/SignUpImovel'
 
 const Stack = createStackNavigator()
 
@@ -17,7 +16,6 @@ export default function Routes() {
         <Stack.Screen name="Home" component={TabMenu} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUpImovel" component={SignUpImovel} />
         <Stack.Screen name="IMovelDetails" component={IMovelDetails} />
       </Stack.Navigator>
     </NavigationContainer>

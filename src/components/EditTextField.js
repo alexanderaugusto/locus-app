@@ -3,21 +3,18 @@ import { View, StyleSheet, Text, TextInput } from 'react-native'
 
 import colors from '../constants/colors.json'
 
-export default function EditTextField({ label, text, edit, keyboardType }) {
+export default function EditTextField({ label, text, keyboardType }) {
   return (
     <View style={styles.inputContainer}>
-      {
-        edit
-          ?
-          <TextInput style={styles.infoText} keyboardType={keyboardType}
-            placeholder={text}
-            placeholderTextColor={colors["blue"]}
-          />
-          : <View style={styles.infoContainer} >
-            <Text style={styles.label} >{label}</Text>
-            <Text style={styles.infoText} >{text}</Text>
-          </View>
-      }
+
+      <View style={styles.infoContainer} >
+        <Text style={styles.label} >{label}</Text>
+        <TextInput style={styles.infoText} keyboardType={keyboardType}
+          placeholder={text}
+          placeholderTextColor={colors["blue"]}
+        />
+      </View>
+
     </View>
   )
 }
@@ -30,7 +27,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors["blue"],
     borderRadius: 24,
-    marginTop: 25,
+    marginTop: 15,
     paddingHorizontal: 12,
     flexDirection: "row",
     shadowOpacity: 0.2,
@@ -51,14 +48,5 @@ const styles = StyleSheet.create({
   label: {
     fontWeight: '600',
     color: colors["blue"],
-  },
-
-  infoText: {
-    color: colors["blue"],
-  },
-
-  button: {
-    alignSelf: 'center',
-    paddingHorizontal: 5,
-  },
+  },  
 })
