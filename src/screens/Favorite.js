@@ -1,45 +1,89 @@
 import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, Text } from 'react-native'
+import { KeyboardAvoidingView, View, StyleSheet, Text, SafeAreaView, FlatList, TouchableWithoutFeedback } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import api from '../services/api'
 
+import ImovelCard from '../components/ImovelCard'
+import colors from '../constants/colors.json'
+
 export default function Favorite() {
-	const navigation = useNavigation()
+  const navigation = useNavigation()
 
-	const [favorites, setFavorites] = useState([])
+  const [favorites, setFavorites] = useState([])
 
-	const getFavorites = async () => {
-		const token = await AsyncStorage.getItem("user-token")
-		if (!token) {
-			navigation.navigate("SignIn", { backPath: "Favoritos" })
-			return
-		}
+  const getFavorites = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+    if (!token) {
+      navigation.navigate("SignIn", { backPath: "Favoritos" })
+      return
+    }
 
-		const config = {
-			headers: {
-				"Authorization": "Bearer " + token
-			}
-		}
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
 
-		api.get(`/user/favorites`, config)
-			.then((res) => {
-				setFavorites(res.data)
-			})
-			.catch((err) => {
-				console.error(err)
-			})
-	}
+    api.get(`/user/favorites`, config)
+      .then((res) => {
+        setFavorites(res.data)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 
-	useEffect(() => {
-		getFavorites()
-	}, [])
+  useEffect(() => {
+    getFavorites()
+  }, [])
 
-	console.log(favorites)
+  return (
+    <KeyboardAvoidingView style={styles.container} >
+      <Text numberOfLiner={2} style={styles.title} >Favoritos</Text>
 
-	return (
-		<KeyboardAvoidingView>
-			<Text>Its Favorite Screen</Text>
-		</KeyboardAvoidingView>
-	)
+
+      <SafeAreaView style={styles.listContainer}>
+        <FlatList
+          data={favorites}
+          keyExtractor={item => item.id.toString()}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => {
+            return (
+              <TouchableWithoutFeedback
+                onPress={() => navigation.navigate('IMovelDetails', { item })}
+              >
+                <View>
+                  <ImovelCard item={item} colorIcon={'red'} />
+                </View>
+              </TouchableWithoutFeedback>
+            )
+          }}
+        />
+      </SafeAreaView>
+
+    </KeyboardAvoidingView>
+  )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors["platinum"],
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+
+  title: {
+    margin: 10,
+    fontSize: 28,
+    fontWeight: "600",
+    color: colors['yellow'],
+    alignSelf: 'center',
+  },
+
+  listContainer: {
+    flex: 1
+  }
+
+})

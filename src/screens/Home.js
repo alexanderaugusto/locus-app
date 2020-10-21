@@ -36,7 +36,8 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
-  }, [])
+  }, []) 
+
 
   return (
     <KeyboardAvoidingView

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
@@ -11,7 +11,7 @@ import colors from '../constants/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ item }) {
+export default function ImovelCard({ item, colorIcon }) {
   const navigation = useNavigation()
 
   const favoriteProperty = async () => {
@@ -60,7 +60,7 @@ export default function ImovelCard({ item }) {
 
       <View style={styles.favoriteIcon}>
         <TouchableOpacity style={styles.button} onPress={() => favoriteProperty()}>
-          <Icon name={'heart'} size={18} color={colors['blue']} />
+          <Icon name={colorIcon === 'red' ? 'heart' : 'heart-o'} size={18} color={colorIcon} />
         </TouchableOpacity>
       </View>
 
