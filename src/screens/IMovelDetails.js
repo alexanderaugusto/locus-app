@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#FFF',
     borderTopLeftRadius: 50,
-    marginTop: -40,
+    marginTop: -15,
     minHeight: 450,
   },
 
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
   address: {
     lineHeight: 20,
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: '500',
     color: '#b2b2b2',
     textAlign: 'right'
@@ -135,35 +135,42 @@ const styles = StyleSheet.create({
   label: {
     paddingTop: 20,
     paddingBottom: 5,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
     color: colors['blue'],
   },
 
   descriptionInfo: {
-    fontSize: 14,
+    fontSize: 15,
+    lineHeight: 18,
     fontWeight: '400',
     color: '#999',
     textAlign: 'justify',
+    marginBottom: 10,
   },
 
   iconsRow: {
     width: '80%',
     flexDirection: 'row',
-    marginTop: 15,
+    marginTop: 20,
     marginHorizontal: 20,
     justifyContent: "space-between",
   },
 
   iconContainer: {
-    width: 40,
-    height: 40,
+    width: 45,
+    height: 45,
+    marginRight: 8,
+
     borderRadius: 25,
     borderWidth: 1,
     borderColor: colors['blue'],
+
     backgroundColor: '#FFF',
+
     justifyContent: "center",
     alignItems: "center",
+
     elevation: 1,
     shadowColor: '#000',
     shadowOpacity: 0.05,
@@ -172,7 +179,6 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    marginRight: 8,
   },
 
   iconsInfo: {
@@ -185,7 +191,7 @@ const styles = StyleSheet.create({
     width: '95%',
     flexDirection: 'row',
     justifyContent: "space-between",
-    marginTop: 20,
+    marginTop: 15,
   },
 
   price: {

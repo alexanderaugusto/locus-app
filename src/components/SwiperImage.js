@@ -26,7 +26,7 @@ export default function SwiperImage({ images }) {
 
 const styles = StyleSheet.create({
   swiperContainer: {
-    height: 250,
+    height: 280, 
   },
 
   swipeItem: {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 
   swipeImage: {
     width: '100%',
-    height: 250,
+    height: 280,
   },
 
   swipeDot: {
