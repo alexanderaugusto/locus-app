@@ -11,7 +11,6 @@ describe('<EditTextField />', () => {
           label={'Celular: '}
           text={'(35) 99988-7766'}
           keyboardType={'phone-pad'}
-          edit={false}
         />
       )
     })
@@ -19,18 +18,4 @@ describe('<EditTextField />', () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
-  it('render correctly with edit equals true', () => {
-    act(() => {
-      tree = create(
-        <EditTextField
-          label={'Celular: '}
-          text={'(35) 99988-7766'}
-          keyboardType={'phone-pad'}
-          edit={true}
-        />
-      )
-    })
-
-    expect(tree.toJSON()).toMatchSnapshot()
-  })
 })

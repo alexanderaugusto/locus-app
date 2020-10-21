@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {
   SafeAreaView,
   View,
-  Dimensions,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -17,8 +16,6 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
 import EditTextField from '../components/EditTextField'
-
-const CARD_HEIGHT = Dimensions.get('window').height * 0.34
 
 export default function Account() {
   const navigation = useNavigation()
@@ -62,35 +59,32 @@ export default function Account() {
   }, [])
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
-        <Text style={styles.title}> Minha conta </Text>
+    <KeyboardAvoidingView style={styles.container}
+      behavior="padding"
+      enabled={Platform.OS === 'ios'}
+    >
+      <Text style={styles.title}> Minha conta </Text>
 
-        <View style={styles.cardContainer}>
-          <Image style={styles.avatarContainer} resizeMode="contain"
-            source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
-          <Text style={styles.name}>{userInfo.name}</Text>
-          <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
-            <Text style={styles.buttonText}>Sair</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      <View style={styles.cardContainer}>
+        <Image style={styles.avatarContainer} resizeMode="contain"
+          source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
+        <Text style={styles.name}>{userInfo.name}</Text>
+        <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
+          <Text style={styles.buttonText}>Sair</Text>
+        </TouchableOpacity>
+      </View>
 
-      <KeyboardAvoidingView style={styles.body}
-        behavior="padding"
-        enabled={Platform.OS === 'ios'}
-      >
-        <ScrollView showsVerticalScrollIndicator={false} >
-          <EditTextField label={'Nome: '} text={userInfo.name} edit={true} />
-          <EditTextField label={'E-mail: '} text={userInfo.email} keyboardType={'email-address'} edit={true} />
-          <EditTextField label={'Celular: '} text={userInfo.phone} keyboardType={'phone-pad'} edit={true} />
-          <EditTextField label={'CPF: '} text={userInfo.cpf} keyboardType={'phone-pad'} edit={true} />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Salvar</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </View>
+
+      <ScrollView showsVerticalScrollIndicator={false} >
+        <EditTextField label={'Nome: '} text={userInfo.name} edit={true} />
+        <EditTextField label={'E-mail: '} text={userInfo.email} keyboardType={'email-address'} edit={true} />
+        <EditTextField label={'Celular: '} text={userInfo.phone} keyboardType={'phone-pad'} edit={true} />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Salvar</Text>
+        </TouchableOpacity>
+      </ScrollView>
+
+    </KeyboardAvoidingView>
   )
 }
 
@@ -98,34 +92,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors["platinum"],
-  },
-
-  header: {
-    height: CARD_HEIGHT,
-    paddingVertical: 10,
-    backgroundColor: colors["blue-secondary"],
+    padding: 20,
   },
 
   title: {
     margin: 10,
     fontSize: 28,
-    fontWeight: "500",
+    fontWeight: "600",
     color: colors['yellow'],
     alignSelf: 'center',
   },
 
   cardContainer: {
-    width: 330,
-    alignSelf: 'center',
+    marginTop: 10,
+    padding: 8,
+
     backgroundColor: "#FFF",
     borderWidth: 1,
     borderRadius: 24,
     borderColor: '#b2b2b2',
     overflow: 'hidden',
-    marginTop: 10,
-    padding: 8,
+    width: 330,
+
     flexDirection: 'column',
     alignItems: 'center',
+    alignSelf: 'center',
   },
 
   avatarContainer: {
@@ -156,12 +147,6 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
 
-  body: {
-    height: '100%',
-    paddingHorizontal: 20,
-    paddingTop: CARD_HEIGHT * 0.3,
-  },
-
   button: {
     height: 35,
     width: 150,
@@ -171,7 +156,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 15,
+    marginTop: 30,
   },
 
   buttonText: {

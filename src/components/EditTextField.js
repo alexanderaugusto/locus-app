@@ -9,7 +9,8 @@ export default function EditTextField({ label, text, keyboardType }) {
 
       <View style={styles.infoContainer} >
         <Text style={styles.label} >{label}</Text>
-        <TextInput style={styles.infoText} keyboardType={keyboardType}
+        <TextInput style={styles.infoText}
+          keyboardType={keyboardType}
           placeholder={text}
           placeholderTextColor={colors["blue"]}
         />
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors["blue"],
     borderRadius: 24,
-    marginTop: 15,
+    marginTop: 25,
     paddingHorizontal: 12,
     flexDirection: "row",
     shadowOpacity: 0.2,
@@ -45,8 +46,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
+  infoText: {
+    alignSelf: 'center',
+  },
+
   label: {
     fontWeight: '600',
     color: colors["blue"],
-  },  
+    alignSelf: 'center',
+  },
 })
