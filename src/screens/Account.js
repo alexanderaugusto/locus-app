@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import {
-  SafeAreaView,
   View,
   StyleSheet,
   TouchableOpacity,
@@ -15,7 +14,7 @@ import api, { STORAGE_URL } from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
-import EditTextField from '../components/EditTextField'
+import InputArea from '../components/InputArea'
 
 export default function Account() {
   const navigation = useNavigation()
@@ -59,40 +58,68 @@ export default function Account() {
   }, [])
 
   return (
-    <KeyboardAvoidingView style={styles.container}
-      behavior="padding"
-      enabled={Platform.OS === 'ios'}
-    >
-      <Text style={styles.title}> Minha conta </Text>
+    <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+      <KeyboardAvoidingView style={styles.container}
+        behavior="padding"
+        enabled={Platform.OS === 'ios'}
+      >
+        <View style={styles.header} />
 
-      <View style={styles.cardContainer}>
-        <Image style={styles.avatarContainer} resizeMode="contain"
-          source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
-        <Text style={styles.name}>{userInfo.name}</Text>
-        <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
-          <Text style={styles.buttonText}>Sair</Text>
-        </TouchableOpacity>
-      </View>
+        <Text style={styles.title}> Minha conta </Text>
 
+        <View style={styles.cardContainer}>
+          <Image style={styles.avatarContainer} resizeMode="contain"
+            source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
+          <Text style={styles.name}>{userInfo.name}</Text>
+          <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
+            <Text style={styles.buttonText}>Sair</Text>
+          </TouchableOpacity>
+        </View>
 
-      <ScrollView showsVerticalScrollIndicator={false} >
-        <EditTextField label={'Nome: '} text={userInfo.name} edit={true} />
-        <EditTextField label={'E-mail: '} text={userInfo.email} keyboardType={'email-address'} edit={true} />
-        <EditTextField label={'Celular: '} text={userInfo.phone} keyboardType={'phone-pad'} edit={true} />
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Salvar</Text>
-        </TouchableOpacity>
-      </ScrollView>
+        <View style={styles.form}>
+          <InputArea
+            label={'Nome: '}
+            placeholder={'Seu nome...'}
+            value={userInfo.name}
+          />
+          <InputArea
+            label={'E-mail: '}
+            placeholder={'Seu email...'}
+            value={userInfo.email}
+            keyboardType={'email-address'}
+          />
+          <InputArea
+            label={'Celular: '}
+            placeholder={'Seu celular...'}
+            value={userInfo.phone}
+            keyboardType={'phone-pad'}
+          />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Salvar</Text>
+          </TouchableOpacity>
+        </View>
 
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: colors["platinum"]
+  },
+
   container: {
     flex: 1,
-    backgroundColor: colors["platinum"],
-    padding: 20,
+    backgroundColor: colors["platinum"]
+  },
+
+  header: {
+    backgroundColor: colors["blue"],
+    width: "100%",
+    height: "40%",
+    position: "absolute"
   },
 
   title: {
@@ -116,20 +143,17 @@ const styles = StyleSheet.create({
 
     flexDirection: 'column',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
 
   avatarContainer: {
     width: 110,
     height: 110,
-    borderRadius: 100,
-    borderWidth: 3,
-    borderColor: colors["blue"],
-    backgroundColor: colors["blue"],
+    borderRadius: 110
   },
 
   name: {
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 18,
     fontWeight: "500",
     color: colors['blue'],
@@ -165,4 +189,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  form: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    flex: 1
+  }
 })

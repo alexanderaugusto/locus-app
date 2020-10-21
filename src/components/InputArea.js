@@ -1,22 +1,28 @@
 import React from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../constants/colors.json'
 
 
-export default function InputArea({ prefixIcon, ...props }) {
+export default function InputArea({ prefixIcon, label, ...inputProps }) {
   return (
     <View style={styles.inputContainer}>
-      <Icon
-        style={styles.button}
-        name={prefixIcon}
-        size={16}
-        color={colors['blue']}
-      />
+      {prefixIcon && (
+        <Icon
+          style={styles.button}
+          name={prefixIcon}
+          size={16}
+          color={colors['blue']}
+        />
+      )}
+
+      {label && (
+        <Text style={styles.label} >{label}</Text>
+      )}
 
       <TextInput
-        {...props}
+        {...inputProps}
         style={styles.inputText}
         placeholderTextColor="#d2d2d2"
       />
@@ -48,10 +54,16 @@ const styles = StyleSheet.create({
   inputText: {
     width: "100%",
     paddingVertical: 10,
-    paddingHorizontal: 8,
+    paddingHorizontal: 8
   },
 
   button: {
+    alignSelf: 'center',
+  },
+
+  label: {
+    fontWeight: '600',
+    color: colors["blue"],
     alignSelf: 'center',
   },
 })
