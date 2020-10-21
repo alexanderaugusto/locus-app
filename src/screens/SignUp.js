@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
+import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
+import api from '../services/api'
+import { useNavigation } from '@react-navigation/native'
 
 import colors from '../constants/colors.json'
 
@@ -8,6 +10,8 @@ import InputArea from '../components/InputArea'
 import ImagePickerFunction from '../components/ImagePicker'
 
 export default function SignUp() {
+  const navigation = useNavigation()
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -20,6 +24,34 @@ export default function SignUp() {
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
+
+  const signUp = () => {
+    const formData = new FormData()
+
+    if (data.avatar) {
+      const localUri = data.avatar.uri
+      const filename = localUri.split('/').pop()
+
+      const match = /\.(\w+)$/.exec(filename)
+      const type = match ? `image/${match[1]}` : `image`
+
+      formData.append('file', { uri: localUri, name: filename, type })
+    }
+
+    formData.append('email', data.email)
+    formData.append('password', data.password)
+    formData.append('name', data.name)
+    formData.append('cpf', data.cpf)
+    formData.append('phone', data.phone)
+
+    api.post("/user", data)
+      .then((res) => {
+        navigation.navigate("SignIn")
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 
   return (
     <KeyboardAvoidingView
@@ -113,14 +145,14 @@ export default function SignUp() {
             <Text style={styles.messageEmail}>Para sua segurança, a senha deve ter no mínimo 8 caracteres, com números, letra maiúscula e minúscula e caracteres especiais.</Text>
             <Text style={styles.label}>Senha</Text>
             <InputArea
-              placeholder={'********'}
+              placeholder={'••••••••'}
               secureTextEntry={true}
               value={data.password}
               onChangeText={(value) => onChange("password", value)}
             />
             <Text style={styles.label}>Confirmar senha</Text>
             <InputArea
-              placeholder={'********'}
+              placeholder={'••••••••'}
               secureTextEntry={true}
               value={data.confirmPassword}
               onChangeText={(value) => onChange("confirmPassword", value)}
@@ -137,6 +169,7 @@ export default function SignUp() {
           nextBtnTextStyle={styles.buttonText}
           previousBtnTextStyle={styles.buttonText}
           scrollable={false}
+          onSubmit={() => signUp()}
         >
           <View style={styles.containerInput}>
             <ImagePickerFunction onPick={(image) => onChange("avatar", image)} />

@@ -26,8 +26,6 @@ export default function ImagePickerFunction({ onPick }) {
       quality: 1,
     });
 
-    console.log(result)
-
     if (!result.cancelled) {
       setImage(result.uri)
       onPick(result)
