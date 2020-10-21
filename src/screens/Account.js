@@ -29,7 +29,10 @@ export default function Account() {
   const getUser = async () => {
     const token = await AsyncStorage.getItem("user-token")
     if (!token) {
-      navigation.navigate("SignIn", { backPath: "Minha conta" })
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "SignIn"  }],
+      })
       return
     }
 
@@ -50,7 +53,10 @@ export default function Account() {
 
   const logout = async () => {
     await AsyncStorage.clear()
-    navigation.navigate("SignIn", { backPath: "Minha conta" })
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "SignIn"  }],
+    })
   }
 
   useEffect(() => {

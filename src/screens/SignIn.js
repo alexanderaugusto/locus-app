@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image, Platform } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -9,7 +9,7 @@ import colors from '../constants/colors.json'
 
 import InputArea from '../components/InputArea'
 
-export default function SignIn() {
+export default function SignIn(props) {
   const navigation = useNavigation()
   const route = useRoute()
 
@@ -25,12 +25,19 @@ export default function SignIn() {
     api.post(`/auth/login`, data)
       .then(async (res) => {
         await AsyncStorage.setItem("user-token", res.data.token)
-        navigation.navigate(route.params.backPath)
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Home"  }],
+        })
       })
       .catch((err) => {
         console.error(err)
       })
   }
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <KeyboardAvoidingView

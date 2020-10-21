@@ -15,7 +15,10 @@ export default function Favorite() {
   const getFavorites = async () => {
     const token = await AsyncStorage.getItem("user-token")
     if (!token) {
-      navigation.navigate("SignIn", { backPath: "Favoritos" })
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "SignIn"  }],
+      })
       return
     }
 

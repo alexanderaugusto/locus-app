@@ -12,7 +12,10 @@ export default function Advertise() {
 	const getProperties = async () => {
 		const token = await AsyncStorage.getItem("user-token")
 		if (!token) {
-			navigation.navigate("SignIn", { backPath: "Properties" })
+			navigation.reset({
+				index: 0,
+				routes: [{ name: "SignIn"  }],
+			})
 			return
 		}
 
