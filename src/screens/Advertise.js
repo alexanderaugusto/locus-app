@@ -91,7 +91,7 @@ export default function Advertise() {
 				/>
 			</SafeAreaView>
 
-			<FloatButton onPress={() => console.log("insert")} />
+			<FloatButton onPress={() => navigation.navigate("AddProperty")} />
 		</KeyboardAvoidingView>
 	)
 }

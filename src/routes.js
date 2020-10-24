@@ -6,6 +6,7 @@ import TabMenu from './components/TabMenu'
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
 import IMovelDetails from './screens/IMovelDetails'
+import AddProperty from './screens/AddProperty'
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,7 @@ export default function Routes() {
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="IMovelDetails" component={IMovelDetails} />
+        <Stack.Screen name="AddProperty" component={AddProperty} />
       </Stack.Navigator>
     </NavigationContainer>
   )
