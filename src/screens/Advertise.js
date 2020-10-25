@@ -79,11 +79,11 @@ export default function Advertise() {
 								<View style={styles.card}>
 									<Image style={styles.cardImage} resizeMode="cover"
 										source={{ uri: `${STORAGE_URL}/property/${item.images[0]?.path}` }} />
-									<View style={styles.cardText}>
+									<View style={styles.detailContainer}>
 										<Text numberOfLines={1} ellipsizeMode='tail' style={styles.cardTitle}>{
 											item.title}
 										</Text>
-										<View style={{ flexDirection: "row" }}>
+										<View style={{ flexDirection: "row", flex: 1 }}>
 											<Text numberOfLines={4} ellipsizeMode='tail' style={styles.cardDescription}>{
 												item.description}
 											</Text>
@@ -135,6 +135,12 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 5, height: 5 },
 		shadowOpacity: 0.8,
 		elevation: 1,
+		height: 250
+	},
+
+	detailContainer: {
+		justifyContent: "space-between",
+		flex: 1
 	},
 
 	cardImage: {
@@ -152,7 +158,7 @@ const styles = StyleSheet.create({
 
 	cardDescription: {
 		fontSize: 14,
-		color: colors["blue"],
+		color: colors["blue"]
 	},
 
 	cardPrice: {
