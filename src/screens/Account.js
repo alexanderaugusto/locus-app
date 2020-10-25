@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
 import InputArea from '../components/InputArea'
+import ImagePickerFunction from '../components/ImagePicker'
 
 export default function Account() {
   const navigation = useNavigation()
@@ -23,7 +24,7 @@ export default function Account() {
     name: "",
     email: "",
     phone: "",
-    avatar: "default-avatar.png"
+    avatar: `${STORAGE_URL}/user/default-avatar.png`
   })
 
   const getUser = async () => {
@@ -31,7 +32,7 @@ export default function Account() {
     if (!token) {
       navigation.reset({
         index: 0,
-        routes: [{ name: "SignIn"  }],
+        routes: [{ name: "SignIn" }],
       })
       return
     }
@@ -44,7 +45,53 @@ export default function Account() {
 
     api.get(`/user`, config)
       .then((res) => {
-        setUserInfo(res.data)
+        setUserInfo({ ...res.data, avatar: `${STORAGE_URL}/user/${res.data.avatar}` })
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
+  const updateInfo = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+
+    const data = {
+      name: userInfo.name,
+      phone: userInfo.phone
+    }
+
+    api.put(`/user`, data, config)
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
+  const updateAvatar = async (image) => {
+    const token = await AsyncStorage.getItem("user-token")
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token,
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+
+    const data = new FormData()
+
+    data.append('file', image)
+
+    api.put(`/user/avatar`, data, config)
+      .then((res) => {
+        setUserInfo({ ...userInfo, avatar: image.uri })
       })
       .catch((err) => {
         console.error(err)
@@ -55,9 +102,11 @@ export default function Account() {
     await AsyncStorage.clear()
     navigation.reset({
       index: 0,
-      routes: [{ name: "SignIn"  }],
+      routes: [{ name: "SignIn" }],
     })
   }
+
+  const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
 
   useEffect(() => {
     getUser()
@@ -74,7 +123,9 @@ export default function Account() {
         <Text style={styles.title}> Minha conta </Text>
 
         <View style={styles.cardContainer}>
-          <Image style={styles.avatar} source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
+          <ImagePickerFunction onChange={(image) => updateAvatar(image)}>
+            <Image style={styles.avatar} source={{ uri: userInfo.avatar }} />
+          </ImagePickerFunction>
           <Text style={styles.name}>{userInfo.name}</Text>
           <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
             <Text style={styles.buttonText}>Sair</Text>
@@ -86,20 +137,23 @@ export default function Account() {
             label={'Nome: '}
             placeholder={'Seu nome...'}
             value={userInfo.name}
+            onChangeText={(value) => onChange("name", value)}
           />
           <InputArea
             label={'E-mail: '}
             placeholder={'Seu email...'}
             value={userInfo.email}
             keyboardType={'email-address'}
+            onChangeText={(value) => onChange("email", value)}
           />
           <InputArea
             label={'Celular: '}
             placeholder={'Seu celular...'}
             value={userInfo.phone}
             keyboardType={'phone-pad'}
+            onChangeText={(value) => onChange("phone", value)}
           />
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => updateInfo()}>
             <Text style={styles.buttonText}>Salvar</Text>
           </TouchableOpacity>
         </View>
