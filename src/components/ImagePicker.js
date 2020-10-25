@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { TouchableOpacity, Image, View, Platform, StyleSheet, Text } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 
 import colors from '../constants/colors.json'
 
-export default function ImagePickerFunction({ onPick }) {
-  const [image, setImage] = useState(null)
-
+export default function ImagePickerFunction({ onChange, value }) {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -24,27 +22,29 @@ export default function ImagePickerFunction({ onPick }) {
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
-    });
+    })
 
     if (!result.cancelled) {
-      setImage(result.uri)
-      onPick(result)
+      let localUri = result.uri
+      let filename = localUri.split('/').pop()
+
+      let match = /\.(\w+)$/.exec(filename)
+      let type = match ? `image/${match[1]}` : `image`
+
+      onChange({ uri: localUri, name: filename, type })
     }
-  };
+  }
 
   return (
     <View style={styles.containerInput}>
-      {image && <Image source={{ uri: image }} style={styles.avatar} />}
-      { image
-        ? <TouchableOpacity style={styles.button} onPress={pickImage}>
-          <Text style={styles.buttonText}>Alterar foto</Text>
-        </TouchableOpacity>
-        : <TouchableOpacity style={styles.button} onPress={pickImage}>
-          <Text style={styles.buttonText}>Adicionar foto</Text>
-        </TouchableOpacity>}
-
+      <TouchableOpacity onPress={pickImage}>
+        <Image source={{ uri: value }} style={styles.avatar} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={pickImage}>
+        <Text style={styles.avatarText}>Alterar</Text>
+      </TouchableOpacity>
     </View>
-  );
+  )
 }
 
 
@@ -54,29 +54,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  button: {
-    marginTop: 20,
-    height: 35,
-    width: 150,
-    backgroundColor: colors['blue'],
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  buttonText: {
-    color: colors['yellow'],
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-
   avatar: {
+    width: "100%",
+    height: "100%",
     width: 180,
     height: 180,
-    borderRadius: 100,
+    borderRadius: 180,
     borderWidth: 3,
     borderColor: colors["yellow"],
   },
 
+  avatarText: {
+    color: colors['yellow'],
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginVertical: 5,
+    textDecorationLine: "underline"
+  },
 
 })

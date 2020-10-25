@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
-import api from '../services/api'
+import api, { STORAGE_URL } from '../services/api'
 import { useNavigation } from '@react-navigation/native'
 
 import colors from '../constants/colors.json'
@@ -26,25 +26,23 @@ export default function SignUp() {
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
   const signUp = () => {
-    const formData = new FormData()
-
-    if (data.avatar) {
-      const localUri = data.avatar.uri
-      const filename = localUri.split('/').pop()
-
-      const match = /\.(\w+)$/.exec(filename)
-      const type = match ? `image/${match[1]}` : `image`
-
-      formData.append('file', { uri: localUri, name: filename, type })
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
     }
+
+    const formData = new FormData()
 
     formData.append('email', data.email)
     formData.append('password', data.password)
     formData.append('name', data.name)
     formData.append('cpf', data.cpf)
     formData.append('phone', data.phone)
+    if (data.avatar !== null)
+      formData.append('file', data.avatar)
 
-    api.post("/user", data)
+    api.post("/user", formData, config)
       .then((res) => {
         navigation.navigate("SignIn")
       })
@@ -172,7 +170,10 @@ export default function SignUp() {
           onSubmit={() => signUp()}
         >
           <View style={styles.containerInput}>
-            <ImagePickerFunction onPick={(image) => onChange("avatar", image)} />
+            <ImagePickerFunction
+              value={data.avatar ? data.avatar.uri : `${STORAGE_URL}/user/default-avatar.png`}
+              onChange={(image) => onChange("avatar", image)}
+            />
           </View>
         </ProgressStep>
 
