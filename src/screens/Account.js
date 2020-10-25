@@ -74,8 +74,7 @@ export default function Account() {
         <Text style={styles.title}> Minha conta </Text>
 
         <View style={styles.cardContainer}>
-          <Image style={styles.avatarContainer} resizeMode="contain"
-            source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
+          <Image style={styles.avatar} source={{ uri: `${STORAGE_URL}/user/${userInfo.avatar}` }} />
           <Text style={styles.name}>{userInfo.name}</Text>
           <TouchableOpacity style={styles.buttonLogout} onPress={() => logout()}>
             <Text style={styles.buttonText}>Sair</Text>
@@ -152,10 +151,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
 
-  avatarContainer: {
+  avatar: {
     width: 110,
     height: 110,
-    borderRadius: 110
+    borderRadius: 110,
+    borderWidth: 2,
+    borderColor: colors["yellow"],
   },
 
   name: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image } from 'react-native'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import api, { STORAGE_URL } from '../services/api'
 import { useNavigation } from '@react-navigation/native'
@@ -170,10 +170,15 @@ export default function SignUp() {
           onSubmit={() => signUp()}
         >
           <View style={styles.containerInput}>
-            <ImagePickerFunction
-              value={data.avatar ? data.avatar.uri : `${STORAGE_URL}/user/default-avatar.png`}
-              onChange={(image) => onChange("avatar", image)}
-            />
+            <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
+              <Image
+                source={{ uri: data.avatar ? data.avatar.uri : `${STORAGE_URL}/user/default-avatar.png` }}
+                style={styles.avatar}
+              />
+            </ImagePickerFunction>
+            <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
+              <Text style={styles.avatarText}>Alterar</Text>
+            </ImagePickerFunction>
           </View>
         </ProgressStep>
 
@@ -241,5 +246,23 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+
+  avatar: {
+    width: "100%",
+    height: "100%",
+    width: 180,
+    height: 180,
+    borderRadius: 180,
+    borderWidth: 3,
+    borderColor: colors["yellow"],
+  },
+
+  avatarText: {
+    color: colors['yellow'],
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginVertical: 5,
+    textDecorationLine: "underline"
+  }
 
 })

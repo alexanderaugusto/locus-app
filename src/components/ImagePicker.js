@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
-import { TouchableOpacity, Image, View, Platform, StyleSheet, Text } from 'react-native'
+import { TouchableOpacity, Platform, StyleSheet } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 
-import colors from '../constants/colors.json'
-
-export default function ImagePickerFunction({ onChange, value }) {
+export default function ImagePickerFunction({ onChange, children }) {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -36,14 +34,9 @@ export default function ImagePickerFunction({ onChange, value }) {
   }
 
   return (
-    <View style={styles.containerInput}>
-      <TouchableOpacity onPress={pickImage}>
-        <Image source={{ uri: value }} style={styles.avatar} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={pickImage}>
-        <Text style={styles.avatarText}>Alterar</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity style={styles.containerInput} onPress={pickImage}>
+      {children}
+    </TouchableOpacity>
   )
 }
 
@@ -52,24 +45,5 @@ const styles = StyleSheet.create({
   containerInput: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  avatar: {
-    width: "100%",
-    height: "100%",
-    width: 180,
-    height: 180,
-    borderRadius: 180,
-    borderWidth: 3,
-    borderColor: colors["yellow"],
-  },
-
-  avatarText: {
-    color: colors['yellow'],
-    fontWeight: 'bold',
-    fontSize: 16,
-    marginVertical: 5,
-    textDecorationLine: "underline"
-  },
-
+  }
 })
