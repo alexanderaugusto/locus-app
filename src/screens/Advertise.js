@@ -10,7 +10,7 @@ import {
 	Image
 } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import api, { STORAGE_URL } from '../services/api'
 import { formatCurrency, createRows } from '../utils/util'
 
@@ -19,6 +19,7 @@ import FloatButton from '../components/FloatButton'
 
 export default function Advertise() {
 	const navigation = useNavigation()
+	const route = useRoute()
 
 	const [properties, setProperties] = useState([])
 
@@ -50,6 +51,11 @@ export default function Advertise() {
 	useEffect(() => {
 		getProperties()
 	}, [])
+
+	useEffect(() => {
+		if (route.params?.reload)
+			getProperties()
+	}, [route.params])
 
 	return (
 		<KeyboardAvoidingView style={styles.container}>
@@ -126,16 +132,16 @@ const styles = StyleSheet.create({
 		paddingVertical: 5,
 		justifyContent: "center",
 		shadowColor: "#000",
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.8,
-    elevation: 1,
+		shadowOffset: { width: 5, height: 5 },
+		shadowOpacity: 0.8,
+		elevation: 1,
 	},
 
 	cardImage: {
 		borderTopLeftRadius: 10,
 		borderTopRightRadius: 10,
 		width: "100%",
-    height: 120
+		height: 120
 	},
 
 	cardTitle: {

@@ -87,7 +87,7 @@ export default function AddProperty() {
 
     api.post("/user/property", formData, config)
       .then((res) => {
-        navigation.navigate("Anúnciar")
+        navigation.navigate("Anúnciar", { reload: true })
       })
       .catch((err) => {
         console.error(err)
