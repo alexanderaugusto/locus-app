@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import colors from '../constants/colors.json'
 
 
-export default function InputArea({ prefixIcon, label, ...inputProps }) {
+export default function InputArea({ prefixIcon, label, containerStyle, style, ...inputProps }) {
   return (
-    <View style={styles.inputContainer}>
+    <View style={[styles.inputContainer, containerStyle]}>
       {prefixIcon && (
         <Icon
           style={styles.button}
@@ -23,7 +23,7 @@ export default function InputArea({ prefixIcon, label, ...inputProps }) {
 
       <TextInput
         {...inputProps}
-        style={styles.inputText}
+        style={[styles.inputText, style]}
         placeholderTextColor="#d2d2d2"
       />
 
@@ -35,10 +35,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: "#FFF",
     alignSelf: 'stretch',
-    height: 46,
     borderWidth: 1,
     borderColor: colors["blue"],
-    borderRadius: 24,
+    borderRadius: 25,
     marginTop: 15,
     paddingHorizontal: 12,
     flexDirection: "row",
@@ -54,7 +53,8 @@ const styles = StyleSheet.create({
   inputText: {
     width: "100%",
     paddingVertical: 10,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
+    height: 46
   },
 
   button: {

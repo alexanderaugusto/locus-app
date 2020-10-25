@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { TouchableOpacity, Platform, StyleSheet } from 'react-native'
+import { TouchableOpacity, Platform } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 
-export default function ImagePickerFunction({ onChange, children }) {
+export default function ImagePickerFunction({ onChange, children, ...props }) {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -18,8 +18,9 @@ export default function ImagePickerFunction({ onChange, children }) {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
+      allowsMultipleSelection: true,
       aspect: [4, 3],
-      quality: 1,
+      quality: 0.7,
     })
 
     if (!result.cancelled) {
@@ -34,16 +35,8 @@ export default function ImagePickerFunction({ onChange, children }) {
   }
 
   return (
-    <TouchableOpacity style={styles.containerInput} onPress={pickImage}>
+    <TouchableOpacity {...props} onPress={pickImage}>
       {children}
     </TouchableOpacity>
   )
 }
-
-
-const styles = StyleSheet.create({
-  containerInput: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-})

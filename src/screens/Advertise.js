@@ -72,7 +72,7 @@ export default function Advertise() {
 							>
 								<View style={styles.card}>
 									<Image style={styles.cardImage} resizeMode="cover"
-										source={{ uri: `${STORAGE_URL}/property/${item.images[0].path}` }} />
+										source={{ uri: `${STORAGE_URL}/property/${item.images[0]?.path}` }} />
 									<View style={styles.cardText}>
 										<Text numberOfLines={1} ellipsizeMode='tail' style={styles.cardTitle}>{
 											item.title}
@@ -113,8 +113,7 @@ const styles = StyleSheet.create({
 	},
 
 	listContainer: {
-		flex: 1,
-		height: 1000
+		flex: 1
 	},
 
 	card: {
