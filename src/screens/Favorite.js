@@ -17,7 +17,7 @@ export default function Favorite() {
     if (!token) {
       navigation.reset({
         index: 0,
-        routes: [{ name: "SignIn"  }],
+        routes: [{ name: "SignIn" }],
       })
       return
     }
@@ -35,6 +35,16 @@ export default function Favorite() {
       .catch((err) => {
         console.error(err)
       })
+  }
+
+  const onChangeFavorite = (item) => {
+    const newProperties = []
+    favorites.forEach(property => {
+      if (property.id !== item.id) {
+        newProperties.push(property)
+      }
+    })
+    setFavorites(newProperties)
   }
 
   useEffect(() => {
@@ -57,7 +67,10 @@ export default function Favorite() {
                 onPress={() => navigation.navigate('IMovelDetails', { item })}
               >
                 <View>
-                  <ImovelCard item={item} favorite={true} />
+                  <ImovelCard item={item}
+                    favorite={true}
+                    onChangeFavorite={onChangeFavorite}
+                  />
                 </View>
               </TouchableWithoutFeedback>
             )
