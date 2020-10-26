@@ -11,10 +11,10 @@ import colors from '../constants/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ item, colorIcon }) {
+export default function ImovelCard({ item, favorite, onChangeFavorite }) {
   const navigation = useNavigation()
 
-  const favoriteProperty = async () => {
+  const addFavorite = async () => {
     const token = await AsyncStorage.getItem("user-token")
     if (!token) {
       navigation.navigate("SignIn", { backPath: "Home" })
@@ -29,7 +29,31 @@ export default function ImovelCard({ item, colorIcon }) {
 
     api.put(`/user/favorite/${item.id}`, null, config)
       .then((res) => {
+        if (onChangeFavorite)
+          onChangeFavorite(item, true)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
 
+  const removeFavorite = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+    if (!token) {
+      navigation.navigate("SignIn", { backPath: "Home" })
+      return
+    }
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+
+    api.delete(`/user/favorite/${item.id}`, config)
+      .then((res) => {
+        if (onChangeFavorite)
+          onChangeFavorite(item, false)
       })
       .catch((err) => {
         console.error(err)
@@ -59,8 +83,12 @@ export default function ImovelCard({ item, colorIcon }) {
       </ScrollView>
 
       <View style={styles.favoriteIcon}>
-        <TouchableOpacity style={styles.button} onPress={() => favoriteProperty()}>
-          <Icon name={colorIcon === 'red' ? 'heart' : 'heart-o'} size={18} color={colorIcon} />
+        <TouchableOpacity style={styles.button} onPress={() => favorite ? removeFavorite() : addFavorite()}>
+          {favorite ?
+            <Icon name='heart' size={18} color='red' />
+            :
+            <Icon name={'heart-o'} size={18} color={colors["blue-secondary"]} />
+          }
         </TouchableOpacity>
       </View>
 

@@ -57,7 +57,7 @@ export default function Favorite() {
                 onPress={() => navigation.navigate('IMovelDetails', { item })}
               >
                 <View>
-                  <ImovelCard item={item} colorIcon={'red'} />
+                  <ImovelCard item={item} favorite={true} />
                 </View>
               </TouchableWithoutFeedback>
             )

@@ -15,6 +15,7 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import api from '../services/api'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import ImovelCard from '../components/ImovelCard'
 import colors from '../constants/colors.json'
@@ -24,8 +25,16 @@ export default function Home() {
 
   const [properties, setProperties] = useState([])
 
-  const getProperties = () => {
-    api.get("/properties")
+  const getProperties = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+
+    api.get("/properties", config)
       .then((res) => {
         setProperties(res.data)
       })
@@ -34,9 +43,20 @@ export default function Home() {
       })
   }
 
+  const onChangeFavorite = (item, favorite) => {
+    const newProperties = properties.map(property => {
+      if (property.id === item.id) {
+        return { ...property, favorite }
+      }else{
+        return property
+      }
+    })
+    setProperties(newProperties)
+  }
+
   useEffect(() => {
     getProperties()
-  }, []) 
+  }, [])
 
 
   return (
@@ -76,7 +96,10 @@ export default function Home() {
                 onPress={() => navigation.navigate('IMovelDetails', { item })}
               >
                 <View>
-                  <ImovelCard item={item} />
+                  <ImovelCard item={item}
+                    favorite={item.favorite}
+                    onChangeFavorite={onChangeFavorite}
+                  />
                 </View>
               </TouchableWithoutFeedback>
             )
