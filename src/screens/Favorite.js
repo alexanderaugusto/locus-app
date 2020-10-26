@@ -38,13 +38,18 @@ export default function Favorite() {
   }
 
   const onChangeFavorite = (item) => {
-    const newProperties = []
-    favorites.forEach(property => {
-      if (property.id !== item.id) {
-        newProperties.push(property)
-      }
+    // const newProperties = []
+    // favorites.forEach(property => {
+    //   if (property.id !== item.id) {
+    //     newProperties.push(property)
+    //   }
+    // })
+    // setFavorites(newProperties)
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Favoritos" }],
+      key: "Home"
     })
-    setFavorites(newProperties)
   }
 
   useEffect(() => {

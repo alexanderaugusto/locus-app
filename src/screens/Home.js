@@ -44,14 +44,19 @@ export default function Home() {
   }
 
   const onChangeFavorite = (item, favorite) => {
-    const newProperties = properties.map(property => {
-      if (property.id === item.id) {
-        return { ...property, favorite }
-      }else{
-        return property
-      }
+    // const newProperties = properties.map(property => {
+    //   if (property.id === item.id) {
+    //     return { ...property, favorite }
+    //   }else{
+    //     return property
+    //   }
+    // })
+    // setProperties(newProperties)
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Home" }],
+      key: "Favoritos"
     })
-    setProperties(newProperties)
   }
 
   useEffect(() => {
