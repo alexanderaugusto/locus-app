@@ -24,6 +24,7 @@ export default function Home() {
   const navigation = useNavigation()
 
   const [properties, setProperties] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const getProperties = async () => {
     const token = await AsyncStorage.getItem("user-token")
@@ -34,13 +35,17 @@ export default function Home() {
       }
     }
 
-    api.get("/properties", config)
+    setLoading(true)
+
+    await api.get("/properties", config)
       .then((res) => {
         setProperties(res.data)
       })
       .catch((err) => {
         console.error(err)
       })
+
+    setLoading(false)
   }
 
   const onChangeFavorite = (item, favorite) => {
@@ -95,6 +100,8 @@ export default function Home() {
           data={properties}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
+          onRefresh={() => getProperties()}
+          refreshing={loading}
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback

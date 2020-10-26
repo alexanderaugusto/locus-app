@@ -11,6 +11,7 @@ export default function Favorite() {
   const navigation = useNavigation()
 
   const [favorites, setFavorites] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const getFavorites = async () => {
     const token = await AsyncStorage.getItem("user-token")
@@ -28,13 +29,17 @@ export default function Favorite() {
       }
     }
 
-    api.get(`/user/favorites`, config)
+    setLoading(true)
+
+    await api.get(`/user/favorites`, config)
       .then((res) => {
         setFavorites(res.data)
       })
       .catch((err) => {
         console.error(err)
       })
+
+    setLoading(false)
   }
 
   const onChangeFavorite = (item) => {
@@ -66,6 +71,8 @@ export default function Favorite() {
           data={favorites}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
+          onRefresh={() => getFavorites()}
+          refreshing={loading}
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback

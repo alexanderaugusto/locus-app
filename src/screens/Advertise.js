@@ -22,6 +22,7 @@ export default function Advertise() {
 	const route = useRoute()
 
 	const [properties, setProperties] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	const getProperties = async () => {
 		const token = await AsyncStorage.getItem("user-token")
@@ -39,13 +40,17 @@ export default function Advertise() {
 			}
 		}
 
-		api.get(`/user/properties`, config)
+		setLoading(true)
+
+		await api.get(`/user/properties`, config)
 			.then((res) => {
 				setProperties(res.data)
 			})
 			.catch((err) => {
 				console.error(err)
 			})
+
+		setLoading(false)
 	}
 
 	useEffect(() => {
@@ -67,6 +72,8 @@ export default function Advertise() {
 					keyExtractor={item => item.id.toString()}
 					showsVerticalScrollIndicator={false}
 					numColumns={2}
+					onRefresh={() => getProperties()}
+					refreshing={loading}
 					renderItem={({ item }) => {
 						if (item.empty) {
 							return <View style={{ ...styles.card, elevation: 0, backgroundColor: "transparent" }} />
