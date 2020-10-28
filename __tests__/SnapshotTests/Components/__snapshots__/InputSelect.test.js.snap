@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputSelect test render InputSelect component correctly 1`] = `
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "height": 48,
+        "justifyContent": "space-between",
+        "marginTop": 15,
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 15,
+        }
+      }
+    >
+      Minas Gerais
+    </Text>
+    <Icon
+      color="black"
+      name="sort-down"
+      size={18}
+    />
+  </View>,
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(52, 52, 52, 0.8)",
+          "height": "100%",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+      >
+        <RCTScrollView
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 10,
+              "margin": 20,
+            }
+          }
+        >
+          <View>
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Selecione um estado
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "rgba(52, 52, 52, 0.15)",
+                  "opacity": 1,
+                  "padding": 13,
+                }
+              }
+            >
+              <Text>
+                Minas Gerais
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "padding": 13,
+                }
+              }
+            >
+              <Text>
+                São Paulo
+              </Text>
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
+    </View>
+  </Modal>,
+]
+`;

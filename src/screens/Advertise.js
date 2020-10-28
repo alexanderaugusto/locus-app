@@ -10,8 +10,10 @@ import colors from '../constants/colors.json'
 
 export default function Advertise() {
 	const navigation = useNavigation()
+	const route = useRoute()
 
 	const [properties, setProperties] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	const getProperties = async () => {
 		const token = await AsyncStorage.getItem("user-token")
@@ -29,18 +31,27 @@ export default function Advertise() {
 			}
 		}
 
-		api.get(`/user/properties`, config)
+		setLoading(true)
+
+		await api.get(`/user/properties`, config)
 			.then((res) => {
 				setProperties(res.data)
 			})
 			.catch((err) => {
 				console.error(err)
 			})
+
+		setLoading(false)
 	}
 
 	useEffect(() => {
 		getProperties()
 	}, [])
+
+	useEffect(() => {
+		if (route.params?.reload)
+			getProperties()
+	}, [route.params])
 
 	return (
 		<KeyboardAvoidingView style={styles.container}>
@@ -52,6 +63,8 @@ export default function Advertise() {
 					keyExtractor={item => item.id.toString()}
 					showsVerticalScrollIndicator={false}
 					numColumns={2}
+					onRefresh={() => getProperties()}
+					refreshing={loading}
 					renderItem={({ item }) => {
 						if (item.empty) {
 							return <View style={{ ...styles.card, elevation: 0, backgroundColor: "transparent" }} />
@@ -63,12 +76,12 @@ export default function Advertise() {
 							>
 								<View style={styles.card}>
 									<Image style={styles.cardImage} resizeMode="cover"
-										source={{ uri: `${STORAGE_URL}/property/${item.images[0].path}` }} />
-									<View style={styles.cardText}>
+										source={{ uri: `${STORAGE_URL}/property/${item.images[0]?.path}` }} />
+									<View style={styles.detailContainer}>
 										<Text numberOfLines={1} ellipsizeMode='tail' style={styles.cardTitle}>{
 											item.title}
 										</Text>
-										<View style={{ flexDirection: "row" }}>
+										<View style={{ flexDirection: "row", flex: 1 }}>
 											<Text numberOfLines={4} ellipsizeMode='tail' style={styles.cardDescription}>{
 												item.description}
 											</Text>
@@ -104,8 +117,7 @@ const styles = StyleSheet.create({
 	},
 
 	listContainer: {
-		flex: 1,
-		height: 1000
+		flex: 1
 	},
 
 	card: {
@@ -121,6 +133,15 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 5, height: 5 },
 		shadowOpacity: 0.8,
 		elevation: 1,
+<<<<<<< HEAD
+=======
+		height: 250
+	},
+
+	detailContainer: {
+		justifyContent: "space-between",
+		flex: 1
+>>>>>>> 81820c25781e9137a593a239a05d3bf9c144330a
 	},
 
 	cardImage: {
@@ -138,7 +159,7 @@ const styles = StyleSheet.create({
 
 	cardDescription: {
 		fontSize: 14,
-		color: colors["blue"],
+		color: colors["blue"]
 	},
 
 	cardPrice: {

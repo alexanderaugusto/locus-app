@@ -7,21 +7,51 @@ import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { ImovelCard } from '../components'
 import api from '../services/api'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
 
 export default function Home() {
   const navigation = useNavigation()
   const [properties, setProperties] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  const getProperties = () => {
-    api.get("/properties")
+  const getProperties = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+
+    setLoading(true)
+
+    await api.get("/properties", config)
       .then((res) => {
         setProperties(res.data)
       })
       .catch((err) => {
         console.error(err)
       })
+
+    setLoading(false)
+  }
+
+  const onChangeFavorite = (item, favorite) => {
+    // const newProperties = properties.map(property => {
+    //   if (property.id === item.id) {
+    //     return { ...property, favorite }
+    //   }else{
+    //     return property
+    //   }
+    // })
+    // setProperties(newProperties)
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Home" }],
+      key: "Favoritos"
+    })
   }
 
   useEffect(() => {
@@ -60,13 +90,18 @@ export default function Home() {
           data={properties}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
+          onRefresh={() => getProperties()}
+          refreshing={loading}
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback
                 onPress={() => navigation.navigate('IMovelDetails', { item })}
               >
                 <View>
-                  <ImovelCard item={item} />
+                  <ImovelCard item={item}
+                    favorite={item.favorite}
+                    onChangeFavorite={onChangeFavorite}
+                  />
                 </View>
               </TouchableWithoutFeedback>
             )

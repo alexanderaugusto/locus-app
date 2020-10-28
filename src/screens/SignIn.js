@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { View, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image, Platform } from 'react-native'
 import { InputArea } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
@@ -10,7 +10,6 @@ import colors from '../constants/colors.json'
 
 export default function SignIn(props) {
   const navigation = useNavigation()
-  const route = useRoute()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -33,10 +32,6 @@ export default function SignIn(props) {
         console.error(err)
       })
   }
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <KeyboardAvoidingView

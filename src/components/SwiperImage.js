@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import Swiper from 'react-native-swiper';
+import Swiper from 'react-native-swiper'
 import { STORAGE_URL } from '../services/api'
 
 import colors from '../constants/colors.json'

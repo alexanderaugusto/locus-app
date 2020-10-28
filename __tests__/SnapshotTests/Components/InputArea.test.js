@@ -3,18 +3,44 @@ import { act, create } from 'react-test-renderer'
 import InputArea from '../../../src/components/InputArea'
 
 jest.useFakeTimers()
-jest.mock('react-native-vector-icons/FontAwesome', () => 'Icon')
+jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
 
-describe('<InputArea />', () => {
+describe('InputArea test', () => {
 
-  it('render correctly', () => {
+  it('render InputArea component without icon and label correctly', () => {
     act(() => {
       tree = create(
         <InputArea
-          icon={'envelope'}
           placeholder={'Entre com o seu email'}
           keyboardType={'email-address'}
-          password={false}
+        />
+      )
+    })
+
+    expect(tree.toJSON()).toMatchSnapshot();
+  })
+
+  it('render InputArea component with icon correctly', () => {
+    act(() => {
+      tree = create(
+        <InputArea
+          prefixIcon={'envelope'}
+          placeholder={'Entre com o seu email'}
+          keyboardType={'email-address'}
+        />
+      )
+    })
+
+    expect(tree.toJSON()).toMatchSnapshot();
+  })
+
+  it('render InputArea component with label correctly', () => {
+    act(() => {
+      tree = create(
+        <InputArea
+          label={'Email'}
+          placeholder={'Entre com o seu email'}
+          keyboardType={'email-address'}
         />
       )
     })

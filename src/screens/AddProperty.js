@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native'
 import api from '../services/api'
 
 import colors from '../constants/colors.json'
+import states from '../constants/states.json'
+import types from '../constants/types.json'
 
 export default function AddProperty() {
   const navigation = useNavigation()
@@ -16,21 +18,37 @@ export default function AddProperty() {
     street: "",
     neighborhood: "",
     city: "",
-    state: "",
-    country: "",
+    state: "MG",
+    country: "Brasil",
     price: "",
     bedrooms: "",
     bathrooms: "",
     area: "",
     place: "",
-    animal: false,
+    animal: true,
     type: "Casa",
     images: []
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
-  const add = () => {
+  const onChangeImages = (image) => {
+    setData({
+      ...data,
+      images: [...data.images, image]
+    })
+  }
+
+  const addProperty = async () => {
+    const token = await AsyncStorage.getItem("user-token")
+
+    const config = {
+      headers: {
+        "Authorization": "Bearer " + token,
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+
     const formData = new FormData()
 
     formData.append('title', data.title)
@@ -40,18 +58,21 @@ export default function AddProperty() {
     formData.append('city', data.city)
     formData.append('state', data.state)
     formData.append('country', data.country)
-    formData.append('price', data.price)
-    formData.append('bedrooms', data.bedrooms)
-    formData.append('bathrooms', data.bathrooms)
-    formData.append('area', data.area)
-    formData.append('place', data.place)
+    formData.append('price', parseFloat(data.price.replace(",", ".")))
+    formData.append('bedrooms', parseInt(data.bedrooms, 10))
+    formData.append('bathrooms', parseInt(data.bathrooms, 10))
+    formData.append('area', parseFloat(data.area.replace(",", ".")))
+    formData.append('place', parseInt(data.place, 10))
     formData.append('animal', data.animal)
     formData.append('type', data.type)
-    formData.append('images', data.images)
 
-    api.post("/user/property", data)
+    data.images.forEach(image => {
+      formData.append("files", image)
+    })
+
+    api.post("/user/property", formData, config)
       .then((res) => {
-        navigation.navigate("Anúnciar")
+        navigation.navigate("Anúnciar", { reload: true })
       })
       .catch((err) => {
         console.error(err)
@@ -65,7 +86,7 @@ export default function AddProperty() {
         enabled={Platform.OS === 'ios'}
       >
         <View style={styles.header} >
-          <Text style={styles.message}>Vamos cadastrar seu imóvel</Text>
+          <Text style={styles.headerMessage}>Vamos cadastrar seu imóvel</Text>
         </View>
 
         <ProgressSteps
@@ -78,12 +99,14 @@ export default function AddProperty() {
         >
           <ProgressStep
             nextBtnText={'Próximo'}
-            label="Informações"
             nextBtnStyle={styles.button}
             nextBtnTextStyle={styles.buttonText}
             scrollable={false}
           >
             <View style={styles.containerInput}>
+              <Text style={styles.message}>
+                Primeiramente, nos diga as informações que você gostaria de conter no seu anúncio
+              </Text>
               <Text style={styles.label}>Título</Text>
               <InputArea
                 placeholder={'Título do anúncio...'}
@@ -94,13 +117,15 @@ export default function AddProperty() {
               <InputArea
                 placeholder={'Descrição do anúncio...'}
                 value={data.description}
+                multiline={true}
+                textAlignVertical="top"
+                style={styles.textArea}
                 onChangeText={(value) => onChange("description", value)}
               />
             </View>
           </ProgressStep>
 
           <ProgressStep
-            label="Localização"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
             nextBtnStyle={styles.button}
@@ -110,128 +135,173 @@ export default function AddProperty() {
             scrollable={false}
           >
             <View style={styles.containerInput}>
-              <Text style={styles.messageEmail}>Por favor, entre com os dados corretamente!</Text>
-              <Text style={styles.label}>Rua</Text>
-              <InputArea
-                placeholder={'Rua do imóvel...'}
-                value={data.street}
-                onChangeText={(value) => onChange("street", value)}
-              />
-              <Text style={styles.label}>Bairro</Text>
-              <InputArea
-                placeholder={'Bairro do imóvel...'}
-                value={data.neighborhood}
-                onChangeText={(value) => onChange("neighborhood", value)}
-              />
-              <Text style={styles.label}>Cidade</Text>
-              <InputArea
-                placeholder={'Cidade do imóvel...'}
-                value={data.city}
-                onChangeText={(value) => onChange("city", value)}
-              />
-              <Text style={styles.label}>Estado</Text>
-              <InputArea
-                placeholder={'Estado do imóvel...'}
-                value={data.state}
-                onChangeText={(value) => onChange("state", value)}
-              />
-              <Text style={styles.label}>País</Text>
-              <InputArea
-                placeholder={'País do imóvel...'}
-                value={data.country}
-                onChangeText={(value) => onChange("country", value)}
-              />
+<<<<<<< HEAD
+            <Text style={styles.messageEmail}>Por favor, entre com os dados corretamente!</Text>
+=======
+              <Text style={styles.message}>
+              Onde seu imóvel está localizado?
+              </Text>
+>>>>>>> 81820c25781e9137a593a239a05d3bf9c144330a
+            <Text style={styles.label}>Rua</Text>
+            <InputArea
+              placeholder={'Rua do imóvel...'}
+              value={data.street}
+              onChangeText={(value) => onChange("street", value)}
+            />
+            <Text style={styles.label}>Bairro</Text>
+            <InputArea
+              placeholder={'Bairro do imóvel...'}
+              value={data.neighborhood}
+              onChangeText={(value) => onChange("neighborhood", value)}
+            />
+            <Text style={styles.label}>Cidade</Text>
+            <InputArea
+              placeholder={'Cidade do imóvel...'}
+              value={data.city}
+              onChangeText={(value) => onChange("city", value)}
+            />
+            <Text style={styles.label}>Estado</Text>
+            <InputSelect
+              items={states}
+              selectedValue={data.state}
+              onChange={(item) => onChange("state", item.value)}
+            />
             </View>
           </ProgressStep>
 
-          <ProgressStep
-            label="Adicionais"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
-            scrollable={false}
-          >
-            <View style={styles.containerInput}>
-              <Text style={styles.label}>Tipo</Text>
-              <InputArea
-                placeholder={'Tipo do imóvel...'}
-                value={data.type}
-                onChangeText={(value) => onChange("type", value)}
-              />
-              <Text style={styles.label}>Quartos</Text>
-              <InputArea
-                placeholder={'Quantidade de quartos...'}
-                value={data.bedrooms}
-                onChangeText={(value) => onChange("bedrooms", value)}
-              />
-              <Text style={styles.label}>Banheiros</Text>
-              <InputArea
-                placeholder={'Quantidade de banheiros...'}
-                value={data.bathrooms}
-                onChangeText={(value) => onChange("bathrooms", value)}
-              />
-              <Text style={styles.label}>Area (m3)</Text>
-              <InputArea
-                placeholder={'Area do imóvel...'}
-                value={data.area}
-                onChangeText={(value) => onChange("area", value)}
-              />
-              <Text style={styles.label}>Pessoas</Text>
-              <InputArea
-                placeholder={'Quantidade de pessoas...'}
-                value={data.place}
-                onChangeText={(value) => onChange("place", value)}
-              />
-              <Text style={styles.label}>Animal</Text>
-              <InputArea
-                placeholder={'Pode conter animal?'}
-                value={data.animal}
-                onChangeText={(value) => onChange("animal", value)}
-              />
-            </View>
-          </ProgressStep>
+        <ProgressStep
+          nextBtnText={'Próximo'}
+          previousBtnText={'Anterior'}
+          nextBtnStyle={styles.button}
+          previousBtnStyle={styles.button}
+          nextBtnTextStyle={styles.buttonText}
+          previousBtnTextStyle={styles.buttonText}
+          scrollable={false}
+        >
+          <View style={styles.containerInput}>
+            <Text style={styles.message}>
+              Precisamos de mais algumas informações do seu imóvel
+              </Text>
+            <Text style={styles.label}>Tipo</Text>
+            <InputSelect
+              items={types}
+              selectedValue={data.type}
+              menuTitle="Qual o tipo de imóve?"
+              onChange={(item) => onChange("type", item.value)}
+            />
+            <Text style={styles.label}>Quartos</Text>
+            <InputArea
+              keyboardType={"number-pad"}
+              placeholder={'Quantidade de quartos...'}
+              value={data.bedrooms}
+              onChangeText={(value) => onChange("bedrooms", value)}
+            />
+            <Text style={styles.label}>Banheiros</Text>
+            <InputArea
+              keyboardType={"number-pad"}
+              placeholder={'Quantidade de banheiros...'}
+              value={data.bathrooms}
+              onChangeText={(value) => onChange("bathrooms", value)}
+            />
+            <Text style={styles.label}>Area (m3)</Text>
+            <InputArea
+              keyboardType={"number-pad"}
+              placeholder={'Area do imóvel...'}
+              value={data.area}
+              onChangeText={(value) => onChange("area", value)}
+            />
+            <Text style={styles.label}>Vagas</Text>
+            <InputArea
+              keyboardType={"number-pad"}
+              placeholder={'É um imóvel para quantas pessoas?'}
+              value={data.place}
+              onChangeText={(value) => onChange("place", value)}
+            />
+            <Text style={styles.label}>Animal</Text>
+            <InputSelect
+              items={[
+                { label: "Sim", value: true },
+                { label: "Não", value: false }
+              ]}
+              selectedValue={data.animal}
+              menuTitle="Seu imóvel poder conter animais?"
+              onChange={(item) => onChange("animal", item.value)}
+            />
+          </View>
+        </ProgressStep>
 
-          <ProgressStep
-            label="Imagens"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
-            scrollable={false}
-          >
-            <View style={styles.containerInput}>
-              <ImagePickerFunction onPick={(image) => onChange("images", image)} />
-            </View>
-          </ProgressStep>
+        <ProgressStep
+          nextBtnText={'Próximo'}
+          previousBtnText={'Anterior'}
+          nextBtnStyle={styles.button}
+          previousBtnStyle={styles.button}
+          nextBtnTextStyle={styles.buttonText}
+          previousBtnTextStyle={styles.buttonText}
+          scrollable={false}
+        >
+          <View style={styles.containerInput}>
+            <Text style={styles.message}>
+              Selecione algumas imagens do seu imóvel para deixa-lo mais apresentável
+              </Text>
+            <SafeAreaView style={styles.imageContainer}>
+              <FlatList
+                data={createRows([...data.images, { imagePicker: true }], 2)}
+                keyExtractor={(item, index) => index.toString()}
+                numColumns={2}
+                scrollEnabled={false}
+                renderItem={({ item }) => {
+                  if (item.empty) {
+                    return (
+                      <View style={{ ...styles.image, backgroundColor: "transparent" }} />
+                    )
+                  }
 
-          <ProgressStep
-            label="Preço"
-            previousBtnText={'Anterior'}
-            finishBtnText={'Finalizar'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
-            scrollable={false}
-            onSubmit={() => add()}
-          >
-            <View style={styles.containerInput}>
-              <Text style={styles.label}>Preço</Text>
-              <InputArea
-                placeholder={'Preço do imóvel...'}
-                value={data.price}
-                onChangeText={(value) => onChange("price", value)}
+                  if (item.imagePicker) {
+                    return (
+                      <ImagePickerFunction style={styles.image} onChange={(image) => onChangeImages(image)}>
+                        <View style={styles.addIcon}>
+                          <Icon name="plus" color={colors["blue-secondary"]} size={20} />
+                        </View>
+                      </ImagePickerFunction>
+                    )
+                  }
+
+                  return (
+                    <Image source={{ uri: item.uri }} style={styles.image} />
+                  )
+                }}
               />
-            </View>
-          </ProgressStep>
+            </SafeAreaView>
+          </View>
+        </ProgressStep>
+
+        <ProgressStep
+          previousBtnText={'Anterior'}
+          finishBtnText={'Finalizar'}
+          nextBtnStyle={styles.button}
+          previousBtnStyle={styles.button}
+          nextBtnTextStyle={styles.buttonText}
+          previousBtnTextStyle={styles.buttonText}
+          scrollable={false}
+          onSubmit={() => addProperty()}
+        >
+          <View style={styles.containerInput}>
+            <Text style={styles.message}>
+              Vamos definir um preço para seu imóvel
+              </Text>
+            <Text style={styles.label}>Preço</Text>
+            <InputArea
+              keyboardType={"number-pad"}
+              label='R$'
+              placeholder={'0,00'}
+              value={data.price}
+              onChangeText={(value) => onChange("price", value)}
+            />
+          </View>
+        </ProgressStep>
         </ProgressSteps>
       </KeyboardAvoidingView>
-    </ScrollView>
+    </ScrollView >
   )
 }
 
@@ -239,13 +309,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors["platinum"],
+<<<<<<< HEAD
     /*     justifyContent: 'center',
         alignItems: 'center', */
+=======
+>>>>>>> 81820c25781e9137a593a239a05d3bf9c144330a
     padding: 30,
   },
 
   containerInput: {
     marginBottom: 20,
+  },
+
+  textArea: {
+    height: 100,
+    justifyContent: "flex-start"
   },
 
   header: {
@@ -254,7 +332,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  message: {
+  headerMessage: {
     width: 300,
     fontSize: 23,
     fontWeight: "600",
@@ -262,13 +340,13 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
 
-  messageEmail: {
+  message: {
     marginTop: 10,
     fontSize: 15,
     fontWeight: "500",
     color: '#999',
-    textAlign: 'center',
-
+    textAlign: "center",
+    marginBottom: 10
   },
 
   label: {
@@ -295,4 +373,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  imageContainer: {
+    flex: 1,
+    marginTop: 10
+  },
+
+  image: {
+    flexGrow: 1,
+    flexBasis: 0,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    margin: 3,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    justifyContent: "center",
+    width: "100%",
+    height: 170
+  },
+
+  addIcon: {
+    alignSelf: "center"
+  }
 })

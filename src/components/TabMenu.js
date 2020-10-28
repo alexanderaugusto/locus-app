@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from '@expo/vector-icons/MaterialIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../screens/Home'
