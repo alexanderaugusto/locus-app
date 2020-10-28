@@ -36,14 +36,16 @@ Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo
 ---
 
 ## ⚙️ Funcionalidades
-  
-  - [ ] Cadastrar Usuário  
-  - [ ] Realizar login
-  - [ ] Editar dados do usuário
-  - [ ] Cadastrar imóveis  
-  - [ ] Listar imóveis  
-  - [ ] Favoritar imóveis  
-  - [ ] Pesquisar por imóveis  
+
+  - Usuário:
+	  - [x] Cadastrar  
+	  - [x] Realizar login
+	  - [x] Editar dados	  
+  - Imóveis:
+	  - [x] Cadastrar 
+	  - [x] Listar
+	  - [x] Favoritar  
+	  - [ ] Pesquisar   
   
 ---
 
