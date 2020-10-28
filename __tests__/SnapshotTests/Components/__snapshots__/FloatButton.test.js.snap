@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Float button test render float button correctly 1`] = `
+exports[`FloatButton test render FloatButton component correctly 1`] = `
 <View
   accessible={true}
   focusable={false}

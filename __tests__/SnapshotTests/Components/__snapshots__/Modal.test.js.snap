@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal Component renders correctly 1`] = `
+exports[`Modal test render Modal component correctly 1`] = `
 <Modal
   animationType="fade"
   hardwareAccelerated={false}

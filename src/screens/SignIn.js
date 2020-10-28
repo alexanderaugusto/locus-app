@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image, Platform } from 'react-native'
 import { InputArea } from '../components'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
 
@@ -13,6 +13,7 @@ export default function SignIn(props) {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(true)
 
   const login = () => {
     const data = {
@@ -51,8 +52,11 @@ export default function SignIn(props) {
       />
       <InputArea
         prefixIcon={'lock'}
+        showPassword={showPassword}
+        setShowPassword={setShowPassword}
+        passwordIcon={showPassword ? 'eye-slash' : 'eye'}
         placeholder={'Entre com a sua senha'}
-        secureTextEntry={true}
+        secureTextEntry={showPassword ? true : false}
         value={password}
         onChangeText={(value) => setPassword(value)}
       />

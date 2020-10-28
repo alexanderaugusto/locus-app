@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 
-export default function InputArea({ prefixIcon, label, containerStyle, style, ...inputProps }) {
+export default function InputArea({ prefixIcon, showPassword, setShowPassword, passwordIcon, label, containerStyle, style, ...inputProps }) {
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       {prefixIcon && (
@@ -25,6 +25,16 @@ export default function InputArea({ prefixIcon, label, containerStyle, style, ..
         style={[styles.inputText, style]}
         placeholderTextColor="#d2d2d2"
       />
+
+      {passwordIcon && (
+        <TouchableOpacity style={styles.passwordButton} onPress={() => setShowPassword(!showPassword)}>
+          <Icon
+            name={passwordIcon}
+            size={16}
+            color={colors['blue']}
+          />
+        </TouchableOpacity>
+      )}
 
     </View>
   )
@@ -58,6 +68,11 @@ const styles = StyleSheet.create({
 
   button: {
     alignSelf: 'center',
+  },
+
+  passwordButton: {
+    alignSelf: 'center',
+    marginLeft: -35,
   },
 
   label: {

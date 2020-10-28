@@ -5,9 +5,9 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
-    "splash": {     
-      "image": "./assets/splash.png",   
-      "resizeMode": "cover"    
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
