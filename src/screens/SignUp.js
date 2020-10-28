@@ -5,6 +5,7 @@ import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
+import { formatPhoneNumber, formatCPF } from '../utils/util'
 
 import colors from '../constants/colors.json'
 
@@ -96,14 +97,17 @@ export default function SignUp() {
               <Text style={styles.label}>CPF</Text>
               <InputArea
                 placeholder={'xxx.xxx.xxx-xx'}
-                value={data.cpf}
+                value={formatCPF(data.cpf)}
                 onChangeText={(value) => onChange("cpf", value)}
+                keyboardType={'numeric'}
+
               />
               <Text style={styles.label}>Celular</Text>
               <InputArea
                 placeholder={'(xx)xxxxx-xxxx'}
-                value={data.phone}
-                onChangeText={(value) => onChange("phone", value)}
+                value={formatPhoneNumber(data.phone)}
+                onChangeText={(value) => { onChange("phone", value) }}
+                keyboardType={'phone-pad'}
               />
             </View>
           </ProgressStep>

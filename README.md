@@ -242,6 +242,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[React Navigation](https://reactnavigation.org/)**
 -   **[Axios](https://github.com/axios/axios)**
 -   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
+-   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
 
 Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
 

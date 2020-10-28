@@ -29,7 +29,23 @@ const createRows = (data, columns = 2) => {
   return array;
 }
 
+const formatPhoneNumber = (text) => {
+  const regex = /^([0-9]{2})([0-9]{4,5})([0-9]{4})$/;
+  var str = text.replace(/[^0-9]/g, "").slice(0, 11);
+
+  return str.replace(regex, "($1) $2-$3");
+}
+
+const formatCPF = (text) => {
+  const regex = /^([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})$/;
+  var str = text.replace(/[^0-9]/g, "").slice(0, 11);
+
+  return str.replace(regex, "$1.$2.$3-$4");
+}
+
 export {
   formatCurrency,
-  createRows
+  createRows,
+  formatPhoneNumber,
+  formatCPF
 }
