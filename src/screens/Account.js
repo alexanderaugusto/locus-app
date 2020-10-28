@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView
-} from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Text, Image, KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
+import { InputArea } from '../components'
 import { useNavigation } from '@react-navigation/native'
 import api, { STORAGE_URL } from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
-import InputArea from '../components/InputArea'
 
 export default function Account() {
   const navigation = useNavigation()
@@ -31,7 +22,7 @@ export default function Account() {
     if (!token) {
       navigation.reset({
         index: 0,
-        routes: [{ name: "SignIn"  }],
+        routes: [{ name: "SignIn" }],
       })
       return
     }
@@ -55,7 +46,7 @@ export default function Account() {
     await AsyncStorage.clear()
     navigation.reset({
       index: 0,
-      routes: [{ name: "SignIn"  }],
+      routes: [{ name: "SignIn" }],
     })
   }
 

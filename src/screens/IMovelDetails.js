@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text } from 'react-native'
-import Icon from '@expo/vector-icons/FontAwesome5'
+import { SwiperImage, ModalContact } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 
 import colors from '../constants/colors.json'
-import SwiperImage from '../components/SwiperImage'
-import ModalContact from '../components/Modal'
 
 export default function IMovelDetails() {
   const navigation = useNavigation()
@@ -75,9 +74,7 @@ export default function IMovelDetails() {
             </View>
 
             <TouchableOpacity style={styles.button}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
+              onPress={() => { setModalVisible(!modalVisible); }}
             >
               <Text style={styles.buttonText}>Entrar em contato</Text>
             </TouchableOpacity>

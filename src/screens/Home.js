@@ -1,27 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import {
-  KeyboardAvoidingView,
-  View,
-  Platform,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  SafeAreaView,
-  FlatList,
-  Image,
-  TouchableWithoutFeedback
+  KeyboardAvoidingView, View, Platform, StyleSheet, TextInput,
+  TouchableOpacity, Text, SafeAreaView, FlatList, Image, TouchableWithoutFeedback
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import { ImovelCard } from '../components'
 import api from '../services/api'
 
-import ImovelCard from '../components/ImovelCard'
 import colors from '../constants/colors.json'
 
 export default function Home() {
   const navigation = useNavigation()
-
   const [properties, setProperties] = useState([])
 
   const getProperties = () => {
@@ -36,7 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
-  }, []) 
+  }, [])
 
 
   return (

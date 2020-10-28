@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
+import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
-import api from '../services/api'
 import { useNavigation } from '@react-navigation/native'
+import api from '../services/api'
 
 import colors from '../constants/colors.json'
-
-import InputArea from '../components/InputArea'
-import ImagePickerFunction from '../components/ImagePicker'
 
 export default function SignUp() {
   const navigation = useNavigation()

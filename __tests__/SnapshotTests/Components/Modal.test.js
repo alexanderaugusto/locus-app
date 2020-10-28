@@ -10,5 +10,4 @@ describe('Modal Component', () => {
         expect(tree).toMatchSnapshot()
     })
 
-    
 })

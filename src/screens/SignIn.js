@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { View, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image, Platform } from 'react-native'
+import { InputArea } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
 
 import logo from '../../assets/img/house_agreement.png'
 import colors from '../constants/colors.json'
-
-import InputArea from '../components/InputArea'
 
 export default function SignIn(props) {
   const navigation = useNavigation()
@@ -27,7 +26,7 @@ export default function SignIn(props) {
         await AsyncStorage.setItem("user-token", res.data.token)
         navigation.reset({
           index: 0,
-          routes: [{ name: "Home"  }],
+          routes: [{ name: "Home" }],
         })
       })
       .catch((err) => {
@@ -36,7 +35,7 @@ export default function SignIn(props) {
   }
 
   useEffect(() => {
-    
+
   }, [])
 
   return (

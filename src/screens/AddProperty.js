@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View, ScrollView } from 'react-native'
+import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
-import api from '../services/api'
 import { useNavigation } from '@react-navigation/native'
+import api from '../services/api'
 
 import colors from '../constants/colors.json'
-
-import InputArea from '../components/InputArea'
-import ImagePickerFunction from '../components/ImagePicker'
 
 export default function AddProperty() {
   const navigation = useNavigation()
@@ -112,7 +110,7 @@ export default function AddProperty() {
             scrollable={false}
           >
             <View style={styles.containerInput}>
-              <Text style={styles.messageEmail}>Por favor, entre com um e-mail válido!</Text>
+              <Text style={styles.messageEmail}>Por favor, entre com os dados corretamente!</Text>
               <Text style={styles.label}>Rua</Text>
               <InputArea
                 placeholder={'Rua do imóvel...'}
@@ -241,8 +239,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors["platinum"],
-/*     justifyContent: 'center',
-    alignItems: 'center', */
+    /*     justifyContent: 'center',
+        alignItems: 'center', */
     padding: 30,
   },
 

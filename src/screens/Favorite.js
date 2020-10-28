@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, View, StyleSheet, Text, SafeAreaView, FlatList, TouchableWithoutFeedback } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
+import { ImovelCard } from '../components'
 import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
 
-import ImovelCard from '../components/ImovelCard'
 import colors from '../constants/colors.json'
 
 export default function Favorite() {
@@ -17,7 +17,7 @@ export default function Favorite() {
     if (!token) {
       navigation.reset({
         index: 0,
-        routes: [{ name: "SignIn"  }],
+        routes: [{ name: "SignIn" }],
       })
       return
     }

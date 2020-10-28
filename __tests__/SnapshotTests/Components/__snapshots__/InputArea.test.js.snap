@@ -23,22 +23,14 @@ exports[`<InputArea /> render correctly 1`] = `
     }
   }
 >
-  <Icon
-    color="#14213D"
-    size={16}
-    style={
-      Object {
-        "alignSelf": "center",
-      }
-    }
-  />
   <TextInput
     allowFontScaling={true}
+    icon="envelope"
     keyboardType="email-address"
+    password={false}
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
-    secureTextEntry={false}
     style={
       Object {
         "paddingHorizontal": 8,

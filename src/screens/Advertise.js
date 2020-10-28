@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import {
-	KeyboardAvoidingView,
-	Text,
-	StyleSheet,
-	SafeAreaView,
-	FlatList,
-	TouchableWithoutFeedback,
-	View,
-	Image
-} from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
+import { KeyboardAvoidingView, Text, StyleSheet, SafeAreaView, FlatList, TouchableWithoutFeedback, View, Image } from 'react-native'
+import { FloatButton } from '../components'
 import { useNavigation } from '@react-navigation/native'
-import api, { STORAGE_URL } from '../services/api'
 import { formatCurrency, createRows } from '../utils/util'
+import api, { STORAGE_URL } from '../services/api'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
-import FloatButton from '../components/FloatButton'
 
 export default function Advertise() {
 	const navigation = useNavigation()
@@ -53,7 +44,7 @@ export default function Advertise() {
 
 	return (
 		<KeyboardAvoidingView style={styles.container}>
-			<Text numberOfLiner={2} style={styles.title}>Anúnciar</Text>
+			<Text numberOfLiner={2} style={styles.title}>Anunciar</Text>
 
 			<SafeAreaView style={styles.listContainer}>
 				<FlatList
@@ -127,16 +118,16 @@ const styles = StyleSheet.create({
 		paddingVertical: 5,
 		justifyContent: "center",
 		shadowColor: "#000",
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.8,
-    elevation: 1,
+		shadowOffset: { width: 5, height: 5 },
+		shadowOpacity: 0.8,
+		elevation: 1,
 	},
 
 	cardImage: {
 		borderTopLeftRadius: 10,
 		borderTopRightRadius: 10,
 		width: "100%",
-    height: 120
+		height: 120
 	},
 
 	cardTitle: {
