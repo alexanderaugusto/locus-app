@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image } from 'react-native'
 import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
-import api from '../services/api'
+import api, { STORAGE_URL } from '../services/api'
 
 import colors from '../constants/colors.json'
 
@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
   },
 
   containerInput: {
+    alignItems: 'center',
     marginBottom: 20,
   },
 

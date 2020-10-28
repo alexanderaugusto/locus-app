@@ -7,7 +7,7 @@ import ModalContact from './Modal'
 // Inputs Components
 import FloatButton from './FloatButton'
 import InputArea from './InputArea'
-import Location from './Location'
+import InputSelect from './InputSelect'
 
 // Image Components
 import ImagePickerFunction from './ImagePicker'
@@ -21,7 +21,7 @@ export {
     ModalContact,
     FloatButton,
     InputArea,
-    Location,
+    InputSelect,
     ImagePickerFunction,
     SwiperImage,
     TabMenu

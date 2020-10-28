@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, Text, StyleSheet, SafeAreaView, FlatList, TouchableWithoutFeedback, View, Image } from 'react-native'
 import { FloatButton } from '../components'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -133,15 +133,12 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 5, height: 5 },
 		shadowOpacity: 0.8,
 		elevation: 1,
-<<<<<<< HEAD
-=======
 		height: 250
 	},
 
 	detailContainer: {
 		justifyContent: "space-between",
 		flex: 1
->>>>>>> 81820c25781e9137a593a239a05d3bf9c144330a
 	},
 
 	cardImage: {

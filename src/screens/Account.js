@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, TouchableOpacity, Text, Image, KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
-import { InputArea } from '../components'
+import { InputArea, ImagePickerFunction } from '../components'
 import { useNavigation } from '@react-navigation/native'
 import api, { STORAGE_URL } from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
