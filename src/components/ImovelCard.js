@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'

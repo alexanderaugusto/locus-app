@@ -1,9 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
-
 
 export default function InputArea({ prefixIcon, label, containerStyle, style, ...inputProps }) {
   return (
