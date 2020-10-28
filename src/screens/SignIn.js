@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { View, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, Image, Platform } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
 
@@ -9,9 +9,8 @@ import colors from '../constants/colors.json'
 
 import InputArea from '../components/InputArea'
 
-export default function SignIn(props) {
+export default function SignIn() {
   const navigation = useNavigation()
-  const route = useRoute()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -34,10 +33,6 @@ export default function SignIn(props) {
         console.error(err)
       })
   }
-
-  useEffect(() => {
-    
-  }, [])
 
   return (
     <KeyboardAvoidingView
