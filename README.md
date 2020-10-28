@@ -37,10 +37,13 @@ Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo
 
 ## ⚙️ Funcionalidades
   
-  - [ ] Cadastrar
+  - [ ] Cadastrar Usuário  
   - [ ] Realizar login
-  - [ ] Favoritar imóveis
-  - [ ] Cadastrar imóveis
+  - [ ] Editar dados do usuário
+  - [ ] Cadastrar imóveis  
+  - [ ] Listar imóveis  
+  - [ ] Favoritar imóveis  
+  - [ ] Pesquisar por imóveis  
   
 ---
 
@@ -236,7 +239,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Expo](https://expo.io/)**
 -   **[React Navigation](https://reactnavigation.org/)**
 -   **[Axios](https://github.com/axios/axios)**
--   **[Expo Location](https://docs.expo.io/versions/latest/sdk/location/)**
+-   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
 
 Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
 
