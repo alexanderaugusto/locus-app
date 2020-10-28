@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View, Image } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
@@ -55,132 +55,138 @@ export default function SignUp() {
       behavior="padding"
       enabled={Platform.OS === 'ios'}
     >
-
-      <View style={styles.header} >
-        <Text style={styles.message}> Cadastre-se.</Text>
-        <Text style={styles.message}> É rápido, simples e gratuito!</Text>
-      </View>
-
-      <ProgressSteps
-        activeStepIconBorderColor={colors['yellow']}
-        completedProgressBarColor={colors['yellow']}
-        activeLabelColor={colors['yellow']}
-        completedLabelColor={colors['yellow']}
-        completedStepIconColor={colors['yellow']}
-        completedCheckColor={colors['platinum']}
+      <ScrollView
+        alwaysBounceVertical={false}
+        showsVerticalScrollIndicator={false}
       >
-        <ProgressStep
-          nextBtnText={'Próximo'}
-          label="Pessoal"
-          nextBtnStyle={styles.button}
-          nextBtnTextStyle={styles.buttonText}
-          scrollable={false}
-        >
-          <View style={styles.containerInput}>
-            <Text style={styles.label}>Nome</Text>
-            <InputArea
-              placeholder={'Ex: Pedro Henrique Santos'}
-              value={data.name}
-              onChangeText={(value) => onChange("name", value)}
-            />
-            <Text style={styles.label}>CPF</Text>
-            <InputArea
-              placeholder={'xxx.xxx.xxx-xx'}
-              value={data.cpf}
-              onChangeText={(value) => onChange("cpf", value)}
-            />
-            <Text style={styles.label}>Celular</Text>
-            <InputArea
-              placeholder={'(xx)xxxxx-xxxx'}
-              value={data.phone}
-              onChangeText={(value) => onChange("phone", value)}
-            />
-          </View>
-        </ProgressStep>
 
-        <ProgressStep
-          label="Login"
-          nextBtnText={'Próximo'}
-          previousBtnText={'Anterior'}
-          nextBtnStyle={styles.button}
-          previousBtnStyle={styles.button}
-          nextBtnTextStyle={styles.buttonText}
-          previousBtnTextStyle={styles.buttonText}
-          scrollable={false}
-        >
-          <View style={styles.containerInput}>
-            <Text style={styles.messageEmail}>Por favor, entre com um e-mail válido!</Text>
-            <Text style={styles.label}>E-mail</Text>
-            <InputArea
-              placeholder={'Ex: pedrohs@gmail.com'}
-              keyboardType={'email-address'}
-              value={data.email}
-              onChangeText={(value) => onChange("email", value)}
-            />
-            <Text style={styles.label}>Confirmar e-mail</Text>
-            <InputArea
-              placeholder={'Ex: pedrohs@gmail.com'}
-              keyboardType={'email-address'}
-              value={data.confirmEmail}
-              onChangeText={(value) => onChange("confirmEmail", value)}
-            />
-          </View>
-        </ProgressStep>
+        <View style={styles.header} >
+          <Text style={styles.message}> Cadastre-se.</Text>
+          <Text style={styles.message}> É rápido, simples e gratuito!</Text>
+        </View>
 
-        <ProgressStep
-          label="Senha"
-          nextBtnText={'Próximo'}
-          previousBtnText={'Anterior'}
-          nextBtnStyle={styles.button}
-          previousBtnStyle={styles.button}
-          nextBtnTextStyle={styles.buttonText}
-          previousBtnTextStyle={styles.buttonText}
-          scrollable={false}
+        <ProgressSteps
+          activeStepIconBorderColor={colors['yellow']}
+          completedProgressBarColor={colors['yellow']}
+          activeLabelColor={colors['yellow']}
+          completedLabelColor={colors['yellow']}
+          completedStepIconColor={colors['yellow']}
+          completedCheckColor={colors['platinum']}
         >
-          <View style={styles.containerInput}>
-            <Text style={styles.messageEmail}>Para sua segurança, a senha deve ter no mínimo 8 caracteres, com números, letra maiúscula e minúscula e caracteres especiais.</Text>
-            <Text style={styles.label}>Senha</Text>
-            <InputArea
-              placeholder={'••••••••'}
-              secureTextEntry={true}
-              value={data.password}
-              onChangeText={(value) => onChange("password", value)}
-            />
-            <Text style={styles.label}>Confirmar senha</Text>
-            <InputArea
-              placeholder={'••••••••'}
-              secureTextEntry={true}
-              value={data.confirmPassword}
-              onChangeText={(value) => onChange("confirmPassword", value)}
-            />
-          </View>
-        </ProgressStep>
-
-        <ProgressStep
-          label="Foto"
-          previousBtnText={'Anterior'}
-          finishBtnText={'Finalizar'}
-          nextBtnStyle={styles.button}
-          previousBtnStyle={styles.button}
-          nextBtnTextStyle={styles.buttonText}
-          previousBtnTextStyle={styles.buttonText}
-          scrollable={false}
-          onSubmit={() => signUp()}
-        >
-          <View style={styles.containerInput}>
-            <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
-              <Image
-                source={{ uri: data.avatar ? data.avatar.uri : `${STORAGE_URL}/user/default-avatar.png` }}
-                style={styles.avatar}
+          <ProgressStep
+            nextBtnText={'Próximo'}
+            label="Pessoal"
+            nextBtnStyle={styles.button}
+            nextBtnTextStyle={styles.buttonText}
+            scrollable={false}
+          >
+            <View style={styles.containerInput}>
+              <Text style={styles.label}>Nome</Text>
+              <InputArea
+                placeholder={'Ex: Pedro Henrique Santos'}
+                value={data.name}
+                onChangeText={(value) => onChange("name", value)}
               />
-            </ImagePickerFunction>
-            <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
-              <Text style={styles.avatarText}>Alterar</Text>
-            </ImagePickerFunction>
-          </View>
-        </ProgressStep>
+              <Text style={styles.label}>CPF</Text>
+              <InputArea
+                placeholder={'xxx.xxx.xxx-xx'}
+                value={data.cpf}
+                onChangeText={(value) => onChange("cpf", value)}
+              />
+              <Text style={styles.label}>Celular</Text>
+              <InputArea
+                placeholder={'(xx)xxxxx-xxxx'}
+                value={data.phone}
+                onChangeText={(value) => onChange("phone", value)}
+              />
+            </View>
+          </ProgressStep>
 
-      </ProgressSteps>
+          <ProgressStep
+            label="Login"
+            nextBtnText={'Próximo'}
+            previousBtnText={'Anterior'}
+            nextBtnStyle={styles.button}
+            previousBtnStyle={styles.button}
+            nextBtnTextStyle={styles.buttonText}
+            previousBtnTextStyle={styles.buttonText}
+            scrollable={false}
+          >
+            <View style={styles.containerInput}>
+              <Text style={styles.messageEmail}>Por favor, entre com um e-mail válido!</Text>
+              <Text style={styles.label}>E-mail</Text>
+              <InputArea
+                placeholder={'Ex: pedrohs@gmail.com'}
+                keyboardType={'email-address'}
+                value={data.email}
+                onChangeText={(value) => onChange("email", value)}
+              />
+              <Text style={styles.label}>Confirmar e-mail</Text>
+              <InputArea
+                placeholder={'Ex: pedrohs@gmail.com'}
+                keyboardType={'email-address'}
+                value={data.confirmEmail}
+                onChangeText={(value) => onChange("confirmEmail", value)}
+              />
+            </View>
+          </ProgressStep>
+
+          <ProgressStep
+            label="Senha"
+            nextBtnText={'Próximo'}
+            previousBtnText={'Anterior'}
+            nextBtnStyle={styles.button}
+            previousBtnStyle={styles.button}
+            nextBtnTextStyle={styles.buttonText}
+            previousBtnTextStyle={styles.buttonText}
+            scrollable={false}
+          >
+            <View style={styles.containerInput}>
+              <Text style={styles.messageEmail}>Para sua segurança, a senha deve ter no mínimo 8 caracteres, com números, letra maiúscula e minúscula e caracteres especiais.</Text>
+              <Text style={styles.label}>Senha</Text>
+              <InputArea
+                placeholder={'••••••••'}
+                secureTextEntry={true}
+                value={data.password}
+                onChangeText={(value) => onChange("password", value)}
+              />
+              <Text style={styles.label}>Confirmar senha</Text>
+              <InputArea
+                placeholder={'••••••••'}
+                secureTextEntry={true}
+                value={data.confirmPassword}
+                onChangeText={(value) => onChange("confirmPassword", value)}
+              />
+            </View>
+          </ProgressStep>
+
+          <ProgressStep
+            label="Foto"
+            previousBtnText={'Anterior'}
+            finishBtnText={'Finalizar'}
+            nextBtnStyle={styles.button}
+            previousBtnStyle={styles.button}
+            nextBtnTextStyle={styles.buttonText}
+            previousBtnTextStyle={styles.buttonText}
+            scrollable={false}
+            onSubmit={() => signUp()}
+          >
+            <View style={styles.containerInput}>
+              <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
+                <Image
+                  source={{ uri: data.avatar ? data.avatar.uri : `${STORAGE_URL}/user/default-avatar.png` }}
+                  style={styles.avatar}
+                />
+              </ImagePickerFunction>
+              <ImagePickerFunction onChange={(image) => onChange("avatar", image)}>
+                <Text style={styles.avatarText}>Alterar</Text>
+              </ImagePickerFunction>
+            </View>
+          </ProgressStep>
+
+        </ProgressSteps>
+
+      </ScrollView>
     </KeyboardAvoidingView>
   )
 }
@@ -195,7 +201,6 @@ const styles = StyleSheet.create({
   },
 
   containerInput: {
-    alignItems: 'center',
     marginBottom: 20,
   },
 
@@ -253,7 +258,8 @@ const styles = StyleSheet.create({
     height: 180,
     borderRadius: 180,
     borderWidth: 3,
-    borderColor: colors["yellow"],
+    borderColor: colors["blue"],
+    alignSelf: 'center',
   },
 
   avatarText: {
@@ -261,7 +267,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginVertical: 5,
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    alignSelf: 'center',
   }
 
 })
