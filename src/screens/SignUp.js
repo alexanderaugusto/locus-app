@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native'
 import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
 
 import colors from '../constants/colors.json'
@@ -59,6 +60,11 @@ export default function SignUp() {
         alwaysBounceVertical={false}
         showsVerticalScrollIndicator={false}
       >
+
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("SignIn")}>
+          <Icon name={'arrow-left'} size={20} color={colors['yellow']} />
+        </TouchableOpacity>
+
 
         <View style={styles.header} >
           <Text style={styles.message}> Cadastre-se.</Text>
@@ -204,8 +210,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
+  backButton: {
+    marginTop: 5,
+  },
+
   header: {
-    marginTop: 25,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
