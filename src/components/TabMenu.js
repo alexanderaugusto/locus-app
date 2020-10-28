@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '@expo/vector-icons/FontAwesome5'
+import Icon from '@expo/vector-icons/MaterialIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../screens/Home'

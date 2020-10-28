@@ -85,9 +85,9 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
       <View style={styles.favoriteIcon}>
         <TouchableOpacity style={styles.button} onPress={() => favorite ? removeFavorite() : addFavorite()}>
           {favorite ?
-            <Icon name='heart' size={18} color='red' />
+            <Icon name='heart' solid={true} size={18} color='red' />
             :
-            <Icon name={'heart-o'} size={18} color={colors["blue-secondary"]} />
+            <Icon name='heart' solid={false} size={18} color={colors["blue-secondary"]} />
           }
         </TouchableOpacity>
       </View>
