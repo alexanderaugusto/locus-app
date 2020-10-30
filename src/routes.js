@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { TabMenu } from './components'
+import TabMenu  from './components/TabMenu'
 
 import SignIn from './screens/SignIn'
 import SignUp from './screens/SignUp'
