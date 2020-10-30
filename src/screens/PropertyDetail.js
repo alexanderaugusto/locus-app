@@ -7,7 +7,7 @@ import { formatCurrency } from '../utils/util'
 
 import colors from '../constants/colors.json'
 
-export default function IMovelDetails() {
+export default function PropertyDetail() {
   const navigation = useNavigation()
   const route = useRoute()
 

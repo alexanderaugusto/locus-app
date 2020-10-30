@@ -74,7 +74,7 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
       >
         {item.images.map((image) => (
           <View key={image.id} onStartShouldSetResponder={() => true}>
-            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('IMovelDetails', { item })}>
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('PropertyDetail', { item })}>
               <Image style={styles.images} resizeMode="cover"
                 source={{ uri: `${STORAGE_URL}/property/${image.path}` }} />
             </TouchableOpacity>

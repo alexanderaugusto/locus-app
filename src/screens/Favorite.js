@@ -76,7 +76,7 @@ export default function Favorite() {
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback
-                onPress={() => navigation.navigate('IMovelDetails', { item })}
+                onPress={() => navigation.navigate('PropertyDetail', { item })}
               >
                 <View>
                   <ImovelCard item={item}
