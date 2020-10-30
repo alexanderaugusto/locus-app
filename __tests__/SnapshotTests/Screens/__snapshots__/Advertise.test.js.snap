@@ -95,6 +95,12 @@ exports[`Advertise test render Advertise screen correctly 1`] = `
         "width": 60,
       }
     }
-  />
+  >
+    <Icon
+      color="#FFFFFF"
+      name="plus"
+      size={16}
+    />
+  </View>
 </View>
 `;

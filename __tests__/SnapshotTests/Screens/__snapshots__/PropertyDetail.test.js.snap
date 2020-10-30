@@ -243,7 +243,13 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
                   "width": 45,
                 }
               }
-            />
+            >
+              <Icon
+                color="#14213D"
+                name="bed"
+                size={18}
+              />
+            </View>
             <Text>
                quartos
             </Text>
@@ -279,7 +285,13 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
                   "width": 45,
                 }
               }
-            />
+            >
+              <Icon
+                color="#14213D"
+                name="bath"
+                size={20}
+              />
+            </View>
             <Text>
                banheiro
             </Text>
@@ -327,7 +339,13 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
                   "width": 45,
                 }
               }
-            />
+            >
+              <Icon
+                color="#14213D"
+                name="ruler-horizontal"
+                size={18}
+              />
+            </View>
             <Text>
                m²
             </Text>
@@ -363,7 +381,13 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
                   "width": 45,
                 }
               }
-            />
+            >
+              <Icon
+                color="#14213D"
+                name="dog"
+                size={19}
+              />
+            </View>
             <Text>
               Não aceita pet
             </Text>
@@ -470,7 +494,13 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
             "zIndex": 5,
           }
         }
-      />
+      >
+        <Icon
+          color="#FCA311"
+          name="arrow-left"
+          size={20}
+        />
+      </View>
       <Modal
         animationType="fade"
         hardwareAccelerated={false}

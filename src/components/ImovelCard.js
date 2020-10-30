@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, ScrollView } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
@@ -85,9 +85,9 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
       <View style={styles.favoriteIcon}>
         <TouchableOpacity style={styles.button} onPress={() => favorite ? removeFavorite() : addFavorite()}>
           {favorite ?
-            <FontAwesome5 name='heart' solid={true} size={18} color='red' />
+            <Icon name='heart' solid={true} size={18} color='red' />
             :
-            <FontAwesome5 name='heart' solid={false} size={18} color={colors["blue-secondary"]} />
+            <Icon name='heart' solid={false} size={18} color={colors["blue-secondary"]} />
           }
         </TouchableOpacity>
       </View>

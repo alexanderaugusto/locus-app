@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ScrollView, View, StyleSheet, Text, Modal, TouchableOpacity } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 
@@ -20,7 +20,7 @@ export default function InputSelect({ items, selectedValue, menuTitle, onChange 
         <Text style={styles.selectText}>
           {selectedLabel()}
         </Text>
-        <FontAwesome5 name="sort-down" color="black" size={18} />
+        <Icon name="sort-down" color="black" size={18} />
       </TouchableOpacity>
       <Modal visible={menu} transparent={true}>
         <View style={styles.modal}>

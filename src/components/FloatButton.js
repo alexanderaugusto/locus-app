@@ -3,14 +3,14 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 
 export default function FloatButton(props) {
   return (
     <TouchableOpacity {...props} style={styles.container}>
-      <FontAwesome5 name="plus" color="#FFFFFF" size={16} />
+      <Icon name="plus" color="#FFFFFF" size={16} />
     </TouchableOpacity>
   )
 }

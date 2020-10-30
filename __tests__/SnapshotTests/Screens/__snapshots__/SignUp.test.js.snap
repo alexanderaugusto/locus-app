@@ -39,7 +39,13 @@ exports[`SignUp test render SignUp screen correctly 1`] = `
             "opacity": 1,
           }
         }
-      />
+      >
+        <Icon
+          color="#FCA311"
+          name="arrow-left"
+          size={20}
+        />
+      </View>
       <View
         style={
           Object {

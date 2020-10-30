@@ -105,7 +105,13 @@ exports[`Home test render Home screen correctly 1`] = `
           "opacity": 1,
         }
       }
-    />
+    >
+      <Icon
+        color="#14213D"
+        name="search"
+        size={16}
+      />
+    </View>
   </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}

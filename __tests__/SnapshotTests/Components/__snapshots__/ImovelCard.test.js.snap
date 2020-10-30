@@ -213,7 +213,14 @@ exports[`ImovelCard test render FloatButton component correctly 1`] = `
           "width": 40,
         }
       }
-    />
+    >
+      <Icon
+        color="#19294d"
+        name="heart"
+        size={18}
+        solid={false}
+      />
+    </View>
   </View>
   <View
     style={

@@ -4,7 +4,7 @@ import {
   TouchableOpacity, Text, SafeAreaView, FlatList, Image, TouchableWithoutFeedback
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import { ImovelCard } from '../components'
 import api from '../services/api'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -77,7 +77,7 @@ export default function Home() {
           placeholderTextColor="#999"
         />
         <TouchableOpacity style={styles.inputButton}>
-          <FontAwesome5
+          <Icon
             name="search"
             size={16}
             color={colors["blue"]}

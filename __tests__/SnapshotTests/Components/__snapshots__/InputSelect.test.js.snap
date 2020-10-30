@@ -45,6 +45,11 @@ Array [
     >
       Minas Gerais
     </Text>
+    <Icon
+      color="black"
+      name="sort-down"
+      size={18}
+    />
   </View>,
   <Modal
     hardwareAccelerated={false}

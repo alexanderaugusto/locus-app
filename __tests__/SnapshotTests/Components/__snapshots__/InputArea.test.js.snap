@@ -25,6 +25,16 @@ exports[`InputArea test render InputArea component with icon correctly 1`] = `
     ]
   }
 >
+  <Icon
+    color="#14213D"
+    name="envelope"
+    size={16}
+    style={
+      Object {
+        "alignSelf": "center",
+      }
+    }
+  />
   <TextInput
     allowFontScaling={true}
     keyboardType="email-address"
