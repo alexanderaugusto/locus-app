@@ -14,3 +14,11 @@ before_script:
 script:
   - npm ci
   - npx jest --ci
+jobs:
+  include:
+    - stage: deploy
+      node_js: lts/*
+      script:
+        - npm ci
+        - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo publish --non-interactive
