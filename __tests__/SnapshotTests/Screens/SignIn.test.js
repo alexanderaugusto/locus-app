@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, create } from 'react-test-renderer'
+import { create } from 'react-test-renderer'
 import SignIn from '../../../src/screens/SignIn'
 
 jest.useFakeTimers()

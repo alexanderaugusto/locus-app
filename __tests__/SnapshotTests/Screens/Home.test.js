@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, create } from 'react-test-renderer'
+import { create } from 'react-test-renderer'
 import Home from '../../../src/screens/Home'
 
 jest.useFakeTimers()
