@@ -1,5 +1,7 @@
 
 <p align="center">
+  <img alt="Travis CI" src="https://travis-ci.org/alexanderaugusto/imovel-app.svg?branch=master" />
+  
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alexanderaugusto/imovel-app?color=%2304D361">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/alexanderaugusto/imovel-app">
