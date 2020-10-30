@@ -7,10 +7,7 @@ jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('ImagePicker test', () => {
   it('render ImagePicker component correctly', () => {
-    act(() => {
-      tree = create(<ImagePickerFunction></ImagePickerFunction>)
-    })
-
+    const tree = create(<ImagePickerFunction></ImagePickerFunction>)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

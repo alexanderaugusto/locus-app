@@ -15,10 +15,7 @@ jest.mock('@react-navigation/native', () => {
 
 describe('Favorite test', () => {
   it('render Favorite screen correctly', () => {
-    act(() => {
-      tree = create(<Favorite />)
-    })
-
+    const tree = create(<Favorite />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

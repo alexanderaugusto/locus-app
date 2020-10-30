@@ -16,10 +16,7 @@ jest.mock('@react-navigation/native', () => {
 
 describe('Account test', () => {
   it('render Account screen correctly', () => {
-    act(() => {
-      tree = create(<Account />)
-    })
-
+    const tree = create(<Account />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

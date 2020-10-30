@@ -7,7 +7,7 @@ jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('SwiperImage test', () => {
   it('render SwiperImage component correctly', () => {
-    const component = renderer.create(
+    const tree = renderer.create(
       <SwiperImage
         images={[
           {
@@ -41,7 +41,6 @@ describe('SwiperImage test', () => {
         ]}
       />
     )
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

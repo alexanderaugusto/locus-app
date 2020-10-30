@@ -8,10 +8,7 @@ jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('FloatButton test', () => {
   it('render FloatButton component correctly', () => {
-    act(() => {
-      tree = create(<FloatButton />)
-    })
-
+    const tree = create(<FloatButton />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

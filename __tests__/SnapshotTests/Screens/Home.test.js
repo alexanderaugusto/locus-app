@@ -16,10 +16,7 @@ jest.mock('@react-navigation/native', () => {
 
 describe('Home test', () => {
   it('render Home screen correctly', () => {
-    act(() => {
-      tree = create(<Home />)
-    })
-
+    const tree = create(<Home />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })
