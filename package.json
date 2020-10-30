@@ -48,13 +48,5 @@
     "react-native-testing-library": "6.0.0",
     "react-test-renderer": "16.13.1"
   },
-  "jest": {
-    "preset": "jest-expo",
-    "verbose": true,
-    "bail": 1,
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
-    ]
-  },
   "private": true
 }
