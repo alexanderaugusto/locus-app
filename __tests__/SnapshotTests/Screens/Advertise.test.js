@@ -18,14 +18,11 @@ jest.mock('@react-navigation/native', () => {
 })
 
 describe('Advertise test', () => {
-
   it('render Advertise screen correctly', () => {
     act(() => {
-      tree = create(
-        <Advertise />
-      )
+      tree = create(<Advertise />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

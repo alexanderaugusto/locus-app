@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, View, StyleSheet, Text, SafeAreaView, FlatList, TouchableWithoutFeedback } from 'react-native'
+import {
+  KeyboardAvoidingView,
+  View,
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  FlatList,
+  TouchableWithoutFeedback
+} from 'react-native'
 import { ImovelCard } from '../components'
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -14,35 +22,36 @@ export default function Favorite() {
   const [loading, setLoading] = useState(false)
 
   const getFavorites = async () => {
-    const token = await AsyncStorage.getItem("user-token")
+    const token = await AsyncStorage.getItem('user-token')
     if (!token) {
       navigation.reset({
         index: 0,
-        routes: [{ name: "SignIn" }],
+        routes: [{ name: 'SignIn' }]
       })
       return
     }
 
     const config = {
       headers: {
-        "Authorization": "Bearer " + token
+        Authorization: 'Bearer ' + token
       }
     }
 
     setLoading(true)
 
-    await api.get(`/user/favorites`, config)
-      .then((res) => {
+    await api
+      .get('/user/favorites', config)
+      .then(res => {
         setFavorites(res.data)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
       })
 
     setLoading(false)
   }
 
-  const onChangeFavorite = (item) => {
+  const onChangeFavorite = item => {
     // const newProperties = []
     // favorites.forEach(property => {
     //   if (property.id !== item.id) {
@@ -52,8 +61,8 @@ export default function Favorite() {
     // setFavorites(newProperties)
     navigation.reset({
       index: 0,
-      routes: [{ name: "Favoritos" }],
-      key: "Home"
+      routes: [{ name: 'Favoritos' }],
+      key: 'Home'
     })
   }
 
@@ -62,9 +71,10 @@ export default function Favorite() {
   }, [])
 
   return (
-    <KeyboardAvoidingView style={styles.container} >
-      <Text numberOfLiner={2} style={styles.title} >Favoritos</Text>
-
+    <KeyboardAvoidingView style={styles.container}>
+      <Text numberOfLiner={2} style={styles.title}>
+        Favoritos
+      </Text>
 
       <SafeAreaView style={styles.listContainer}>
         <FlatList
@@ -79,7 +89,8 @@ export default function Favorite() {
                 onPress={() => navigation.navigate('PropertyDetail', { item })}
               >
                 <View>
-                  <ImovelCard item={item}
+                  <ImovelCard
+                    item={item}
                     favorite={true}
                     onChangeFavorite={onChangeFavorite}
                   />
@@ -89,7 +100,6 @@ export default function Favorite() {
           }}
         />
       </SafeAreaView>
-
     </KeyboardAvoidingView>
   )
 }
@@ -97,21 +107,20 @@ export default function Favorite() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors["platinum"],
+    backgroundColor: colors.platinum,
     paddingVertical: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 30
   },
 
   title: {
     margin: 10,
     fontSize: 28,
-    fontWeight: "600",
-    color: colors['yellow'],
-    alignSelf: 'center',
+    fontWeight: '600',
+    color: colors.yellow,
+    alignSelf: 'center'
   },
 
   listContainer: {
     flex: 1
   }
-
 })

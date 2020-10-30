@@ -9,20 +9,17 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: jest.fn(),
+      navigate: jest.fn()
     })
   }
 })
 
 describe('AddProperty test', () => {
-
   it('render AddProperty screen correctly', () => {
     act(() => {
-      tree = create(
-        <AddProperty />
-      )
+      tree = create(<AddProperty />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

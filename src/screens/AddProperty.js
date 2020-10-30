@@ -1,5 +1,15 @@
 import React, { useState } from 'react'
-import { Platform, SafeAreaView, FlatList, KeyboardAvoidingView, StyleSheet, Text, View, ScrollView, Image } from 'react-native'
+import {
+  Platform,
+  SafeAreaView,
+  FlatList,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image
+} from 'react-native'
 import { InputArea, ImagePickerFunction, InputSelect } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
@@ -16,26 +26,26 @@ export default function AddProperty() {
   const navigation = useNavigation()
 
   const [data, setData] = useState({
-    title: "",
-    description: "",
-    street: "",
-    neighborhood: "",
-    city: "",
-    state: "MG",
-    country: "Brasil",
-    price: "",
-    bedrooms: "",
-    bathrooms: "",
-    area: "",
-    place: "",
+    title: '',
+    description: '',
+    street: '',
+    neighborhood: '',
+    city: '',
+    state: 'MG',
+    country: 'Brasil',
+    price: '',
+    bedrooms: '',
+    bathrooms: '',
+    area: '',
+    place: '',
     animal: true,
-    type: "Casa",
+    type: 'Casa',
     images: []
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
-  const onChangeImages = (image) => {
+  const onChangeImages = image => {
     setData({
       ...data,
       images: [...data.images, image]
@@ -43,11 +53,11 @@ export default function AddProperty() {
   }
 
   const addProperty = async () => {
-    const token = await AsyncStorage.getItem("user-token")
+    const token = await AsyncStorage.getItem('user-token')
 
     const config = {
       headers: {
-        "Authorization": "Bearer " + token,
+        Authorization: 'Bearer ' + token,
         'Content-Type': 'multipart/form-data'
       }
     }
@@ -61,44 +71,42 @@ export default function AddProperty() {
     formData.append('city', data.city)
     formData.append('state', data.state)
     formData.append('country', data.country)
-    formData.append('price', parseFloat(data.price.replace(",", ".")))
+    formData.append('price', parseFloat(data.price.replace(',', '.')))
     formData.append('bedrooms', parseInt(data.bedrooms, 10))
     formData.append('bathrooms', parseInt(data.bathrooms, 10))
-    formData.append('area', parseFloat(data.area.replace(",", ".")))
+    formData.append('area', parseFloat(data.area.replace(',', '.')))
     formData.append('place', parseInt(data.place, 10))
     formData.append('animal', data.animal)
     formData.append('type', data.type)
 
     data.images.forEach(image => {
-      formData.append("files", image)
+      formData.append('files', image)
     })
 
-    api.post("/user/property", formData, config)
-      .then((res) => {
-        navigation.navigate("Anúnciar", { reload: true })
+    api
+      .post('/user/property', formData, config)
+      .then(res => {
+        navigation.navigate('Anúnciar', { reload: true })
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
       })
   }
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <KeyboardAvoidingView
-        behavior="padding"
-        enabled={Platform.OS === 'ios'}
-      >
-        <View style={styles.header} >
+      <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>
+        <View style={styles.header}>
           <Text style={styles.headerMessage}>Vamos cadastrar seu imóvel</Text>
         </View>
 
         <ProgressSteps
-          activeStepIconBorderColor={colors['yellow']}
-          completedProgressBarColor={colors['yellow']}
-          activeLabelColor={colors['yellow']}
-          completedLabelColor={colors['yellow']}
-          completedStepIconColor={colors['yellow']}
-          completedCheckColor={colors['platinum']}
+          activeStepIconBorderColor={colors.yellow}
+          completedProgressBarColor={colors.yellow}
+          activeLabelColor={colors.yellow}
+          completedLabelColor={colors.yellow}
+          completedStepIconColor={colors.yellow}
+          completedCheckColor={colors.platinum}
         >
           <ProgressStep
             nextBtnText={'Próximo'}
@@ -108,13 +116,14 @@ export default function AddProperty() {
           >
             <View style={styles.containerInput}>
               <Text style={styles.message}>
-                Primeiramente, nos diga as informações que você gostaria de conter no seu anúncio
+                Primeiramente, nos diga as informações que você gostaria de
+                conter no seu anúncio
               </Text>
               <Text style={styles.label}>Título</Text>
               <InputArea
                 placeholder={'Título do anúncio...'}
                 value={data.title}
-                onChangeText={(value) => onChange("title", value)}
+                onChangeText={value => onChange('title', value)}
               />
               <Text style={styles.label}>Descrição</Text>
               <InputArea
@@ -123,7 +132,7 @@ export default function AddProperty() {
                 multiline={true}
                 textAlignVertical="top"
                 style={styles.textArea}
-                onChangeText={(value) => onChange("description", value)}
+                onChangeText={value => onChange('description', value)}
               />
             </View>
           </ProgressStep>
@@ -145,25 +154,25 @@ export default function AddProperty() {
               <InputArea
                 placeholder={'Rua do imóvel...'}
                 value={data.street}
-                onChangeText={(value) => onChange("street", value)}
+                onChangeText={value => onChange('street', value)}
               />
               <Text style={styles.label}>Bairro</Text>
               <InputArea
                 placeholder={'Bairro do imóvel...'}
                 value={data.neighborhood}
-                onChangeText={(value) => onChange("neighborhood", value)}
+                onChangeText={value => onChange('neighborhood', value)}
               />
               <Text style={styles.label}>Cidade</Text>
               <InputArea
                 placeholder={'Cidade do imóvel...'}
                 value={data.city}
-                onChangeText={(value) => onChange("city", value)}
+                onChangeText={value => onChange('city', value)}
               />
               <Text style={styles.label}>Estado</Text>
               <InputSelect
                 items={states}
                 selectedValue={data.state}
-                onChange={(item) => onChange("state", item.value)}
+                onChange={item => onChange('state', item.value)}
               />
             </View>
           </ProgressStep>
@@ -186,45 +195,45 @@ export default function AddProperty() {
                 items={types}
                 selectedValue={data.type}
                 menuTitle="Qual o tipo de imóve?"
-                onChange={(item) => onChange("type", item.value)}
+                onChange={item => onChange('type', item.value)}
               />
               <Text style={styles.label}>Quartos</Text>
               <InputArea
-                keyboardType={"number-pad"}
+                keyboardType={'number-pad'}
                 placeholder={'Quantidade de quartos...'}
                 value={data.bedrooms}
-                onChangeText={(value) => onChange("bedrooms", value)}
+                onChangeText={value => onChange('bedrooms', value)}
               />
               <Text style={styles.label}>Banheiros</Text>
               <InputArea
-                keyboardType={"number-pad"}
+                keyboardType={'number-pad'}
                 placeholder={'Quantidade de banheiros...'}
                 value={data.bathrooms}
-                onChangeText={(value) => onChange("bathrooms", value)}
+                onChangeText={value => onChange('bathrooms', value)}
               />
               <Text style={styles.label}>Area (m3)</Text>
               <InputArea
-                keyboardType={"number-pad"}
+                keyboardType={'number-pad'}
                 placeholder={'Area do imóvel...'}
                 value={data.area}
-                onChangeText={(value) => onChange("area", value)}
+                onChangeText={value => onChange('area', value)}
               />
               <Text style={styles.label}>Vagas</Text>
               <InputArea
-                keyboardType={"number-pad"}
+                keyboardType={'number-pad'}
                 placeholder={'É um imóvel para quantas pessoas?'}
                 value={data.place}
-                onChangeText={(value) => onChange("place", value)}
+                onChangeText={value => onChange('place', value)}
               />
               <Text style={styles.label}>Animal</Text>
               <InputSelect
                 items={[
-                  { label: "Sim", value: true },
-                  { label: "Não", value: false }
+                  { label: 'Sim', value: true },
+                  { label: 'Não', value: false }
                 ]}
                 selectedValue={data.animal}
                 menuTitle="Seu imóvel poder conter animais?"
-                onChange={(item) => onChange("animal", item.value)}
+                onChange={item => onChange('animal', item.value)}
               />
             </View>
           </ProgressStep>
@@ -240,7 +249,8 @@ export default function AddProperty() {
           >
             <View style={styles.containerInput}>
               <Text style={styles.message}>
-                Selecione algumas imagens do seu imóvel para deixa-lo mais apresentável
+                Selecione algumas imagens do seu imóvel para deixa-lo mais
+                apresentável
               </Text>
               <SafeAreaView style={styles.imageContainer}>
                 <FlatList
@@ -251,15 +261,27 @@ export default function AddProperty() {
                   renderItem={({ item }) => {
                     if (item.empty) {
                       return (
-                        <View style={{ ...styles.image, backgroundColor: "transparent" }} />
+                        <View
+                          style={{
+                            ...styles.image,
+                            backgroundColor: 'transparent'
+                          }}
+                        />
                       )
                     }
 
                     if (item.imagePicker) {
                       return (
-                        <ImagePickerFunction style={styles.image} onChange={(image) => onChangeImages(image)}>
+                        <ImagePickerFunction
+                          style={styles.image}
+                          onChange={image => onChangeImages(image)}
+                        >
                           <View style={styles.addIcon}>
-                            <FontAwesome name="plus" color={colors["blue-secondary"]} size={20} />
+                            <FontAwesome
+                              name="plus"
+                              color={colors['blue-secondary']}
+                              size={20}
+                            />
                           </View>
                         </ImagePickerFunction>
                       )
@@ -290,56 +312,56 @@ export default function AddProperty() {
               </Text>
               <Text style={styles.label}>Preço</Text>
               <InputArea
-                keyboardType={"number-pad"}
-                label='R$'
+                keyboardType={'number-pad'}
+                label="R$"
                 placeholder={'0,00'}
                 value={data.price}
-                onChangeText={(value) => onChange("price", value)}
+                onChangeText={value => onChange('price', value)}
               />
             </View>
           </ProgressStep>
         </ProgressSteps>
       </KeyboardAvoidingView>
-    </ScrollView >
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors["platinum"],
-    padding: 30,
+    backgroundColor: colors.platinum,
+    padding: 30
   },
 
   containerInput: {
-    marginBottom: 20,
+    marginBottom: 20
   },
 
   textArea: {
     height: 100,
-    justifyContent: "flex-start"
+    justifyContent: 'flex-start'
   },
 
   header: {
     marginTop: 25,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   headerMessage: {
     width: 300,
     fontSize: 23,
-    fontWeight: "600",
-    color: colors['blue'],
-    textAlign: 'left',
+    fontWeight: '600',
+    color: colors.blue,
+    textAlign: 'left'
   },
 
   message: {
     marginTop: 10,
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: '500',
     color: '#999',
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 10
   },
 
@@ -348,23 +370,23 @@ const styles = StyleSheet.create({
     marginBottom: -10,
     marginLeft: 20,
     fontSize: 14,
-    fontWeight: "500",
-    color: colors['blue'],
+    fontWeight: '500',
+    color: colors.blue
   },
 
   button: {
     height: 35,
     width: 90,
-    backgroundColor: colors['yellow'],
+    backgroundColor: colors.yellow,
     borderRadius: 24,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   buttonText: {
-    color: colors['blue'],
+    color: colors.blue,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 16
   },
 
   imageContainer: {
@@ -375,17 +397,17 @@ const styles = StyleSheet.create({
   image: {
     flexGrow: 1,
     flexBasis: 0,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     borderRadius: 10,
     margin: 3,
     paddingHorizontal: 8,
     paddingVertical: 5,
-    justifyContent: "center",
-    width: "100%",
+    justifyContent: 'center',
+    width: '100%',
     height: 170
   },
 
   addIcon: {
-    alignSelf: "center"
+    alignSelf: 'center'
   }
 })

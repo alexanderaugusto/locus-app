@@ -7,11 +7,11 @@ import ImagePickerFunction from './ImagePicker'
 import SwiperImage from './SwiperImage'
 
 export {
-    ImovelCard,
-    ModalContact,
-    FloatButton,
-    InputArea,
-    InputSelect,
-    ImagePickerFunction,
-    SwiperImage
+  ImovelCard,
+  ModalContact,
+  FloatButton,
+  InputArea,
+  InputSelect,
+  ImagePickerFunction,
+  SwiperImage
 }

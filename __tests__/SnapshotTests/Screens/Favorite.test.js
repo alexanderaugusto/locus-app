@@ -8,20 +8,17 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: jest.fn(),
+      navigate: jest.fn()
     })
   }
 })
 
 describe('Favorite test', () => {
-
   it('render Favorite screen correctly', () => {
     act(() => {
-      tree = create(
-        <Favorite />
-      )
+      tree = create(<Favorite />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

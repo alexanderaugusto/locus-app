@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker'
 
 export default function ImagePickerFunction({ onChange, children, ...props }) {
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       if (Platform.OS !== 'web') {
         const { status } = await ImagePicker.requestCameraRollPermissionsAsync()
         if (status !== 'granted') {
@@ -15,20 +15,20 @@ export default function ImagePickerFunction({ onChange, children, ...props }) {
   }, [])
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       allowsMultipleSelection: true,
       aspect: [4, 3],
-      quality: 0.7,
+      quality: 0.7
     })
 
     if (!result.cancelled) {
-      let localUri = result.uri
-      let filename = localUri.split('/').pop()
+      const localUri = result.uri
+      const filename = localUri.split('/').pop()
 
-      let match = /\.(\w+)$/.exec(filename)
-      let type = match ? `image/${match[1]}` : `image`
+      const match = /\.(\w+)$/.exec(filename)
+      const type = match ? `image/${match[1]}` : 'image'
 
       onChange({ uri: localUri, name: filename, type })
     }

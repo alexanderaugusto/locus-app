@@ -7,14 +7,13 @@ jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('InputSelect test', () => {
-
   it('render InputSelect component correctly', () => {
     act(() => {
       tree = create(
         <InputSelect
           items={[
-            { label: "Minas Gerais", value: "MG" },
-            { label: "São Paulo", value: "SP" }
+            { label: 'Minas Gerais', value: 'MG' },
+            { label: 'São Paulo', value: 'SP' }
           ]}
           selectedValue="MG"
           menuTitle="Selecione um estado"
@@ -22,6 +21,6 @@ describe('InputSelect test', () => {
       )
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

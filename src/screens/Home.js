@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import {
-  KeyboardAvoidingView, View, Platform, StyleSheet, TextInput,
-  TouchableOpacity, Text, SafeAreaView, FlatList, Image, TouchableWithoutFeedback
+  KeyboardAvoidingView,
+  View,
+  Platform,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  SafeAreaView,
+  FlatList,
+  Image,
+  TouchableWithoutFeedback
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
@@ -17,21 +26,22 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
 
   const getProperties = async () => {
-    const token = await AsyncStorage.getItem("user-token")
+    const token = await AsyncStorage.getItem('user-token')
 
     const config = {
       headers: {
-        "Authorization": "Bearer " + token
+        Authorization: 'Bearer ' + token
       }
     }
 
     setLoading(true)
 
-    await api.get("/properties", config)
-      .then((res) => {
+    await api
+      .get('/properties', config)
+      .then(res => {
         setProperties(res.data)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err)
       })
 
@@ -49,15 +59,14 @@ export default function Home() {
     // setProperties(newProperties)
     navigation.reset({
       index: 0,
-      routes: [{ name: "Home" }],
-      key: "Favoritos"
+      routes: [{ name: 'Home' }],
+      key: 'Favoritos'
     })
   }
 
   useEffect(() => {
     getProperties()
   }, [])
-
 
   return (
     <KeyboardAvoidingView
@@ -66,8 +75,14 @@ export default function Home() {
       style={styles.container}
     >
       <View style={styles.headerTitle}>
-        <Text numberOfLiner={2} style={styles.title} >Encontre o imóvel ideal para você!</Text>
-        <Image style={styles.logo} resizeMode="cover" source={require('../../assets/img/house_agreement.png')} />
+        <Text numberOfLiner={2} style={styles.title}>
+          Encontre o imóvel ideal para você!
+        </Text>
+        <Image
+          style={styles.logo}
+          resizeMode="cover"
+          source={require('../../assets/img/house_agreement.png')}
+        />
       </View>
 
       <View style={styles.inputContainer}>
@@ -77,11 +92,7 @@ export default function Home() {
           placeholderTextColor="#999"
         />
         <TouchableOpacity style={styles.inputButton}>
-          <Icon
-            name="search"
-            size={16}
-            color={colors["blue"]}
-          />
+          <Icon name="search" size={16} color={colors.blue} />
         </TouchableOpacity>
       </View>
 
@@ -98,7 +109,8 @@ export default function Home() {
                 onPress={() => navigation.navigate('PropertyDetail', { item })}
               >
                 <View>
-                  <ImovelCard item={item}
+                  <ImovelCard
+                    item={item}
                     favorite={item.favorite}
                     onChangeFavorite={onChangeFavorite}
                   />
@@ -108,7 +120,6 @@ export default function Home() {
           }}
         />
       </SafeAreaView>
-
     </KeyboardAvoidingView>
   )
 }
@@ -116,9 +127,9 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors["platinum"],
+    backgroundColor: colors.platinum,
     paddingVertical: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 30
   },
 
   headerTitle: {
@@ -126,20 +137,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 30,
-    marginBottom: 5,
+    marginBottom: 5
   },
 
   title: {
     width: 220,
     fontSize: 26,
-    fontWeight: "600",
-    color: colors['yellow'],
+    fontWeight: '600',
+    color: colors.yellow,
     textAlign: 'left'
   },
 
   logo: {
     height: 60,
-    width: 60,
+    width: 60
   },
 
   inputContainer: {
@@ -147,28 +158,28 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 46,
     borderWidth: 1,
-    borderColor: colors["blue"],
+    borderColor: colors.blue,
     borderRadius: 4,
     marginTop: 10,
     paddingHorizontal: 12,
-    flexDirection: "row",
+    flexDirection: 'row',
     justifyContent: 'space-between',
     shadowOpacity: 0.2,
     shadowRadius: 2,
     shadowOffset: {
       height: 0,
-      width: 0,
+      width: 0
     },
-    elevation: 2,
+    elevation: 2
   },
 
   inputText: {
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
 
   inputButton: {
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
 
   listContainer: {

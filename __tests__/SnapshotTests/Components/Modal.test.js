@@ -6,10 +6,9 @@ jest.useFakeTimers()
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('Modal test', () => {
-
-    it('render Modal component correctly', () => {
-        const component = renderer.create(<ModalContact />)
-        const tree = component.toJSON()
-        expect(tree).toMatchSnapshot()
-    })
+  it('render Modal component correctly', () => {
+    const component = renderer.create(<ModalContact />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

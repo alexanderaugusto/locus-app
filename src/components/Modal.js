@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import {
   Alert,
   Modal,
@@ -7,27 +7,29 @@ import {
   TouchableHighlight,
   View,
   Image
-} from "react-native"
+} from 'react-native'
 
 import colors from '../constants/colors.json'
-import avatar_woman from '../../assets/img/avatar_woman.png'
+import avatarWoman from '../../assets/img/avatar_woman.png'
 
 export default function ModalContact({ modalVisible, setModalVisible }) {
-
   return (
     <Modal
       animationType="fade"
       transparent={true}
       visible={modalVisible}
       onRequestClose={() => {
-        Alert.alert("Modal has been closed.");
+        Alert.alert('Modal has been closed.')
       }}
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-
           <View style={styles.modalHeader}>
-            <Image style={styles.modalAvatar} resizeMode="contain" source={avatar_woman} />
+            <Image
+              style={styles.modalAvatar}
+              resizeMode="contain"
+              source={avatarWoman}
+            />
 
             <View style={styles.modalInfo}>
               <View style={styles.modalInfoFields}>
@@ -55,15 +57,15 @@ export default function ModalContact({ modalVisible, setModalVisible }) {
           </TouchableHighlight>
         </View>
       </View>
-    </Modal >
+    </Modal>
   )
 }
 
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 20
   },
 
@@ -71,22 +73,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6e6e6',
     borderRadius: 24,
     borderWidth: 0.5,
-    borderColor: colors['blue'],
+    borderColor: colors.blue,
     padding: 18,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 5
   },
 
   modalHeader: {
     flexDirection: 'row',
-    marginBottom: 5,
+    marginBottom: 5
   },
 
   modalAvatar: {
@@ -94,51 +96,48 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: colors["blue"],
-    backgroundColor: colors["blue"],
+    borderColor: colors.blue,
+    backgroundColor: colors.blue
   },
 
   modalInfo: {
     alignItems: 'flex-start',
     justifyContent: 'center',
-    paddingLeft: 8,
+    paddingLeft: 8
   },
 
   modalInfoFields: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
 
   modalLabel: {
     fontSize: 14,
-    fontWeight: "700",
-    color: colors['blue'],
+    fontWeight: '700',
+    color: colors.blue,
     paddingBottom: 5,
-    paddingRight: 5,
+    paddingRight: 5
   },
 
   modalText: {
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: '500',
     color: '#6e6e6e',
-    paddingBottom: 5,
+    paddingBottom: 5
   },
 
   button: {
     height: 30,
     width: 80,
-    backgroundColor: colors['yellow'],
+    backgroundColor: colors.yellow,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-end'
   },
 
   buttonText: {
-    color: colors['blue'],
+    color: colors.blue,
     fontWeight: 'bold',
-    fontSize: 14,
-  },
-
-});
-
-
+    fontSize: 14
+  }
+})

@@ -14,10 +14,13 @@ export default function SwiperImage({ images }) {
       paginationStyle={{ top: 15, right: 15, bottom: null, left: null }}
       autoplay={false}
     >
-      {images.map((item) => (
+      {images.map(item => (
         <View style={styles.swipeItem} key={item.id}>
-          <Image style={styles.swipeImage} resizeMode="cover"
-            source={{ uri: `${STORAGE_URL}/property/${item.path}` }} />
+          <Image
+            style={styles.swipeImage}
+            resizeMode="cover"
+            source={{ uri: `${STORAGE_URL}/property/${item.path}` }}
+          />
         </View>
       ))}
     </Swiper>
@@ -26,17 +29,17 @@ export default function SwiperImage({ images }) {
 
 const styles = StyleSheet.create({
   swiperContainer: {
-    height: 280, 
+    height: 280
   },
 
   swipeItem: {
     flex: 1,
-    backgroundColor: colors['blue']
+    backgroundColor: colors.blue
   },
 
   swipeImage: {
     width: '100%',
-    height: 280,
+    height: 280
   },
 
   swipeDot: {
@@ -44,14 +47,14 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: '#b2b2b2',
     borderRadius: 5,
-    margin: 3,
+    margin: 3
   },
 
   swipeActiveDot: {
     width: 10,
     height: 10,
-    backgroundColor: colors['yellow'],
+    backgroundColor: colors.yellow,
     borderRadius: 5,
-    margin: 3,
-  },
+    margin: 3
+  }
 })

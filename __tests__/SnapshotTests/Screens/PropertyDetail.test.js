@@ -18,14 +18,11 @@ jest.mock('@react-navigation/native', () => {
 })
 
 describe('PropertyDetail test', () => {
-
   it('render PropertyDetail screen correctly', () => {
     act(() => {
-      tree = create(
-        <PropertyDetail />
-      )
+      tree = create(<PropertyDetail />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

@@ -7,7 +7,6 @@ jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('InputArea test', () => {
-
   it('render InputArea component without icon and label correctly', () => {
     act(() => {
       tree = create(
@@ -18,7 +17,7 @@ describe('InputArea test', () => {
       )
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 
   it('render InputArea component with icon correctly', () => {
@@ -32,7 +31,7 @@ describe('InputArea test', () => {
       )
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 
   it('render InputArea component with label correctly', () => {
@@ -46,6 +45,6 @@ describe('InputArea test', () => {
       )
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

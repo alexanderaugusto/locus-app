@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
@@ -17,12 +14,12 @@ export default function FloatButton(props) {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    backgroundColor: colors["blue-secondary"],
+    position: 'absolute',
+    backgroundColor: colors['blue-secondary'],
     width: 60,
     height: 60,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 560,
     right: 20,
     bottom: 30

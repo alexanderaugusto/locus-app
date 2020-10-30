@@ -9,20 +9,17 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: jest.fn(),
+      navigate: jest.fn()
     })
   }
 })
 
 describe('SignUp test', () => {
-
   it('render SignUp screen correctly', () => {
     act(() => {
-      tree = create(
-        <SignUp />
-      )
+      tree = create(<SignUp />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })

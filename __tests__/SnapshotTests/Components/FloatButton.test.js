@@ -7,14 +7,11 @@ jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('FloatButton test', () => {
-
   it('render FloatButton component correctly', () => {
     act(() => {
-      tree = create(
-        <FloatButton />
-      )
+      tree = create(<FloatButton />)
     })
 
-    expect(tree.toJSON()).toMatchSnapshot();
+    expect(tree.toJSON()).toMatchSnapshot()
   })
 })
