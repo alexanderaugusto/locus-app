@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { SafeAreaView, FlatList, KeyboardAvoidingView, StyleSheet, Text, View, ScrollView, Image } from 'react-native'
+import { Platform, SafeAreaView, FlatList, KeyboardAvoidingView, StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import { InputArea, ImagePickerFunction, InputSelect } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import { createRows } from '../utils/util'
 import api from '../services/api'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { FontAwesome } from 'react-native-vector-icons'
 import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
@@ -259,7 +259,7 @@ export default function AddProperty() {
                       return (
                         <ImagePickerFunction style={styles.image} onChange={(image) => onChangeImages(image)}>
                           <View style={styles.addIcon}>
-                            <Icon name="plus" color={colors["blue-secondary"]} size={20} />
+                            <FontAwesome name="plus" color={colors["blue-secondary"]} size={20} />
                           </View>
                         </ImagePickerFunction>
                       )

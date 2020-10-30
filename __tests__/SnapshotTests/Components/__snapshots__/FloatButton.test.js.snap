@@ -25,11 +25,5 @@ exports[`FloatButton test render FloatButton component correctly 1`] = `
       "width": 60,
     }
   }
->
-  <Icon
-    color="#FFFFFF"
-    name="plus"
-    size={16}
-  />
-</View>
+/>
 `;

@@ -1,9 +1,15 @@
 import React from 'react'
 import { act, create } from 'react-test-renderer'
-import InputSelect from '../../../src/components/InputSelect'
+import { InputSelect } from '../../../src/components'
 
 jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.mock('@expo/vector-icons', () => {
+  return {
+    ...jest.requireActual('@expo/vector-icons'),
+    FontAwesome5: () => jest.fn()
+  }
+})
+jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('InputSelect test', () => {
 

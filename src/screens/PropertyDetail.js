@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { SafeAreaView, View, ScrollView, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import { SwiperImage, ModalContact } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import Icon from '@expo/vector-icons/FontAwesome5'
+import { FontAwesome5 } from '@expo/vector-icons'
 import { formatCurrency } from '../utils/util'
 
 import colors from '../constants/colors.json'
@@ -35,14 +35,14 @@ export default function PropertyDetail() {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'bed'} size={18} color={colors['blue']} />
+                <FontAwesome5 name={'bed'} size={18} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>{route.params?.item.bedrooms} quartos</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'bath'} size={20} color={colors['blue']} />
+                <FontAwesome5 name={'bath'} size={20} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>{route.params?.item.bathrooms} banheiro</Text>
             </View>
@@ -53,14 +53,14 @@ export default function PropertyDetail() {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'ruler-horizontal'} size={18} color={colors['blue']} />
+                <FontAwesome5 name={'ruler-horizontal'} size={18} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>{route.params?.item.area} m²</Text>
             </View>
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'dog'} size={19} color={colors['blue']} />
+                <FontAwesome5 name={'dog'} size={19} color={colors['blue']} />
               </View>
               <Text style={styles.iconsLabel}>{route.params?.item.animal ? "Aceita pet" : "Não aceita pet"}</Text>
             </View>
@@ -84,7 +84,7 @@ export default function PropertyDetail() {
         </View>
 
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
-          <Icon name={'arrow-left'} size={20} color={colors['yellow']} />
+          <FontAwesome5 name={'arrow-left'} size={20} color={colors['yellow']} />
         </TouchableOpacity>
 
         <ModalContact modalVisible={modalVisible} setModalVisible={setModalVisible} />

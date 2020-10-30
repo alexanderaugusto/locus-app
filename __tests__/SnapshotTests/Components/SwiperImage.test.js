@@ -1,6 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import SwiperImage from '../../../src/components/SwiperImage'
+import { SwiperImage } from '../../../src/components'
+
+jest.useFakeTimers()
+jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('SwiperImage test', () => {
 

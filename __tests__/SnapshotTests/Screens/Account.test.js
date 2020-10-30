@@ -1,6 +1,6 @@
 import React from 'react'
 import { act, create } from 'react-test-renderer'
-import { FloatButton } from '../../../src/components'
+import Account from '../../../src/screens/Account'
 
 jest.useFakeTimers()
 jest.mock('@expo/vector-icons', () => {
@@ -10,13 +10,21 @@ jest.mock('@expo/vector-icons', () => {
   }
 })
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
+jest.mock('@react-navigation/native', () => {
+  return {
+    ...jest.requireActual('@react-navigation/native'),
+    useNavigation: () => ({
+      navigate: jest.fn(),
+    })
+  }
+})
 
-describe('FloatButton test', () => {
+describe('Account test', () => {
 
-  it('render FloatButton component correctly', () => {
+  it('render Account screen correctly', () => {
     act(() => {
       tree = create(
-        <FloatButton />
+        <Account />
       )
     })
 

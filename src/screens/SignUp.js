@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { Platform, KeyboardAvoidingView, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native'
 import { InputArea, ImagePickerFunction } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
-import Icon from '@expo/vector-icons/FontAwesome5'
+import { FontAwesome5 } from '@expo/vector-icons'
 import api, { STORAGE_URL } from '../services/api'
 import { formatPhoneNumber, formatCPF } from '../utils/util'
 
@@ -63,7 +63,7 @@ export default function SignUp() {
       >
 
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("SignIn")}>
-          <Icon name={'arrow-left'} size={20} color={colors['yellow']} />
+          <FontAwesome5 name={'arrow-left'} size={20} color={colors['yellow']} />
         </TouchableOpacity>
 
 

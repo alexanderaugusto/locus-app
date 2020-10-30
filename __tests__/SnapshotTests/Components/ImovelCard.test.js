@@ -1,17 +1,20 @@
 import React from 'react'
 import { act, create } from 'react-test-renderer'
-import ImovelCard from '../../../src/components/ImovelCard'
+import { ImovelCard } from '../../../src/components'
 
 jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.mock('@expo/vector-icons', () => {
+  return {
+    ...jest.requireActual('@expo/vector-icons'),
+    FontAwesome5: () => jest.fn()
+  }
+})
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 jest.mock('@react-navigation/native', () => {
-  const mockedNavigate = jest.fn()
-  
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: mockedNavigate,
+      navigate: jest.fn(),
     })
   }
 })

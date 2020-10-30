@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import Icon from '@expo/vector-icons/FontAwesome5'
+import { FontAwesome5 } from '@expo/vector-icons'
 
 import colors from '../constants/colors.json'
 
@@ -8,7 +8,7 @@ export default function InputArea({ prefixIcon, showPassword, setShowPassword, p
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       {prefixIcon && (
-        <Icon
+        <FontAwesome5
           style={styles.button}
           name={prefixIcon}
           size={16}
@@ -28,7 +28,7 @@ export default function InputArea({ prefixIcon, showPassword, setShowPassword, p
 
       {passwordIcon && (
         <TouchableOpacity style={styles.passwordButton} onPress={() => setShowPassword(!showPassword)}>
-          <Icon
+          <FontAwesome5
             name={passwordIcon}
             size={16}
             color={colors['blue']}
