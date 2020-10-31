@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.78% </span>
+                <span class="strong">59.68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>98/126</span>
+                <span class='fraction'>74/124</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.78% </span>
+                <span class="strong">59.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>98/126</span>
+                <span class='fraction'>74/124</span>
             </div>
         
             
@@ -181,23 +181,7 @@
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -253,11 +237,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -283,11 +264,26 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -319,39 +315,25 @@ import {
   FlatList,
   TouchableWithoutFeedback
 } from 'react-native'
-import { ImovelCard } from '../components'
 import { useNavigation } from '@react-navigation/native'
-import AsyncStorage from '@react-native-community/async-storage'
 import api from '../services/api'
+import { ImovelCard } from '../components'
+import { useAuth } from '../contexts/auth'
 &nbsp;
 import colors from '../constants/colors.json'
 &nbsp;
 export default function Favorite() {
   const navigation = useNavigation()
+  const { signed } = useAuth()
 &nbsp;
   const [favorites, setFavorites] = useState([])
   const [loading, setLoading] = useState(false)
 &nbsp;
   const getFavorites = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
-    const token = await AsyncStorage.getItem('user-token')
-    if (!token) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SignIn' }]
-      })
-      return
-    }
-&nbsp;
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-&nbsp;
     setLoading(true)
 &nbsp;
     await api
-      .get('/user/favorites', config)
+      .get('/user/favorites')
       .then(res =&gt; {
         setFavorites(res.data)
       })
@@ -378,23 +360,35 @@ export default function Favorite() {
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
   useEffect(() =&gt; {
-<span class="cstat-no" title="statement not covered" >    getFavorites()</span>
-  }, [])
+<span class="cstat-no" title="statement not covered" >    if (signed) {</span>
+<span class="cstat-no" title="statement not covered" >      getFavorites()</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+  }, [signed])
 &nbsp;
-  return (
-    &lt;KeyboardAvoidingView style={styles.container}&gt;
-      &lt;Text numberOfLiner={2} style={styles.title}&gt;
-        Favoritos
-      &lt;/Text&gt;
-&nbsp;
-      &lt;SafeAreaView style={styles.listContainer}&gt;
-        &lt;FlatList
-          data={favorites}
-          keyExtractor={<span class="fstat-no" title="function not covered" >item =&gt; i</span>tem.id.toString()}
-          showsVerticalScrollIndicator={false}
-          onRefresh={<span class="fstat-no" title="function not covered" >() =&gt; g</span>etFavorites()}
-          refreshing={loading}
-          renderItem={<span class="fstat-no" title="function not covered" >({ item }) =&gt; {</span>
+  if (!signed) {
+    return (
+      &lt;KeyboardAvoidingView style={styles.container}&gt;
+        &lt;Text numberOfLiner={2} style={styles.title}&gt;
+          Favoritos
+        &lt;/Text&gt;
+      &lt;/KeyboardAvoidingView&gt;
+    )
+  }<span class="branch-0 cbranch-no" title="branch not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;KeyboardAvoidingView style={styles.container}&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Text numberOfLiner={2} style={styles.title}&gt;</span>
+<span class="cstat-no" title="statement not covered" >        Favoritos</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/Text&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      &lt;SafeAreaView style={styles.listContainer}&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;FlatList</span>
+<span class="cstat-no" title="statement not covered" >          data={favorites}</span>
+<span class="cstat-no" title="statement not covered" >          keyExtractor={<span class="fstat-no" title="function not covered" >item =&gt; i</span>tem.id.toString()}</span>
+<span class="cstat-no" title="statement not covered" >          showsVerticalScrollIndicator={false}</span>
+<span class="cstat-no" title="statement not covered" >          onRefresh={<span class="fstat-no" title="function not covered" >() =&gt; g</span>etFavorites()}</span>
+<span class="cstat-no" title="statement not covered" >          refreshing={loading}</span>
+<span class="cstat-no" title="statement not covered" >          renderItem={<span class="fstat-no" title="function not covered" >({ item }) =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >            return (</span>
 <span class="cstat-no" title="statement not covered" >              &lt;TouchableWithoutFeedback</span>
 <span class="cstat-no" title="statement not covered" >                onPress={() =&gt; navigation.navigate('PropertyDetail', { item })}</span>
@@ -409,11 +403,11 @@ export default function Favorite() {
 <span class="cstat-no" title="statement not covered" >              &lt;/TouchableWithoutFeedback&gt;</span>
 <span class="cstat-no" title="statement not covered" >            )</span>
 <span class="cstat-no" title="statement not covered" >          }}</span>
-        /&gt;
-      &lt;/SafeAreaView&gt;
-    &lt;/KeyboardAvoidingView&gt;
-  )
-}
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/SafeAreaView&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/KeyboardAvoidingView&gt;</span>
+<span class="cstat-no" title="statement not covered" >  )</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
 const styles = StyleSheet.create({
   container: {
@@ -442,7 +436,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Oct 30 2020 17:38:39 GMT-0300 (GMT-03:00)
+                at Sat Oct 31 2020 12:50:42 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

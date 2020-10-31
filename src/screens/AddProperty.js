@@ -16,7 +16,6 @@ import { useNavigation } from '@react-navigation/native'
 import { createRows } from '../utils/util'
 import api from '../services/api'
 import { FontAwesome } from 'react-native-vector-icons'
-import AsyncStorage from '@react-native-community/async-storage'
 
 import colors from '../constants/colors.json'
 import states from '../constants/states.json'
@@ -53,11 +52,8 @@ export default function AddProperty() {
   }
 
   const addProperty = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token,
         'Content-Type': 'multipart/form-data'
       }
     }

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
 import * as Updates from 'expo-updates'
-import colors from './src/constants/colors.json'
+import { AuthProvider } from './src/contexts/auth'
 import Routes from './src/routes'
+import colors from './src/constants/colors.json'
 
 export default function App() {
   useEffect(() => {
@@ -15,13 +16,18 @@ export default function App() {
       }
     }
 
-    updateApp()
+    // eslint-disable-next-line no-undef
+    if (!__DEV__) {
+      updateApp()
+    }
   }, [])
 
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </>
   )
 }

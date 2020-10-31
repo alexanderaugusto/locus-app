@@ -9,41 +9,27 @@ import {
   View,
   Image
 } from 'react-native'
-import { FloatButton } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
-import AsyncStorage from '@react-native-community/async-storage'
+import { FloatButton } from '../components'
+import { useAuth } from '../contexts/auth'
 
 import colors from '../constants/colors.json'
 
 export default function Advertise() {
   const navigation = useNavigation()
   const route = useRoute()
+  const { signed } = useAuth()
 
   const [properties, setProperties] = useState([])
   const [loading, setLoading] = useState(false)
 
   const getProperties = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-    if (!token) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SignIn' }]
-      })
-      return
-    }
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     setLoading(true)
 
     await api
-      .get('/user/properties', config)
+      .get('/user/properties')
       .then(res => {
         setProperties(res.data)
       })
@@ -55,14 +41,26 @@ export default function Advertise() {
   }
 
   useEffect(() => {
-    getProperties()
-  }, [])
+    if (signed) {
+      getProperties()
+    }
+  }, [signed])
 
   useEffect(() => {
     if (route.params?.reload) {
       getProperties()
     }
   }, [route.params])
+
+  if (!signed) {
+    return (
+      <KeyboardAvoidingView style={styles.container}>
+        <Text numberOfLiner={2} style={styles.title}>
+          Anunciar
+        </Text>
+      </KeyboardAvoidingView>
+    )
+  }
 
   return (
     <KeyboardAvoidingView style={styles.container}>

@@ -9,15 +9,16 @@ import {
   Platform,
   ScrollView
 } from 'react-native'
-import { InputArea, ImagePickerFunction } from '../components'
 import { useNavigation } from '@react-navigation/native'
+import { InputArea, ImagePickerFunction } from '../components'
 import api, { STORAGE_URL } from '../services/api'
-import AsyncStorage from '@react-native-community/async-storage'
+import { useAuth } from '../contexts/auth'
 
 import colors from '../constants/colors.json'
 
 export default function Account() {
   const navigation = useNavigation()
+  const { signed, signOut } = useAuth()
 
   const [userInfo, setUserInfo] = useState({
     name: '',
@@ -27,23 +28,8 @@ export default function Account() {
   })
 
   const getUser = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-    if (!token) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SignIn' }]
-      })
-      return
-    }
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     api
-      .get('/user', config)
+      .get('/user')
       .then(res => {
         setUserInfo({
           ...res.data,
@@ -56,21 +42,13 @@ export default function Account() {
   }
 
   const updateInfo = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     const data = {
       name: userInfo.name,
       phone: userInfo.phone
     }
 
     api
-      .put('/user', data, config)
+      .put('/user', data)
       .then(res => {})
       .catch(err => {
         console.error(err)
@@ -78,11 +56,8 @@ export default function Account() {
   }
 
   const updateAvatar = async image => {
-    const token = await AsyncStorage.getItem('user-token')
-
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token,
         'Content-Type': 'multipart/form-data'
       }
     }
@@ -101,19 +76,25 @@ export default function Account() {
       })
   }
 
-  const logout = async () => {
-    await AsyncStorage.clear()
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'SignIn' }]
-    })
-  }
-
   const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
 
   useEffect(() => {
-    getUser()
-  }, [])
+    if (signed) {
+      getUser()
+    }
+  }, [signed])
+
+  if (!signed) {
+    return (
+      <KeyboardAvoidingView style={styles.container}>
+        <Text style={styles.title}>Minha conta</Text>
+
+        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+          <Text>Entrar</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+    )
+  }
 
   return (
     <ScrollView
@@ -127,7 +108,7 @@ export default function Account() {
       >
         <View style={styles.header} />
 
-        <Text style={styles.title}> Minha conta </Text>
+        <Text style={styles.title}>Minha conta</Text>
 
         <View style={styles.cardContainer}>
           <ImagePickerFunction onChange={image => updateAvatar(image)}>
@@ -136,7 +117,7 @@ export default function Account() {
           <Text style={styles.name}>{userInfo.name}</Text>
           <TouchableOpacity
             style={styles.buttonLogout}
-            onPress={() => logout()}
+            onPress={() => signOut()}
           >
             <Text style={styles.buttonText}>Sair</Text>
           </TouchableOpacity>

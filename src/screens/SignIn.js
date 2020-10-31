@@ -8,38 +8,28 @@ import {
   Image,
   Platform
 } from 'react-native'
-import { InputArea } from '../components'
 import { useNavigation } from '@react-navigation/native'
-import AsyncStorage from '@react-native-community/async-storage'
-import api from '../services/api'
+import { InputArea } from '../components'
+import { useAuth } from '../contexts/auth'
 
 import logo from '../../assets/img/house_agreement.png'
 import colors from '../constants/colors.json'
 
 export default function SignIn(props) {
   const navigation = useNavigation()
+  const { signIn } = useAuth()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(true)
 
   const login = () => {
-    const data = {
-      email,
-      password
-    }
-
-    api
-      .post('/auth/login', data)
-      .then(async res => {
-        await AsyncStorage.setItem('user-token', res.data.token)
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Home' }]
-        })
+    signIn(email, password)
+      .then(() => {
+        navigation.goBack()
       })
       .catch(err => {
-        console.error(err)
+        console.log(err)
       })
   }
 

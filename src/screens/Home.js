@@ -16,28 +16,22 @@ import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { ImovelCard } from '../components'
 import api from '../services/api'
-import AsyncStorage from '@react-native-community/async-storage'
+import { useAuth } from '../contexts/auth'
 
 import colors from '../constants/colors.json'
 
 export default function Home() {
   const navigation = useNavigation()
+  const { signed } = useAuth()
+
   const [properties, setProperties] = useState([])
   const [loading, setLoading] = useState(false)
 
   const getProperties = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     setLoading(true)
 
     await api
-      .get('/properties', config)
+      .get('/properties')
       .then(res => {
         setProperties(res.data)
       })
@@ -66,7 +60,7 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
-  }, [])
+  }, [signed])
 
   return (
     <KeyboardAvoidingView

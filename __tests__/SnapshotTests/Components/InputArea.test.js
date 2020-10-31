@@ -4,7 +4,6 @@ import { InputArea } from '../../../src/components'
 
 jest.useFakeTimers()
 jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
-jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 
 describe('InputArea test', () => {
   it('render InputArea component without icon and label correctly', () => {

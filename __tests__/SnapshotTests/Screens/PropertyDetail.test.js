@@ -4,7 +4,6 @@ import PropertyDetail from '../../../src/screens/PropertyDetail'
 
 jest.useFakeTimers()
 jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
-jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),

@@ -9,7 +9,6 @@ import {
   ScrollView
 } from 'react-native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import AsyncStorage from '@react-native-community/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
@@ -23,20 +22,8 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
   const navigation = useNavigation()
 
   const addFavorite = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-    if (!token) {
-      navigation.navigate('SignIn', { backPath: 'Home' })
-      return
-    }
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     api
-      .put(`/user/favorite/${item.id}`, null, config)
+      .put(`/user/favorite/${item.id}`, null)
       .then(res => {
         if (onChangeFavorite) {
           onChangeFavorite(item, true)
@@ -48,20 +35,8 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
   }
 
   const removeFavorite = async () => {
-    const token = await AsyncStorage.getItem('user-token')
-    if (!token) {
-      navigation.navigate('SignIn', { backPath: 'Home' })
-      return
-    }
-
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-
     api
-      .delete(`/user/favorite/${item.id}`, config)
+      .delete(`/user/favorite/${item.id}`)
       .then(res => {
         if (onChangeFavorite) {
           onChangeFavorite(item, false)

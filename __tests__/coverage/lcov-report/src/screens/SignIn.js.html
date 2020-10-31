@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.86% </span>
+                <span class="strong">93.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>119/137</span>
+                <span class='fraction'>119/127</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.86% </span>
+                <span class="strong">93.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>119/137</span>
+                <span class='fraction'>119/127</span>
             </div>
         
             
@@ -184,17 +184,7 @@
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -220,16 +210,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -341,38 +321,28 @@ import {
   Image,
   Platform
 } from 'react-native'
-import { InputArea } from '../components'
 import { useNavigation } from '@react-navigation/native'
-import AsyncStorage from '@react-native-community/async-storage'
-import api from '../services/api'
+import { InputArea } from '../components'
+import { useAuth } from '../contexts/auth'
 &nbsp;
 import logo from '../../assets/img/house_agreement.png'
 import colors from '../constants/colors.json'
 &nbsp;
 export default function SignIn(props) {
   const navigation = useNavigation()
+  const { signIn } = useAuth()
 &nbsp;
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(true)
 &nbsp;
   const login = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const data = {</span>
-<span class="cstat-no" title="statement not covered" >      email,</span>
-<span class="cstat-no" title="statement not covered" >      password</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    api</span>
-<span class="cstat-no" title="statement not covered" >      .post('/auth/login', data)</span>
-<span class="cstat-no" title="statement not covered" >      .then(async res =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        await AsyncStorage.setItem('user-token', res.data.token)</span>
-<span class="cstat-no" title="statement not covered" >        navigation.reset({</span>
-<span class="cstat-no" title="statement not covered" >          index: 0,</span>
-<span class="cstat-no" title="statement not covered" >          routes: [{ name: 'Home' }]</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
+<span class="cstat-no" title="statement not covered" >    signIn(email, password)</span>
+<span class="cstat-no" title="statement not covered" >      .then(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        navigation.goBack()</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
 <span class="cstat-no" title="statement not covered" >      .catch(err =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        console.error(err)</span>
+<span class="cstat-no" title="statement not covered" >        console.log(err)</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
@@ -475,7 +445,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Oct 30 2020 17:38:39 GMT-0300 (GMT-03:00)
+                at Sat Oct 31 2020 12:50:42 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
