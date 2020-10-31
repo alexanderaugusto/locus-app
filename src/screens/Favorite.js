@@ -6,9 +6,11 @@ import {
   Text,
   SafeAreaView,
   FlatList,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  TouchableOpacity
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import api from '../services/api'
 import { ImovelCard } from '../components'
 import { useAuth } from '../contexts/auth'
@@ -58,12 +60,26 @@ export default function Favorite() {
     }
   }, [signed])
 
-  if (!signed) {
+  if (!signed || !favorites.length) {
     return (
-      <KeyboardAvoidingView style={styles.container}>
-        <Text numberOfLiner={2} style={styles.title}>
-          Favoritos
-        </Text>
+      <KeyboardAvoidingView style={styles.emptyContainer}>
+        <Icon name="heart-broken" size={120} color={colors.blue} />
+
+        <View>
+          <Text style={styles.emptyTitle}>
+            Você ainda não possui imóveis favoritos
+          </Text>
+          <Text style={styles.emptyDescription}>
+            Vá para tela principal para visualizar os imóveis e favoritá-los :)
+          </Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.emptyButton}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Text style={styles.emptyButtonText}>Tela inicial</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     )
   }
@@ -103,6 +119,44 @@ export default function Favorite() {
 }
 
 const styles = StyleSheet.create({
+  emptyContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: '10%',
+    paddingVertical: '25%'
+  },
+
+  emptyTitle: {
+    color: '#333740',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+
+  emptyDescription: {
+    color: '#AAADB3',
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 15
+  },
+
+  emptyButton: {
+    height: 40,
+    width: 130,
+    backgroundColor: colors['blue-secondary'],
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginVertical: 10
+  },
+
+  emptyButtonText: {
+    color: '#FFFFFF'
+  },
+
   container: {
     flex: 1,
     backgroundColor: colors.platinum,

@@ -10,6 +10,7 @@ import {
   ScrollView
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import { InputArea, ImagePickerFunction } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
@@ -86,11 +87,21 @@ export default function Account() {
 
   if (!signed) {
     return (
-      <KeyboardAvoidingView style={styles.container}>
-        <Text style={styles.title}>Minha conta</Text>
+      <KeyboardAvoidingView style={styles.emptyContainer}>
+        <Icon name="user-alt" size={120} color={colors.blue} />
 
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text>Entrar</Text>
+        <View>
+          <Text style={styles.emptyTitle}>Você ainda não possui uma conta</Text>
+          <Text style={styles.emptyDescription}>
+            Faça o login no aplicativo para poder acessar os dados da sua conta
+          </Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.emptyButton}
+          onPress={() => navigation.navigate('SignIn')}
+        >
+          <Text style={styles.emptyButtonText}>Entrar</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     )
@@ -154,6 +165,45 @@ export default function Account() {
 }
 
 const styles = StyleSheet.create({
+  emptyContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: '10%',
+    paddingVertical: '25%'
+  },
+
+  emptyTitle: {
+    color: '#333740',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+
+  emptyDescription: {
+    color: '#AAADB3',
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 15
+  },
+
+  emptyButton: {
+    height: 40,
+    width: 130,
+    backgroundColor: colors['blue-secondary'],
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    paddingHorizontal: 25,
+    marginVertical: 10
+  },
+
+  emptyButtonText: {
+    color: '#FFFFFF'
+  },
+
   scrollContainer: {
     flex: 1,
     backgroundColor: colors.platinum

@@ -6,10 +6,12 @@ import {
   SafeAreaView,
   FlatList,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   View,
   Image
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 import { FloatButton } from '../components'
@@ -52,12 +54,25 @@ export default function Advertise() {
     }
   }, [route.params])
 
-  if (!signed) {
+  if (!signed || !properties.length) {
     return (
-      <KeyboardAvoidingView style={styles.container}>
-        <Text numberOfLiner={2} style={styles.title}>
-          Anunciar
-        </Text>
+      <KeyboardAvoidingView style={styles.emptyContainer}>
+        <Icon name="house-damage" size={120} color={colors.blue} />
+
+        <View>
+          <Text style={styles.emptyTitle}>Você não possui nenhum imóvel</Text>
+          <Text style={styles.emptyDescription}>
+            Vamos cadastrar seu primeiro imóve, faça isso clicando no botão
+            abaixo
+          </Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.emptyButton}
+          onPress={() => navigation.navigate(signed ? 'AddProperty' : 'SignIn')}
+        >
+          <Text style={styles.emptyButtonText}>Meu primeiro imóvel</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     )
   }
@@ -133,6 +148,45 @@ export default function Advertise() {
 }
 
 const styles = StyleSheet.create({
+  emptyContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: '10%',
+    paddingVertical: '25%'
+  },
+
+  emptyTitle: {
+    color: '#333740',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+
+  emptyDescription: {
+    color: '#AAADB3',
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 15
+  },
+
+  emptyButton: {
+    height: 40,
+    width: 'auto',
+    backgroundColor: colors['blue-secondary'],
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    paddingHorizontal: 25,
+    marginVertical: 10
+  },
+
+  emptyButtonText: {
+    color: '#FFFFFF'
+  },
+
   container: {
     flex: 1,
     backgroundColor: colors.platinum,
