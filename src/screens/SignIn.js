@@ -21,14 +21,17 @@ export default function SignIn(props) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(true)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const login = () => {
     signIn(email, password)
       .then(() => {
+        setErrorMessage('')
         navigation.goBack()
       })
       .catch(err => {
+        setErrorMessage('Algo deu errado, tente novamente!')
         console.log(err)
       })
   }
@@ -42,7 +45,11 @@ export default function SignIn(props) {
       <Image style={styles.logo} source={logo}></Image>
       <Text style={styles.title}>IMovel</Text>
 
+      <Text testID={'errorMessageText'} style={styles.errorMessage}>{errorMessage}</Text>
+
       <InputArea
+        testID={'signIn-email'}
+        secureTextEntry={false}
         prefixIcon={'envelope'}
         placeholder={'Entre com o seu email'}
         keyboardType={'email-address'}
@@ -50,22 +57,26 @@ export default function SignIn(props) {
         onChangeText={value => setEmail(value)}
       />
       <InputArea
+        testID={'signIn-password'}
         prefixIcon={'lock'}
         showPassword={showPassword}
         setShowPassword={setShowPassword}
-        passwordIcon={showPassword ? 'eye-slash' : 'eye'}
+        passwordIcon={showPassword ? 'eye' : 'eye-slash'}
         placeholder={'Entre com a sua senha'}
-        secureTextEntry={!!showPassword}
+        secureTextEntry={!showPassword}
         value={password}
         onChangeText={value => setPassword(value)}
       />
 
-      <TouchableOpacity style={styles.button} onPress={() => login()}>
+      <TouchableOpacity testID={'signIn-button'} style={styles.button} onPress={() => { (email === '' || password === '') ? setErrorMessage('Preencha todos os campos corretamente!') : login() }}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
       <View style={styles.signUpContainer}>
         <Text style={styles.signUpText}>Ainda não possui conta?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+        <TouchableOpacity onPress={() => {
+          setErrorMessage('')
+          navigation.navigate('SignUp')
+        }}>
           <Text style={styles.signUpBtnText}>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
@@ -91,6 +102,14 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: '500',
     color: colors['blue-secondary'],
+    textAlign: 'center'
+  },
+
+  errorMessage: {
+    paddingTop: 10,
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'red',
     textAlign: 'center'
   },
 

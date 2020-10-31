@@ -39,6 +39,20 @@ exports[`SignIn test render SignIn screen correctly 1`] = `
   >
     IMovel
   </Text>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 14,
+        "fontWeight": "500",
+        "paddingTop": 10,
+        "textAlign": "center",
+      }
+    }
+    testID="errorMessageText"
+  >
+    
+  </Text>
   <View
     style={
       Array [
@@ -80,6 +94,7 @@ exports[`SignIn test render SignIn screen correctly 1`] = `
       placeholder="Entre com o seu email"
       placeholderTextColor="#d2d2d2"
       rejectResponderTermination={true}
+      secureTextEntry={false}
       style={
         Array [
           Object {
@@ -91,6 +106,7 @@ exports[`SignIn test render SignIn screen correctly 1`] = `
           undefined,
         ]
       }
+      testID="signIn-email"
       underlineColorAndroid="transparent"
       value=""
     />
@@ -147,6 +163,7 @@ exports[`SignIn test render SignIn screen correctly 1`] = `
           undefined,
         ]
       }
+      testID="signIn-password"
       underlineColorAndroid="transparent"
       value=""
     />
@@ -197,6 +214,7 @@ exports[`SignIn test render SignIn screen correctly 1`] = `
         "opacity": 1,
       }
     }
+    testID="signIn-button"
   >
     <Text
       style={

@@ -18,6 +18,7 @@ export default function InputArea({
   label,
   containerStyle,
   style,
+  textId,
   ...inputProps
 }) {
   return (
@@ -35,6 +36,7 @@ export default function InputArea({
 
       <TextInput
         {...inputProps}
+        textId={textId}
         style={[styles.inputText, style]}
         placeholderTextColor="#d2d2d2"
       />

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604163235941" clover="3.2.0">
-  <project timestamp="1604163235941" name="All files">
-    <metrics statements="3061" coveredstatements="2546" conditionals="86" coveredconditionals="57" methods="120" coveredmethods="28" elements="3267" coveredelements="2631" complexity="0" loc="3061" ncloc="3061" packages="7" files="24" classes="24"/>
+<coverage generated="1604175238798" clover="3.2.0">
+  <project timestamp="1604175238799" name="All files">
+    <metrics statements="3082" coveredstatements="2562" conditionals="89" coveredconditionals="58" methods="120" coveredmethods="29" elements="3291" coveredelements="2649" complexity="0" loc="3082" ncloc="3082" packages="7" files="24" classes="24"/>
     <package name="src">
       <metrics statements="25" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="routes.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/routes.js">
+      <file name="routes.js" path="E:\Desktop\Apps React Native\imovel-app\src\routes.js">
         <metrics statements="25" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -34,8 +34,8 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="748" coveredstatements="686" conditionals="34" coveredconditionals="31" methods="27" coveredmethods="15"/>
-      <file name="FloatButton.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/FloatButton.js">
+      <metrics statements="750" coveredstatements="688" conditionals="34" coveredconditionals="31" methods="27" coveredmethods="15"/>
+      <file name="FloatButton.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\FloatButton.js">
         <metrics statements="27" coveredstatements="27" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -65,7 +65,7 @@
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="ImagePicker.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/ImagePicker.js">
+      <file name="ImagePicker.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\ImagePicker.js">
         <metrics statements="42" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -110,7 +110,7 @@
         <line num="41" count="1" type="stmt"/>
         <line num="42" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="ImovelCard.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/ImovelCard.js">
+      <file name="ImovelCard.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\ImovelCard.js">
         <metrics statements="193" coveredstatements="193" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -306,8 +306,8 @@
         <line num="192" count="1" type="stmt"/>
         <line num="193" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="InputArea.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/InputArea.js">
-        <metrics statements="94" coveredstatements="94" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="1"/>
+      <file name="InputArea.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\InputArea.js">
+        <metrics statements="96" coveredstatements="96" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -321,47 +321,47 @@
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="10" type="stmt"/>
-        <line num="15" count="10" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="20" count="10" type="stmt"/>
-        <line num="21" count="10" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
-        <line num="23" count="10" type="stmt"/>
-        <line num="24" count="10" type="stmt"/>
-        <line num="25" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="26" count="10" type="stmt"/>
-        <line num="27" count="10" type="stmt"/>
-        <line num="28" count="10" type="stmt"/>
-        <line num="29" count="10" type="stmt"/>
-        <line num="30" count="10" type="stmt"/>
-        <line num="31" count="10" type="stmt"/>
-        <line num="32" count="10" type="stmt"/>
-        <line num="33" count="10" type="stmt"/>
-        <line num="34" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="35" count="10" type="stmt"/>
-        <line num="36" count="10" type="stmt"/>
-        <line num="37" count="10" type="stmt"/>
-        <line num="38" count="10" type="stmt"/>
-        <line num="39" count="10" type="stmt"/>
-        <line num="40" count="10" type="stmt"/>
-        <line num="41" count="10" type="stmt"/>
-        <line num="42" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="43" count="10" type="stmt"/>
-        <line num="44" count="10" type="stmt"/>
-        <line num="45" count="10" type="stmt"/>
-        <line num="46" count="10" type="stmt"/>
-        <line num="47" count="10" type="stmt"/>
-        <line num="48" count="10" type="stmt"/>
-        <line num="49" count="10" type="stmt"/>
-        <line num="50" count="10" type="stmt"/>
-        <line num="51" count="10" type="stmt"/>
-        <line num="52" count="10" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
+        <line num="15" count="18" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
+        <line num="17" count="18" type="stmt"/>
+        <line num="18" count="18" type="stmt"/>
+        <line num="19" count="18" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
+        <line num="21" count="18" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
+        <line num="23" count="18" type="stmt"/>
+        <line num="24" count="18" type="stmt"/>
+        <line num="25" count="18" type="stmt"/>
+        <line num="26" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="18" type="stmt"/>
+        <line num="28" count="18" type="stmt"/>
+        <line num="29" count="18" type="stmt"/>
+        <line num="30" count="18" type="stmt"/>
+        <line num="31" count="18" type="stmt"/>
+        <line num="32" count="18" type="stmt"/>
+        <line num="33" count="18" type="stmt"/>
+        <line num="34" count="18" type="stmt"/>
+        <line num="35" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="36" count="18" type="stmt"/>
+        <line num="37" count="18" type="stmt"/>
+        <line num="38" count="18" type="stmt"/>
+        <line num="39" count="18" type="stmt"/>
+        <line num="40" count="18" type="stmt"/>
+        <line num="41" count="18" type="stmt"/>
+        <line num="42" count="18" type="stmt"/>
+        <line num="43" count="18" type="stmt"/>
+        <line num="44" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="45" count="18" type="stmt"/>
+        <line num="46" count="18" type="stmt"/>
+        <line num="47" count="18" type="stmt"/>
+        <line num="48" count="18" type="stmt"/>
+        <line num="49" count="18" type="stmt"/>
+        <line num="50" count="18" type="stmt"/>
+        <line num="51" count="18" type="stmt"/>
+        <line num="52" count="18" type="stmt"/>
+        <line num="53" count="18" type="stmt"/>
+        <line num="54" count="18" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
@@ -401,9 +401,11 @@
         <line num="91" count="1" type="stmt"/>
         <line num="92" count="1" type="stmt"/>
         <line num="93" count="1" type="stmt"/>
-        <line num="94" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="InputSelect.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/InputSelect.js">
+      <file name="InputSelect.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\InputSelect.js">
         <metrics statements="125" coveredstatements="120" conditionals="7" coveredconditionals="6" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -531,7 +533,7 @@
         <line num="124" count="1" type="stmt"/>
         <line num="125" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="Modal.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/Modal.js">
+      <file name="Modal.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\Modal.js">
         <metrics statements="143" coveredstatements="141" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -677,7 +679,7 @@
         <line num="142" count="1" type="stmt"/>
         <line num="143" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="SwiperImage.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/SwiperImage.js">
+      <file name="SwiperImage.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\SwiperImage.js">
         <metrics statements="60" coveredstatements="60" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -740,7 +742,7 @@
         <line num="59" count="1" type="stmt"/>
         <line num="60" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="TabMenu.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/TabMenu.js">
+      <file name="TabMenu.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\TabMenu.js">
         <metrics statements="47" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -790,7 +792,7 @@
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
       </file>
-      <file name="index.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/components/index.js">
+      <file name="index.js" path="E:\Desktop\Apps React Native\imovel-app\src\components\index.js">
         <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -813,7 +815,7 @@
     </package>
     <package name="src.constants">
       <metrics statements="130" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="colors.json" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/constants/colors.json">
+      <file name="colors.json" path="E:\Desktop\Apps React Native\imovel-app\src\constants\colors.json">
         <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -822,7 +824,7 @@
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
       </file>
-      <file name="states.json" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/constants/states.json">
+      <file name="states.json" path="E:\Desktop\Apps React Native\imovel-app\src\constants\states.json">
         <metrics statements="110" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -935,7 +937,7 @@
         <line num="109" count="0" type="stmt"/>
         <line num="110" count="0" type="stmt"/>
       </file>
-      <file name="types.json" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/constants/types.json">
+      <file name="types.json" path="E:\Desktop\Apps React Native\imovel-app\src\constants\types.json">
         <metrics statements="14" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -955,7 +957,7 @@
     </package>
     <package name="src.contexts">
       <metrics statements="90" coveredstatements="90" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
-      <file name="auth.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/contexts/auth.js">
+      <file name="auth.js" path="E:\Desktop\Apps React Native\imovel-app\src\contexts\auth.js">
         <metrics statements="90" coveredstatements="90" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -1045,13 +1047,13 @@
         <line num="86" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
         <line num="88" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="89" count="5" type="stmt"/>
-        <line num="90" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="89" count="9" type="stmt"/>
+        <line num="90" count="9" type="cond" truecount="1" falsecount="0"/>
       </file>
     </package>
     <package name="src.screens">
-      <metrics statements="2012" coveredstatements="1714" conditionals="36" coveredconditionals="16" methods="83" coveredmethods="8"/>
-      <file name="Account.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/Account.js">
+      <metrics statements="2031" coveredstatements="1728" conditionals="39" coveredconditionals="17" methods="83" coveredmethods="9"/>
+      <file name="Account.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\Account.js">
         <metrics statements="299" coveredstatements="239" conditionals="3" coveredconditionals="2" methods="14" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -1353,7 +1355,7 @@
         <line num="298" count="1" type="stmt"/>
         <line num="299" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="AddProperty.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/AddProperty.js">
+      <file name="AddProperty.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\AddProperty.js">
         <metrics statements="409" coveredstatements="372" conditionals="2" coveredconditionals="2" methods="22" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -1765,7 +1767,7 @@
         <line num="408" count="1" type="stmt"/>
         <line num="409" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="Advertise.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/Advertise.js">
+      <file name="Advertise.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\Advertise.js">
         <metrics statements="254" coveredstatements="178" conditionals="4" coveredconditionals="2" methods="9" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -2022,7 +2024,7 @@
         <line num="253" count="1" type="stmt"/>
         <line num="254" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="Favorite.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/Favorite.js">
+      <file name="Favorite.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\Favorite.js">
         <metrics statements="178" coveredstatements="128" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -2203,7 +2205,7 @@
         <line num="177" count="1" type="stmt"/>
         <line num="178" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="Home.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/Home.js">
+      <file name="Home.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\Home.js">
         <metrics statements="182" coveredstatements="153" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -2388,7 +2390,7 @@
         <line num="181" count="1" type="stmt"/>
         <line num="182" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="PropertyDetail.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/PropertyDetail.js">
+      <file name="PropertyDetail.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\PropertyDetail.js">
         <metrics statements="255" coveredstatements="246" conditionals="15" coveredconditionals="2" methods="3" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -2646,8 +2648,8 @@
         <line num="254" count="1" type="stmt"/>
         <line num="255" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="SignIn.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/SignIn.js">
-        <metrics statements="127" coveredstatements="119" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="1"/>
+      <file name="SignIn.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\SignIn.js">
+        <metrics statements="146" coveredstatements="133" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -2666,15 +2668,15 @@
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="27" count="5" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
@@ -2682,57 +2684,57 @@
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="57" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="50" count="5" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
+        <line num="53" count="5" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="57" count="5" type="stmt"/>
+        <line num="58" count="5" type="stmt"/>
+        <line num="59" count="5" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="61" count="5" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
+        <line num="63" count="5" type="stmt"/>
+        <line num="64" count="5" type="cond" truecount="0" falsecount="1"/>
+        <line num="65" count="5" type="stmt"/>
+        <line num="66" count="5" type="stmt"/>
+        <line num="67" count="5" type="stmt"/>
+        <line num="68" count="5" type="stmt"/>
+        <line num="69" count="5" type="stmt"/>
+        <line num="70" count="5" type="stmt"/>
+        <line num="71" count="5" type="cond" truecount="1" falsecount="2"/>
+        <line num="72" count="5" type="stmt"/>
+        <line num="73" count="5" type="stmt"/>
+        <line num="74" count="5" type="stmt"/>
+        <line num="75" count="5" type="stmt"/>
+        <line num="76" count="5" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="81" count="5" type="stmt"/>
+        <line num="82" count="5" type="stmt"/>
+        <line num="83" count="5" type="stmt"/>
+        <line num="84" count="5" type="stmt"/>
+        <line num="85" count="5" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
         <line num="88" count="1" type="stmt"/>
@@ -2774,9 +2776,28 @@
         <line num="124" count="1" type="stmt"/>
         <line num="125" count="1" type="stmt"/>
         <line num="126" count="1" type="stmt"/>
-        <line num="127" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="137" count="1" type="stmt"/>
+        <line num="138" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="142" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="146" count="1" type="cond" truecount="1" falsecount="0"/>
       </file>
-      <file name="SignUp.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/screens/SignUp.js">
+      <file name="SignUp.js" path="E:\Desktop\Apps React Native\imovel-app\src\screens\SignUp.js">
         <metrics statements="308" coveredstatements="279" conditionals="3" coveredconditionals="2" methods="16" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -3090,7 +3111,7 @@
     </package>
     <package name="src.services">
       <metrics statements="11" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
-      <file name="api.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/services/api.js">
+      <file name="api.js" path="E:\Desktop\Apps React Native\imovel-app\src\services\api.js">
         <metrics statements="11" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -3107,7 +3128,7 @@
     </package>
     <package name="src.utils">
       <metrics statements="45" coveredstatements="45" conditionals="9" coveredconditionals="7" methods="4" coveredmethods="4"/>
-      <file name="util.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/utils/util.js">
+      <file name="util.js" path="E:\Desktop\Apps React Native\imovel-app\src\utils\util.js">
         <metrics statements="45" coveredstatements="45" conditionals="9" coveredconditionals="7" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="2" count="1" type="cond" truecount="1" falsecount="0"/>
