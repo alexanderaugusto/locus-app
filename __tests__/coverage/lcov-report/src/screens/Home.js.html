@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.07% </span>
+                <span class="strong">82.84% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>153/182</span>
+                <span class='fraction'>140/169</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.07% </span>
+                <span class="strong">82.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>153/182</span>
+                <span class='fraction'>140/169</span>
             </div>
         
             
@@ -226,20 +226,7 @@
 <a name='L167'></a><a href='#L167'>167</a>
 <a name='L168'></a><a href='#L168'>168</a>
 <a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a>
-<a name='L182'></a><a href='#L182'>182</a>
-<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L170'></a><a href='#L170'>170</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -353,19 +340,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -497,23 +471,23 @@ export default function Home() {
         &lt;/Text&gt;
         &lt;Image
           style={styles.logo}
-          resizeMode="cover"
+          resizeMode="contain"
           source={require('../../assets/img/house_agreement.png')}
         /&gt;
       &lt;/View&gt;
 &nbsp;
       &lt;View style={styles.inputContainer}&gt;
         &lt;TextInput
-          style={styles.inputText}
+          style={{ padding: 5 }}
           placeholder="Pesquise por localidade..."
           placeholderTextColor="#999"
         /&gt;
-        &lt;TouchableOpacity style={styles.inputButton}&gt;
+        &lt;TouchableOpacity style={{ alignSelf: 'center' }}&gt;
           &lt;Icon name="search" size={16} color={colors.blue} /&gt;
         &lt;/TouchableOpacity&gt;
       &lt;/View&gt;
 &nbsp;
-      &lt;SafeAreaView style={styles.listContainer}&gt;
+      &lt;SafeAreaView style={{ flex: 1 }}&gt;
         &lt;FlatList
           data={properties}
           keyExtractor={<span class="fstat-no" title="function not covered" >item =&gt; i</span>tem.id.toString()}
@@ -554,7 +528,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 30,
-    marginBottom: 5
+    marginBottom: 15,
   },
 &nbsp;
   title: {
@@ -566,18 +540,17 @@ const styles = StyleSheet.create({
   },
 &nbsp;
   logo: {
-    height: 60,
-    width: 60
+    height: 65,
+    width: 65,
   },
 &nbsp;
   inputContainer: {
     backgroundColor: '#FFF',
     alignSelf: 'stretch',
-    height: 46,
+    minHeight: 46,
     borderWidth: 1,
     borderColor: colors.blue,
     borderRadius: 4,
-    marginTop: 10,
     paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -587,21 +560,9 @@ const styles = StyleSheet.create({
       height: 0,
       width: 0
     },
-    elevation: 2
+    elevation: 2,
   },
 &nbsp;
-  inputText: {
-    paddingHorizontal: 10,
-    paddingVertical: 10
-  },
-&nbsp;
-  inputButton: {
-    alignSelf: 'center'
-  },
-&nbsp;
-  listContainer: {
-    flex: 1
-  }
 })
 &nbsp;</pre></td></tr></table></pre>
 
@@ -610,7 +571,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Oct 31 2020 17:13:56 GMT-0300 (GMT-03:00)
+                at Sat Oct 31 2020 20:39:13 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../prettify.js"></script>

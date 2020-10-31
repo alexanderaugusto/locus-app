@@ -30,7 +30,7 @@ exports[`Account test render Account screen correctly 1`] = `
         }
       }
     >
-      Você ainda não possui uma conta
+      Você ainda não está logado em uma conta
     </Text>
     <Text
       style={

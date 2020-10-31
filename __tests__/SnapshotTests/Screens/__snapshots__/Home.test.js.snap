@@ -23,7 +23,7 @@ exports[`Home test render Home screen correctly 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "space-between",
-        "marginBottom": 5,
+        "marginBottom": 15,
         "marginTop": 30,
       }
     }
@@ -43,12 +43,12 @@ exports[`Home test render Home screen correctly 1`] = `
       Encontre o imóvel ideal para você!
     </Text>
     <Image
-      resizeMode="cover"
+      resizeMode="contain"
       source={1}
       style={
         Object {
-          "height": 60,
-          "width": 60,
+          "height": 65,
+          "width": 65,
         }
       }
     />
@@ -63,9 +63,8 @@ exports[`Home test render Home screen correctly 1`] = `
         "borderWidth": 1,
         "elevation": 2,
         "flexDirection": "row",
-        "height": 46,
         "justifyContent": "space-between",
-        "marginTop": 10,
+        "minHeight": 46,
         "paddingHorizontal": 12,
         "shadowOffset": Object {
           "height": 0,
@@ -83,8 +82,7 @@ exports[`Home test render Home screen correctly 1`] = `
       rejectResponderTermination={true}
       style={
         Object {
-          "paddingHorizontal": 10,
-          "paddingVertical": 10,
+          "padding": 5,
         }
       }
       underlineColorAndroid="transparent"

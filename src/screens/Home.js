@@ -74,23 +74,23 @@ export default function Home() {
         </Text>
         <Image
           style={styles.logo}
-          resizeMode="cover"
+          resizeMode="contain"
           source={require('../../assets/img/house_agreement.png')}
         />
       </View>
 
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.inputText}
+          style={{ padding: 5 }}
           placeholder="Pesquise por localidade..."
           placeholderTextColor="#999"
         />
-        <TouchableOpacity style={styles.inputButton}>
+        <TouchableOpacity style={{ alignSelf: 'center' }}>
           <Icon name="search" size={16} color={colors.blue} />
         </TouchableOpacity>
       </View>
 
-      <SafeAreaView style={styles.listContainer}>
+      <SafeAreaView style={{ flex: 1 }}>
         <FlatList
           data={properties}
           keyExtractor={item => item.id.toString()}
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 30,
-    marginBottom: 5
+    marginBottom: 15,
   },
 
   title: {
@@ -143,18 +143,17 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    height: 60,
-    width: 60
+    height: 65,
+    width: 65,
   },
 
   inputContainer: {
     backgroundColor: '#FFF',
     alignSelf: 'stretch',
-    height: 46,
+    minHeight: 46,
     borderWidth: 1,
     borderColor: colors.blue,
     borderRadius: 4,
-    marginTop: 10,
     paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -164,19 +163,7 @@ const styles = StyleSheet.create({
       height: 0,
       width: 0
     },
-    elevation: 2
+    elevation: 2,
   },
 
-  inputText: {
-    paddingHorizontal: 10,
-    paddingVertical: 10
-  },
-
-  inputButton: {
-    alignSelf: 'center'
-  },
-
-  listContainer: {
-    flex: 1
-  }
 })

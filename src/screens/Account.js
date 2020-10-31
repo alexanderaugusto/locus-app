@@ -14,6 +14,7 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import { InputArea, ImagePickerFunction } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
+import { formatPhoneNumber } from '../utils/util'
 
 import colors from '../constants/colors.json'
 
@@ -50,7 +51,7 @@ export default function Account() {
 
     api
       .put('/user', data)
-      .then(res => {})
+      .then(res => { })
       .catch(err => {
         console.error(err)
       })
@@ -91,7 +92,7 @@ export default function Account() {
         <Icon name="user-alt" size={120} color={colors.blue} />
 
         <View>
-          <Text style={styles.emptyTitle}>Você ainda não possui uma conta</Text>
+          <Text style={styles.emptyTitle}>Você ainda não está logado em uma conta</Text>
           <Text style={styles.emptyDescription}>
             Faça o login no aplicativo para poder acessar os dados da sua conta
           </Text>
@@ -111,6 +112,7 @@ export default function Account() {
     <ScrollView
       style={styles.scrollContainer}
       showsVerticalScrollIndicator={false}
+      alwaysBounceVertical={false}
     >
       <KeyboardAvoidingView
         style={styles.container}
@@ -151,7 +153,7 @@ export default function Account() {
           <InputArea
             label={'Celular: '}
             placeholder={'Seu celular...'}
-            value={userInfo.phone}
+            value={formatPhoneNumber(userInfo.phone)}
             keyboardType={'phone-pad'}
             onChangeText={value => onChange('phone', value)}
           />
