@@ -11,23 +11,34 @@ const AuthContext = createContext({
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    async function loadStorageData() {
-      await SplashScreen.preventAutoHideAsync()
+  async function loadStorageData() {
+    await SplashScreen.preventAutoHideAsync()
 
-      const [token, userData] = await AsyncStorage.multiGet([
-        'user-token',
-        'user-data'
-      ])
+    const userToken = await AsyncStorage.getItem('user-token')
 
-      if (token[1] && userData[1]) {
-        api.defaults.headers.Authorization = `Bearer ${token[1]}`
-        setUser(JSON.parse(userData[1]))
-      }
+    if (userToken) {
+      api.defaults.headers.Authorization = `Bearer ${userToken}`
 
+      await api
+        .put('/auth/renew')
+        .then(res => {
+          const { token, ...userData } = res.data
+
+          api.defaults.headers.Authorization = `Bearer ${token}`
+
+          setUser(userData)
+        })
+        .catch(err => {
+          console.error(err)
+          api.defaults.headers.Authorization = ''
+        })
+      await SplashScreen.hideAsync()
+    } else {
       await SplashScreen.hideAsync()
     }
+  }
 
+  useEffect(() => {
     loadStorageData()
   }, [])
 

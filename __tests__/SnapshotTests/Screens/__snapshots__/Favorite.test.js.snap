@@ -5,26 +5,79 @@ exports[`Favorite test render Favorite screen correctly 1`] = `
   onLayout={[Function]}
   style={
     Object {
-      "backgroundColor": "#E5E5E5",
+      "alignItems": "center",
       "flex": 1,
-      "paddingHorizontal": 30,
-      "paddingVertical": 10,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "paddingHorizontal": "10%",
+      "paddingVertical": "25%",
     }
   }
 >
-  <Text
-    numberOfLiner={2}
+  <Icon
+    color="#14213D"
+    name="heart-broken"
+    size={120}
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#333740",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Você ainda não possui imóveis favoritos
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#AAADB3",
+          "fontSize": 18,
+          "marginTop": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Vá para tela principal para visualizar os imóveis e favoritá-los :)
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignItems": "center",
         "alignSelf": "center",
-        "color": "#FCA311",
-        "fontSize": 28,
-        "fontWeight": "600",
-        "margin": 10,
+        "backgroundColor": "#19294d",
+        "borderRadius": 24,
+        "height": 40,
+        "justifyContent": "center",
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 130,
       }
     }
   >
-    Favoritos
-  </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      Tela inicial
+    </Text>
+  </View>
 </View>
 `;
