@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604161897438" clover="3.2.0">
-  <project timestamp="1604161897439" name="All files">
-    <metrics statements="3050" coveredstatements="2535" conditionals="86" coveredconditionals="57" methods="120" coveredmethods="28" elements="3256" coveredelements="2620" complexity="0" loc="3050" ncloc="3050" packages="7" files="24" classes="24"/>
+<coverage generated="1604163235941" clover="3.2.0">
+  <project timestamp="1604163235941" name="All files">
+    <metrics statements="3061" coveredstatements="2546" conditionals="86" coveredconditionals="57" methods="120" coveredmethods="28" elements="3267" coveredelements="2631" complexity="0" loc="3061" ncloc="3061" packages="7" files="24" classes="24"/>
     <package name="src">
       <metrics statements="25" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="routes.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/routes.js">
@@ -954,9 +954,9 @@
       </file>
     </package>
     <package name="src.contexts">
-      <metrics statements="79" coveredstatements="79" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <metrics statements="90" coveredstatements="90" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="auth.js" path="/home/alexander/Documents/AlexanderAugusto/IMovel/imovel-app/src/contexts/auth.js">
-        <metrics statements="79" coveredstatements="79" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <metrics statements="90" coveredstatements="90" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -1033,9 +1033,20 @@
         <line num="74" count="1" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="78" count="5" type="stmt"/>
-        <line num="79" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="89" count="5" type="stmt"/>
+        <line num="90" count="5" type="cond" truecount="1" falsecount="0"/>
       </file>
     </package>
     <package name="src.screens">
