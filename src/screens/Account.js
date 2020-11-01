@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { InputArea, ImagePickerFunction } from '../components'
+import { InputArea, ImagePickerFunction, Loader } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { formatPhoneNumber } from '../utils/util'
@@ -22,6 +22,7 @@ export default function Account() {
   const navigation = useNavigation()
   const { signed, signOut } = useAuth()
 
+  const [loading, setLoading] = useState(false)
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
@@ -30,6 +31,7 @@ export default function Account() {
   })
 
   const getUser = async () => {
+    setLoading(true)
     api
       .get('/user')
       .then(res => {
@@ -41,29 +43,35 @@ export default function Account() {
       .catch(err => {
         console.error(err)
       })
+
+    setLoading(false)
   }
 
   const updateInfo = async () => {
+    setLoading(true)
+
     const data = {
       name: userInfo.name,
       phone: userInfo.phone
     }
-
     api
       .put('/user', data)
       .then(res => { })
       .catch(err => {
         console.error(err)
       })
+
+    setTimeout(() => { setLoading(false) }, 1000)
+
   }
 
   const updateAvatar = async image => {
+    setLoading(true)
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }
-
     const data = new FormData()
 
     data.append('file', image)
@@ -76,6 +84,7 @@ export default function Account() {
       .catch(err => {
         console.error(err)
       })
+    setTimeout(() => { setLoading(false) }, 1000)
   }
 
   const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
@@ -92,9 +101,9 @@ export default function Account() {
         <Icon name="user-alt" size={120} color={colors.blue} />
 
         <View>
-          <Text style={styles.emptyTitle}>Você ainda não está logado em uma conta</Text>
+          <Text style={styles.emptyTitle}>Você ainda não está logado em uma conta!</Text>
           <Text style={styles.emptyDescription}>
-            Faça o login no aplicativo para poder acessar os dados da sua conta
+            Faça o login no aplicativo para poder acessar os dados da sua conta.
           </Text>
         </View>
 
@@ -114,6 +123,8 @@ export default function Account() {
       showsVerticalScrollIndicator={false}
       alwaysBounceVertical={false}
     >
+      <Loader isLoading={loading} />
+
       <KeyboardAvoidingView
         style={styles.container}
         behavior="padding"

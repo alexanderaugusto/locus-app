@@ -70,7 +70,7 @@ export default function Favorite() {
             Você ainda não possui imóveis favoritos
           </Text>
           <Text style={styles.emptyDescription}>
-            Vá para tela principal para visualizar os imóveis e favoritá-los :)
+            Vá para tela principal para visualizar os imóveis e favoritá-los!
           </Text>
         </View>
 

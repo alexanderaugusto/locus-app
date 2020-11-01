@@ -42,7 +42,7 @@ exports[`Favorite test render Favorite screen correctly 1`] = `
         }
       }
     >
-      Vá para tela principal para visualizar os imóveis e favoritá-los :)
+      Vá para tela principal para visualizar os imóveis e favoritá-los!
     </Text>
   </View>
   <View

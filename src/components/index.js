@@ -5,6 +5,7 @@ import InputArea from './InputArea'
 import InputSelect from './InputSelect'
 import ImagePickerFunction from './ImagePicker'
 import SwiperImage from './SwiperImage'
+import Loader from './Loader'
 
 export {
   ImovelCard,
@@ -13,5 +14,6 @@ export {
   InputArea,
   InputSelect,
   ImagePickerFunction,
-  SwiperImage
+  SwiperImage,
+  Loader
 }

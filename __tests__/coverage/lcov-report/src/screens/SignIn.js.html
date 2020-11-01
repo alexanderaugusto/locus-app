@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.1% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>133/146</span>
+                <span class='fraction'>136/152</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.1% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>133/146</span>
+                <span class='fraction'>136/152</span>
             </div>
         
             
@@ -203,7 +203,13 @@
 <a name='L144'></a><a href='#L144'>144</a>
 <a name='L145'></a><a href='#L145'>145</a>
 <a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -230,6 +236,7 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -240,6 +247,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -360,7 +372,7 @@ import {
   Platform
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { InputArea } from '../components'
+import { InputArea, Loader } from '../components'
 import { useAuth } from '../contexts/auth'
 &nbsp;
 import logo from '../../assets/img/house_agreement.png'
@@ -370,18 +382,22 @@ export default function SignIn(props) {
   const navigation = useNavigation()
   const { signIn } = useAuth()
 &nbsp;
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 &nbsp;
   const login = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setLoading(true)</span>
 <span class="cstat-no" title="statement not covered" >    signIn(email, password)</span>
 <span class="cstat-no" title="statement not covered" >      .then(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        setLoading(false)</span>
 <span class="cstat-no" title="statement not covered" >        setErrorMessage('')</span>
 <span class="cstat-no" title="statement not covered" >        navigation.goBack()</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
 <span class="cstat-no" title="statement not covered" >      .catch(err =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        setLoading(false)</span>
 <span class="cstat-no" title="statement not covered" >        setErrorMessage('Algo deu errado, tente novamente!')</span>
 <span class="cstat-no" title="statement not covered" >        console.log(err)</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
@@ -393,6 +409,8 @@ export default function SignIn(props) {
       behavior="padding"
       enabled={Platform.OS === 'ios'}
     &gt;
+      &lt;Loader isLoading={loading} /&gt;
+&nbsp;
       &lt;Image style={styles.logo} source={logo}&gt;&lt;/Image&gt;
       &lt;Text style={styles.title}&gt;IMovel&lt;/Text&gt;
 &nbsp;
@@ -441,7 +459,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.platinum,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 35
+    padding: 35,
   },
 &nbsp;
   logo: {
@@ -502,7 +520,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Oct 31 2020 20:39:13 GMT-0300 (GMT-03:00)
+                at Sat Oct 31 2020 22:12:19 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../prettify.js"></script>

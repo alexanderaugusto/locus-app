@@ -9,7 +9,7 @@ import {
   Platform
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { InputArea } from '../components'
+import { InputArea, Loader } from '../components'
 import { useAuth } from '../contexts/auth'
 
 import logo from '../../assets/img/house_agreement.png'
@@ -19,18 +19,22 @@ export default function SignIn(props) {
   const navigation = useNavigation()
   const { signIn } = useAuth()
 
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
   const login = () => {
+    setLoading(true)
     signIn(email, password)
       .then(() => {
+        setLoading(false)
         setErrorMessage('')
         navigation.goBack()
       })
       .catch(err => {
+        setLoading(false)
         setErrorMessage('Algo deu errado, tente novamente!')
         console.log(err)
       })
@@ -42,6 +46,8 @@ export default function SignIn(props) {
       behavior="padding"
       enabled={Platform.OS === 'ios'}
     >
+      <Loader isLoading={loading} />
+
       <Image style={styles.logo} source={logo}></Image>
       <Text style={styles.title}>IMovel</Text>
 
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.platinum,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 35
+    padding: 35,
   },
 
   logo: {

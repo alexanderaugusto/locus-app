@@ -10,7 +10,7 @@ import {
   ScrollView,
   Image
 } from 'react-native'
-import { InputArea, ImagePickerFunction, InputSelect } from '../components'
+import { InputArea, ImagePickerFunction, InputSelect, Loader } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import { createRows } from '../utils/util'
@@ -24,6 +24,7 @@ import types from '../constants/types.json'
 export default function AddProperty() {
   const navigation = useNavigation()
 
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -52,6 +53,8 @@ export default function AddProperty() {
   }
 
   const addProperty = async () => {
+    setLoading(true)
+
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -87,10 +90,14 @@ export default function AddProperty() {
       .catch(err => {
         console.error(err)
       })
+
+    setLoading(false)
   }
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <Loader isLoading={loading} />
+
       <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>
         <View style={styles.header}>
           <Text style={styles.headerMessage}>Vamos cadastrar seu imóvel</Text>

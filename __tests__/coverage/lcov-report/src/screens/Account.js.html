@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.73% </span>
+                <span class="strong">79.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>240/301</span>
+                <span class='fraction'>249/312</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.73% </span>
+                <span class="strong">79.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>240/301</span>
+                <span class='fraction'>249/312</span>
             </div>
         
             
@@ -358,7 +358,27 @@
 <a name='L299'></a><a href='#L299'>299</a>
 <a name='L300'></a><a href='#L300'>300</a>
 <a name='L301'></a><a href='#L301'>301</a>
-<a name='L302'></a><a href='#L302'>302</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L302'></a><a href='#L302'>302</a>
+<a name='L303'></a><a href='#L303'>303</a>
+<a name='L304'></a><a href='#L304'>304</a>
+<a name='L305'></a><a href='#L305'>305</a>
+<a name='L306'></a><a href='#L306'>306</a>
+<a name='L307'></a><a href='#L307'>307</a>
+<a name='L308'></a><a href='#L308'>308</a>
+<a name='L309'></a><a href='#L309'>309</a>
+<a name='L310'></a><a href='#L310'>310</a>
+<a name='L311'></a><a href='#L311'>311</a>
+<a name='L312'></a><a href='#L312'>312</a>
+<a name='L313'></a><a href='#L313'>313</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -467,6 +487,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -672,7 +694,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { InputArea, ImagePickerFunction } from '../components'
+import { InputArea, ImagePickerFunction, Loader } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { formatPhoneNumber } from '../utils/util'
@@ -683,6 +705,7 @@ export default function Account() {
   const navigation = useNavigation()
   const { signed, signOut } = useAuth()
 &nbsp;
+  const [loading, setLoading] = useState(false)
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
@@ -691,6 +714,7 @@ export default function Account() {
   })
 &nbsp;
   const getUser = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
+    setLoading(true)
     api
       .get('/user')
       .then(res =&gt; {
@@ -702,29 +726,35 @@ export default function Account() {
       .catch(err =&gt; {
         console.error(err)
       })
+&nbsp;
+    setLoading(false)
   }
 &nbsp;
   const updateInfo = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
+    setLoading(true)
+&nbsp;
     const data = {
       name: userInfo.name,
       phone: userInfo.phone
     }
-&nbsp;
     api
       .put('/user', data)
       .then(res =&gt; { })
       .catch(err =&gt; {
         console.error(err)
       })
+&nbsp;
+    setTimeout(() =&gt; { setLoading(false) }, 1000)
+&nbsp;
   }
 &nbsp;
   const updateAvatar = <span class="fstat-no" title="function not covered" >async i</span>mage =&gt; {
+    setLoading(true)
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }
-&nbsp;
     const data = new FormData()
 &nbsp;
     data.append('file', image)
@@ -737,6 +767,7 @@ export default function Account() {
       .catch(err =&gt; {
         console.error(err)
       })
+    setTimeout(() =&gt; { setLoading(false) }, 1000)
   }
 &nbsp;
   const onChange = <span class="fstat-no" title="function not covered" >(t</span>ype, value) =&gt; setUserInfo({ ...userInfo, [type]: value })
@@ -753,9 +784,9 @@ export default function Account() {
         &lt;Icon name="user-alt" size={120} color={colors.blue} /&gt;
 &nbsp;
         &lt;View&gt;
-          &lt;Text style={styles.emptyTitle}&gt;Você ainda não está logado em uma conta&lt;/Text&gt;
+          &lt;Text style={styles.emptyTitle}&gt;Você ainda não está logado em uma conta!&lt;/Text&gt;
           &lt;Text style={styles.emptyDescription}&gt;
-            Faça o login no aplicativo para poder acessar os dados da sua conta
+            Faça o login no aplicativo para poder acessar os dados da sua conta.
           &lt;/Text&gt;
         &lt;/View&gt;
 &nbsp;
@@ -775,6 +806,8 @@ export default function Account() {
 <span class="cstat-no" title="statement not covered" >      showsVerticalScrollIndicator={false}</span>
 <span class="cstat-no" title="statement not covered" >      alwaysBounceVertical={false}</span>
 <span class="cstat-no" title="statement not covered" >    &gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Loader isLoading={loading} /&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      &lt;KeyboardAvoidingView</span>
 <span class="cstat-no" title="statement not covered" >        style={styles.container}</span>
 <span class="cstat-no" title="statement not covered" >        behavior="padding"</span>
@@ -967,7 +1000,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Oct 31 2020 20:39:13 GMT-0300 (GMT-03:00)
+                at Sat Oct 31 2020 22:12:19 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../prettify.js"></script>
