@@ -47,8 +47,9 @@ Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo
 	  - [x] Cadastrar 
 	  - [x] Listar
 	  - [x] Favoritar  
-	  - [ ] Pesquisar   
-  
+	  - [ ] Pesquisar
+    - [ ] Editar
+    - [ ] Deletar  
 ---
 
 ## 🚀 Como executar o projeto
@@ -239,12 +240,19 @@ No mac, vamos instalar com o Homebrew.
 As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Mobile**  ([React Native](http://www.reactnative.com/))
-
--   **[Expo](https://expo.io/)**
--   **[React Navigation](https://reactnavigation.org/)**
--   **[Axios](https://github.com/axios/axios)**
--   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
--   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
+- **Dependências**:
+  -   **[Expo](https://expo.io/)**
+  -   **[React Navigation](https://reactnavigation.org/)**
+  -   **[Axios](https://github.com/axios/axios)**
+  -   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
+  -   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
+  -   **[Swiper](https://github.com/leecade/react-native-swiper)**
+  
+- **Dependências de Desenvolvimento**:
+  -   **[Jest Expo](https://docs.expo.io/guides/testing-with-jest/)**
+  -   **[React Test Renderer](https://pt-br.reactjs.org/docs/test-renderer.html)**
+  -   **[ESlint](https://eslint.org)**
+  -   **[Prettier](https://prettier.io)**
 
 Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
 
