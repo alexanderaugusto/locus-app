@@ -11,6 +11,8 @@ npm-debug.*
 web-build/
 
 __tests__/coverage
+/coverage.data
+/coverage/
 
 # macOS
 .DS_Store
