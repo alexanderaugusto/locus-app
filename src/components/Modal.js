@@ -12,7 +12,7 @@ import {
 import colors from '../constants/colors.json'
 import avatarWoman from '../../assets/img/avatar_woman.png'
 
-export default function ModalContact({ modalVisible, setModalVisible }) {
+export default function ModalContact({ modalVisible, setModalVisible}) {
   return (
     <Modal
       animationType="fade"
@@ -50,8 +50,9 @@ export default function ModalContact({ modalVisible, setModalVisible }) {
           </View>
 
           <TouchableHighlight
+            testID={'modal-button'}
             style={styles.button}
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={() => setModalVisible(false)}
           >
             <Text style={styles.buttonText}>Fechar</Text>
           </TouchableHighlight>

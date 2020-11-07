@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from '@expo/vector-icons/FontAwesome5';
+import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 

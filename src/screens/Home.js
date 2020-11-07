@@ -60,6 +60,7 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
+    console.log(properties)
   }, [signed])
 
   return (
