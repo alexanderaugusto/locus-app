@@ -2,6 +2,9 @@ import React from 'react'
 import { create, act } from 'react-test-renderer'
 import SignIn from '../../../src/screens/SignIn'
 
+const mockedNavigate = jest.fn()
+const mockedGoBack = jest.fn()
+
 jest.useFakeTimers()
 jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
 jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
@@ -9,13 +12,21 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: jest.fn()
+      navigate: mockedNavigate,
+      goBack: mockedGoBack
+    })
+  }
+})
+jest.mock('../../../src/contexts/auth', () => {
+  return {
+    ...jest.requireActual('../../../src/contexts/auth'),
+    useAuth: () => ({
+      signIn: jest.fn().mockResolvedValue()
     })
   }
 })
 
 describe('SignIn test', () => {
-
   it('render SignIn screen correctly', () => {
     const tree = create(<SignIn />)
     expect(tree.toJSON()).toMatchSnapshot()
@@ -38,24 +49,25 @@ describe('SignIn test', () => {
     const button = tree.findByProps({ testID: 'signIn-button' }).props
     act(() => button.onPress())
 
-    const errorMessageText = tree.findByProps({ testID: 'errorMessageText' }).props
-    expect(errorMessageText.children).toEqual('Preencha todos os campos corretamente!')
+    const errorMessageText = tree.findByProps({ testID: 'errorMessageText' })
+      .props
+    expect(errorMessageText.children).toEqual(
+      'Preencha todos os campos corretamente!'
+    )
   })
 
-  // it('show a specific error message when press button with wrong email and password', () => {
-  //   const tree = create(<SignIn />).root
+  it('should do a login', async () => {
+    const tree = create(<SignIn />)
 
-  //   const email = tree.findByProps({ testID: 'signIn-email' }).props
-  //   act(() => email.onChangeText('teste@email.com'))
+    const email = tree.root.findByProps({ testID: 'signIn-email' }).props
+    act(() => email.onChangeText('user@imovel.com'))
 
-  //   const password = tree.findByProps({ testID: 'signIn-password' }).props
-  //   act(() => password.onChangeText('testeSenhaIncorreta'))
+    const password = tree.root.findByProps({ testID: 'signIn-password' }).props
+    act(() => password.onChangeText('12345678'))
 
-  //   const button = tree.findByProps({ testID: 'signIn-button' }).props
-  //   act(() => button.onPress())
+    const button = tree.root.findByProps({ testID: 'signIn-button' }).props
+    await act(() => button.onPress())
 
-  //   const errorMessageText = tree.findByProps({ testID: 'errorMessageText' }).props
-  //   expect(errorMessageText.children).toEqual('Algo deu errado, tente novamente!')
-  // })
-
+    expect(mockedGoBack).toHaveBeenCalledTimes(1)
+  })
 })

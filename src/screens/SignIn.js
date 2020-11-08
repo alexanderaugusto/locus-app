@@ -25,19 +25,17 @@ export default function SignIn(props) {
   const [errorMessage, setErrorMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
-  const login = () => {
+  const login = async () => {
     setLoading(true)
-    signIn(email, password)
+    await signIn(email, password)
       .then(() => {
-        setLoading(false)
-        setErrorMessage('')
         navigation.goBack()
       })
       .catch(err => {
-        setLoading(false)
         setErrorMessage('Algo deu errado, tente novamente!')
         console.log(err)
       })
+    setLoading(false)
   }
 
   return (
