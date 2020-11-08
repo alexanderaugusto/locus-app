@@ -60,7 +60,6 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
-    console.log(properties)
   }, [signed])
 
   return (
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 30,
-    marginBottom: 15,
+    marginBottom: 15
   },
 
   title: {
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
 
   logo: {
     height: 65,
-    width: 65,
+    width: 65
   },
 
   inputContainer: {
@@ -164,7 +163,6 @@ const styles = StyleSheet.create({
       height: 0,
       width: 0
     },
-    elevation: 2,
-  },
-
+    elevation: 2
+  }
 })

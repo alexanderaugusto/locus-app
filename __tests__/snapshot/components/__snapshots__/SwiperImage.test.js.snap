@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SwiperImage snapshot test render SwiperImage component correctly 1`] = `
+exports[`SwiperImage snapshot test render SwiperImage component correctly when have images 1`] = `
 <View
   onLayout={[Function]}
   style={
@@ -87,6 +87,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly 1`] = 
     showsHorizontalScrollIndicator={false}
     showsPagination={true}
     showsVerticalScrollIndicator={false}
+    testID="swiperImage-swiper"
   >
     <View>
       <View
@@ -383,4 +384,24 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly 1`] = 
     />
   </View>
 </View>
+`;
+
+exports[`SwiperImage snapshot test render SwiperImage component correctly when images list are empty 1`] = `
+<Text
+  style={
+    Object {
+      "alignSelf": "center",
+      "color": "#FCA311",
+      "fontSize": 20,
+      "fontWeight": "700",
+      "height": 280,
+      "justifyContent": "center",
+      "paddingHorizontal": 30,
+      "paddingTop": 110,
+      "textAlign": "center",
+    }
+  }
+>
+  Nenhum imagem disponibilizada para este imóvel!
+</Text>
 `;

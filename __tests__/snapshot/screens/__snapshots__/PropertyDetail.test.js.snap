@@ -21,110 +21,23 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
     }
   >
     <View>
-      <View
-        onLayout={[Function]}
+      <Text
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-              "flex": 1,
-              "position": "relative",
-            },
-            undefined,
-          ]
+          Object {
+            "alignSelf": "center",
+            "color": "#FCA311",
+            "fontSize": 20,
+            "fontWeight": "700",
+            "height": 280,
+            "justifyContent": "center",
+            "paddingHorizontal": 30,
+            "paddingTop": 110,
+            "textAlign": "center",
+          }
         }
       >
-        <RCTScrollView
-          activeDot={
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#FCA311",
-                  "borderRadius": 5,
-                  "height": 10,
-                  "margin": 3,
-                  "width": 10,
-                }
-              }
-            />
-          }
-          automaticallyAdjustContentInsets={false}
-          autoplay={false}
-          autoplayDirection={true}
-          autoplayTimeout={2.5}
-          bounces={false}
-          contentContainerStyle={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "height": 280,
-              },
-            ]
-          }
-          contentOffset={
-            Object {
-              "x": 0,
-            }
-          }
-          disableNextButton={false}
-          disablePrevButton={false}
-          dot={
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#b2b2b2",
-                  "borderRadius": 5,
-                  "height": 10,
-                  "margin": 3,
-                  "width": 10,
-                }
-              }
-            />
-          }
-          horizontal={true}
-          index={0}
-          loadMinimal={false}
-          loadMinimalSize={1}
-          loop={true}
-          onIndexChanged={[Function]}
-          onMomentumScrollEnd={[Function]}
-          onScrollBeginDrag={[Function]}
-          onScrollEndDrag={[Function]}
-          paginationStyle={
-            Object {
-              "bottom": null,
-              "left": null,
-              "right": 15,
-              "top": 15,
-            }
-          }
-          pagingEnabled={true}
-          removeClippedSubviews={true}
-          scrollsToTop={false}
-          showsButtons={false}
-          showsHorizontalScrollIndicator={false}
-          showsPagination={true}
-          showsVerticalScrollIndicator={false}
-        >
-          <View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                ]
-              }
-            />
-          </View>
-        </RCTScrollView>
-      </View>
+        Nenhum imagem disponibilizada para este imóvel!
+      </Text>
       <View
         style={
           Object {

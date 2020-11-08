@@ -14,13 +14,4 @@ describe('Modal snapshot test', () => {
     const tree = create(<ModalContact modalVisible={true} />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
-
-  it('modal should close when press the button', () => {
-    const setModalVisibleMock = jest.fn()
-    const tree = create(<ModalContact modalVisible={true} setModalVisible={setModalVisibleMock} />).root
-    const button = tree.findByProps({ testID: 'modal-button' }).props
-    act(() => button.onPress(() => setModalVisibleMock(false)))
-
-    expect(setModalVisibleMock).toBeCalled()
-  })
 })

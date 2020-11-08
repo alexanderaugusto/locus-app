@@ -96,7 +96,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       placeholder="Entre com o seu email"
       placeholderTextColor="#d2d2d2"
       rejectResponderTermination={true}
-      secureTextEntry={true}
+      secureTextEntry={false}
       style={
         Array [
           Object {
@@ -155,7 +155,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       placeholder="Entre com a sua senha"
       placeholderTextColor="#d2d2d2"
       rejectResponderTermination={true}
-      secureTextEntry={true}
+      secureTextEntry={false}
       style={
         Array [
           Object {

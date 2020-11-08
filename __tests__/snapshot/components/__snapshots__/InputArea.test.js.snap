@@ -38,9 +38,12 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
   <TextInput
     allowFontScaling={true}
     keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
@@ -96,9 +99,12 @@ exports[`InputArea snapshot test render InputArea component with label correctly
   <TextInput
     allowFontScaling={true}
     keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
@@ -143,9 +149,12 @@ exports[`InputArea snapshot test render InputArea component without icon and lab
   <TextInput
     allowFontScaling={true}
     keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {

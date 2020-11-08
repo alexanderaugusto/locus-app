@@ -35,14 +35,10 @@ const listImagesMock = [
   }
 ]
 
-describe('SwiperImage snapshot test', () => {
-  it('render SwiperImage component correctly when have images', () => {
-    const tree = create(<SwiperImage images={listImagesMock} />)
-    expect(tree.toJSON()).toMatchSnapshot()
-  })
-
-  it('render SwiperImage component correctly when images list are empty', () => {
-    const tree = create(<SwiperImage images={[]} />)
-    expect(tree.toJSON()).toMatchSnapshot()
+describe('SwiperImage unit test', () => {
+  it('should have 4 images as child', () => {
+    const tree = create(<SwiperImage images={listImagesMock} />).root
+    const swiper = tree.findByProps({ testID: 'swiperImage-swiper' }).props
+    expect(swiper.children.length).toEqual(4)
   })
 })

@@ -12,7 +12,7 @@ import {
 import colors from '../constants/colors.json'
 import avatarWoman from '../../assets/img/avatar_woman.png'
 
-export default function ModalContact({ modalVisible, setModalVisible}) {
+export default function ModalContact({ modalVisible, setModalVisible}) {  
   return (
     <Modal
       animationType="fade"

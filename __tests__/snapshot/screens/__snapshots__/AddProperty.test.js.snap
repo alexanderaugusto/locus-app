@@ -533,10 +533,13 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                 >
                   <TextInput
                     allowFontScaling={true}
+                    onBlur={[Function]}
                     onChangeText={[Function]}
+                    onFocus={[Function]}
                     placeholder="Título do anúncio..."
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
+                    secureTextEntry={false}
                     style={
                       Array [
                         Object {
@@ -593,10 +596,13 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                   <TextInput
                     allowFontScaling={true}
                     multiline={true}
+                    onBlur={[Function]}
                     onChangeText={[Function]}
+                    onFocus={[Function]}
                     placeholder="Descrição do anúncio..."
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
+                    secureTextEntry={false}
                     style={
                       Array [
                         Object {

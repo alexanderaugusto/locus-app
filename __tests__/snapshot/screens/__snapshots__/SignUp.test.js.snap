@@ -482,10 +482,13 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                 >
                   <TextInput
                     allowFontScaling={true}
+                    onBlur={[Function]}
                     onChangeText={[Function]}
+                    onFocus={[Function]}
                     placeholder="Ex: Pedro Henrique Santos"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
+                    secureTextEntry={false}
                     style={
                       Array [
                         Object {
@@ -542,10 +545,13 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                   <TextInput
                     allowFontScaling={true}
                     keyboardType="numeric"
+                    onBlur={[Function]}
                     onChangeText={[Function]}
+                    onFocus={[Function]}
                     placeholder="xxx.xxx.xxx-xx"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
+                    secureTextEntry={false}
                     style={
                       Array [
                         Object {
@@ -602,10 +608,13 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                   <TextInput
                     allowFontScaling={true}
                     keyboardType="phone-pad"
+                    onBlur={[Function]}
                     onChangeText={[Function]}
+                    onFocus={[Function]}
                     placeholder="(xx)xxxxx-xxxx"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
+                    secureTextEntry={false}
                     style={
                       Array [
                         Object {

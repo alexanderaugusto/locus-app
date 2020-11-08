@@ -45,7 +45,7 @@ describe('SignIn unit test', () => {
     expect(password.value).toBe('')
   })
 
-  it('show a specific error message when press button with empty email and password values', () => {
+  it('should show a specific error message when press button with empty email and password values', () => {
     const tree = create(<SignIn />).root
     const button = tree.findByProps({ testID: 'signIn-button' }).props
     act(() => button.onPress())

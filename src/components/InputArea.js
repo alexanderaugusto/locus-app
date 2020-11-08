@@ -19,7 +19,7 @@ export default function InputArea({
   textId,
   ...inputProps
 }) {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(true)
   const [focused, setFocused] = useState(false)
 
   useEffect(() => {
