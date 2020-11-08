@@ -213,6 +213,7 @@ exports[`ImovelCard test render ImovelCard component correctly 1`] = `
           "width": 40,
         }
       }
+      testID="btn-favorite"
     >
       <Icon
         color="#19294d"

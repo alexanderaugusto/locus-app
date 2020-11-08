@@ -76,6 +76,7 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
 
       <View style={styles.favoriteIcon}>
         <TouchableOpacity
+          testID="btn-favorite"
           style={styles.button}
           onPress={() => (favorite ? removeFavorite() : addFavorite())}
         >
