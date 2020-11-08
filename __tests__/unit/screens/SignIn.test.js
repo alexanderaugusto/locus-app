@@ -19,7 +19,15 @@ jest.mock('../../../src/contexts/auth', () => {
   return {
     ...jest.requireActual('../../../src/contexts/auth'),
     useAuth: () => ({
-      signIn: jest.fn().mockResolvedValue()
+      signIn: (email, password) => {
+        return new Promise((resolve, reject) => {
+          if (email === 'user@imovel.com' && password === '12345678') {
+            resolve()
+          } else {
+            reject(new Error())
+          }
+        })
+      }
     })
   }
 })
@@ -62,5 +70,20 @@ describe('SignIn unit test', () => {
     await act(async () => await button.onPress())
 
     expect(mockedGoBack).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not do a login because email or password incorrect', async () => {
+    const tree = create(<SignIn />)
+
+    const email = tree.root.findByProps({ testID: 'signIn-email' }).props
+    act(() => email.onChangeText('user@imovel.com'))
+
+    const password = tree.root.findByProps({ testID: 'signIn-password' }).props
+    act(() => password.onChangeText('incorrectPassword'))
+
+    const button = tree.root.findByProps({ testID: 'signIn-button' }).props
+    await act(async () => await button.onPress())
+
+    expect(mockedGoBack).toHaveBeenCalledTimes(0)
   })
 })
