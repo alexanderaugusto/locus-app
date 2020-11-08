@@ -43,7 +43,7 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
-    secureTextEntry={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
@@ -104,7 +104,7 @@ exports[`InputArea snapshot test render InputArea component with label correctly
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
-    secureTextEntry={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
@@ -154,7 +154,7 @@ exports[`InputArea snapshot test render InputArea component without icon and lab
     placeholder="Entre com o seu email"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
-    secureTextEntry={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
@@ -214,7 +214,7 @@ exports[`InputArea snapshot test render InputArea password component 1`] = `
     placeholder="Entre com a sua senha"
     placeholderTextColor="#d2d2d2"
     rejectResponderTermination={true}
-    secureTextEntry={true}
+    secureTextEntry={false}
     style={
       Array [
         Object {
