@@ -488,7 +488,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                     placeholder="Ex: Pedro Henrique Santos"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
-                    secureTextEntry={false}
+                    secureTextEntry={true}
                     style={
                       Array [
                         Object {
@@ -551,7 +551,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                     placeholder="xxx.xxx.xxx-xx"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
-                    secureTextEntry={false}
+                    secureTextEntry={true}
                     style={
                       Array [
                         Object {
@@ -614,7 +614,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                     placeholder="(xx)xxxxx-xxxx"
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
-                    secureTextEntry={false}
+                    secureTextEntry={true}
                     style={
                       Array [
                         Object {

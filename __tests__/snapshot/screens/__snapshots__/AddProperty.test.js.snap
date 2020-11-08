@@ -539,7 +539,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                     placeholder="Título do anúncio..."
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
-                    secureTextEntry={false}
+                    secureTextEntry={true}
                     style={
                       Array [
                         Object {
@@ -602,7 +602,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                     placeholder="Descrição do anúncio..."
                     placeholderTextColor="#d2d2d2"
                     rejectResponderTermination={true}
-                    secureTextEntry={false}
+                    secureTextEntry={true}
                     style={
                       Array [
                         Object {

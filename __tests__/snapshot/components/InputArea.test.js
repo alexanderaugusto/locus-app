@@ -36,4 +36,15 @@ describe('InputArea snapshot test', () => {
     )
     expect(tree.toJSON()).toMatchSnapshot()
   })
+
+  it('render InputArea password component', () => {
+    const tree = create(
+      <InputArea
+        label={'Senha'}
+        password={true}
+        placeholder={'Entre com a sua senha'}
+      />
+    )
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
 })
