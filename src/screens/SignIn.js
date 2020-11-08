@@ -51,7 +51,9 @@ export default function SignIn(props) {
       <Image style={styles.logo} source={logo}></Image>
       <Text style={styles.title}>IMovel</Text>
 
-      <Text testID={'errorMessageText'} style={styles.errorMessage}>{errorMessage}</Text>
+      <Text testID={'errorMessageText'} style={styles.errorMessage}>
+        {errorMessage}
+      </Text>
 
       <InputArea
         testID={'signIn-email'}
@@ -74,15 +76,25 @@ export default function SignIn(props) {
         onChangeText={value => setPassword(value)}
       />
 
-      <TouchableOpacity testID={'signIn-button'} style={styles.button} onPress={() => { (email === '' || password === '') ? setErrorMessage('Preencha todos os campos corretamente!') : login() }}>
+      <TouchableOpacity
+        testID={'signIn-button'}
+        style={styles.button}
+        onPress={() => {
+          email === '' || password === ''
+            ? setErrorMessage('Preencha todos os campos corretamente!')
+            : login()
+        }}
+      >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
       <View style={styles.signUpContainer}>
         <Text style={styles.signUpText}>Ainda não possui conta?</Text>
-        <TouchableOpacity onPress={() => {
-          setErrorMessage('')
-          navigation.navigate('SignUp')
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            setErrorMessage('')
+            navigation.navigate('SignUp')
+          }}
+        >
           <Text style={styles.signUpBtnText}>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
@@ -96,7 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.platinum,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 35,
+    padding: 35
   },
 
   logo: {
