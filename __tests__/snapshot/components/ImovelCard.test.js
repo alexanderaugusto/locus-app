@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import api from '../../../src/services/api'
 import { ImovelCard } from '../../../src/components'
 
 jest.runAllTimers()
@@ -74,5 +73,4 @@ describe('ImovelCard snapshot test', () => {
 
     expect(tree.toJSON()).toMatchSnapshot()
   })
-
 })

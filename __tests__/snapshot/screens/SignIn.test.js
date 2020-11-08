@@ -1,5 +1,5 @@
 import React from 'react'
-import { create, act } from 'react-test-renderer'
+import { create } from 'react-test-renderer'
 import SignIn from '../../../src/screens/SignIn'
 
 jest.runAllTimers()
@@ -7,16 +7,14 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
     useNavigation: () => ({
-      navigate: jest.fn(),
+      navigate: jest.fn()
     })
   }
 })
 
 describe('SignIn snapshot snapshot test', () => {
-
   it('render SignIn screen correctly', () => {
     const tree = create(<SignIn />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
-  
 })
