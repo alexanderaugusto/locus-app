@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SwiperImage test render SwiperImage component correctly 1`] = `
+exports[`SwiperImage snapshot test render SwiperImage component correctly 1`] = `
 <View
   onLayout={[Function]}
   style={

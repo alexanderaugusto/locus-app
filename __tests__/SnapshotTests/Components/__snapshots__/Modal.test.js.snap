@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal test render Modal component correctly 1`] = `
+exports[`Modal snapshot test render Modal component correctly 1`] = `
 <Modal
   animationType="fade"
   hardwareAccelerated={false}
@@ -210,7 +210,7 @@ exports[`Modal test render Modal component correctly 1`] = `
 </Modal>
 `;
 
-exports[`Modal test render Modal component correctly when modalVisible is true 1`] = `
+exports[`Modal snapshot test render Modal component correctly when modalVisible is true 1`] = `
 <Modal
   animationType="fade"
   hardwareAccelerated={false}

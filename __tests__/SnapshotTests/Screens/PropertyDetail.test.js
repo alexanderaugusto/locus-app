@@ -2,8 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import PropertyDetail from '../../../src/screens/PropertyDetail'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -16,7 +15,7 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-describe('PropertyDetail test', () => {
+describe('PropertyDetail snapshot test', () => {
   it('render PropertyDetail screen correctly', () => {
     const tree = create(<PropertyDetail />)
     expect(tree.toJSON()).toMatchSnapshot()

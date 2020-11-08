@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddProperty test render AddProperty screen correctly 1`] = `
+exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
 <RCTScrollView
   showsVerticalScrollIndicator={false}
   style={

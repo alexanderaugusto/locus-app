@@ -2,9 +2,9 @@ import React from 'react'
 import { create, act } from 'react-test-renderer'
 import { ModalContact } from '../../../src/components'
 
-jest.useFakeTimers()
+jest.runAllTimers()
 
-describe('Modal test', () => {
+describe('Modal snapshot test', () => {
   it('render Modal component correctly', () => {
     const tree = create(<ModalContact />)
     expect(tree.toJSON()).toMatchSnapshot()

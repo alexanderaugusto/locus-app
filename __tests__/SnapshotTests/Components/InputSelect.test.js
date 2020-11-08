@@ -2,10 +2,9 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { InputSelect } from '../../../src/components'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.runAllTimers()
 
-describe('InputSelect test', () => {
+describe('InputSelect snapshot test', () => {
   it('render InputSelect component correctly', () => {
     const tree = create(
       <InputSelect

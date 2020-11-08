@@ -2,10 +2,9 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { InputArea } from '../../../src/components'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.runAllTimers()
 
-describe('InputArea test', () => {
+describe('InputArea snapshot test', () => {
   it('render InputArea component without icon and label correctly', () => {
     const tree = create(
       <InputArea

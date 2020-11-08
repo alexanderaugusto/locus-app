@@ -2,8 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import AddProperty from '../../../src/screens/AddProperty'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -13,7 +12,7 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-describe('AddProperty test', () => {
+describe('AddProperty snapshot test', () => {
   it('render AddProperty screen correctly', () => {
     const tree = create(<AddProperty />)
     expect(tree.toJSON()).toMatchSnapshot()

@@ -2,8 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import SignUp from '../../../src/screens/SignUp'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
+jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -13,7 +12,7 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-describe('SignUp test', () => {
+describe('SignUp snapshot test', () => {
   it('render SignUp screen correctly', () => {
     const tree = create(<SignUp />)
     expect(tree.toJSON()).toMatchSnapshot()

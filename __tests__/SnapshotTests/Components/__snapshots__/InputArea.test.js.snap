@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputArea test render InputArea component with icon correctly 1`] = `
+exports[`InputArea snapshot test render InputArea component with icon correctly 1`] = `
 <View
   style={
     Array [
@@ -57,7 +57,7 @@ exports[`InputArea test render InputArea component with icon correctly 1`] = `
 </View>
 `;
 
-exports[`InputArea test render InputArea component with label correctly 1`] = `
+exports[`InputArea snapshot test render InputArea component with label correctly 1`] = `
 <View
   style={
     Array [
@@ -115,7 +115,7 @@ exports[`InputArea test render InputArea component with label correctly 1`] = `
 </View>
 `;
 
-exports[`InputArea test render InputArea component without icon and label correctly 1`] = `
+exports[`InputArea snapshot test render InputArea component without icon and label correctly 1`] = `
 <View
   style={
     Array [

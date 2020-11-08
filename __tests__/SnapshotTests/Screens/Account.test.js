@@ -2,9 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import Account from '../../../src/screens/Account'
 
-jest.useFakeTimers()
-jest.mock('@expo/vector-icons/FontAwesome5', () => 'Icon')
-jest.mock('@react-native-community/async-storage', () => 'AsyncStorage')
+jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -14,7 +12,7 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-describe('Account test', () => {
+describe('Account snapshot test', () => {
   it('render Account screen correctly', () => {
     const tree = create(<Account />)
     expect(tree.toJSON()).toMatchSnapshot()

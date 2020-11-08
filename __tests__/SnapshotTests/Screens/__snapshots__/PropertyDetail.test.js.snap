@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
+exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}
   style={

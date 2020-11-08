@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home test render Home screen correctly 1`] = `
+exports[`Home snapshot test render Home screen correctly 1`] = `
 <View
   onLayout={[Function]}
   style={

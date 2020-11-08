@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImovelCard test render ImovelCard component correctly 1`] = `
+exports[`ImovelCard snapshot test render ImovelCard component correctly 1`] = `
 <View
   style={
     Array [

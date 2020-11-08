@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputSelect test render InputSelect component correctly 1`] = `
+exports[`InputSelect snapshot test render InputSelect component correctly 1`] = `
 Array [
   <View
     accessible={true}

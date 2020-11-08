@@ -2,9 +2,9 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { SwiperImage } from '../../../src/components'
 
-jest.useFakeTimers()
+jest.runAllTimers()
 
-describe('SwiperImage test', () => {
+describe('SwiperImage snapshot test', () => {
   it('render SwiperImage component correctly', () => {
     const tree = create(
       <SwiperImage

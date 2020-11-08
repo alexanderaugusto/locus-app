@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImagePicker test render ImagePicker component correctly 1`] = `
+exports[`ImagePicker snapshot test render ImagePicker component correctly 1`] = `
 <View
   accessible={true}
   focusable={true}

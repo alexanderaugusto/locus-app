@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader test render Loader component correctly when isLoading is false 1`] = `null`;
+exports[`Loader snapshot test render Loader component correctly when isLoading is false 1`] = `null`;
 
-exports[`Loader test render Loader component correctly when isLoading is true 1`] = `
+exports[`Loader snapshot test render Loader component correctly when isLoading is true 1`] = `
 <View
   style={
     Object {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignIn test render SignIn screen correctly 1`] = `
+exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
 <View
   onLayout={[Function]}
   style={
