@@ -24,7 +24,7 @@ jest.mock('../../../src/contexts/auth', () => {
   }
 })
 
-describe('SignIn unit test', () => { 
+describe('SignIn unit test', () => {
   it('email value should be empty', () => {
     const tree = create(<SignIn />).root
     const email = tree.findByProps({ testID: 'signIn-email' }).props
@@ -59,7 +59,7 @@ describe('SignIn unit test', () => {
     act(() => password.onChangeText('12345678'))
 
     const button = tree.root.findByProps({ testID: 'signIn-button' }).props
-    await act( async () => await button.onPress())
+    await act(async () => await button.onPress())
 
     expect(mockedGoBack).toHaveBeenCalledTimes(1)
   })

@@ -14,8 +14,7 @@ jest.mock('@react-navigation/native', () => {
 })
 jest.mock('../../../src/services/api')
 
-describe('ImovelCard unit test', () => { 
-
+describe('ImovelCard unit test', () => {
   it('should add favorite property', async () => {
     const mockCallback = jest.fn()
     api.put.mockResolvedValue()
