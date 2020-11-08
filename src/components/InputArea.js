@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   Text,
@@ -12,15 +12,22 @@ import colors from '../constants/colors.json'
 
 export default function InputArea({
   prefixIcon,
-  showPassword,
-  setShowPassword,
-  passwordIcon,
+  password,
   label,
   containerStyle,
   style,
   textId,
   ...inputProps
 }) {
+  const [showPassword, setShowPassword] = useState(false)
+  const [focused, setFocused] = useState(false)
+
+  useEffect(() => {
+    if (password && !focused) {
+      setShowPassword(false)
+    }
+  }, [focused])
+
   return (
     <View style={[styles.inputContainer, containerStyle]}>
       {prefixIcon && (
@@ -39,14 +46,21 @@ export default function InputArea({
         textId={textId}
         style={[styles.inputText, style]}
         placeholderTextColor="#d2d2d2"
+        secureTextEntry={!showPassword}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
       />
 
-      {passwordIcon && (
+      {password && focused && (
         <TouchableOpacity
           style={styles.passwordButton}
           onPress={() => setShowPassword(!showPassword)}
         >
-          <Icon name={passwordIcon} size={16} color={colors.blue} />
+          <Icon
+            name={showPassword ? 'eye' : 'eye-slash'}
+            size={16}
+            color={colors.blue}
+          />
         </TouchableOpacity>
       )}
     </View>

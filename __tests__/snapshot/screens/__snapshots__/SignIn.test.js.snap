@@ -90,11 +90,13 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     <TextInput
       allowFontScaling={true}
       keyboardType="email-address"
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       placeholder="Entre com o seu email"
       placeholderTextColor="#d2d2d2"
       rejectResponderTermination={true}
-      secureTextEntry={false}
+      secureTextEntry={true}
       style={
         Array [
           Object {
@@ -147,7 +149,9 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     />
     <TextInput
       allowFontScaling={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       placeholder="Entre com a sua senha"
       placeholderTextColor="#d2d2d2"
       rejectResponderTermination={true}
@@ -167,30 +171,6 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignSelf": "center",
-          "marginLeft": -35,
-          "opacity": 1,
-        }
-      }
-    >
-      <Icon
-        color="#14213D"
-        name="eye-slash"
-        size={16}
-      />
-    </View>
   </View>
   <View
     accessible={true}

@@ -15,7 +15,7 @@ import { useAuth } from '../contexts/auth'
 import logo from '../../assets/house-agreement-blue.png'
 import colors from '../constants/colors.json'
 
-export default function SignIn(props) {
+export default function SignIn() {
   const navigation = useNavigation()
   const { signIn } = useAuth()
 
@@ -23,7 +23,6 @@ export default function SignIn(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
 
   const login = async () => {
     setLoading(true)
@@ -64,12 +63,9 @@ export default function SignIn(props) {
       />
       <InputArea
         testID={'signIn-password'}
+        password={true}
         prefixIcon={'lock'}
-        showPassword={showPassword}
-        setShowPassword={setShowPassword}
-        passwordIcon={showPassword ? 'eye' : 'eye-slash'}
         placeholder={'Entre com a sua senha'}
-        secureTextEntry={!showPassword}
         value={password}
         onChangeText={value => setPassword(value)}
       />
