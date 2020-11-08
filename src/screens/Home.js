@@ -60,6 +60,7 @@ export default function Home() {
 
   useEffect(() => {
     getProperties()
+    console.log(properties)
   }, [signed])
 
   return (
@@ -75,7 +76,7 @@ export default function Home() {
         <Image
           style={styles.logo}
           resizeMode="contain"
-          source={require('../../assets/img/house_agreement.png')}
+          source={require('../../assets/house-agreement-blue.png')}
         />
       </View>
 

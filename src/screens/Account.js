@@ -138,7 +138,7 @@ export default function Account() {
           <ImagePickerFunction onChange={image => updateAvatar(image)}>
             <Image style={styles.avatar} source={{ uri: userInfo.avatar }} />
           </ImagePickerFunction>
-          <Text style={styles.name}>{userInfo.name}</Text>
+          <Text testID={'account-name'} style={styles.name}>{userInfo.name}</Text>
           <TouchableOpacity
             style={styles.buttonLogout}
             onPress={() => signOut()}

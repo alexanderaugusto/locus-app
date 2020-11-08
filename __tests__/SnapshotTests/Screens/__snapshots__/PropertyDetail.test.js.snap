@@ -691,6 +691,7 @@ exports[`PropertyDetail test render PropertyDetail screen correctly 1`] = `
                   "width": 80,
                 }
               }
+              testID="modal-button"
             >
               <Text
                 style={

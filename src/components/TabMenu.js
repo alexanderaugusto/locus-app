@@ -20,7 +20,7 @@ export default function TabMenu() {
           const icons = {
             Home: 'home',
             Favoritos: 'favorite',
-            Anúnciar: 'loyalty',
+            Anunciar: 'loyalty',
             'Minha conta': 'person'
           }
 
@@ -40,7 +40,7 @@ export default function TabMenu() {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favoritos" component={Favorite} />
-      <Tab.Screen name="Anúnciar" component={Advertise} />
+      <Tab.Screen name="Anunciar" component={Advertise} />
       <Tab.Screen name="Minha conta" component={Account} />
     </Tab.Navigator>
   )

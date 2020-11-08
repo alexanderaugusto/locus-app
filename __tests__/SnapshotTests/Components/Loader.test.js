@@ -5,8 +5,13 @@ import { Loader } from '../../../src/components'
 jest.useFakeTimers()
 
 describe('Loader test', () => {
-  it('render Loader component correctly', () => {
-    const tree = create(<Loader />)
+  it('render Loader component correctly when isLoading is false', () => {
+    const tree = create(<Loader isLoading={false}/>)
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
+  it('render Loader component correctly when isLoading is true', () => {
+    const tree = create(<Loader isLoading={true}/>)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })
