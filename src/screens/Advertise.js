@@ -56,7 +56,10 @@ export default function Advertise() {
 
   if (!signed || !properties.length) {
     return (
-      <KeyboardAvoidingView style={styles.emptyContainer}>
+      <KeyboardAvoidingView
+        testID="advertise-message"
+        style={styles.emptyContainer}
+      >
         <Icon name="house-damage" size={120} color={colors.blue} />
 
         <View>
@@ -78,7 +81,7 @@ export default function Advertise() {
   }
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView testID="advertise-screen" style={styles.container}>
       <Text numberOfLiner={2} style={styles.title}>
         Anunciar
       </Text>
