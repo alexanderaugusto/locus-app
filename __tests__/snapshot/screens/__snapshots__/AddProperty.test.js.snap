@@ -13,6 +13,28 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
 >
   <View>
     <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Icon
+        color="#FCA311"
+        name="arrow-left"
+        size={20}
+      />
+    </View>
+    <View
       onLayout={[Function]}
       style={
         Object {
@@ -486,7 +508,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                       "fontSize": 15,
                       "fontWeight": "500",
                       "marginBottom": 10,
-                      "marginTop": 10,
+                      "marginTop": 5,
                       "textAlign": "center",
                     }
                   }

@@ -56,13 +56,14 @@ export default function Account() {
     }
     api
       .put('/user', data)
-      .then(res => { })
+      .then(res => {})
       .catch(err => {
         console.error(err)
       })
 
-    setTimeout(() => { setLoading(false) }, 1000)
-
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   }
 
   const updateAvatar = async image => {
@@ -84,7 +85,9 @@ export default function Account() {
       .catch(err => {
         console.error(err)
       })
-    setTimeout(() => { setLoading(false) }, 1000)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   }
 
   const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
@@ -101,7 +104,9 @@ export default function Account() {
         <Icon name="user-alt" size={120} color={colors.blue} />
 
         <View>
-          <Text style={styles.emptyTitle}>Você ainda não está logado em uma conta!</Text>
+          <Text style={styles.emptyTitle}>
+            Você ainda não está logado em uma conta!
+          </Text>
           <Text style={styles.emptyDescription}>
             Faça o login no aplicativo para poder acessar os dados da sua conta.
           </Text>
@@ -138,7 +143,9 @@ export default function Account() {
           <ImagePickerFunction onChange={image => updateAvatar(image)}>
             <Image style={styles.avatar} source={{ uri: userInfo.avatar }} />
           </ImagePickerFunction>
-          <Text testID={'account-name'} style={styles.name}>{userInfo.name}</Text>
+          <Text testID={'account-name'} style={styles.name}>
+            {userInfo.name}
+          </Text>
           <TouchableOpacity
             style={styles.buttonLogout}
             onPress={() => signOut()}

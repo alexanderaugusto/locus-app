@@ -500,6 +500,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                         undefined,
                       ]
                     }
+                    testID="signUp-name-input"
                     underlineColorAndroid="transparent"
                     value=""
                   />
@@ -563,6 +564,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                         undefined,
                       ]
                     }
+                    testID="signUp-cpf-input"
                     underlineColorAndroid="transparent"
                     value=""
                   />
@@ -626,6 +628,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
                         undefined,
                       ]
                     }
+                    testID="signUp-phone-input"
                     underlineColorAndroid="transparent"
                     value=""
                   />
