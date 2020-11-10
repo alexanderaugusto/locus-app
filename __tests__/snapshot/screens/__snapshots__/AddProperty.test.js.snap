@@ -551,6 +551,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                         undefined,
                       ]
                     }
+                    testID="title-input"
                     underlineColorAndroid="transparent"
                     value=""
                   />
@@ -617,6 +618,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
                         },
                       ]
                     }
+                    testID="description-input"
                     textAlignVertical="top"
                     underlineColorAndroid="transparent"
                     value=""
