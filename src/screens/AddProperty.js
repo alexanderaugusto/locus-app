@@ -8,7 +8,8 @@ import {
   Text,
   View,
   ScrollView,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native'
 import {
   InputArea,
@@ -21,6 +22,7 @@ import { useNavigation } from '@react-navigation/native'
 import { createRows } from '../utils/util'
 import api from '../services/api'
 import { FontAwesome } from 'react-native-vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 
 import colors from '../constants/colors.json'
 import states from '../constants/states.json'
@@ -104,6 +106,13 @@ export default function AddProperty() {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Loader isLoading={loading} />
 
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.navigate('Home')}
+      >
+        <Icon name={'arrow-left'} size={20} color={colors.yellow} />
+      </TouchableOpacity>
+
       <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>
         <View style={styles.header}>
           <Text style={styles.headerMessage}>Vamos cadastrar seu imóvel</Text>
@@ -119,6 +128,7 @@ export default function AddProperty() {
           completedCheckColor={colors.platinum}
         >
           <ProgressStep
+            key={0}
             testID="next-button-1"
             nextBtnText={'Próximo'}
             nextBtnStyle={styles.button}
@@ -152,6 +162,7 @@ export default function AddProperty() {
           </ProgressStep>
 
           <ProgressStep
+            key={1}
             testID="next-button-2"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
@@ -199,6 +210,7 @@ export default function AddProperty() {
           </ProgressStep>
 
           <ProgressStep
+            key={2}
             testID="next-button-3"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
@@ -269,6 +281,7 @@ export default function AddProperty() {
           </ProgressStep>
 
           <ProgressStep
+            key={3}
             testID="next-button-4"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
@@ -330,6 +343,7 @@ export default function AddProperty() {
           </ProgressStep>
 
           <ProgressStep
+            key={4}
             testID="submit-button"
             previousBtnText={'Anterior'}
             finishBtnText={'Finalizar'}
@@ -393,7 +407,7 @@ const styles = StyleSheet.create({
   },
 
   message: {
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 15,
     fontWeight: '500',
     color: '#999',

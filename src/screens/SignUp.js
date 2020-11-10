@@ -31,8 +31,11 @@ export default function SignUp() {
     confirmPassword: '',
     avatar: null
   })
+  const [activeStep, setActiveStep] = useState(0)
 
-  const onChange = (type, value) => setData({ ...data, [type]: value })
+  const onChange = (type, value) => {
+    setData({ ...data, [type]: value })
+  }
 
   const signUp = () => {
     const config = {
@@ -85,6 +88,7 @@ export default function SignUp() {
         </View>
 
         <ProgressSteps
+          activeStep={activeStep}
           activeStepIconBorderColor={colors.yellow}
           completedProgressBarColor={colors.yellow}
           activeLabelColor={colors.yellow}
@@ -93,21 +97,26 @@ export default function SignUp() {
           completedCheckColor={colors.platinum}
         >
           <ProgressStep
+            key={0}
+            testID="signUp-next-button-1"
             nextBtnText={'Próximo'}
             label="Pessoal"
             nextBtnStyle={styles.button}
             nextBtnTextStyle={styles.buttonText}
             scrollable={false}
+            onNext={() => setActiveStep(activeStep + 1)}
           >
             <View style={styles.containerInput}>
               <Text style={styles.label}>Nome</Text>
               <InputArea
+                testID="signUp-name-input"
                 placeholder={'Ex: Pedro Henrique Santos'}
                 value={data.name}
                 onChangeText={value => onChange('name', value)}
               />
               <Text style={styles.label}>CPF</Text>
               <InputArea
+                testID="signUp-cpf-input"
                 placeholder={'xxx.xxx.xxx-xx'}
                 value={formatCPF(data.cpf)}
                 onChangeText={value => onChange('cpf', value)}
@@ -115,6 +124,7 @@ export default function SignUp() {
               />
               <Text style={styles.label}>Celular</Text>
               <InputArea
+                testID="signUp-phone-input"
                 placeholder={'(xx)xxxxx-xxxx'}
                 value={formatPhoneNumber(data.phone)}
                 onChangeText={value => {
@@ -126,6 +136,8 @@ export default function SignUp() {
           </ProgressStep>
 
           <ProgressStep
+            key={1}
+            testID="signUp-next-button-2"
             label="Login"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
@@ -134,13 +146,13 @@ export default function SignUp() {
             nextBtnTextStyle={styles.buttonText}
             previousBtnTextStyle={styles.buttonText}
             scrollable={false}
+            onNext={() => setActiveStep(activeStep + 1)}
+            onPrevious={() => setActiveStep(activeStep - 1)}
           >
             <View style={styles.containerInput}>
-              <Text style={styles.messageEmail}>
-                Por favor, entre com um e-mail válido!
-              </Text>
               <Text style={styles.label}>E-mail</Text>
               <InputArea
+                testID="signUp-email-input"
                 placeholder={'Ex: pedrohs@gmail.com'}
                 keyboardType={'email-address'}
                 value={data.email}
@@ -148,6 +160,7 @@ export default function SignUp() {
               />
               <Text style={styles.label}>Confirmar e-mail</Text>
               <InputArea
+                testID="signUp-confirmEmail-input"
                 placeholder={'Ex: pedrohs@gmail.com'}
                 keyboardType={'email-address'}
                 value={data.confirmEmail}
@@ -157,6 +170,8 @@ export default function SignUp() {
           </ProgressStep>
 
           <ProgressStep
+            key={2}
+            testID="signUp-next-button-3"
             label="Senha"
             nextBtnText={'Próximo'}
             previousBtnText={'Anterior'}
@@ -165,6 +180,8 @@ export default function SignUp() {
             nextBtnTextStyle={styles.buttonText}
             previousBtnTextStyle={styles.buttonText}
             scrollable={false}
+            onNext={() => setActiveStep(activeStep + 1)}
+            onPrevious={() => setActiveStep(activeStep - 1)}
           >
             <View style={styles.containerInput}>
               <Text style={styles.messageEmail}>
@@ -173,6 +190,7 @@ export default function SignUp() {
               </Text>
               <Text style={styles.label}>Senha</Text>
               <InputArea
+                testID="signUp-password-input"
                 placeholder={'••••••••'}
                 secureTextEntry={true}
                 value={data.password}
@@ -180,6 +198,7 @@ export default function SignUp() {
               />
               <Text style={styles.label}>Confirmar senha</Text>
               <InputArea
+                testID="signUp-confirmPassword-input"
                 placeholder={'••••••••'}
                 secureTextEntry={true}
                 value={data.confirmPassword}
@@ -189,6 +208,8 @@ export default function SignUp() {
           </ProgressStep>
 
           <ProgressStep
+            key={3}
+            testID="signUp-submit-button"
             label="Foto"
             previousBtnText={'Anterior'}
             finishBtnText={'Finalizar'}
@@ -198,6 +219,7 @@ export default function SignUp() {
             previousBtnTextStyle={styles.buttonText}
             scrollable={false}
             onSubmit={() => signUp()}
+            onPrevious={() => setActiveStep(activeStep - 1)}
           >
             <View style={styles.containerInput}>
               <ImagePickerFunction
