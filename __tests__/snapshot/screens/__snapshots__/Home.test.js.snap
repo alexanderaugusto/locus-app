@@ -148,6 +148,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
       stickyHeaderIndices={Array []}
+      testID="home-flatList"
       updateCellsBatchingPeriod={50}
       viewabilityConfigCallbackPairs={Array []}
       windowSize={21}

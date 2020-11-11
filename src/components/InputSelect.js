@@ -33,17 +33,24 @@ export default function InputSelect({
         style={styles.selectContainer}
         onPress={() => setMenu(true)}
       >
-        <Text style={styles.selectText}>{selectedLabel()}</Text>
+        <Text testID={'inputSelect-label'} style={styles.selectText}>
+          {selectedLabel()}
+        </Text>
         <Icon name="sort-down" color="black" size={18} />
       </TouchableOpacity>
       <Modal visible={menu} transparent={true}>
         <View style={styles.modal}>
           <View style={styles.menuContainer}>
             <ScrollView style={styles.menu}>
-              {menuTitle && <Text style={styles.menuTitle}>{menuTitle}</Text>}
+              {menuTitle && (
+                <Text testID={'inputSelect-menuTitle'} style={styles.menuTitle}>
+                  {menuTitle}
+                </Text>
+              )}
               {items.map((item, index) => {
                 return (
                   <TouchableOpacity
+                    testID={`inputSelect-option${index}`}
                     key={index}
                     style={[
                       styles.itemContainer,
@@ -54,7 +61,7 @@ export default function InputSelect({
                       setMenu(false)
                     }}
                   >
-                    <Text>{item.label}</Text>
+                    <Text testID={'inputSelect-optionLabel'}>{item.label}</Text>
                   </TouchableOpacity>
                 )
               })}

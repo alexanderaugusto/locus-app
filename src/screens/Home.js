@@ -92,6 +92,7 @@ export default function Home() {
 
       <SafeAreaView style={{ flex: 1 }}>
         <FlatList
+          testID={'home-flatList'}
           data={properties}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}

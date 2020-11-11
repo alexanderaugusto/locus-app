@@ -42,6 +42,7 @@ Array [
           "fontSize": 15,
         }
       }
+      testID="inputSelect-label"
     >
       Minas Gerais
     </Text>
@@ -91,6 +92,7 @@ Array [
                   "textAlign": "center",
                 }
               }
+              testID="inputSelect-menuTitle"
             >
               Selecione um estado
             </Text>
@@ -111,8 +113,11 @@ Array [
                   "padding": 13,
                 }
               }
+              testID="inputSelect-option0"
             >
-              <Text>
+              <Text
+                testID="inputSelect-optionLabel"
+              >
                 Minas Gerais
               </Text>
             </View>
@@ -132,8 +137,11 @@ Array [
                   "padding": 13,
                 }
               }
+              testID="inputSelect-option1"
             >
-              <Text>
+              <Text
+                testID="inputSelect-optionLabel"
+              >
                 São Paulo
               </Text>
             </View>
