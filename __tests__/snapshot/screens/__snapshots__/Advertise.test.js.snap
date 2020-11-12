@@ -13,7 +13,7 @@ exports[`Advertise snapshot test render Advertise screen correctly 1`] = `
       "paddingVertical": "25%",
     }
   }
-  testID="advertise-message"
+  testID="empty-message"
 >
   <Icon
     color="#14213D"
