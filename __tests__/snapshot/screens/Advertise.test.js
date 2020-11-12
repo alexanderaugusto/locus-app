@@ -24,7 +24,7 @@ describe('Advertise snapshot test', () => {
     const tree = create(<Advertise />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
-  it('render Advertise screen correctly when signed=false', () => {
+  it('render Advertise screen correctly when signed=true', () => {
     jest.spyOn(auth, 'useAuth').mockImplementation(() => ({
       signed: true
     }))
