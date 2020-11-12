@@ -2,6 +2,8 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { ImovelCard } from '../../../src/components'
 
+import mockedProperty from '../../mocks/constants/property.json'
+
 jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
@@ -14,62 +16,7 @@ jest.mock('@react-navigation/native', () => {
 
 describe('ImovelCard snapshot test', () => {
   it('render ImovelCard component correctly', () => {
-    const tree = create(
-      <ImovelCard
-        favorite={false}
-        item={{
-          id: 1,
-          title: 'Casa para alugar com 2 quartos',
-          description:
-            'Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc',
-          street: 'Rua Conselheiro Furtado',
-          neighborhood: 'Liberdade',
-          city: 'São Paulo',
-          state: 'SP',
-          country: 'Brasil',
-          price: 2143,
-          bedrooms: 3,
-          bathrooms: 1,
-          area: 64,
-          place: 3,
-          animal: true,
-          type: 'Apartamento',
-          createdAt: '2020-10-18T13:59:30.708Z',
-          updatedAt: '2020-10-18T13:59:30.708Z',
-          user_id: 1,
-          images: [
-            {
-              id: 1,
-              path: '44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg',
-              createdAt: '2020-10-18T13:59:30.771Z',
-              updatedAt: '2020-10-18T13:59:30.771Z',
-              property_id: 1
-            },
-            {
-              id: 2,
-              path: 'b0881d860264b258b075452ecdc8611f-property1_img2.jpg',
-              createdAt: '2020-10-18T13:59:30.771Z',
-              updatedAt: '2020-10-18T13:59:30.771Z',
-              property_id: 1
-            },
-            {
-              id: 3,
-              path: '3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg',
-              createdAt: '2020-10-18T13:59:30.771Z',
-              updatedAt: '2020-10-18T13:59:30.771Z',
-              property_id: 1
-            },
-            {
-              id: 4,
-              path: '27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg',
-              createdAt: '2020-10-18T13:59:30.771Z',
-              updatedAt: '2020-10-18T13:59:30.771Z',
-              property_id: 1
-            }
-          ]
-        }}
-      />
-    )
+    const tree = create(<ImovelCard favorite={false} item={mockedProperty} />)
 
     expect(tree.toJSON()).toMatchSnapshot()
   })
