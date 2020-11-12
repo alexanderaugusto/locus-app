@@ -13,6 +13,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=fal
       "paddingVertical": "25%",
     }
   }
+  testID="empty-message"
 >
   <Icon
     color="#14213D"
@@ -95,6 +96,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=tru
       "paddingVertical": "25%",
     }
   }
+  testID="empty-message"
 >
   <Icon
     color="#14213D"

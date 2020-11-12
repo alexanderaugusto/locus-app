@@ -62,7 +62,10 @@ export default function Favorite() {
 
   if (!signed || !favorites.length) {
     return (
-      <KeyboardAvoidingView style={styles.emptyContainer}>
+      <KeyboardAvoidingView
+        testID="empty-message"
+        style={styles.emptyContainer}
+      >
         <Icon name="heart-broken" size={120} color={colors.blue} />
 
         <View>
@@ -85,7 +88,7 @@ export default function Favorite() {
   }
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView testID="favorites" style={styles.container}>
       <Text numberOfLiner={2} style={styles.title}>
         Favoritos
       </Text>
