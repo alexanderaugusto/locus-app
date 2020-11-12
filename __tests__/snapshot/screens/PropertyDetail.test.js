@@ -2,6 +2,8 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import PropertyDetail from '../../../src/screens/PropertyDetail'
 
+import mockedProperty from '../../mocks/constants/property.json'
+
 jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
   return {
@@ -10,7 +12,9 @@ jest.mock('@react-navigation/native', () => {
       navigate: jest.fn()
     }),
     useRoute: () => ({
-      route: jest.fn()
+      route: () => ({
+        params: mockedProperty
+      })
     })
   }
 })

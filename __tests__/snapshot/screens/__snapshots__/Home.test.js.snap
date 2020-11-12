@@ -1,0 +1,1183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home snapshot test render Home screen correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#E5E5E5",
+        "flex": 1,
+        "paddingHorizontal": 30,
+        "paddingVertical": 10,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 15,
+        "marginTop": 30,
+      }
+    }
+  >
+    <Text
+      numberOfLiner={2}
+      style={
+        Object {
+          "color": "#FCA311",
+          "fontSize": 26,
+          "fontWeight": "600",
+          "textAlign": "left",
+          "width": 220,
+        }
+      }
+    >
+      Encontre o imóvel ideal para você!
+    </Text>
+    <Image
+      resizeMode="contain"
+      source={1}
+      style={
+        Object {
+          "height": 65,
+          "width": 65,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "minHeight": 46,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      placeholder="Pesquise por localidade..."
+      placeholderTextColor="#999"
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "padding": 5,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "opacity": 1,
+        }
+      }
+    >
+      <Icon
+        color="#14213D"
+        name="search"
+        size={16}
+      />
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "animal": true,
+            "area": 64,
+            "bathrooms": 1,
+            "bedrooms": 3,
+            "city": "São Paulo",
+            "country": "Brasil",
+            "createdAt": "2020-10-18T13: 59: 30.708Z",
+            "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
+            "id": 1,
+            "images": Array [
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 1,
+                "path": "44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 2,
+                "path": "b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 3,
+                "path": "3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 4,
+                "path": "27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+            ],
+            "neighborhood": "Liberdade",
+            "place": 3,
+            "price": 2143,
+            "state": "SP",
+            "street": "Rua Conselheiro Furtado",
+            "title": "Casa para alugar com 2 quartos",
+            "type": "Apartamento",
+            "updatedAt": "2020-10-18T13: 59: 30.708Z",
+            "user_id": 1,
+          },
+          Object {
+            "animal": true,
+            "area": 64,
+            "bathrooms": 1,
+            "bedrooms": 3,
+            "city": "São Paulo",
+            "country": "Brasil",
+            "createdAt": "2020-10-18T13: 59: 30.708Z",
+            "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
+            "id": 1,
+            "images": Array [
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 1,
+                "path": "44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 2,
+                "path": "b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 3,
+                "path": "3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 4,
+                "path": "27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+            ],
+            "neighborhood": "Liberdade",
+            "place": 3,
+            "price": 2143,
+            "state": "SP",
+            "street": "Rua Conselheiro Furtado",
+            "title": "Casa para alugar com 2 quartos",
+            "type": "Apartamento",
+            "updatedAt": "2020-10-18T13: 59: 30.708Z",
+            "user_id": 1,
+          },
+          Object {
+            "animal": true,
+            "area": 64,
+            "bathrooms": 1,
+            "bedrooms": 3,
+            "city": "São Paulo",
+            "country": "Brasil",
+            "createdAt": "2020-10-18T13: 59: 30.708Z",
+            "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
+            "id": 1,
+            "images": Array [
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 1,
+                "path": "44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 2,
+                "path": "b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 3,
+                "path": "3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+              Object {
+                "createdAt": "2020-10-18T13: 59: 30.771Z",
+                "id": 4,
+                "path": "27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                "property_id": 1,
+                "updatedAt": "2020-10-18T13: 59: 30.771Z",
+              },
+            ],
+            "neighborhood": "Liberdade",
+            "place": 3,
+            "price": 2143,
+            "state": "SP",
+            "street": "Rua Conselheiro Furtado",
+            "title": "Casa para alugar com 2 quartos",
+            "type": "Apartamento",
+            "updatedAt": "2020-10-18T13: 59: 30.708Z",
+            "user_id": 1,
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onRefresh={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+          refreshing={true}
+        />
+      }
+      refreshing={true}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      showsVerticalScrollIndicator={false}
+      stickyHeaderIndices={Array []}
+      testID="home-flatList"
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FFF",
+                    "borderColor": "#bfbfbf",
+                    "borderRadius": 24,
+                    "borderWidth": 1,
+                    "marginVertical": 10,
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            >
+              <RCTScrollView
+                decelerationRate={0}
+                horizontal={true}
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={true}
+                snapToAlignment="center"
+                snapToInterval={630}
+                style={
+                  Object {
+                    "height": 180,
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+              <View
+                style={
+                  Object {
+                    "alignSelf": "flex-end",
+                    "margin": 10,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "#E5E5E5",
+                      "borderRadius": 25,
+                      "borderWidth": 1,
+                      "elevation": 2,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "marginHorizontal": 7,
+                      "opacity": 1,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.08,
+                      "shadowRadius": 2,
+                      "width": 40,
+                    }
+                  }
+                  testID="btn-favorite"
+                >
+                  <Icon
+                    color="#19294d"
+                    name="heart"
+                    size={18}
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderTopColor": "#bfbfbf",
+                    "borderTopWidth": 2,
+                    "paddingBottom": 15,
+                    "paddingHorizontal": 15,
+                    "paddingTop": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#000",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "lineHeight": 20,
+                      }
+                    }
+                  >
+                    Aluguel 
+                    R$ 2.143,00
+                  </Text>
+                </View>
+                <Text
+                  numberOfLines={3}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "paddingTop": 8,
+                    }
+                  }
+                >
+                  Rua Conselheiro Furtado, Liberdade - São Paulo (SP)
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FFF",
+                    "borderColor": "#bfbfbf",
+                    "borderRadius": 24,
+                    "borderWidth": 1,
+                    "marginVertical": 10,
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            >
+              <RCTScrollView
+                decelerationRate={0}
+                horizontal={true}
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={true}
+                snapToAlignment="center"
+                snapToInterval={630}
+                style={
+                  Object {
+                    "height": 180,
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+              <View
+                style={
+                  Object {
+                    "alignSelf": "flex-end",
+                    "margin": 10,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "#E5E5E5",
+                      "borderRadius": 25,
+                      "borderWidth": 1,
+                      "elevation": 2,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "marginHorizontal": 7,
+                      "opacity": 1,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.08,
+                      "shadowRadius": 2,
+                      "width": 40,
+                    }
+                  }
+                  testID="btn-favorite"
+                >
+                  <Icon
+                    color="#19294d"
+                    name="heart"
+                    size={18}
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderTopColor": "#bfbfbf",
+                    "borderTopWidth": 2,
+                    "paddingBottom": 15,
+                    "paddingHorizontal": 15,
+                    "paddingTop": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#000",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "lineHeight": 20,
+                      }
+                    }
+                  >
+                    Aluguel 
+                    R$ 2.143,00
+                  </Text>
+                </View>
+                <Text
+                  numberOfLines={3}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "paddingTop": 8,
+                    }
+                  }
+                >
+                  Rua Conselheiro Furtado, Liberdade - São Paulo (SP)
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FFF",
+                    "borderColor": "#bfbfbf",
+                    "borderRadius": 24,
+                    "borderWidth": 1,
+                    "marginVertical": 10,
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            >
+              <RCTScrollView
+                decelerationRate={0}
+                horizontal={true}
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={true}
+                snapToAlignment="center"
+                snapToInterval={630}
+                style={
+                  Object {
+                    "height": 180,
+                    "maxWidth": "100%",
+                  }
+                }
+              >
+                <View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                  <View
+                    onStartShouldSetResponder={[Function]}
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "opacity": 1,
+                        }
+                      }
+                    >
+                      <Image
+                        resizeMode="cover"
+                        source={
+                          Object {
+                            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                          }
+                        }
+                        style={
+                          Object {
+                            "height": 360.18,
+                            "width": 630,
+                          }
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </RCTScrollView>
+              <View
+                style={
+                  Object {
+                    "alignSelf": "flex-end",
+                    "margin": 10,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "#E5E5E5",
+                      "borderRadius": 25,
+                      "borderWidth": 1,
+                      "elevation": 2,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "marginHorizontal": 7,
+                      "opacity": 1,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.08,
+                      "shadowRadius": 2,
+                      "width": 40,
+                    }
+                  }
+                  testID="btn-favorite"
+                >
+                  <Icon
+                    color="#19294d"
+                    name="heart"
+                    size={18}
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderTopColor": "#bfbfbf",
+                    "borderTopWidth": 2,
+                    "paddingBottom": 15,
+                    "paddingHorizontal": 15,
+                    "paddingTop": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#000",
+                        "fontSize": 16,
+                        "fontWeight": "600",
+                        "lineHeight": 20,
+                      }
+                    }
+                  >
+                    Aluguel 
+                    R$ 2.143,00
+                  </Text>
+                </View>
+                <Text
+                  numberOfLines={3}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "paddingTop": 8,
+                    }
+                  }
+                >
+                  Rua Conselheiro Furtado, Liberdade - São Paulo (SP)
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "height": 0,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+  </RCTSafeAreaView>
+</View>
+`;

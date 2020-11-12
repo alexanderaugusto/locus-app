@@ -1,6 +1,9 @@
 import React from 'react'
+import api from '../../../src/services/api'
 import { create } from 'react-test-renderer'
 import Home from '../../../src/screens/Home'
+
+import mockedProperties from '../../mocks/constants/properties.json'
 
 jest.runAllTimers()
 jest.mock('@react-navigation/native', () => {
@@ -11,10 +14,19 @@ jest.mock('@react-navigation/native', () => {
     })
   }
 })
+jest.mock('../../../src/services/api')
 
 describe('Home snapshot test', () => {
-  it('render Home screen correctly', () => {
+  api.get.mockResolvedValue({ data: mockedProperties })
+
+  it('render Home screen correctly', async () => {
     const tree = create(<Home />)
+
+    await new Promise(resolve => {
+      setTimeout(() => resolve(), 2000)
+      jest.runAllTimers()
+    })
+
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })
