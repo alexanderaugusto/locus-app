@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Advertise snapshot test render Advertise screen correctly when signed=false 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "paddingHorizontal": "10%",
+      "paddingVertical": "25%",
+    }
+  }
+  testID="empty-message"
+>
+  <Icon
+    color="#14213D"
+    name="house-damage"
+    size={120}
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#333740",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Você não possui nenhum imóvel
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#AAADB3",
+          "fontSize": 18,
+          "marginTop": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Vamos cadastrar seu primeiro imóve, faça isso clicando no botão abaixo
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#19294d",
+        "borderRadius": 24,
+        "height": 40,
+        "justifyContent": "center",
+        "marginVertical": 10,
+        "opacity": 1,
+        "paddingHorizontal": 25,
+        "width": "auto",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      Meu primeiro imóvel
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Advertise snapshot test render Advertise screen correctly when signed=true 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "paddingHorizontal": "10%",
+      "paddingVertical": "25%",
+    }
+  }
+  testID="empty-message"
+>
+  <Icon
+    color="#14213D"
+    name="house-damage"
+    size={120}
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#333740",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Você não possui nenhum imóvel
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#AAADB3",
+          "fontSize": 18,
+          "marginTop": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Vamos cadastrar seu primeiro imóve, faça isso clicando no botão abaixo
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#19294d",
+        "borderRadius": 24,
+        "height": 40,
+        "justifyContent": "center",
+        "marginVertical": 10,
+        "opacity": 1,
+        "paddingHorizontal": 25,
+        "width": "auto",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      Meu primeiro imóvel
+    </Text>
+  </View>
+</View>
+`;

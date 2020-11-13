@@ -19,7 +19,7 @@ jest.mock('@react-navigation/native', () => {
 })
 jest.mock('../../../src/services/api')
 
-describe('Advertise snapshot test', () => {
+describe('Advertise unit test', () => {
   it('should render Advertise screen properties correctly', async () => {
     jest.spyOn(auth, 'useAuth').mockImplementation(() => ({
       signed: true

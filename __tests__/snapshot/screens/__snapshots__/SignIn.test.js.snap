@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E5E5E5",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 35,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 110,
+        "width": 110,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#19294d",
+        "fontSize": 48,
+        "fontWeight": "500",
+        "textAlign": "center",
+      }
+    }
+  >
+    IMovel
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "red",
+        "fontSize": 14,
+        "fontWeight": "500",
+        "paddingTop": 10,
+        "textAlign": "center",
+      }
+    }
+    testID="errorMessageText"
+  >
+    
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#FFF",
+          "borderColor": "#14213D",
+          "borderRadius": 25,
+          "borderWidth": 1,
+          "elevation": 2,
+          "flexDirection": "row",
+          "marginTop": 15,
+          "paddingHorizontal": 12,
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.2,
+          "shadowRadius": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Icon
+      color="#14213D"
+      name="envelope"
+      size={16}
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      keyboardType="email-address"
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      placeholder="Entre com o seu email"
+      placeholderTextColor="#d2d2d2"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Object {
+            "height": 46,
+            "paddingHorizontal": 8,
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+      testID="signIn-email"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#FFF",
+          "borderColor": "#14213D",
+          "borderRadius": 25,
+          "borderWidth": 1,
+          "elevation": 2,
+          "flexDirection": "row",
+          "marginTop": 15,
+          "paddingHorizontal": 12,
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.2,
+          "shadowRadius": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Icon
+      color="#14213D"
+      name="lock"
+      size={16}
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      placeholder="Entre com a sua senha"
+      placeholderTextColor="#d2d2d2"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Object {
+            "height": 46,
+            "paddingHorizontal": 8,
+            "paddingVertical": 10,
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+      testID="signIn-password"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#FCA311",
+        "borderRadius": 24,
+        "height": 45,
+        "justifyContent": "center",
+        "marginTop": 20,
+        "opacity": 1,
+      }
+    }
+    testID="signIn-button"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#14213D",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Entrar
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginVertical": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#14213D",
+        }
+      }
+    >
+      Ainda não possui conta?
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#14213D",
+            "fontWeight": "bold",
+            "paddingHorizontal": 5,
+          }
+        }
+      >
+        Cadastre-se
+      </Text>
+    </View>
+  </View>
+</View>
+`;

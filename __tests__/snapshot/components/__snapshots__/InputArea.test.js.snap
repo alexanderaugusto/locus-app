@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputArea snapshot test render InputArea component with icon correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <Icon
+    color="#14213D"
+    name="envelope"
+    size={16}
+    style={
+      Object {
+        "alignSelf": "center",
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Entre com o seu email"
+    placeholderTextColor="#d2d2d2"
+    rejectResponderTermination={true}
+    secureTextEntry={false}
+    style={
+      Array [
+        Object {
+          "height": 46,
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
+
+exports[`InputArea snapshot test render InputArea component with label correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "color": "#14213D",
+        "fontWeight": "600",
+      }
+    }
+  >
+    Email
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Entre com o seu email"
+    placeholderTextColor="#d2d2d2"
+    rejectResponderTermination={true}
+    secureTextEntry={false}
+    style={
+      Array [
+        Object {
+          "height": 46,
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
+
+exports[`InputArea snapshot test render InputArea component without icon and label correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    keyboardType="email-address"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Entre com o seu email"
+    placeholderTextColor="#d2d2d2"
+    rejectResponderTermination={true}
+    secureTextEntry={false}
+    style={
+      Array [
+        Object {
+          "height": 46,
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
+
+exports[`InputArea snapshot test render InputArea password component 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#FFF",
+        "borderColor": "#14213D",
+        "borderRadius": 25,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "marginTop": 15,
+        "paddingHorizontal": 12,
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "color": "#14213D",
+        "fontWeight": "600",
+      }
+    }
+  >
+    Senha
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Entre com a sua senha"
+    placeholderTextColor="#d2d2d2"
+    rejectResponderTermination={true}
+    secureTextEntry={false}
+    style={
+      Array [
+        Object {
+          "height": 46,
+          "paddingHorizontal": 8,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

@@ -100,7 +100,10 @@ export default function Account() {
 
   if (!signed) {
     return (
-      <KeyboardAvoidingView style={styles.emptyContainer}>
+      <KeyboardAvoidingView
+        testID="empty-message"
+        style={styles.emptyContainer}
+      >
         <Icon name="user-alt" size={120} color={colors.blue} />
 
         <View>
@@ -124,6 +127,7 @@ export default function Account() {
 
   return (
     <ScrollView
+      testID="account"
       style={styles.scrollContainer}
       showsVerticalScrollIndicator={false}
       alwaysBounceVertical={false}

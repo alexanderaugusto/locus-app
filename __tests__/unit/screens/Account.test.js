@@ -2,9 +2,9 @@ import React from 'react'
 import * as auth from '../../../src/contexts/auth'
 import api from '../../../src/services/api'
 import { create } from 'react-test-renderer'
-import Favorite from '../../../src/screens/Favorite'
+import Account from '../../../src/screens/Account'
 
-import mockedProperties from '../../mocks/constants/properties.json'
+import mockedUser from '../../mocks/constants/user.json'
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -19,31 +19,31 @@ jest.mock('@react-navigation/native', () => {
 })
 jest.mock('../../../src/services/api')
 
-describe('Favorite unit test', () => {
-  it('should render Favorite screen properties correctly', async () => {
+describe('Account unit test', () => {
+  it('should render Account screen properties correctly', async () => {
     jest.spyOn(auth, 'useAuth').mockImplementation(() => ({
       signed: true
     }))
 
-    api.get.mockResolvedValue({ data: mockedProperties })
+    api.get.mockResolvedValue({ data: mockedUser })
 
-    const tree = create(<Favorite />)
+    const tree = create(<Account />)
 
     await new Promise(resolve => {
       setTimeout(() => resolve(), 2000)
       jest.runAllTimers()
     })
 
-    const favorites = tree.root.findByProps({ testID: 'favorites' })
-    expect(favorites).toBeDefined()
+    const account = tree.root.findByProps({ testID: 'account' })
+    expect(account).toBeDefined()
   })
 
-  it('should render Favorite screen empty message correctly', async () => {
+  it('should render Account screen empty message correctly', async () => {
     jest.spyOn(auth, 'useAuth').mockImplementation(() => ({
       signed: false
     }))
 
-    const tree = create(<Favorite />)
+    const tree = create(<Account />)
 
     const emptyMessage = tree.root.findByProps({ testID: 'empty-message' })
     expect(emptyMessage).toBeDefined()
