@@ -1,0 +1,487 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account unit test render Account screen correctly when signed=false 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "paddingHorizontal": "10%",
+      "paddingVertical": "25%",
+    }
+  }
+  testID="empty-message"
+>
+  <Icon
+    color="#14213D"
+    name="user-alt"
+    size={120}
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#333740",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Você ainda não está logado em uma conta!
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#AAADB3",
+          "fontSize": 18,
+          "marginTop": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Faça o login no aplicativo para poder acessar os dados da sua conta.
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#19294d",
+        "borderRadius": 24,
+        "height": 40,
+        "justifyContent": "center",
+        "marginVertical": 10,
+        "opacity": 1,
+        "paddingHorizontal": 25,
+        "width": 130,
+      }
+    }
+    testID="account-empty-button"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      Entrar
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Account unit test render Account screen correctly when signed=true 1`] = `
+<RCTScrollView
+  alwaysBounceVertical={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    Object {
+      "backgroundColor": "#E5E5E5",
+      "flex": 1,
+    }
+  }
+  testID="account"
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#E5E5E5",
+            "flex": 1,
+          },
+          Object {
+            "paddingBottom": 0,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#14213D",
+            "height": "40%",
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#FCA311",
+            "fontSize": 28,
+            "fontWeight": "600",
+            "margin": 10,
+            "paddingTop": 30,
+          }
+        }
+      >
+        Minha conta
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#FFF",
+            "borderColor": "#b2b2b2",
+            "borderRadius": 24,
+            "borderWidth": 1,
+            "flexDirection": "column",
+            "marginTop": 10,
+            "overflow": "hidden",
+            "padding": 8,
+            "width": 330,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/user/default-avatar.png",
+              }
+            }
+            style={
+              Object {
+                "borderColor": "#FCA311",
+                "borderRadius": 110,
+                "borderWidth": 2,
+                "height": 110,
+                "width": 110,
+              }
+            }
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "alignSelf": "center",
+              "color": "#14213D",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "marginTop": 5,
+            }
+          }
+          testID="account-name"
+        >
+          
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "#FCA311",
+              "borderRadius": 24,
+              "height": 30,
+              "justifyContent": "center",
+              "marginVertical": 10,
+              "opacity": 1,
+              "width": 100,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#14213D",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Sair
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "red",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "paddingTop": 10,
+              "textAlign": "center",
+            }
+          }
+          testID="account-errorMessageText"
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#FFF",
+                "borderColor": "#14213D",
+                "borderRadius": 25,
+                "borderWidth": 1,
+                "elevation": 2,
+                "flexDirection": "row",
+                "marginTop": 15,
+                "paddingHorizontal": 12,
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.2,
+                "shadowRadius": 2,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "#14213D",
+                "fontWeight": "600",
+              }
+            }
+          >
+            Nome: 
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Seu nome..."
+            placeholderTextColor="#d2d2d2"
+            rejectResponderTermination={true}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "height": 46,
+                  "paddingHorizontal": 8,
+                  "paddingVertical": 10,
+                  "width": "100%",
+                },
+                undefined,
+              ]
+            }
+            testID="account-input-name"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#FFF",
+                "borderColor": "#14213D",
+                "borderRadius": 25,
+                "borderWidth": 1,
+                "elevation": 2,
+                "flexDirection": "row",
+                "marginTop": 15,
+                "paddingHorizontal": 12,
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.2,
+                "shadowRadius": 2,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "#14213D",
+                "fontWeight": "600",
+              }
+            }
+          >
+            E-mail: 
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            keyboardType="email-address"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Seu email..."
+            placeholderTextColor="#d2d2d2"
+            rejectResponderTermination={true}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "height": 46,
+                  "paddingHorizontal": 8,
+                  "paddingVertical": 10,
+                  "width": "100%",
+                },
+                undefined,
+              ]
+            }
+            testID="account-input-email"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "stretch",
+                "backgroundColor": "#FFF",
+                "borderColor": "#14213D",
+                "borderRadius": 25,
+                "borderWidth": 1,
+                "elevation": 2,
+                "flexDirection": "row",
+                "marginTop": 15,
+                "paddingHorizontal": 12,
+                "shadowOffset": Object {
+                  "height": 0,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.2,
+                "shadowRadius": 2,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignSelf": "center",
+                "color": "#14213D",
+                "fontWeight": "600",
+              }
+            }
+          >
+            Celular: 
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            keyboardType="phone-pad"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholder="Seu celular..."
+            placeholderTextColor="#d2d2d2"
+            rejectResponderTermination={true}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "height": 46,
+                  "paddingHorizontal": 8,
+                  "paddingVertical": 10,
+                  "width": "100%",
+                },
+                undefined,
+              ]
+            }
+            testID="account-input-phone"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "#FCA311",
+              "borderRadius": 24,
+              "height": 35,
+              "justifyContent": "center",
+              "marginTop": 30,
+              "maxWidth": 200,
+              "opacity": 1,
+              "width": 150,
+            }
+          }
+          testID="account-save-button"
+        >
+          <Text
+            style={
+              Object {
+                "color": "#14213D",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Salvar
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

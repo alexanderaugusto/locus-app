@@ -23,6 +23,7 @@ export default function Account() {
   const { signed, signOut } = useAuth()
 
   const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
@@ -32,6 +33,7 @@ export default function Account() {
 
   const getUser = async () => {
     setLoading(true)
+    setErrorMessage('')
     api
       .get('/user')
       .then(res => {
@@ -49,6 +51,7 @@ export default function Account() {
 
   const updateInfo = async () => {
     setLoading(true)
+    setErrorMessage('')
 
     const data = {
       name: userInfo.name,
@@ -116,6 +119,7 @@ export default function Account() {
         </View>
 
         <TouchableOpacity
+          testID={'account-empty-button'}
           style={styles.emptyButton}
           onPress={() => navigation.navigate('SignIn')}
         >
@@ -159,13 +163,18 @@ export default function Account() {
         </View>
 
         <View style={styles.form}>
+          <Text testID={'account-errorMessageText'} style={styles.errorMessage}>
+            {errorMessage}
+          </Text>
           <InputArea
+            testID={'account-input-name'}
             label={'Nome: '}
             placeholder={'Seu nome...'}
             value={userInfo.name}
             onChangeText={value => onChange('name', value)}
           />
           <InputArea
+            testID={'account-input-email'}
             label={'E-mail: '}
             placeholder={'Seu email...'}
             value={userInfo.email}
@@ -173,13 +182,24 @@ export default function Account() {
             onChangeText={value => onChange('email', value)}
           />
           <InputArea
+            testID={'account-input-phone'}
             label={'Celular: '}
             placeholder={'Seu celular...'}
             value={formatPhoneNumber(userInfo.phone)}
             keyboardType={'phone-pad'}
             onChangeText={value => onChange('phone', value)}
           />
-          <TouchableOpacity style={styles.button} onPress={() => updateInfo()}>
+          <TouchableOpacity
+            testID={'account-save-button'}
+            style={styles.button}
+            onPress={() =>
+              userInfo.name === '' ||
+              userInfo.email === '' ||
+              userInfo.phone === ''
+                ? setErrorMessage('Preencha todos os campos corretamente!')
+                : updateInfo()
+            }
+          >
             <Text style={styles.buttonText}>Salvar</Text>
           </TouchableOpacity>
         </View>
@@ -319,5 +339,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     flex: 1
+  },
+
+  errorMessage: {
+    paddingTop: 10,
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'red',
+    textAlign: 'center'
   }
 })
