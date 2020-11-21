@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import React, { useState, useEffect } from 'react'
 import {
   KeyboardAvoidingView,
@@ -25,32 +26,25 @@ export default function Home() {
   const { signed } = useAuth()
 
   const [properties, setProperties] = useState([])
+  const [fullProperties, setFullProperties] = useState([])
   const [loading, setLoading] = useState(false)
+  const [searchText, setSearchText] = useState('')
 
   const getProperties = async () => {
     setLoading(true)
-
     await api
       .get('/properties')
       .then(res => {
         setProperties(res.data)
+        setFullProperties(res.data)
       })
       .catch(err => {
         console.error(err)
       })
-
     setLoading(false)
   }
 
   const onChangeFavorite = (item, favorite) => {
-    // const newProperties = properties.map(property => {
-    //   if (property.id === item.id) {
-    //     return { ...property, favorite }
-    //   }else{
-    //     return property
-    //   }
-    // })
-    // setProperties(newProperties)
     navigation.reset({
       index: 0,
       routes: [{ name: 'Home' }],
@@ -58,12 +52,37 @@ export default function Home() {
     })
   }
 
+  const onSearchChange = text => {
+    setSearchText(text)
+    if (!text.length) {
+      setProperties(fullProperties)
+    } else {
+      const newItems = []
+      properties.forEach(item => {
+        const fullAdress = `${item.street} ${item.neighborhood} ${item.city} ${item.state} ${item.country}`
+        if (
+          fullAdress
+            .toString()
+            .toLowerCase()
+            .includes(text.toString().toLowerCase())
+        ) {
+          newItems.push(item)
+          setProperties(newItems)
+        } else {
+          setProperties([])
+        }
+      })
+    }
+  }
+
   useEffect(() => {
+    setSearchText('')
     getProperties()
   }, [signed])
 
   return (
     <KeyboardAvoidingView
+      testID="home"
       behavior="padding"
       enabled={Platform.OS === 'ios'}
       style={styles.container}
@@ -84,6 +103,8 @@ export default function Home() {
           style={{ padding: 5 }}
           placeholder="Pesquise por localidade..."
           placeholderTextColor="#999"
+          value={searchText}
+          onChangeText={value => onSearchChange(value)}
         />
         <TouchableOpacity style={{ alignSelf: 'center' }}>
           <Icon name="search" size={16} color={colors.blue} />
@@ -91,29 +112,40 @@ export default function Home() {
       </View>
 
       <SafeAreaView style={{ flex: 1 }}>
-        <FlatList
-          testID={'home-flatList'}
-          data={properties}
-          keyExtractor={item => item.id.toString()}
-          showsVerticalScrollIndicator={false}
-          onRefresh={() => getProperties()}
-          refreshing={loading}
-          renderItem={({ item }) => {
-            return (
-              <TouchableWithoutFeedback
-                onPress={() => navigation.navigate('PropertyDetail', { item })}
-              >
-                <View>
-                  <ImovelCard
-                    item={item}
-                    favorite={item.favorite}
-                    onChangeFavorite={onChangeFavorite}
-                  />
-                </View>
-              </TouchableWithoutFeedback>
-            )
-          }}
-        />
+        {!properties.length ? (
+          <View style={styles.emptyContainer}>
+            <Icon name="frown" size={120} color={colors.blue} />
+
+            <Text style={styles.emptyList}>
+              Ops, nenhum propriedade encontrada!
+            </Text>
+          </View>
+        ) : (
+          <FlatList
+            data={properties}
+            keyExtractor={item => item.id.toString()}
+            showsVerticalScrollIndicator={false}
+            onRefresh={() => getProperties()}
+            refreshing={loading}
+            renderItem={({ item }) => {
+              return (
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    navigation.navigate('PropertyDetail', { item })
+                  }
+                >
+                  <View>
+                    <ImovelCard
+                      item={item}
+                      favorite={item.favorite}
+                      onChangeFavorite={onChangeFavorite}
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
+              )
+            }}
+          />
+        )}
       </SafeAreaView>
     </KeyboardAvoidingView>
   )
@@ -165,5 +197,22 @@ const styles = StyleSheet.create({
       width: 0
     },
     elevation: 2
+  },
+
+  emptyContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: '10%',
+    paddingVertical: '25%'
+  },
+
+  emptyList: {
+    marginTop: 15,
+    color: '#333740',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 })

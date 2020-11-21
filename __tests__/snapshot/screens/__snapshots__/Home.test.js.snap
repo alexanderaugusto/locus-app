@@ -16,6 +16,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       },
     ]
   }
+  testID="home"
 >
   <View
     style={
@@ -77,6 +78,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      onChangeText={[Function]}
       placeholder="Pesquise por localidade..."
       placeholderTextColor="#999"
       rejectResponderTermination={true}
@@ -86,6 +88,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
         }
       }
       underlineColorAndroid="transparent"
+      value=""
     />
     <View
       accessible={true}
@@ -131,7 +134,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
             "country": "Brasil",
             "createdAt": "2020-10-18T13: 59: 30.708Z",
             "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
-            "id": 1,
+            "id": 2,
             "images": Array [
               Object {
                 "createdAt": "2020-10-18T13: 59: 30.771Z",
@@ -175,13 +178,13 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
           Object {
             "animal": true,
             "area": 64,
-            "bathrooms": 1,
-            "bedrooms": 3,
-            "city": "São Paulo",
+            "bathrooms": 2,
+            "bedrooms": 5,
+            "city": "Belo Horizonte",
             "country": "Brasil",
             "createdAt": "2020-10-18T13: 59: 30.708Z",
-            "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
-            "id": 1,
+            "description": "Aconchegante casa para alugar com 5 quartos e 2 banheiros no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
+            "id": 2,
             "images": Array [
               Object {
                 "createdAt": "2020-10-18T13: 59: 30.771Z",
@@ -212,26 +215,26 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                 "updatedAt": "2020-10-18T13: 59: 30.771Z",
               },
             ],
-            "neighborhood": "Liberdade",
+            "neighborhood": "Centro",
             "place": 3,
             "price": 2143,
-            "state": "SP",
+            "state": "MG",
             "street": "Rua Conselheiro Furtado",
-            "title": "Casa para alugar com 2 quartos",
+            "title": "Casa para alugar com 5 quartos",
             "type": "Apartamento",
             "updatedAt": "2020-10-18T13: 59: 30.708Z",
             "user_id": 1,
           },
           Object {
-            "animal": true,
+            "animal": false,
             "area": 64,
             "bathrooms": 1,
             "bedrooms": 3,
-            "city": "São Paulo",
+            "city": "Rio de Janeiro",
             "country": "Brasil",
             "createdAt": "2020-10-18T13: 59: 30.708Z",
             "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
-            "id": 1,
+            "id": 3,
             "images": Array [
               Object {
                 "createdAt": "2020-10-18T13: 59: 30.771Z",
@@ -262,13 +265,13 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                 "updatedAt": "2020-10-18T13: 59: 30.771Z",
               },
             ],
-            "neighborhood": "Liberdade",
-            "place": 3,
+            "neighborhood": "Copacabana",
+            "place": 4,
             "price": 2143,
-            "state": "SP",
+            "state": "RJ",
             "street": "Rua Conselheiro Furtado",
-            "title": "Casa para alugar com 2 quartos",
-            "type": "Apartamento",
+            "title": "Casa para alugar com 3 quartos",
+            "type": "Casa",
             "updatedAt": "2020-10-18T13: 59: 30.708Z",
             "user_id": 1,
           },
@@ -301,7 +304,6 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
       stickyHeaderIndices={Array []}
-      testID="home-flatList"
       updateCellsBatchingPeriod={50}
       viewabilityConfigCallbackPairs={Array []}
       windowSize={21}
@@ -876,7 +878,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                     }
                   }
                 >
-                  Rua Conselheiro Furtado, Liberdade - São Paulo (SP)
+                  Rua Conselheiro Furtado, Centro - Belo Horizonte (MG)
                 </Text>
               </View>
             </View>
@@ -1163,19 +1165,12 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                     }
                   }
                 >
-                  Rua Conselheiro Furtado, Liberdade - São Paulo (SP)
+                  Rua Conselheiro Furtado, Copacabana - Rio de Janeiro (RJ)
                 </Text>
               </View>
             </View>
           </View>
         </View>
-        <View
-          style={
-            Object {
-              "height": 0,
-            }
-          }
-        />
       </View>
     </RCTScrollView>
   </RCTSafeAreaView>
