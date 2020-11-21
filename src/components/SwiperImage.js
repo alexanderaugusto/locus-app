@@ -14,7 +14,7 @@ export default function SwiperImage({ images }) {
         dot={<View style={styles.swipeDot} />}
         activeDot={<View style={styles.swipeActiveDot} />}
         paginationStyle={{ top: 15, right: 15, bottom: null, left: null }}
-        autoplay={false}
+        autoplay={true}
       >
         {images.map(item => (
           <View style={styles.swipeItem} key={item.id}>

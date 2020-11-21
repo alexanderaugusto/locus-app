@@ -311,6 +311,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
             Object {
               "flexDirection": "row",
               "justifyContent": "space-between",
+              "marginBottom": 20,
               "marginTop": 15,
               "width": "95%",
             }

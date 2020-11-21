@@ -29,7 +29,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
       />
     }
     automaticallyAdjustContentInsets={false}
-    autoplay={false}
+    autoplay={true}
     autoplayDirection={true}
     autoplayTimeout={2.5}
     bounces={false}
