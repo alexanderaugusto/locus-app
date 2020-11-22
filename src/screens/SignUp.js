@@ -32,6 +32,9 @@ export default function SignUp() {
     avatar: null
   })
   const [activeStep, setActiveStep] = useState(0)
+  const [emailIsValid, setEmailIsValid] = useState(false)
+  const [passwordIsValid, setPasswordIsValid] = useState(false)
+  const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
   const onChange = (type, value) => {
     setData({ ...data, [type]: value })
@@ -63,6 +66,30 @@ export default function SignUp() {
       .catch(err => {
         console.error(err)
       })
+  }
+
+  const handleEmail = () => {
+    if (data.email !== data.confirmEmail) {
+      setEmailIsValid(true)
+      setEmailErrorMessage(
+        'Ops, os e-mails são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
+      )
+    } else {
+      setEmailIsValid(false)
+      setEmailErrorMessage('')
+    }
+  }
+
+  const handlePassword = () => {
+    if (data.password !== data.confirmPassword) {
+      setPasswordIsValid(true)
+      setEmailErrorMessage(
+        'Ops, as senha são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
+      )
+    } else {
+      setPasswordIsValid(false)
+      setEmailErrorMessage('')
+    }
   }
 
   return (
@@ -148,8 +175,10 @@ export default function SignUp() {
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
+            removeBtnRow={emailIsValid}
           >
             <View style={styles.containerInput}>
+              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
               <Text style={styles.label}>E-mail</Text>
               <InputArea
                 testID="signUp-email-input"
@@ -157,6 +186,7 @@ export default function SignUp() {
                 keyboardType={'email-address'}
                 value={data.email}
                 onChangeText={value => onChange('email', value)}
+                onEndEditing={() => handleEmail()}
               />
               <Text style={styles.label}>Confirmar e-mail</Text>
               <InputArea
@@ -165,6 +195,7 @@ export default function SignUp() {
                 keyboardType={'email-address'}
                 value={data.confirmEmail}
                 onChangeText={value => onChange('confirmEmail', value)}
+                onEndEditing={() => handleEmail()}
               />
             </View>
           </ProgressStep>
@@ -182,27 +213,31 @@ export default function SignUp() {
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
+            removeBtnRow={passwordIsValid}
           >
             <View style={styles.containerInput}>
               <Text style={styles.messageEmail}>
                 Para sua segurança, a senha deve ter no mínimo 8 caracteres, com
                 números, letra maiúscula e minúscula e caracteres especiais.
               </Text>
+              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
               <Text style={styles.label}>Senha</Text>
               <InputArea
                 testID="signUp-password-input"
                 placeholder={'••••••••'}
-                secureTextEntry={true}
+                password={true}
                 value={data.password}
                 onChangeText={value => onChange('password', value)}
+                onEndEditing={() => handlePassword()}
               />
               <Text style={styles.label}>Confirmar senha</Text>
               <InputArea
                 testID="signUp-confirmPassword-input"
                 placeholder={'••••••••'}
-                secureTextEntry={true}
+                password={true}
                 value={data.confirmPassword}
                 onChangeText={value => onChange('confirmPassword', value)}
+                onEndEditing={() => handlePassword()}
               />
             </View>
           </ProgressStep>
@@ -283,6 +318,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     color: '#999',
+    textAlign: 'center'
+  },
+
+  errorMessage: {
+    paddingTop: 10,
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'red',
     textAlign: 'center'
   },
 
