@@ -47,14 +47,14 @@ Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo
 	  - [x] Cadastrar 
 	  - [x] Listar
 	  - [x] Favoritar  
-	  - [ ] Pesquisar
+	  - [x] Pesquisar
     - [ ] Editar
     - [ ] Deletar  
 ---
 
 ## 🚀 Como executar o projeto
 
-Este projeto é divido em duas partes:
+Este projeto é dividido em duas partes:
 1. [Backend](https://github.com/alexanderaugusto/imovel-api.git)
 2. Frontend (Neste repositório)
 
@@ -70,13 +70,13 @@ Caso você já tenha estas ferramentas instaladas, <a href="#executando-o-projet
 ##### 1) Windows: 
   No Windows, vamos instalar com o [chocolatey](https://chocolatey.org)
 
-- Instalar chocolatey: Primeiro, abra o powershell como administrador (ctrl + X ou clique com o botão direito do mouse no botão iniciar).
+- Instalar chocolatey: Primeiro, abra o powershell como administrador.
 
   ```bash
   # Rode esse comando para checar se você tem permissão para instalar dependências com o terminal.
   $ Get-ExecutionPolicy
 
-  # Se o retorno for diferente de "Restricted pule para o próimo comando. SEnao, rode este comando:
+  # Se o retorno for diferente de "Restricted" pule para o próximo comando. Senão, rode este comando:
   $ Set-ExecutionPolicy AllSigned
 
   # Finalmente, instale o chocolatey.
