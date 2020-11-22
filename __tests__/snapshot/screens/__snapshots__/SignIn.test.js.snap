@@ -18,27 +18,36 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     ]
   }
 >
-  <Image
-    source={1}
+  <View
     style={
       Object {
-        "height": 110,
-        "width": 110,
-      }
-    }
-  />
-  <Text
-    style={
-      Object {
-        "color": "#19294d",
-        "fontSize": 48,
-        "fontWeight": "500",
-        "textAlign": "center",
+        "alignItems": "center",
+        "justifyContent": "center",
       }
     }
   >
-    IMovel
-  </Text>
+    <Image
+      source={1}
+      style={
+        Object {
+          "height": 110,
+          "width": 110,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#19294d",
+          "fontSize": 48,
+          "fontWeight": "500",
+          "textAlign": "center",
+        }
+      }
+    >
+      IMovel
+    </Text>
+  </View>
   <Text
     style={
       Object {

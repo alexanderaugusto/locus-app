@@ -45,8 +45,10 @@ export default function SignIn() {
     >
       <Loader isLoading={loading} />
 
-      <Image style={styles.logo} source={logo}></Image>
-      <Text style={styles.title}>IMovel</Text>
+      <View style={styles.containerLogo}>
+        <Image style={styles.logo} source={logo}></Image>
+        <Text style={styles.title}>IMovel</Text>
+      </View>
 
       <Text testID={'errorMessageText'} style={styles.errorMessage}>
         {errorMessage}
@@ -103,6 +105,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 35
+  },
+
+  containerLogo: {
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   logo: {

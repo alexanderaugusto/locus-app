@@ -117,7 +117,7 @@ export default function Home() {
             <Icon name="frown" size={120} color={colors.blue} />
 
             <Text style={styles.emptyList}>
-              Ops, nenhum propriedade encontrada!
+              Ops, nenhuma propriedade encontrada!
             </Text>
           </View>
         ) : (

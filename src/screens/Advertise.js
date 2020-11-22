@@ -63,10 +63,9 @@ export default function Advertise() {
         <Icon name="house-damage" size={120} color={colors.blue} />
 
         <View>
-          <Text style={styles.emptyTitle}>Você não possui nenhum imóvel</Text>
+          <Text style={styles.emptyTitle}>Você não possui nenhum imóvel!</Text>
           <Text style={styles.emptyDescription}>
-            Vamos cadastrar seu primeiro imóve, faça isso clicando no botão
-            abaixo
+            Para cadastrar o seu primeiro imóvel, clique no botão abaixo.
           </Text>
         </View>
 

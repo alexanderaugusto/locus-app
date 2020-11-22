@@ -26,7 +26,7 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
   }
 >
   <Icon
-    color="#14213D"
+    color="#FCA311"
     name="envelope"
     size={16}
     style={

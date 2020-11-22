@@ -31,7 +31,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=f
         }
       }
     >
-      Você não possui nenhum imóvel
+      Você não possui nenhum imóvel!
     </Text>
     <Text
       style={
@@ -43,7 +43,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=f
         }
       }
     >
-      Vamos cadastrar seu primeiro imóve, faça isso clicando no botão abaixo
+      Para cadastrar o seu primeiro imóvel, clique no botão abaixo.
     </Text>
   </View>
   <View
@@ -115,7 +115,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=t
         }
       }
     >
-      Você não possui nenhum imóvel
+      Você não possui nenhum imóvel!
     </Text>
     <Text
       style={
@@ -127,7 +127,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=t
         }
       }
     >
-      Vamos cadastrar seu primeiro imóve, faça isso clicando no botão abaixo
+      Para cadastrar o seu primeiro imóvel, clique no botão abaixo.
     </Text>
   </View>
   <View
