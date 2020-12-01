@@ -84,7 +84,7 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
             name="heart"
             solid={favorite}
             size={18}
-            color={favorite ? 'red' : colors['blue-secondary']}
+            color={favorite ? colors.danger : colors.blue}
           />
         </TouchableOpacity>
       </View>
@@ -104,11 +104,17 @@ export default function ImovelCard({ item, favorite, onChangeFavorite }) {
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
-    borderColor: '#bfbfbf',
-    borderRadius: 24,
+    shadowColor: colors.h1,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 1,
+    borderRadius: 20,
     overflow: 'hidden',
-    backgroundColor: '#FFF',
+    backgroundColor: colors['light-secondary'],
     marginVertical: 10
   },
 
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 15,
     paddingHorizontal: 15,
-    borderTopColor: '#bfbfbf',
+    borderTopColor: colors.p,
     borderTopWidth: 2
   },
 
@@ -140,14 +146,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     lineHeight: 20,
-    color: '#000'
+    color: colors.h1
   },
 
   address: {
-    paddingTop: 8,
+    paddingTop: 5,
     fontSize: 14,
     fontWeight: '500',
-    color: '#999'
+    color: colors.p
   },
 
   favoriteIcon: {
@@ -161,7 +167,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: colors.platinum,
+    borderColor: colors['light-primary'],
     backgroundColor: '#FFF',
     justifyContent: 'center',
     alignItems: 'center',
@@ -179,7 +185,7 @@ const styles = StyleSheet.create({
   buttonInfo: {
     height: 30,
     width: 80,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.h1,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',

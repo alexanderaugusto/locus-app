@@ -110,7 +110,7 @@ export default function AddProperty() {
         style={styles.backButton}
         onPress={() => navigation.navigate('Home')}
       >
-        <Icon name={'arrow-left'} size={20} color={colors.yellow} />
+        <Icon name={'arrow-left'} size={20} color={colors.h1} />
       </TouchableOpacity>
 
       <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>
@@ -120,12 +120,12 @@ export default function AddProperty() {
 
         <ProgressSteps
           activeStep={activeStep}
-          activeStepIconBorderColor={colors.yellow}
-          completedProgressBarColor={colors.yellow}
-          activeLabelColor={colors.yellow}
-          completedLabelColor={colors.yellow}
-          completedStepIconColor={colors.yellow}
-          completedCheckColor={colors.platinum}
+          activeStepIconBorderColor={colors.blue}
+          completedProgressBarColor={colors.blue}
+          activeLabelColor={colors.blue}
+          completedLabelColor={colors.blue}
+          completedStepIconColor={colors.blue}
+          completedCheckColor={colors['light-secondary']}
         >
           <ProgressStep
             key={0}
@@ -325,7 +325,7 @@ export default function AddProperty() {
                           <View style={styles.addIcon}>
                             <FontAwesome
                               name="plus"
-                              color={colors['blue-secondary']}
+                              color={colors.blue}
                               size={20}
                             />
                           </View>
@@ -379,7 +379,7 @@ export default function AddProperty() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.platinum,
+    backgroundColor: colors['light-primary'],
     padding: 30
   },
 
@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
     width: 300,
     fontSize: 23,
     fontWeight: '600',
-    color: colors.blue,
+    color: colors.h1,
     textAlign: 'left'
   },
 
@@ -410,7 +410,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 15,
     fontWeight: '500',
-    color: '#999',
+    color: colors.h2,
     textAlign: 'center',
     marginBottom: 10
   },
@@ -421,20 +421,20 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontSize: 14,
     fontWeight: '500',
-    color: colors.blue
+    color: colors.h2
   },
 
   button: {
     height: 35,
     width: 90,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   buttonText: {
-    color: colors.blue,
+    color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
   },
@@ -447,7 +447,7 @@ const styles = StyleSheet.create({
   image: {
     flexGrow: 1,
     flexBasis: 0,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors['light-secondary'],
     borderRadius: 10,
     margin: 3,
     paddingHorizontal: 8,

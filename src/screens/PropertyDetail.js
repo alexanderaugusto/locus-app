@@ -49,7 +49,7 @@ export default function PropertyDetail() {
           <View style={styles.iconsRow}>
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'bed'} size={18} color={colors.blue} />
+                <Icon name={'bed'} size={18} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
                 {route.params?.item.bedrooms} quartos
@@ -58,7 +58,7 @@ export default function PropertyDetail() {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'bath'} size={20} color={colors.blue} />
+                <Icon name={'bath'} size={20} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
                 {route.params?.item.bathrooms} banheiro
@@ -69,7 +69,7 @@ export default function PropertyDetail() {
           <View style={styles.iconsRow}>
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'ruler-horizontal'} size={18} color={colors.blue} />
+                <Icon name={'ruler-horizontal'} size={18} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
                 {route.params?.item.area} m²
@@ -78,7 +78,7 @@ export default function PropertyDetail() {
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
-                <Icon name={'dog'} size={19} color={colors.blue} />
+                <Icon name={'dog'} size={19} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
                 {route.params?.item.animal ? 'Aceita pet' : 'Não aceita pet'}
@@ -109,7 +109,7 @@ export default function PropertyDetail() {
           style={styles.backButton}
           onPress={() => navigation.navigate('Home')}
         >
-          <Icon name={'arrow-left'} size={20} color={colors.yellow} />
+          <Icon name={'arrow-left'} size={20} color={colors.h1} />
         </TouchableOpacity>
 
         <ModalContact
@@ -132,17 +132,18 @@ const styles = StyleSheet.create({
   },
 
   body: {
+    flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: colors['light-secondary'],
     borderTopLeftRadius: 50,
     marginTop: -15,
-    minHeight: 450
+    height: '100%'
   },
 
   title: {
     fontSize: 22,
     fontWeight: '700',
-    color: colors.yellow,
+    color: colors.h1,
     paddingTop: 10,
     paddingBottom: 5,
     textAlign: 'right'
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontSize: 17,
     fontWeight: '500',
-    color: '#b2b2b2',
+    color: colors.p,
     textAlign: 'right'
   },
 
@@ -161,14 +162,14 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     fontSize: 18,
     fontWeight: '600',
-    color: colors.blue
+    color: colors.h1
   },
 
   descriptionInfo: {
     fontSize: 15,
     lineHeight: 18,
     fontWeight: '400',
-    color: '#999',
+    color: colors.p,
     textAlign: 'justify',
     marginBottom: 10
   },
@@ -185,18 +186,14 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     marginRight: 8,
-
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: colors.blue,
-
-    backgroundColor: '#FFF',
-
+    borderColor: colors.h2,
+    backgroundColor: colors['light-secondary'],
     justifyContent: 'center',
     alignItems: 'center',
-
     elevation: 1,
-    shadowColor: '#000',
+    shadowColor: colors.h1,
     shadowOpacity: 0.05,
     shadowRadius: 1,
     shadowOffset: {
@@ -209,6 +206,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+
+  iconsLabel: {
+    color: colors.h2
   },
 
   footer: {
@@ -228,13 +229,13 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     fontSize: 15,
     fontWeight: '500',
-    color: '#999'
+    color: colors.p
   },
 
   button: {
     height: 35,
     width: 160,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: colors.blue,
+    color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
   },

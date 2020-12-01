@@ -15,7 +15,7 @@ export default function FloatButton(props) {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    backgroundColor: colors['blue-secondary'],
+    backgroundColor: colors.blue,
     width: 60,
     height: 60,
     justifyContent: 'center',

@@ -35,7 +35,7 @@ export default function InputArea({
           style={styles.button}
           name={prefixIcon}
           size={16}
-          color={colors.blue}
+          color={colors.h2}
         />
       )}
 
@@ -45,7 +45,7 @@ export default function InputArea({
         {...inputProps}
         textId={textId}
         style={[styles.inputText, style]}
-        placeholderTextColor="#d2d2d2"
+        placeholderTextColor={colors.p}
         secureTextEntry={!showPassword}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
@@ -59,7 +59,7 @@ export default function InputArea({
           <Icon
             name={showPassword ? 'eye' : 'eye-slash'}
             size={16}
-            color={colors.blue}
+            color={colors.h2}
           />
         </TouchableOpacity>
       )}
@@ -69,7 +69,7 @@ export default function InputArea({
 
 const styles = StyleSheet.create({
   inputContainer: {
-    backgroundColor: '#FFF',
+    backgroundColor: colors['light-secondary'],
     alignSelf: 'stretch',
     borderWidth: 1,
     borderColor: colors.blue,
@@ -90,21 +90,23 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 10,
     paddingHorizontal: 8,
-    height: 46
+    height: 46,
+    color: colors.h1
   },
 
   button: {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginHorizontal: 5
   },
 
   passwordButton: {
     alignSelf: 'center',
-    marginLeft: -35
+    marginLeft: -45
   },
 
   label: {
     fontWeight: '600',
-    color: colors.blue,
+    color: colors.h2,
     alignSelf: 'center'
   }
 })

@@ -1,6 +1,9 @@
 {
-    "blue": "#14213D",
-    "blue-secondary": "#19294d",
-    "yellow": "#FCA311",
-    "platinum": "#E5E5E5"
+    "blue": "#0565FC",
+    "p": "#AAADB3",
+    "h1": "#2C3E50",
+    "h2": "#7F8C8D",
+    "light-primary": "#F0F0F0",
+    "light-secondary": "#FFFFFF",
+    "danger": "#F82F4A"
 }

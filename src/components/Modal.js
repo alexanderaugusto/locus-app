@@ -12,7 +12,7 @@ import {
 import colors from '../constants/colors.json'
 import avatarWoman from '../../assets/img/avatar_woman.png'
 
-export default function ModalContact({ modalVisible, setModalVisible}) {  
+export default function ModalContact({ modalVisible, setModalVisible}) {
   return (
     <Modal
       animationType="fade"
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   button: {
     height: 30,
     width: 80,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.h1,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
