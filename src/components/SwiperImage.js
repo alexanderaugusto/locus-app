@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     fontSize: 20,
     fontWeight: '700',
-    color: colors.yellow,
+    color: colors.h1,
     justifyContent: 'center',
     alignSelf: 'center',
     textAlign: 'center'
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   swipeDot: {
     width: 10,
     height: 10,
-    backgroundColor: '#b2b2b2',
+    backgroundColor: colors.h2,
     borderRadius: 5,
     margin: 3
   },
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   swipeActiveDot: {
     width: 10,
     height: 10,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 5,
     margin: 3
   }

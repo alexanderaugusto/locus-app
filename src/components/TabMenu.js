@@ -28,13 +28,13 @@ export default function TabMenu() {
         }
       })}
       tabBarOptions={{
-        activeTintColor: colors.yellow,
-        inactiveTintColor: colors.platinum,
+        activeTintColor: colors.blue,
+        inactiveTintColor: colors.h2,
         style: {
           paddingBottom: 10,
           paddingTop: 10,
           height: 60,
-          backgroundColor: colors.blue
+          backgroundColor: colors['light-secondary']
         }
       }}
     >

@@ -219,14 +219,14 @@ const styles = StyleSheet.create({
   },
 
   emptyTitle: {
-    color: '#333740',
+    color: colors.h1,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
   },
 
   emptyDescription: {
-    color: '#AAADB3',
+    color: colors.p,
     fontSize: 18,
     textAlign: 'center',
     marginTop: 15
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   emptyButton: {
     height: 40,
     width: 130,
-    backgroundColor: colors['blue-secondary'],
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -245,17 +245,17 @@ const styles = StyleSheet.create({
   },
 
   emptyButtonText: {
-    color: '#FFFFFF'
+    color: colors['light-secondary']
   },
 
   scrollContainer: {
     flex: 1,
-    backgroundColor: colors.platinum
+    backgroundColor: colors['light-primary']
   },
 
   container: {
     flex: 1,
-    backgroundColor: colors.platinum
+    backgroundColor: colors['light-primary']
   },
 
   header: {
@@ -270,21 +270,25 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 28,
     fontWeight: '600',
-    color: colors.yellow,
+    color: colors['light-secondary'],
     alignSelf: 'center'
   },
 
   cardContainer: {
     marginTop: 10,
     padding: 8,
-
-    backgroundColor: '#FFF',
-    borderWidth: 1,
+    backgroundColor: colors['light-secondary'],
     borderRadius: 24,
-    borderColor: '#b2b2b2',
+    shadowColor: colors.h1,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 1,
     overflow: 'hidden',
     width: 330,
-
     flexDirection: 'column',
     alignItems: 'center',
     alignSelf: 'center'
@@ -295,21 +299,21 @@ const styles = StyleSheet.create({
     height: 110,
     borderRadius: 110,
     borderWidth: 2,
-    borderColor: colors.yellow
+    borderColor: colors.h2
   },
 
   name: {
     marginTop: 5,
     fontSize: 18,
     fontWeight: '500',
-    color: colors.blue,
+    color: colors.h2,
     alignSelf: 'center'
   },
 
   buttonLogout: {
     height: 30,
     width: 100,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -321,7 +325,7 @@ const styles = StyleSheet.create({
     height: 35,
     width: 150,
     maxWidth: 200,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -330,7 +334,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: colors.blue,
+    color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
   },
@@ -345,7 +349,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 14,
     fontWeight: '500',
-    color: 'red',
+    color: colors.danger,
     textAlign: 'center'
   }
 })

@@ -8,7 +8,7 @@ export default function Loader({ isLoading }) {
 
   return (
     <View style={styles.loadingContainer}>
-      <ActivityIndicator size="large" color={colors.yellow} />
+      <ActivityIndicator size="large" color={colors.h1} />
     </View>
   )
 }

@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 import { InputArea, Loader } from '../components'
 import { useAuth } from '../contexts/auth'
 
-import logo from '../../assets/house-agreement-blue.png'
+import logo from '../../assets/logo-text.png'
 import colors from '../constants/colors.json'
 
 export default function SignIn() {
@@ -47,7 +47,6 @@ export default function SignIn() {
 
       <View style={styles.containerLogo}>
         <Image style={styles.logo} source={logo}></Image>
-        <Text style={styles.title}>IMovel</Text>
       </View>
 
       <Text testID={'errorMessageText'} style={styles.errorMessage}>
@@ -101,7 +100,7 @@ export default function SignIn() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.platinum,
+    backgroundColor: colors['light-primary'],
     justifyContent: 'center',
     alignItems: 'center',
     padding: 35
@@ -113,14 +112,14 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 110,
-    height: 110
+    width: 200,
+    height: 121.21
   },
 
   title: {
     fontSize: 48,
     fontWeight: '500',
-    color: colors['blue-secondary'],
+    color: colors.blue,
     textAlign: 'center'
   },
 
@@ -128,13 +127,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 14,
     fontWeight: '500',
-    color: 'red',
+    color: colors.danger,
     textAlign: 'center'
   },
 
   button: {
     height: 45,
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.blue,
     borderRadius: 24,
     marginTop: 20,
     justifyContent: 'center',
@@ -143,7 +142,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: colors.blue,
+    color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
   },
@@ -154,11 +153,11 @@ const styles = StyleSheet.create({
   },
 
   signUpText: {
-    color: colors.blue
+    color: colors.h2
   },
 
   signUpBtnText: {
-    color: colors.blue,
+    color: colors.h2,
     fontWeight: 'bold',
     paddingHorizontal: 5
   }

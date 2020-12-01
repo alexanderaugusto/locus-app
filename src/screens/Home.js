@@ -104,7 +104,7 @@ export default function Home() {
         <Image
           style={styles.logo}
           resizeMode="contain"
-          source={require('../../assets/house-agreement-blue.png')}
+          source={require('../../assets/logo-black.png')}
         />
       </View>
 
@@ -152,7 +152,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.platinum,
+    backgroundColor: colors['light-primary'],
     paddingVertical: 10,
     paddingHorizontal: 30
   },
@@ -169,13 +169,13 @@ const styles = StyleSheet.create({
     width: 220,
     fontSize: 26,
     fontWeight: '600',
-    color: colors.yellow,
+    color: colors.h1,
     textAlign: 'left'
   },
 
   logo: {
-    height: 65,
-    width: 65
+    height: 75,
+    width: 75
   },
 
   inputContainer: {

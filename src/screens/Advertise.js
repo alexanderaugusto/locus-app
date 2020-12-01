@@ -160,14 +160,14 @@ const styles = StyleSheet.create({
   },
 
   emptyTitle: {
-    color: '#333740',
+    color: colors.h1,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
   },
 
   emptyDescription: {
-    color: '#AAADB3',
+    color: colors.p,
     fontSize: 18,
     textAlign: 'center',
     marginTop: 15
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   emptyButton: {
     height: 40,
     width: 'auto',
-    backgroundColor: colors['blue-secondary'],
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -186,12 +186,12 @@ const styles = StyleSheet.create({
   },
 
   emptyButtonText: {
-    color: '#FFFFFF'
+    color: colors['light-secondary']
   },
 
   container: {
     flex: 1,
-    backgroundColor: colors.platinum,
+    backgroundColor: colors['light-primary'],
     paddingVertical: 10,
     paddingHorizontal: 20
   },
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 28,
     fontWeight: '600',
-    color: colors.yellow,
+    color: colors.h1,
     alignSelf: 'center'
   },
 
@@ -211,13 +211,13 @@ const styles = StyleSheet.create({
   card: {
     flexGrow: 1,
     flexBasis: 0,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors['light-secondary'],
     borderRadius: 10,
     margin: 3,
     paddingHorizontal: 8,
     paddingVertical: 5,
     justifyContent: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.h1,
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.8,
     elevation: 1,
@@ -239,12 +239,12 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: colors.blue
+    color: colors.h1
   },
 
   cardDescription: {
     fontSize: 14,
-    color: colors.blue
+    color: colors.h2
   },
 
   cardPrice: {

@@ -75,7 +75,7 @@ export default function InputSelect({
 
 const styles = StyleSheet.create({
   selectContainer: {
-    backgroundColor: '#FFF',
+    backgroundColor: colors['light-secondary'],
     alignSelf: 'stretch',
     borderWidth: 1,
     borderColor: colors.blue,
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
   },
 
   selectText: {
-    fontSize: 15
+    fontSize: 15,
+    color: colors.h1
   },
 
   modal: {
@@ -112,14 +113,15 @@ const styles = StyleSheet.create({
   menu: {
     margin: 20,
     borderRadius: 10,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: colors['light-secondary']
   },
 
   menuTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    color: colors.h2
   },
 
   itemContainer: {

@@ -132,14 +132,14 @@ const styles = StyleSheet.create({
   },
 
   emptyTitle: {
-    color: '#333740',
+    color: colors.h1,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
   },
 
   emptyDescription: {
-    color: '#AAADB3',
+    color: colors.p,
     fontSize: 18,
     textAlign: 'center',
     marginTop: 15
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   emptyButton: {
     height: 40,
     width: 130,
-    backgroundColor: colors['blue-secondary'],
+    backgroundColor: colors.blue,
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -157,12 +157,12 @@ const styles = StyleSheet.create({
   },
 
   emptyButtonText: {
-    color: '#FFFFFF'
+    color: colors['light-secondary']
   },
 
   container: {
     flex: 1,
-    backgroundColor: colors.platinum,
+    backgroundColor: colors['light-primary'],
     paddingVertical: 10,
     paddingHorizontal: 30
   },
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: 28,
     fontWeight: '600',
-    color: colors.yellow,
+    color: colors.h1,
     alignSelf: 'center'
   },
 
