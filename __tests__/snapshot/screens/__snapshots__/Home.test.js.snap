@@ -123,6 +123,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
     }
   >
     <RCTScrollView
+      ListEmptyComponent={[Function]}
       data={
         Array [
           Object {
@@ -1171,6 +1172,13 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
             </View>
           </View>
         </View>
+        <View
+          style={
+            Object {
+              "height": 0,
+            }
+          }
+        />
       </View>
     </RCTScrollView>
   </RCTSafeAreaView>

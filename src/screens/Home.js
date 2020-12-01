@@ -1,4 +1,3 @@
-/* eslint-disable multiline-ternary */
 import React, { useState, useEffect } from 'react'
 import {
   KeyboardAvoidingView,
@@ -59,9 +58,9 @@ export default function Home() {
     } else {
       const newItems = []
       properties.forEach(item => {
-        const fullAdress = `${item.street} ${item.neighborhood} ${item.city} ${item.state} ${item.country}`
+        const fullAddress = `${item.street} ${item.neighborhood} ${item.city} ${item.state} ${item.country}`
         if (
-          fullAdress
+          fullAddress
             .toString()
             .toLowerCase()
             .includes(text.toString().toLowerCase())
@@ -73,6 +72,17 @@ export default function Home() {
         }
       })
     }
+  }
+
+  const emptyList = () => {
+    return (
+      <View style={styles.emptyContainer}>
+        <Icon name="frown" size={120} color={colors.blue} />
+        <Text style={styles.emptyList}>
+          Ops, nenhuma propriedade encontrada!
+        </Text>
+      </View>
+    )
   }
 
   useEffect(() => {
@@ -110,42 +120,30 @@ export default function Home() {
           <Icon name="search" size={16} color={colors.blue} />
         </TouchableOpacity>
       </View>
-
       <SafeAreaView style={{ flex: 1 }}>
-        {!properties.length ? (
-          <View style={styles.emptyContainer}>
-            <Icon name="frown" size={120} color={colors.blue} />
-
-            <Text style={styles.emptyList}>
-              Ops, nenhuma propriedade encontrada!
-            </Text>
-          </View>
-        ) : (
-          <FlatList
-            data={properties}
-            keyExtractor={item => item.id.toString()}
-            showsVerticalScrollIndicator={false}
-            onRefresh={() => getProperties()}
-            refreshing={loading}
-            renderItem={({ item }) => {
-              return (
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    navigation.navigate('PropertyDetail', { item })
-                  }
-                >
-                  <View>
-                    <ImovelCard
-                      item={item}
-                      favorite={item.favorite}
-                      onChangeFavorite={onChangeFavorite}
-                    />
-                  </View>
-                </TouchableWithoutFeedback>
-              )
-            }}
-          />
-        )}
+        <FlatList
+          data={properties}
+          keyExtractor={item => item.id.toString()}
+          showsVerticalScrollIndicator={false}
+          onRefresh={() => getProperties()}
+          refreshing={loading}
+          ListEmptyComponent={emptyList}
+          renderItem={({ item }) => {
+            return (
+              <TouchableWithoutFeedback
+                onPress={() => navigation.navigate('PropertyDetail', { item })}
+              >
+                <View>
+                  <ImovelCard
+                    item={item}
+                    favorite={item.favorite}
+                    onChangeFavorite={onChangeFavorite}
+                  />
+                </View>
+              </TouchableWithoutFeedback>
+            )
+          }}
+        />
       </SafeAreaView>
     </KeyboardAvoidingView>
   )
