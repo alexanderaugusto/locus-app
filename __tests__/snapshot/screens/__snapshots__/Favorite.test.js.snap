@@ -16,7 +16,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=fal
   testID="empty-message"
 >
   <Icon
-    color="#14213D"
+    color="#0565FC"
     name="heart-broken"
     size={120}
   />
@@ -24,7 +24,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=fal
     <Text
       style={
         Object {
-          "color": "#333740",
+          "color": "#2C3E50",
           "fontSize": 20,
           "fontWeight": "bold",
           "textAlign": "center",
@@ -60,7 +60,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=fal
       Object {
         "alignItems": "center",
         "alignSelf": "center",
-        "backgroundColor": "#19294d",
+        "backgroundColor": "#0565FC",
         "borderRadius": 24,
         "height": 40,
         "justifyContent": "center",
@@ -99,7 +99,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=tru
   testID="empty-message"
 >
   <Icon
-    color="#14213D"
+    color="#0565FC"
     name="heart-broken"
     size={120}
   />
@@ -107,7 +107,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=tru
     <Text
       style={
         Object {
-          "color": "#333740",
+          "color": "#2C3E50",
           "fontSize": 20,
           "fontWeight": "bold",
           "textAlign": "center",
@@ -143,7 +143,7 @@ exports[`Favorite snapshot test render Favorite screen correctly when signed=tru
       Object {
         "alignItems": "center",
         "alignSelf": "center",
-        "backgroundColor": "#19294d",
+        "backgroundColor": "#0565FC",
         "borderRadius": 24,
         "height": 40,
         "justifyContent": "center",

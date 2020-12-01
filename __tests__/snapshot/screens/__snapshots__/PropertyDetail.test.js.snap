@@ -5,7 +5,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
   emulateUnlessSupported={true}
   style={
     Object {
-      "backgroundColor": "#14213D",
+      "backgroundColor": "#0565FC",
       "flex": 1,
     }
   }
@@ -25,7 +25,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
         style={
           Object {
             "alignSelf": "center",
-            "color": "#FCA311",
+            "color": "#2C3E50",
             "fontSize": 20,
             "fontWeight": "700",
             "height": 280,
@@ -41,10 +41,11 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
       <View
         style={
           Object {
-            "backgroundColor": "#FFF",
+            "backgroundColor": "#FFFFFF",
             "borderTopLeftRadius": 50,
+            "flex": 1,
+            "height": "100%",
             "marginTop": -15,
-            "minHeight": 450,
             "paddingHorizontal": 20,
           }
         }
@@ -53,7 +54,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
           numberOfLines={2}
           style={
             Object {
-              "color": "#FCA311",
+              "color": "#2C3E50",
               "fontSize": 22,
               "fontWeight": "700",
               "paddingBottom": 5,
@@ -65,7 +66,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
         <Text
           style={
             Object {
-              "color": "#b2b2b2",
+              "color": "#AAADB3",
               "fontSize": 17,
               "fontWeight": "500",
               "lineHeight": 20,
@@ -78,7 +79,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
         <Text
           style={
             Object {
-              "color": "#b2b2b2",
+              "color": "#AAADB3",
               "fontSize": 17,
               "fontWeight": "500",
               "lineHeight": 20,
@@ -91,7 +92,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
         <Text
           style={
             Object {
-              "color": "#14213D",
+              "color": "#2C3E50",
               "fontSize": 18,
               "fontWeight": "600",
               "paddingBottom": 5,
@@ -105,7 +106,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
           numberOfLines={5}
           style={
             Object {
-              "color": "#999",
+              "color": "#AAADB3",
               "fontSize": 15,
               "fontWeight": "400",
               "lineHeight": 18,
@@ -138,15 +139,15 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFF",
-                  "borderColor": "#14213D",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#7F8C8D",
                   "borderRadius": 25,
                   "borderWidth": 1,
                   "elevation": 1,
                   "height": 45,
                   "justifyContent": "center",
                   "marginRight": 8,
-                  "shadowColor": "#000",
+                  "shadowColor": "#2C3E50",
                   "shadowOffset": Object {
                     "height": 2,
                     "width": 0,
@@ -158,12 +159,18 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               }
             >
               <Icon
-                color="#14213D"
+                color="#7F8C8D"
                 name="bed"
                 size={18}
               />
             </View>
-            <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#7F8C8D",
+                }
+              }
+            >
                quartos
             </Text>
           </View>
@@ -180,15 +187,15 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFF",
-                  "borderColor": "#14213D",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#7F8C8D",
                   "borderRadius": 25,
                   "borderWidth": 1,
                   "elevation": 1,
                   "height": 45,
                   "justifyContent": "center",
                   "marginRight": 8,
-                  "shadowColor": "#000",
+                  "shadowColor": "#2C3E50",
                   "shadowOffset": Object {
                     "height": 2,
                     "width": 0,
@@ -200,12 +207,18 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               }
             >
               <Icon
-                color="#14213D"
+                color="#7F8C8D"
                 name="bath"
                 size={20}
               />
             </View>
-            <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#7F8C8D",
+                }
+              }
+            >
                banheiro
             </Text>
           </View>
@@ -234,15 +247,15 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFF",
-                  "borderColor": "#14213D",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#7F8C8D",
                   "borderRadius": 25,
                   "borderWidth": 1,
                   "elevation": 1,
                   "height": 45,
                   "justifyContent": "center",
                   "marginRight": 8,
-                  "shadowColor": "#000",
+                  "shadowColor": "#2C3E50",
                   "shadowOffset": Object {
                     "height": 2,
                     "width": 0,
@@ -254,12 +267,18 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               }
             >
               <Icon
-                color="#14213D"
+                color="#7F8C8D"
                 name="ruler-horizontal"
                 size={18}
               />
             </View>
-            <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#7F8C8D",
+                }
+              }
+            >
                m²
             </Text>
           </View>
@@ -276,15 +295,15 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#FFF",
-                  "borderColor": "#14213D",
+                  "backgroundColor": "#FFFFFF",
+                  "borderColor": "#7F8C8D",
                   "borderRadius": 25,
                   "borderWidth": 1,
                   "elevation": 1,
                   "height": 45,
                   "justifyContent": "center",
                   "marginRight": 8,
-                  "shadowColor": "#000",
+                  "shadowColor": "#2C3E50",
                   "shadowOffset": Object {
                     "height": 2,
                     "width": 0,
@@ -296,12 +315,18 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               }
             >
               <Icon
-                color="#14213D"
+                color="#7F8C8D"
                 name="dog"
                 size={19}
               />
             </View>
-            <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#7F8C8D",
+                }
+              }
+            >
               Não aceita pet
             </Text>
           </View>
@@ -328,7 +353,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#2C3E50",
                   "fontSize": 18,
                   "fontWeight": "600",
                   "paddingBottom": 5,
@@ -342,7 +367,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               numberOfLines={5}
               style={
                 Object {
-                  "color": "#999",
+                  "color": "#AAADB3",
                   "fontSize": 15,
                   "fontWeight": "500",
                   "paddingLeft": 8,
@@ -366,7 +391,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               Object {
                 "alignItems": "center",
                 "alignSelf": "flex-end",
-                "backgroundColor": "#FCA311",
+                "backgroundColor": "#0565FC",
                 "borderRadius": 8,
                 "height": 35,
                 "justifyContent": "center",
@@ -378,7 +403,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#FFFFFF",
                   "fontSize": 16,
                   "fontWeight": "bold",
                 }
@@ -410,7 +435,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
         }
       >
         <Icon
-          color="#FCA311"
+          color="#2C3E50"
           name="arrow-left"
           size={20}
         />
@@ -437,7 +462,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#e6e6e6",
-                "borderColor": "#14213D",
+                "borderColor": "#0565FC",
                 "borderRadius": 24,
                 "borderWidth": 0.5,
                 "elevation": 5,
@@ -465,8 +490,8 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
                 source={1}
                 style={
                   Object {
-                    "backgroundColor": "#14213D",
-                    "borderColor": "#14213D",
+                    "backgroundColor": "#0565FC",
+                    "borderColor": "#0565FC",
                     "borderRadius": 100,
                     "borderWidth": 3,
                     "height": 80,
@@ -493,7 +518,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
                   <Text
                     style={
                       Object {
-                        "color": "#14213D",
+                        "color": "#0565FC",
                         "fontSize": 14,
                         "fontWeight": "700",
                         "paddingBottom": 5,
@@ -526,7 +551,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
                   <Text
                     style={
                       Object {
-                        "color": "#14213D",
+                        "color": "#0565FC",
                         "fontSize": 14,
                         "fontWeight": "700",
                         "paddingBottom": 5,
@@ -559,7 +584,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
                   <Text
                     style={
                       Object {
-                        "color": "#14213D",
+                        "color": "#0565FC",
                         "fontSize": 14,
                         "fontWeight": "700",
                         "paddingBottom": 5,
@@ -598,7 +623,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
                 Object {
                   "alignItems": "center",
                   "alignSelf": "flex-end",
-                  "backgroundColor": "#FCA311",
+                  "backgroundColor": "#2C3E50",
                   "borderRadius": 8,
                   "height": 30,
                   "justifyContent": "center",
@@ -610,7 +635,7 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
               <Text
                 style={
                   Object {
-                    "color": "#14213D",
+                    "color": "#0565FC",
                     "fontSize": 14,
                     "fontWeight": "bold",
                   }
