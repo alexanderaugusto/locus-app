@@ -127,7 +127,7 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
           onRefresh={() => getProperties()}
           refreshing={loading}
-          ListEmptyComponent={emptyList}
+          ListEmptyComponent={!loading ? emptyList : <></>}
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback
