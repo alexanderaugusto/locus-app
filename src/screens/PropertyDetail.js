@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   SafeAreaView,
   View,
@@ -7,18 +7,26 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native'
-import { SwiperImage, ModalContact } from '../components'
+import { SwiperImage } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
+import { useAuth } from '../contexts/auth'
 
 import colors from '../constants/colors.json'
 
 export default function PropertyDetail() {
   const navigation = useNavigation()
   const route = useRoute()
+  const { signed } = useAuth()
 
-  const [modalVisible, setModalVisible] = useState(false)
+  const goToContact = () => {
+    if (signed) {
+      navigation.navigate('Contact', route.params)
+    } else {
+      navigation.navigate('SignIn')
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -94,12 +102,7 @@ export default function PropertyDetail() {
               </Text>
             </View>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                setModalVisible(!modalVisible)
-              }}
-            >
+            <TouchableOpacity style={styles.button} onPress={goToContact}>
               <Text style={styles.buttonText}>Entrar em contato</Text>
             </TouchableOpacity>
           </View>
@@ -111,11 +114,6 @@ export default function PropertyDetail() {
         >
           <Icon name={'arrow-left'} size={20} color={colors.h1} />
         </TouchableOpacity>
-
-        <ModalContact
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-        />
       </ScrollView>
     </SafeAreaView>
   )
