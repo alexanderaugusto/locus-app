@@ -36,6 +36,17 @@ export default function PropertyDetail() {
         scrollsToTop={true}
         showsVerticalScrollIndicator={false}
       >
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Icon
+            name={'arrow-left'}
+            size={20}
+            color={colors['light-secondary']}
+          />
+        </TouchableOpacity>
+
         <SwiperImage images={route.params ? route.params.item.images : []} />
 
         <View style={styles.body}>
@@ -107,13 +118,6 @@ export default function PropertyDetail() {
             </TouchableOpacity>
           </View>
         </View>
-
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Icon name={'arrow-left'} size={20} color={colors.h1} />
-        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   )

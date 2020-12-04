@@ -106,17 +106,18 @@ export default function AddProperty() {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Loader isLoading={loading} />
 
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.navigate('Home')}
-      >
-        <Icon name={'arrow-left'} size={20} color={colors.h1} />
-      </TouchableOpacity>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.goBack}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Icon name={'arrow-left'} size={20} color={colors.h1} />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Novo anuncio</Text>
+      </View>
 
       <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>
-        <View style={styles.header}>
-          <Text style={styles.headerMessage}>Vamos cadastrar seu imóvel</Text>
-        </View>
+        <Text style={styles.advertiseMessage}>Vamos cadastrar seu imóvel</Text>
 
         <ProgressSteps
           activeStep={activeStep}
@@ -380,7 +381,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],
-    padding: 30
+    paddingHorizontal: 30
   },
 
   containerInput: {
@@ -393,17 +394,36 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    marginTop: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
+    marginTop: 20,
+    marginBottom: 30
   },
 
-  headerMessage: {
-    width: 300,
+  goBack: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0
+  },
+
+  headerTitle: {
     fontSize: 23,
     fontWeight: '600',
     color: colors.h1,
-    textAlign: 'left'
+    alignSelf: 'center',
+    opacity: 0.8,
+    textAlign: 'center'
+  },
+
+  advertiseMessage: {
+    fontSize: 23,
+    fontWeight: '600',
+    color: colors.h1,
+    textAlign: 'center'
   },
 
   message: {

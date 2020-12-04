@@ -81,9 +81,11 @@ export default function Advertise() {
 
   return (
     <KeyboardAvoidingView testID="advertises" style={styles.container}>
-      <Text numberOfLiner={2} style={styles.title}>
-        Anunciar
-      </Text>
+      <View style={styles.header}>
+        <Text numberOfLiner={2} style={styles.headerTitle}>
+          Anunciar
+        </Text>
+      </View>
 
       <SafeAreaView style={styles.listContainer}>
         <FlatList
@@ -196,12 +198,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
 
-  title: {
-    margin: 10,
-    fontSize: 28,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 30
+  },
+
+  headerTitle: {
+    fontSize: 23,
     fontWeight: '600',
     color: colors.h1,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    opacity: 0.8
   },
 
   listContainer: {

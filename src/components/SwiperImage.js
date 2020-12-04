@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   swipeDot: {
     width: 10,
     height: 10,
-    backgroundColor: colors.h2,
+    backgroundColor: colors['light-secondary'],
     borderRadius: 5,
     margin: 3
   },

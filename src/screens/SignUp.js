@@ -102,17 +102,17 @@ export default function SignUp() {
         alwaysBounceVertical={false}
         showsVerticalScrollIndicator={false}
       >
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.navigate('SignIn')}
-        >
-          <Icon name={'arrow-left'} size={20} color={colors.h1} />
-        </TouchableOpacity>
-
         <View style={styles.header}>
-          <Text style={styles.message}> Cadastre-se.</Text>
-          <Text style={styles.message}> É rápido, simples e gratuito!</Text>
+          <TouchableOpacity
+            style={styles.goBack}
+            onPress={() => navigation.goBack()}
+          >
+            <Icon name={'arrow-left'} size={20} color={colors.h1} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Cadastrar</Text>
         </View>
+
+        <Text style={styles.message}> É rápido, simples e gratuito!</Text>
 
         <ProgressSteps
           activeStep={activeStep}
@@ -288,29 +288,44 @@ const styles = StyleSheet.create({
     backgroundColor: colors['light-primary'],
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 30
+    paddingHorizontal: 30
   },
 
   containerInput: {
     marginBottom: 20
   },
 
-  backButton: {
-    marginTop: 5
-  },
-
   header: {
-    marginTop: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
+    marginTop: 20,
+    marginBottom: 30
   },
 
-  message: {
-    width: 300,
+  goBack: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0
+  },
+
+  headerTitle: {
     fontSize: 23,
     fontWeight: '600',
     color: colors.h1,
-    textAlign: 'left'
+    alignSelf: 'center',
+    opacity: 0.8,
+    textAlign: 'center'
+  },
+
+  message: {
+    fontSize: 23,
+    fontWeight: '600',
+    color: colors.h1,
+    textAlign: 'center'
   },
 
   messageEmail: {

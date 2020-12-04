@@ -143,9 +143,13 @@ export default function Account() {
         behavior="padding"
         enabled={Platform.OS === 'ios'}
       >
-        <View style={styles.header} />
+        <View style={styles.headerContainer} />
 
-        <Text style={styles.title}>Minha conta</Text>
+        <View style={styles.header}>
+          <Text numberOfLiner={2} style={styles.headerTitle}>
+            Minha Conta
+          </Text>
+        </View>
 
         <View style={styles.cardContainer}>
           <ImagePickerFunction onChange={image => updateAvatar(image)}>
@@ -258,17 +262,23 @@ const styles = StyleSheet.create({
     backgroundColor: colors['light-primary']
   },
 
-  header: {
+  headerContainer: {
     backgroundColor: colors.blue,
     width: '100%',
     height: '40%',
     position: 'absolute'
   },
 
-  title: {
-    paddingTop: 30,
-    margin: 10,
-    fontSize: 28,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 10
+  },
+
+  headerTitle: {
+    fontSize: 23,
     fontWeight: '600',
     color: colors['light-secondary'],
     alignSelf: 'center'

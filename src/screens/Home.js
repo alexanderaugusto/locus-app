@@ -97,8 +97,8 @@ export default function Home() {
       enabled={Platform.OS === 'ios'}
       style={styles.container}
     >
-      <View style={styles.headerTitle}>
-        <Text numberOfLiner={2} style={styles.title}>
+      <View style={styles.header}>
+        <Text numberOfLiner={2} style={styles.headerTitle}>
           Encontre o imóvel ideal para você!
         </Text>
         <Image
@@ -157,20 +157,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30
   },
 
-  headerTitle: {
+  header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 30,
-    marginBottom: 15
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+    paddingHorizontal: 35
   },
 
-  title: {
-    width: 220,
-    fontSize: 26,
+  headerTitle: {
+    fontSize: 23,
     fontWeight: '600',
     color: colors.h1,
-    textAlign: 'left'
+    alignSelf: 'center',
+    opacity: 0.8,
+    marginRight: 25
   },
 
   logo: {
