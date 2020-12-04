@@ -125,7 +125,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListEmptyComponent={[Function]}
+      ListEmptyComponent={<React.Fragment />}
       data={
         Array [
           Object {
