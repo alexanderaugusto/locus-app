@@ -21,6 +21,32 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
     }
   >
     <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "left": 15,
+            "opacity": 1,
+            "position": "absolute",
+            "top": 15,
+            "zIndex": 5,
+          }
+        }
+      >
+        <Icon
+          color="#FFFFFF"
+          name="arrow-left"
+          size={20}
+        />
+      </View>
       <Text
         style={
           Object {
@@ -413,32 +439,6 @@ exports[`PropertyDetail snapshot test render PropertyDetail screen correctly 1`]
             </Text>
           </View>
         </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "left": 15,
-            "opacity": 1,
-            "position": "absolute",
-            "top": 15,
-            "zIndex": 5,
-          }
-        }
-      >
-        <Icon
-          color="#2C3E50"
-          name="arrow-left"
-          size={20}
-        />
       </View>
     </View>
   </RCTScrollView>

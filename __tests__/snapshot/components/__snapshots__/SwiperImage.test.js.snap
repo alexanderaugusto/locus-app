@@ -54,7 +54,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
       <View
         style={
           Object {
-            "backgroundColor": "#7F8C8D",
+            "backgroundColor": "#FFFFFF",
             "borderRadius": 5,
             "height": 10,
             "margin": 3,
@@ -352,7 +352,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
     <View
       style={
         Object {
-          "backgroundColor": "#7F8C8D",
+          "backgroundColor": "#FFFFFF",
           "borderRadius": 5,
           "height": 10,
           "margin": 3,
@@ -363,7 +363,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
     <View
       style={
         Object {
-          "backgroundColor": "#7F8C8D",
+          "backgroundColor": "#FFFFFF",
           "borderRadius": 5,
           "height": 10,
           "margin": 3,
@@ -374,7 +374,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
     <View
       style={
         Object {
-          "backgroundColor": "#7F8C8D",
+          "backgroundColor": "#FFFFFF",
           "borderRadius": 5,
           "height": 10,
           "margin": 3,

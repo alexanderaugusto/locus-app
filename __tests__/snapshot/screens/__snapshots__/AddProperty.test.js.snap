@@ -7,32 +7,64 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
     Object {
       "backgroundColor": "#F0F0F0",
       "flex": 1,
-      "padding": 30,
+      "paddingHorizontal": 30,
     }
   }
 >
   <View>
     <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 30,
+          "marginTop": 20,
         }
       }
     >
-      <Icon
-        color="#2C3E50"
-        name="arrow-left"
-        size={20}
-      />
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 30,
+            "justifyContent": "center",
+            "left": 0,
+            "opacity": 1,
+            "position": "absolute",
+            "width": 30,
+          }
+        }
+      >
+        <Icon
+          color="#2C3E50"
+          name="arrow-left"
+          size={20}
+        />
+      </View>
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#2C3E50",
+            "fontSize": 23,
+            "fontWeight": "600",
+            "opacity": 0.8,
+            "textAlign": "center",
+          }
+        }
+      >
+        Novo anuncio
+      </Text>
     </View>
     <View
       onLayout={[Function]}
@@ -42,29 +74,18 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginTop": 25,
+            "color": "#2C3E50",
+            "fontSize": 23,
+            "fontWeight": "600",
+            "textAlign": "center",
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#2C3E50",
-              "fontSize": 23,
-              "fontWeight": "600",
-              "textAlign": "left",
-              "width": 300,
-            }
-          }
-        >
-          Vamos cadastrar seu imóvel
-        </Text>
-      </View>
+        Vamos cadastrar seu imóvel
+      </Text>
       <View
         style={
           Object {

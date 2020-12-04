@@ -122,20 +122,31 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
           }
         }
       />
-      <Text
+      <View
         style={
           Object {
-            "alignSelf": "center",
-            "color": "#FFFFFF",
-            "fontSize": 28,
-            "fontWeight": "600",
-            "margin": 10,
-            "paddingTop": 30,
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 20,
           }
         }
       >
-        Minha conta
-      </Text>
+        <Text
+          numberOfLiner={2}
+          style={
+            Object {
+              "alignSelf": "center",
+              "color": "#FFFFFF",
+              "fontSize": 23,
+              "fontWeight": "600",
+            }
+          }
+        >
+          Minha Conta
+        </Text>
+      </View>
       <View
         style={
           Object {

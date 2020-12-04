@@ -23,9 +23,10 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       Object {
         "alignItems": "center",
         "flexDirection": "row",
-        "justifyContent": "space-between",
-        "marginBottom": 15,
-        "marginTop": 30,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginTop": 20,
+        "paddingHorizontal": 35,
       }
     }
   >
@@ -33,11 +34,12 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       numberOfLiner={2}
       style={
         Object {
+          "alignSelf": "center",
           "color": "#2C3E50",
-          "fontSize": 26,
+          "fontSize": 23,
           "fontWeight": "600",
-          "textAlign": "left",
-          "width": 220,
+          "marginRight": 25,
+          "opacity": 0.8,
         }
       }
     >

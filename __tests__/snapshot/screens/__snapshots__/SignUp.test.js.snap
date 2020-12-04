@@ -10,7 +10,7 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
         "backgroundColor": "#F0F0F0",
         "flex": 1,
         "justifyContent": "center",
-        "padding": 30,
+        "paddingHorizontal": 30,
       },
       Object {
         "paddingBottom": 0,
@@ -24,64 +24,71 @@ exports[`SignUp snapshot test render SignUp screen correctly 1`] = `
   >
     <View>
       <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "marginTop": 5,
-            "opacity": 1,
-          }
-        }
-      >
-        <Icon
-          color="#2C3E50"
-          name="arrow-left"
-          size={20}
-        />
-      </View>
-      <View
         style={
           Object {
             "alignItems": "center",
+            "flexDirection": "row",
             "justifyContent": "center",
+            "marginBottom": 30,
             "marginTop": 20,
           }
         }
       >
-        <Text
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#2C3E50",
-              "fontSize": 23,
-              "fontWeight": "600",
-              "textAlign": "left",
-              "width": 300,
+              "alignItems": "center",
+              "height": 30,
+              "justifyContent": "center",
+              "left": 0,
+              "opacity": 1,
+              "position": "absolute",
+              "width": 30,
             }
           }
         >
-           Cadastre-se.
-        </Text>
+          <Icon
+            color="#2C3E50"
+            name="arrow-left"
+            size={20}
+          />
+        </View>
         <Text
           style={
             Object {
+              "alignSelf": "center",
               "color": "#2C3E50",
               "fontSize": 23,
               "fontWeight": "600",
-              "textAlign": "left",
-              "width": 300,
+              "opacity": 0.8,
+              "textAlign": "center",
             }
           }
         >
-           É rápido, simples e gratuito!
+          Cadastrar
         </Text>
       </View>
+      <Text
+        style={
+          Object {
+            "color": "#2C3E50",
+            "fontSize": 23,
+            "fontWeight": "600",
+            "textAlign": "center",
+          }
+        }
+      >
+         É rápido, simples e gratuito!
+      </Text>
       <View
         style={
           Object {
