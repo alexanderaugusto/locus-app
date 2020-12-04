@@ -23,7 +23,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
         Object {
           "alignItems": "center",
           "backgroundColor": "#e6e6e6",
-          "borderColor": "#14213D",
+          "borderColor": "#0565FC",
           "borderRadius": 24,
           "borderWidth": 0.5,
           "elevation": 5,
@@ -51,8 +51,8 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
           source={1}
           style={
             Object {
-              "backgroundColor": "#14213D",
-              "borderColor": "#14213D",
+              "backgroundColor": "#0565FC",
+              "borderColor": "#0565FC",
               "borderRadius": 100,
               "borderWidth": 3,
               "height": 80,
@@ -79,7 +79,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -112,7 +112,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -145,7 +145,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -184,7 +184,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
           Object {
             "alignItems": "center",
             "alignSelf": "flex-end",
-            "backgroundColor": "#FCA311",
+            "backgroundColor": "#2C3E50",
             "borderRadius": 8,
             "height": 30,
             "justifyContent": "center",
@@ -196,7 +196,7 @@ exports[`Modal snapshot test render Modal component correctly 1`] = `
         <Text
           style={
             Object {
-              "color": "#14213D",
+              "color": "#0565FC",
               "fontSize": 14,
               "fontWeight": "bold",
             }
@@ -233,7 +233,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
         Object {
           "alignItems": "center",
           "backgroundColor": "#e6e6e6",
-          "borderColor": "#14213D",
+          "borderColor": "#0565FC",
           "borderRadius": 24,
           "borderWidth": 0.5,
           "elevation": 5,
@@ -261,8 +261,8 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
           source={1}
           style={
             Object {
-              "backgroundColor": "#14213D",
-              "borderColor": "#14213D",
+              "backgroundColor": "#0565FC",
+              "borderColor": "#0565FC",
               "borderRadius": 100,
               "borderWidth": 3,
               "height": 80,
@@ -289,7 +289,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -322,7 +322,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -355,7 +355,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
             <Text
               style={
                 Object {
-                  "color": "#14213D",
+                  "color": "#0565FC",
                   "fontSize": 14,
                   "fontWeight": "700",
                   "paddingBottom": 5,
@@ -394,7 +394,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
           Object {
             "alignItems": "center",
             "alignSelf": "flex-end",
-            "backgroundColor": "#FCA311",
+            "backgroundColor": "#2C3E50",
             "borderRadius": 8,
             "height": 30,
             "justifyContent": "center",
@@ -406,7 +406,7 @@ exports[`Modal snapshot test render Modal component correctly when modalVisible 
         <Text
           style={
             Object {
-              "color": "#14213D",
+              "color": "#0565FC",
               "fontSize": 14,
               "fontWeight": "bold",
             }

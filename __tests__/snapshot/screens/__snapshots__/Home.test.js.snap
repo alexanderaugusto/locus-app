@@ -6,7 +6,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#E5E5E5",
+        "backgroundColor": "#F0F0F0",
         "flex": 1,
         "paddingHorizontal": 30,
         "paddingVertical": 10,
@@ -33,7 +33,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       numberOfLiner={2}
       style={
         Object {
-          "color": "#FCA311",
+          "color": "#2C3E50",
           "fontSize": 26,
           "fontWeight": "600",
           "textAlign": "left",
@@ -48,8 +48,8 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       source={1}
       style={
         Object {
-          "height": 65,
-          "width": 65,
+          "height": 75,
+          "width": 75,
         }
       }
     />
@@ -59,7 +59,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       Object {
         "alignSelf": "stretch",
         "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "borderColor": "#0565FC",
         "borderRadius": 4,
         "borderWidth": 1,
         "elevation": 2,
@@ -108,7 +108,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       }
     >
       <Icon
-        color="#14213D"
+        color="#0565FC"
         name="search"
         size={16}
       />
@@ -123,6 +123,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
     }
   >
     <RCTScrollView
+      ListEmptyComponent={[Function]}
       data={
         Array [
           Object {
@@ -329,12 +330,18 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#FFF",
-                    "borderColor": "#bfbfbf",
-                    "borderRadius": 24,
-                    "borderWidth": 1,
+                    "backgroundColor": "#FFFFFF",
+                    "borderRadius": 20,
+                    "elevation": 1,
                     "marginVertical": 10,
                     "overflow": "hidden",
+                    "shadowColor": "#2C3E50",
+                    "shadowOffset": Object {
+                      "height": 1,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.22,
+                    "shadowRadius": 2.22,
                   },
                 ]
               }
@@ -519,7 +526,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#FFF",
-                      "borderColor": "#E5E5E5",
+                      "borderColor": "#F0F0F0",
                       "borderRadius": 25,
                       "borderWidth": 1,
                       "elevation": 2,
@@ -540,7 +547,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   testID="btn-favorite"
                 >
                   <Icon
-                    color="#19294d"
+                    color="#0565FC"
                     name="heart"
                     size={18}
                   />
@@ -549,7 +556,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               <View
                 style={
                   Object {
-                    "borderTopColor": "#bfbfbf",
+                    "borderTopColor": "#AAADB3",
                     "borderTopWidth": 2,
                     "paddingBottom": 15,
                     "paddingHorizontal": 15,
@@ -569,7 +576,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   <Text
                     style={
                       Object {
-                        "color": "#000",
+                        "color": "#2C3E50",
                         "fontSize": 16,
                         "fontWeight": "600",
                         "lineHeight": 20,
@@ -584,10 +591,10 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   numberOfLines={3}
                   style={
                     Object {
-                      "color": "#999",
+                      "color": "#AAADB3",
                       "fontSize": 14,
                       "fontWeight": "500",
-                      "paddingTop": 8,
+                      "paddingTop": 5,
                     }
                   }
                 >
@@ -616,12 +623,18 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#FFF",
-                    "borderColor": "#bfbfbf",
-                    "borderRadius": 24,
-                    "borderWidth": 1,
+                    "backgroundColor": "#FFFFFF",
+                    "borderRadius": 20,
+                    "elevation": 1,
                     "marginVertical": 10,
                     "overflow": "hidden",
+                    "shadowColor": "#2C3E50",
+                    "shadowOffset": Object {
+                      "height": 1,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.22,
+                    "shadowRadius": 2.22,
                   },
                 ]
               }
@@ -806,7 +819,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#FFF",
-                      "borderColor": "#E5E5E5",
+                      "borderColor": "#F0F0F0",
                       "borderRadius": 25,
                       "borderWidth": 1,
                       "elevation": 2,
@@ -827,7 +840,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   testID="btn-favorite"
                 >
                   <Icon
-                    color="#19294d"
+                    color="#0565FC"
                     name="heart"
                     size={18}
                   />
@@ -836,7 +849,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               <View
                 style={
                   Object {
-                    "borderTopColor": "#bfbfbf",
+                    "borderTopColor": "#AAADB3",
                     "borderTopWidth": 2,
                     "paddingBottom": 15,
                     "paddingHorizontal": 15,
@@ -856,7 +869,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   <Text
                     style={
                       Object {
-                        "color": "#000",
+                        "color": "#2C3E50",
                         "fontSize": 16,
                         "fontWeight": "600",
                         "lineHeight": 20,
@@ -871,10 +884,10 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   numberOfLines={3}
                   style={
                     Object {
-                      "color": "#999",
+                      "color": "#AAADB3",
                       "fontSize": 14,
                       "fontWeight": "500",
-                      "paddingTop": 8,
+                      "paddingTop": 5,
                     }
                   }
                 >
@@ -903,12 +916,18 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#FFF",
-                    "borderColor": "#bfbfbf",
-                    "borderRadius": 24,
-                    "borderWidth": 1,
+                    "backgroundColor": "#FFFFFF",
+                    "borderRadius": 20,
+                    "elevation": 1,
                     "marginVertical": 10,
                     "overflow": "hidden",
+                    "shadowColor": "#2C3E50",
+                    "shadowOffset": Object {
+                      "height": 1,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.22,
+                    "shadowRadius": 2.22,
                   },
                 ]
               }
@@ -1093,7 +1112,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#FFF",
-                      "borderColor": "#E5E5E5",
+                      "borderColor": "#F0F0F0",
                       "borderRadius": 25,
                       "borderWidth": 1,
                       "elevation": 2,
@@ -1114,7 +1133,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   testID="btn-favorite"
                 >
                   <Icon
-                    color="#19294d"
+                    color="#0565FC"
                     name="heart"
                     size={18}
                   />
@@ -1123,7 +1142,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
               <View
                 style={
                   Object {
-                    "borderTopColor": "#bfbfbf",
+                    "borderTopColor": "#AAADB3",
                     "borderTopWidth": 2,
                     "paddingBottom": 15,
                     "paddingHorizontal": 15,
@@ -1143,7 +1162,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   <Text
                     style={
                       Object {
-                        "color": "#000",
+                        "color": "#2C3E50",
                         "fontSize": 16,
                         "fontWeight": "600",
                         "lineHeight": 20,
@@ -1158,10 +1177,10 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
                   numberOfLines={3}
                   style={
                     Object {
-                      "color": "#999",
+                      "color": "#AAADB3",
                       "fontSize": 14,
                       "fontWeight": "500",
-                      "paddingTop": 8,
+                      "paddingTop": 5,
                     }
                   }
                 >
@@ -1171,6 +1190,13 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
             </View>
           </View>
         </View>
+        <View
+          style={
+            Object {
+              "height": 0,
+            }
+          }
+        />
       </View>
     </RCTScrollView>
   </RCTSafeAreaView>

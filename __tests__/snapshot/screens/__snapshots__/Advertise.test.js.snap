@@ -16,7 +16,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=f
   testID="empty-message"
 >
   <Icon
-    color="#14213D"
+    color="#0565FC"
     name="house-damage"
     size={120}
   />
@@ -24,7 +24,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=f
     <Text
       style={
         Object {
-          "color": "#333740",
+          "color": "#2C3E50",
           "fontSize": 20,
           "fontWeight": "bold",
           "textAlign": "center",
@@ -60,7 +60,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=f
       Object {
         "alignItems": "center",
         "alignSelf": "center",
-        "backgroundColor": "#19294d",
+        "backgroundColor": "#0565FC",
         "borderRadius": 24,
         "height": 40,
         "justifyContent": "center",
@@ -100,7 +100,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=t
   testID="empty-message"
 >
   <Icon
-    color="#14213D"
+    color="#0565FC"
     name="house-damage"
     size={120}
   />
@@ -108,7 +108,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=t
     <Text
       style={
         Object {
-          "color": "#333740",
+          "color": "#2C3E50",
           "fontSize": 20,
           "fontWeight": "bold",
           "textAlign": "center",
@@ -144,7 +144,7 @@ exports[`Advertise snapshot test render Advertise screen correctly when signed=t
       Object {
         "alignItems": "center",
         "alignSelf": "center",
-        "backgroundColor": "#19294d",
+        "backgroundColor": "#0565FC",
         "borderRadius": 24,
         "height": 40,
         "justifyContent": "center",

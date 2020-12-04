@@ -20,7 +20,7 @@ exports[`Loader snapshot test render Loader component correctly when isLoading i
 >
   <ActivityIndicator
     animating={true}
-    color="#FCA311"
+    color="#2C3E50"
     hidesWhenStopped={true}
     size="large"
   />

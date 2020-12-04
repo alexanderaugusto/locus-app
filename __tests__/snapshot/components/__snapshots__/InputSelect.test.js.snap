@@ -16,8 +16,8 @@ Array [
       Object {
         "alignItems": "center",
         "alignSelf": "stretch",
-        "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#0565FC",
         "borderRadius": 25,
         "borderWidth": 1,
         "elevation": 2,
@@ -39,6 +39,7 @@ Array [
     <Text
       style={
         Object {
+          "color": "#2C3E50",
           "fontSize": 15,
         }
       }
@@ -86,6 +87,7 @@ Array [
             <Text
               style={
                 Object {
+                  "color": "#7F8C8D",
                   "fontSize": 16,
                   "fontWeight": "bold",
                   "marginBottom": 10,

@@ -7,7 +7,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "#E5E5E5",
+        "backgroundColor": "#F0F0F0",
         "flex": 1,
         "justifyContent": "center",
         "padding": 35,
@@ -30,28 +30,16 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       source={1}
       style={
         Object {
-          "height": 110,
-          "width": 110,
+          "height": 121.21,
+          "width": 200,
         }
       }
     />
-    <Text
-      style={
-        Object {
-          "color": "#19294d",
-          "fontSize": 48,
-          "fontWeight": "500",
-          "textAlign": "center",
-        }
-      }
-    >
-      IMovel
-    </Text>
   </View>
   <Text
     style={
       Object {
-        "color": "red",
+        "color": "#F82F4A",
         "fontSize": 14,
         "fontWeight": "500",
         "paddingTop": 10,
@@ -67,8 +55,8 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       Array [
         Object {
           "alignSelf": "stretch",
-          "backgroundColor": "#FFF",
-          "borderColor": "#14213D",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#0565FC",
           "borderRadius": 25,
           "borderWidth": 1,
           "elevation": 2,
@@ -87,12 +75,13 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     }
   >
     <Icon
-      color="#14213D"
+      color="#7F8C8D"
       name="envelope"
       size={16}
       style={
         Object {
           "alignSelf": "center",
+          "marginHorizontal": 5,
         }
       }
     />
@@ -103,12 +92,13 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Entre com o seu email"
-      placeholderTextColor="#d2d2d2"
+      placeholderTextColor="#AAADB3"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Object {
+            "color": "#2C3E50",
             "height": 46,
             "paddingHorizontal": 8,
             "paddingVertical": 10,
@@ -127,8 +117,8 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       Array [
         Object {
           "alignSelf": "stretch",
-          "backgroundColor": "#FFF",
-          "borderColor": "#14213D",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#0565FC",
           "borderRadius": 25,
           "borderWidth": 1,
           "elevation": 2,
@@ -147,12 +137,13 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     }
   >
     <Icon
-      color="#14213D"
+      color="#7F8C8D"
       name="lock"
       size={16}
       style={
         Object {
           "alignSelf": "center",
+          "marginHorizontal": 5,
         }
       }
     />
@@ -162,12 +153,13 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Entre com a sua senha"
-      placeholderTextColor="#d2d2d2"
+      placeholderTextColor="#AAADB3"
       rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
           Object {
+            "color": "#2C3E50",
             "height": 46,
             "paddingHorizontal": 8,
             "paddingVertical": 10,
@@ -195,7 +187,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       Object {
         "alignItems": "center",
         "alignSelf": "stretch",
-        "backgroundColor": "#FCA311",
+        "backgroundColor": "#0565FC",
         "borderRadius": 24,
         "height": 45,
         "justifyContent": "center",
@@ -208,7 +200,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     <Text
       style={
         Object {
-          "color": "#14213D",
+          "color": "#FFFFFF",
           "fontSize": 16,
           "fontWeight": "bold",
         }
@@ -228,7 +220,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
     <Text
       style={
         Object {
-          "color": "#14213D",
+          "color": "#7F8C8D",
         }
       }
     >
@@ -253,7 +245,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#14213D",
+            "color": "#7F8C8D",
             "fontWeight": "bold",
             "paddingHorizontal": 5,
           }

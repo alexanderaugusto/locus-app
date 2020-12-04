@@ -6,8 +6,8 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
     Array [
       Object {
         "alignSelf": "stretch",
-        "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#0565FC",
         "borderRadius": 25,
         "borderWidth": 1,
         "elevation": 2,
@@ -26,12 +26,13 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
   }
 >
   <Icon
-    color="#14213D"
+    color="#7F8C8D"
     name="envelope"
     size={16}
     style={
       Object {
         "alignSelf": "center",
+        "marginHorizontal": 5,
       }
     }
   />
@@ -41,12 +42,13 @@ exports[`InputArea snapshot test render InputArea component with icon correctly 
     onBlur={[Function]}
     onFocus={[Function]}
     placeholder="Entre com o seu email"
-    placeholderTextColor="#d2d2d2"
+    placeholderTextColor="#AAADB3"
     rejectResponderTermination={true}
     secureTextEntry={false}
     style={
       Array [
         Object {
+          "color": "#2C3E50",
           "height": 46,
           "paddingHorizontal": 8,
           "paddingVertical": 10,
@@ -66,8 +68,8 @@ exports[`InputArea snapshot test render InputArea component with label correctly
     Array [
       Object {
         "alignSelf": "stretch",
-        "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#0565FC",
         "borderRadius": 25,
         "borderWidth": 1,
         "elevation": 2,
@@ -89,7 +91,7 @@ exports[`InputArea snapshot test render InputArea component with label correctly
     style={
       Object {
         "alignSelf": "center",
-        "color": "#14213D",
+        "color": "#7F8C8D",
         "fontWeight": "600",
       }
     }
@@ -102,12 +104,13 @@ exports[`InputArea snapshot test render InputArea component with label correctly
     onBlur={[Function]}
     onFocus={[Function]}
     placeholder="Entre com o seu email"
-    placeholderTextColor="#d2d2d2"
+    placeholderTextColor="#AAADB3"
     rejectResponderTermination={true}
     secureTextEntry={false}
     style={
       Array [
         Object {
+          "color": "#2C3E50",
           "height": 46,
           "paddingHorizontal": 8,
           "paddingVertical": 10,
@@ -127,8 +130,8 @@ exports[`InputArea snapshot test render InputArea component without icon and lab
     Array [
       Object {
         "alignSelf": "stretch",
-        "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#0565FC",
         "borderRadius": 25,
         "borderWidth": 1,
         "elevation": 2,
@@ -152,12 +155,13 @@ exports[`InputArea snapshot test render InputArea component without icon and lab
     onBlur={[Function]}
     onFocus={[Function]}
     placeholder="Entre com o seu email"
-    placeholderTextColor="#d2d2d2"
+    placeholderTextColor="#AAADB3"
     rejectResponderTermination={true}
     secureTextEntry={false}
     style={
       Array [
         Object {
+          "color": "#2C3E50",
           "height": 46,
           "paddingHorizontal": 8,
           "paddingVertical": 10,
@@ -177,8 +181,8 @@ exports[`InputArea snapshot test render InputArea password component 1`] = `
     Array [
       Object {
         "alignSelf": "stretch",
-        "backgroundColor": "#FFF",
-        "borderColor": "#14213D",
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#0565FC",
         "borderRadius": 25,
         "borderWidth": 1,
         "elevation": 2,
@@ -200,7 +204,7 @@ exports[`InputArea snapshot test render InputArea password component 1`] = `
     style={
       Object {
         "alignSelf": "center",
-        "color": "#14213D",
+        "color": "#7F8C8D",
         "fontWeight": "600",
       }
     }
@@ -212,12 +216,13 @@ exports[`InputArea snapshot test render InputArea password component 1`] = `
     onBlur={[Function]}
     onFocus={[Function]}
     placeholder="Entre com a sua senha"
-    placeholderTextColor="#d2d2d2"
+    placeholderTextColor="#AAADB3"
     rejectResponderTermination={true}
     secureTextEntry={false}
     style={
       Array [
         Object {
+          "color": "#2C3E50",
           "height": 46,
           "paddingHorizontal": 8,
           "paddingVertical": 10,

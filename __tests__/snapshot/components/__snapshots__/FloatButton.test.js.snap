@@ -14,7 +14,7 @@ exports[`FloatButton snapshot test render FloatButton component correctly 1`] = 
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#19294d",
+      "backgroundColor": "#0565FC",
       "borderRadius": 560,
       "bottom": 30,
       "height": 60,
