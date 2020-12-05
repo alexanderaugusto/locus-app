@@ -7,22 +7,24 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { InputArea, ImagePickerFunction, Loader } from '../components'
+import { InputArea, ImagePickerFunction } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { formatPhoneNumber } from '../utils/util'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 
 export default function Account() {
   const navigation = useNavigation()
   const { signed, signOut } = useAuth()
+  const { startLoading, stopLoading } = useLoading()
 
-  const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [userInfo, setUserInfo] = useState({
     name: '',
@@ -30,11 +32,14 @@ export default function Account() {
     phone: '',
     avatar: `${STORAGE_URL}/user/default-avatar.png`
   })
+  const [buttonLoading, setButtonLoading] = useState(false)
 
   const getUser = async () => {
-    setLoading(true)
     setErrorMessage('')
-    api
+
+    startLoading()
+
+    await api
       .get('/user')
       .then(res => {
         setUserInfo({
@@ -46,31 +51,30 @@ export default function Account() {
         console.error(err)
       })
 
-    setLoading(false)
+    stopLoading()
   }
 
   const updateInfo = async () => {
-    setLoading(true)
     setErrorMessage('')
 
     const data = {
       name: userInfo.name,
       phone: userInfo.phone
     }
-    api
+
+    setButtonLoading(true)
+
+    await api
       .put('/user', data)
       .then(res => {})
       .catch(err => {
         console.error(err)
       })
 
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+    setButtonLoading(false)
   }
 
   const updateAvatar = async image => {
-    setLoading(true)
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -80,7 +84,9 @@ export default function Account() {
 
     data.append('file', image)
 
-    api
+    startLoading()
+
+    await api
       .put('/user/avatar', data, config)
       .then(res => {
         setUserInfo({ ...userInfo, avatar: image.uri })
@@ -88,9 +94,8 @@ export default function Account() {
       .catch(err => {
         console.error(err)
       })
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+
+    stopLoading()
   }
 
   const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
@@ -136,8 +141,6 @@ export default function Account() {
       showsVerticalScrollIndicator={false}
       alwaysBounceVertical={false}
     >
-      <Loader isLoading={loading} />
-
       <KeyboardAvoidingView
         style={styles.container}
         behavior="padding"
@@ -194,6 +197,7 @@ export default function Account() {
             onChangeText={value => onChange('phone', value)}
           />
           <TouchableOpacity
+            disabled={buttonLoading}
             testID={'account-save-button'}
             style={styles.button}
             onPress={() =>
@@ -204,6 +208,13 @@ export default function Account() {
                 : updateInfo()
             }
           >
+            {buttonLoading && (
+              <ActivityIndicator
+                style={styles.buttonLoader}
+                size="small"
+                color={colors['light-secondary']}
+              />
+            )}
             <Text style={styles.buttonText}>Salvar</Text>
           </TouchableOpacity>
         </View>
@@ -337,6 +348,7 @@ const styles = StyleSheet.create({
     maxWidth: 200,
     backgroundColor: colors.blue,
     borderRadius: 24,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
@@ -347,6 +359,11 @@ const styles = StyleSheet.create({
     color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
+  },
+
+  buttonLoader: {
+    marginRight: 10,
+    marginLeft: -10
   },
 
   form: {

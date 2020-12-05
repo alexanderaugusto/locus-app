@@ -16,6 +16,7 @@ import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 import { FloatButton } from '../components'
 import { useAuth } from '../contexts/auth'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 
@@ -23,13 +24,12 @@ export default function Advertise() {
   const navigation = useNavigation()
   const route = useRoute()
   const { signed } = useAuth()
+  const { startLoading, stopLoading } = useLoading()
 
   const [properties, setProperties] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [refresh, setRefresh] = useState(false)
 
   const getProperties = async () => {
-    setLoading(true)
-
     await api
       .get('/user/properties')
       .then(res => {
@@ -39,11 +39,12 @@ export default function Advertise() {
         console.error(err)
       })
 
-    setLoading(false)
+    stopLoading()
   }
 
   useEffect(() => {
     if (signed) {
+      startLoading()
       getProperties()
     }
   }, [signed])
@@ -93,8 +94,11 @@ export default function Advertise() {
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          onRefresh={() => getProperties()}
-          refreshing={loading}
+          onRefresh={() => {
+            setRefresh(true)
+            getProperties()
+          }}
+          refreshing={refresh}
           renderItem={({ item }) => {
             if (item.empty) {
               return (

@@ -1,20 +1,20 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Usuario\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/jest --dev
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-progress
 
 PATH: 
-  C:\src\Android\Android Studio\tools;C:\src\Android\Android Studio\platform-tools;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Falcon\MinGW\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_201;C:\Program Files\Java\jre1.8.0_201;C:\Program Files\Git\cmd;C:\Users\Usuario\AppData\Local\Microsoft\WindowsApps;C:\Users\Usuario\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Usuario\AppData\Roaming\npm;C:\src\flutter\bin;C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\Usuario\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\Usuario\AppData\Local\Programs\Python\Python38-32\;C:\Users\Usuario\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Usuario\AppData\Local\Programs\Python\Python37-32\;C:\Users\Usuario\AppData\Local\Microsoft\WindowsApps;C:\Users\Usuario\AppData\Local\Programs\Microsoft VS Code\bin;C:\src\flutter\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.3\bin;;C:\Users\Usuario\AppData\Roaming\npm;C:\Users\Usuario\AppData\Local\Yarn\bin;C:\Program Files\heroku\bin;C:\Users\Usuario\AppData\Local\Android\Sdk\platform-tools;
+  C:\Program Files (x86)\Falcon\MinGW\bin;C:\Rtools\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\R\R-4.0.0\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files\MongoDB\Server\4.2\bin;C:\Android\Sdk\emulator;C:\Android\Sdk\tools;C:\Android\Sdk\tools\bin;C:\Android\Sdk\platform-tools;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.6.3\bin;C:\Program Files\PuTTY\;C:\Python38-32\Scripts\;C:\Python38-32\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Alexander\AppData\Local\Microsoft\WindowsApps;C:\Users\Alexander\AppData\Roaming\npm;C:\Users\Alexander\AppData\Local\Yarn\bin;C:\Users\Alexander\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files\IBM\Cloud\bin;C:\Android\Sdk\emulator;C:\Android\Sdk\tools;C:\Android\Sdk\tools\bin;C:\Android\Sdk\platform-tools;
 
 Yarn version: 
   1.22.4
 
 Node version: 
-  12.18.3
+  12.17.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'E:\Desktop\Apps React Native\imovel-app\node_modules\@babel\plugin-proposal-class-properties\node_modules\@babel\core\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Projects\AlexanderAugusto\IMovel\app\node_modules\@babel\plugin-proposal-class-properties\node_modules\@babel\core\node_modules\.bin'
 
 npm manifest: 
   {
@@ -37,7 +37,6 @@ npm manifest:
       "expo": "~39.0.2",
       "expo-cli": "^3.27.14",
       "expo-image-picker": "~9.1.0",
-      "expo-location": "~9.0.0",
       "expo-splash-screen": "^0.6.2",
       "expo-status-bar": "~1.0.2",
       "expo-updates": "^0.3.5",
@@ -50,12 +49,13 @@ npm manifest:
       "react-native-safe-area-context": "3.1.4",
       "react-native-screens": "~2.10.1",
       "react-native-swiper": "^1.6.0",
-      "react-native-vector-icons": "^7.1.0",
       "react-native-web": "~0.13.12",
       "react-navigation-stack": "^2.8.2"
     },
     "devDependencies": {
       "@babel/core": "~7.9.0",
+      "@types/jest": "^26.0.15",
+      "@types/react-test-renderer": "^16.9.3",
       "eslint": "^7.12.1",
       "eslint-config-prettier": "^6.15.0",
       "eslint-config-standard": "^16.0.0",
@@ -1984,6 +1984,17 @@ Lockfile:
       "@types/yargs" "^15.0.0"
       chalk "^4.0.0"
   
+  "@jest/types@^26.6.1":
+    version "26.6.1"
+    resolved "https://registry.yarnpkg.com/@jest/types/-/types-26.6.1.tgz#2638890e8031c0bc8b4681e0357ed986e2f866c5"
+    integrity sha512-ywHavIKNpAVrStiRY5wiyehvcktpijpItvGiK72RAn5ctqmzvPk8OvKnvHeBqa1XdQr959CTWAJMqxI8BTibyg==
+    dependencies:
+      "@types/istanbul-lib-coverage" "^2.0.0"
+      "@types/istanbul-reports" "^3.0.0"
+      "@types/node" "*"
+      "@types/yargs" "^15.0.0"
+      chalk "^4.0.0"
+  
   "@jimp/bmp@^0.9.8":
     version "0.9.8"
     resolved "https://registry.yarnpkg.com/@jimp/bmp/-/bmp-0.9.8.tgz#5933ab8fb359889bec380b0f7802163374933624"
@@ -2780,6 +2791,14 @@ Lockfile:
     dependencies:
       "@types/istanbul-lib-report" "*"
   
+  "@types/jest@^26.0.15":
+    version "26.0.15"
+    resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.15.tgz#12e02c0372ad0548e07b9f4e19132b834cb1effe"
+    integrity sha512-s2VMReFXRg9XXxV+CW9e5Nz8fH2K1aEhwgjUqPPbQd7g95T0laAcvLv032EhFHIa5GHsZ8W7iJEQVaJq6k3Gog==
+    dependencies:
+      jest-diff "^26.0.0"
+      pretty-format "^26.0.0"
+  
   "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
     version "7.0.6"
     resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
@@ -2839,10 +2858,30 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.1.tgz#33509849f8e679e4add158959fdb086440e9553f"
     integrity sha512-5qOlnZscTn4xxM5MeGXAMOsIOIKIbh9e85zJWfBRVPlRMEVawzoPhINYbRGkBZCI8LxvBe7tJCdWiarA99OZfQ==
   
+  "@types/prop-types@*":
+    version "15.7.3"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+    integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+  
   "@types/q@^1.5.1":
     version "1.5.4"
     resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
     integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
+  
+  "@types/react-test-renderer@^16.9.3":
+    version "16.9.3"
+    resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.9.3.tgz#96bab1860904366f4e848b739ba0e2f67bcae87e"
+    integrity sha512-wJ7IlN5NI82XMLOyHSa+cNN4Z0I+8/YaLl04uDgcZ+W+ExWCmCiVTLT/7fRNqzy4OhStZcUwIqLNF7q+AdW43Q==
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react@*":
+    version "16.9.55"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.55.tgz#47078587f5bfe028a23b6b46c7b94ac0d436acff"
+    integrity sha512-6KLe6lkILeRwyyy7yG9rULKJ0sXplUsl98MGoCfpteXf9sPWFWWMknDcsvubcpaTdBuxtsLF6HDUwdApZL/xIg==
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^3.0.2"
   
   "@types/responselike@*", "@types/responselike@^1.0.0":
     version "1.0.0"
@@ -5383,6 +5422,11 @@ Lockfile:
     dependencies:
       cssom "~0.3.6"
   
+  csstype@^3.0.2:
+    version "3.0.4"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.4.tgz#b156d7be03b84ff425c9a0a4b1e5f4da9c5ca888"
+    integrity sha512-xc8DUsCLmjvCfoD7LTGE0ou2MIWLx0K9RCZwSHMOdynqRsP4MtUcLeqh1HcQ2dInwDTqn+3CE0/FZh1et+p4jA==
+  
   cyclist@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
@@ -5723,6 +5767,11 @@ Lockfile:
     version "25.2.6"
     resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-25.2.6.tgz#5f467c00edd35352b7bca46d7927d60e687a76dd"
     integrity sha512-Hq8o7+6GaZeoFjtpgvRBUknSXNeJiCx7V9Fr94ZMljNiCr9n9L8H8aJqgWOQiDDGdyn29fRNcDdRVJ5fdyihfg==
+  
+  diff-sequences@^26.5.0:
+    version "26.5.0"
+    resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-26.5.0.tgz#ef766cf09d43ed40406611f11c6d8d9dd8b2fefd"
+    integrity sha512-ZXx86srb/iYy6jG71k++wBN9P9J05UNQ5hQHQd9MtMPvcqXPx/vKU69jfHV637D00Q2gSgPk2D+jSx3l1lDW/Q==
   
   diffie-hellman@^5.0.0:
     version "5.0.3"
@@ -8954,6 +9003,16 @@ Lockfile:
       jest-get-type "^25.2.6"
       pretty-format "^25.5.0"
   
+  jest-diff@^26.0.0:
+    version "26.6.1"
+    resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-26.6.1.tgz#38aa194979f454619bb39bdee299fb64ede5300c"
+    integrity sha512-BBNy/zin2m4kG5In126O8chOBxLLS/XMTuuM2+YhgyHk87ewPzKTuTJcqj3lOWOi03NNgrl+DkMeV/exdvG9gg==
+    dependencies:
+      chalk "^4.0.0"
+      diff-sequences "^26.5.0"
+      jest-get-type "^26.3.0"
+      pretty-format "^26.6.1"
+  
   jest-docblock@^25.3.0:
     version "25.3.0"
     resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-25.3.0.tgz#8b777a27e3477cd77a168c05290c471a575623ef"
@@ -9019,6 +9078,11 @@ Lockfile:
     version "25.2.6"
     resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-25.2.6.tgz#0b0a32fab8908b44d508be81681487dbabb8d877"
     integrity sha512-DxjtyzOHjObRM+sM1knti6or+eOgcGU4xVSb2HNP1TqO4ahsT+rqZg+nyqHWJSvWgKC5cG3QjGFBqxLghiF/Ig==
+  
+  jest-get-type@^26.3.0:
+    version "26.3.0"
+    resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-26.3.0.tgz#e97dc3c3f53c2b406ca7afaed4493b1d099199e0"
+    integrity sha512-TpfaviN1R2pQWkIihlfEanwOXK0zcxrKEE4MlU6Tn7keoXdN6/3gK/xl0yEh8DOunn5pOVGKf8hB4R9gVh04ig==
   
   jest-haste-map@^24.7.1:
     version "24.9.0"
@@ -9839,16 +9903,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
     integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
   
-  lodash.frompairs@^4.0.1:
-    version "4.0.1"
-    resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
-    integrity sha1-vE5SB/onV8E25XNhTpZkUGsrG9I=
-  
-  lodash.isequal@^4.5.0:
-    version "4.5.0"
-    resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-    integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-  
   lodash.isobject@^3.0.2:
     version "3.0.2"
     resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
@@ -9864,22 +9918,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
     integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
   
-  lodash.omit@^4.5.0:
-    version "4.5.0"
-    resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
-    integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
-  
-  lodash.pick@^4.4.0:
-    version "4.4.0"
-    resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
-    integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
-  
   lodash.sortby@^4.7.0:
     version "4.7.0"
     resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
     integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
   
-  lodash.template@^4.4.0, lodash.template@^4.5.0:
+  lodash.template@^4.4.0:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
     integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
@@ -12427,6 +12471,16 @@ Lockfile:
       ansi-styles "^4.0.0"
       react-is "^16.12.0"
   
+  pretty-format@^26.0.0, pretty-format@^26.6.1:
+    version "26.6.1"
+    resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.6.1.tgz#af9a2f63493a856acddeeb11ba6bcf61989660a8"
+    integrity sha512-MeqqsP5PYcRBbGMvwzsyBdmAJ4EFX7pWFyl7x4+dMVg5pE0ZDdBIvEH2ergvIO+Gvwv1wh64YuOY9y5LuyY/GA==
+    dependencies:
+      "@jest/types" "^26.6.1"
+      ansi-regex "^5.0.0"
+      ansi-styles "^4.0.0"
+      react-is "^17.0.1"
+  
   pretty-format@^26.0.1:
     version "26.5.2"
     resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.5.2.tgz#5d896acfdaa09210683d34b6dc0e6e21423cd3e1"
@@ -12778,6 +12832,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   
+  react-is@^17.0.1:
+    version "17.0.1"
+    resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
+    integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+  
   react-native-gesture-handler@~1.7.0:
     version "1.7.0"
     resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.7.0.tgz#0ef74a5ba836832e497dc49eb1ce58baa6c617e5"
@@ -12831,20 +12890,6 @@ Lockfile:
     integrity sha512-BobXLtlef+gklN6cl6oC20/rnW9lWGj7Yxzzn+fTb+9go0LnGGgJ8DNaJtuW5oS7pOkm1Wq+u+cypALyf32FjA==
     dependencies:
       pretty-format "^26.0.1"
-  
-  react-native-vector-icons@^7.1.0:
-    version "7.1.0"
-    resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
-    integrity sha512-V2a1zJ4i+kS8O4j183gIwX14St9AxxXabxwYpFBgRhvr2NDXyFcjHDEAgrOYYlt2W57e20aN1tBDU/I+wn9WtQ==
-    dependencies:
-      lodash.frompairs "^4.0.1"
-      lodash.isequal "^4.5.0"
-      lodash.isstring "^4.0.1"
-      lodash.omit "^4.5.0"
-      lodash.pick "^4.4.0"
-      lodash.template "^4.5.0"
-      prop-types "^15.7.2"
-      yargs "^15.0.2"
   
   react-native-web@~0.13.12:
     version "0.13.13"
@@ -16094,7 +16139,7 @@ Lockfile:
       y18n "^4.0.0"
       yargs-parser "^15.0.1"
   
-  yargs@^15.0.2, yargs@^15.1.0, yargs@^15.3.1:
+  yargs@^15.1.0, yargs@^15.3.1:
     version "15.4.1"
     resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
     integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==

@@ -1,28 +1,29 @@
 import React from 'react'
-import { View, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, StyleSheet, Modal } from 'react-native'
 import colors from '../constants/colors.json'
+import ProgressBar from 'react-native-progress/Bar'
 
-export default function Loader({ isLoading }) {
-  if (!isLoading)
-    return false
-
+export default function Loader({ loading }) {
   return (
-    <View style={styles.loadingContainer}>
-      <ActivityIndicator size="large" color={colors.h1} />
-    </View>
+    <Modal visible={loading} transparent={true}>
+      <View style={styles.loadingContainer}>
+        <ProgressBar
+          width={null}
+          indeterminate={true}
+          color={colors.blue}
+          borderWidth={0}
+          height={5}
+          unfilledColor="rgba(5, 101, 252, 0.3)"
+        />
+      </View>
+    </Modal>
   )
 }
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    position: "absolute",
-    top: -35,
-    left: -35,
-    bottom: -35,
-    right: -35,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: 'rgba(20, 33, 61, 0.4)',
-    zIndex: 2,
-  },
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    width: '100%',
+    height: '100%'
+  }
 })

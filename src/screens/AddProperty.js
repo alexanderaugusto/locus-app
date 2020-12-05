@@ -11,18 +11,14 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native'
-import {
-  InputArea,
-  ImagePickerFunction,
-  InputSelect,
-  Loader
-} from '../components'
+import { InputArea, ImagePickerFunction, InputSelect } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import { createRows } from '../utils/util'
 import api from '../services/api'
 import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 import states from '../constants/states.json'
@@ -30,8 +26,8 @@ import types from '../constants/types.json'
 
 export default function AddProperty() {
   const navigation = useNavigation()
+  const { startLoading, stopLoading } = useLoading()
 
-  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -61,8 +57,6 @@ export default function AddProperty() {
   }
 
   const addProperty = async () => {
-    setLoading(true)
-
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -90,7 +84,9 @@ export default function AddProperty() {
       formData.append('files', image)
     })
 
-    api
+    startLoading()
+
+    await api
       .post('/user/property', formData, config)
       .then(res => {
         navigation.navigate('Anúnciar', { reload: true })
@@ -99,13 +95,11 @@ export default function AddProperty() {
         console.error(err)
       })
 
-    setLoading(false)
+    stopLoading()
   }
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Loader isLoading={loading} />
-
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.goBack}

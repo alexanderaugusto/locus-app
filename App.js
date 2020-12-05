@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
 import * as Updates from 'expo-updates'
 import { AuthProvider } from './src/contexts/auth'
+import { LoadingProvider } from './src/contexts/loading'
 import Routes from './src/routes'
 import colors from './src/constants/colors.json'
 
@@ -27,7 +28,9 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
       <AuthProvider>
-        <Routes />
+        <LoadingProvider>
+          <Routes />
+        </LoadingProvider>
       </AuthProvider>
     </>
   )

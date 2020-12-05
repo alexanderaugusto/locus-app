@@ -15,11 +15,13 @@ import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
 import { formatPhoneNumber, formatCPF } from '../utils/util'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 
 export default function SignUp() {
   const navigation = useNavigation()
+  const { startLoading, stopLoading } = useLoading()
 
   const [data, setData] = useState({
     name: '',
@@ -40,7 +42,7 @@ export default function SignUp() {
     setData({ ...data, [type]: value })
   }
 
-  const signUp = () => {
+  const signUp = async () => {
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -58,7 +60,9 @@ export default function SignUp() {
       formData.append('file', data.avatar)
     }
 
-    api
+    startLoading()
+
+    await api
       .post('/user', formData, config)
       .then(res => {
         navigation.navigate('SignIn')
@@ -66,6 +70,8 @@ export default function SignUp() {
       .catch(err => {
         console.error(err)
       })
+
+    stopLoading()
   }
 
   const handleEmail = () => {

@@ -14,19 +14,19 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import api from '../services/api'
 import { ImovelCard } from '../components'
 import { useAuth } from '../contexts/auth'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 
 export default function Favorite() {
   const navigation = useNavigation()
   const { signed } = useAuth()
+  const { startLoading, stopLoading } = useLoading()
 
   const [favorites, setFavorites] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [refresh, setRefresh] = useState(false)
 
   const getFavorites = async () => {
-    setLoading(true)
-
     await api
       .get('/user/favorites')
       .then(res => {
@@ -36,7 +36,8 @@ export default function Favorite() {
         console.error(err)
       })
 
-    setLoading(false)
+    stopLoading()
+    setRefresh(false)
   }
 
   const onChangeFavorite = item => {
@@ -56,6 +57,7 @@ export default function Favorite() {
 
   useEffect(() => {
     if (signed) {
+      startLoading()
       getFavorites()
     }
   }, [signed])
@@ -100,8 +102,11 @@ export default function Favorite() {
           data={favorites}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
-          onRefresh={() => getFavorites()}
-          refreshing={loading}
+          onRefresh={() => {
+            setRefresh(true)
+            getFavorites()
+          }}
+          refreshing={refresh}
           renderItem={({ item }) => {
             return (
               <TouchableWithoutFeedback

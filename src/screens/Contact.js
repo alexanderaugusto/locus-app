@@ -7,12 +7,13 @@ import {
   View,
   ScrollView,
   Image,
-  Linking
+  Linking,
+  ActivityIndicator
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
-import { InputArea, Loader } from '../components'
+import { InputArea } from '../components'
 
 import colors from '../constants/colors.json'
 
@@ -21,16 +22,16 @@ export default function Contact() {
   const route = useRoute()
 
   const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [buttonLoading, setButtonLoading] = useState(false)
 
   const handleContact = async () => {
-    setLoading(true)
-
     const data = {
       message
     }
 
-    api
+    setButtonLoading(true)
+
+    await api
       .post(`/user/property/${route.params?.item.id}/owner/contact`, data)
       .then(res => {
         navigation.goBack()
@@ -39,14 +40,12 @@ export default function Contact() {
         console.error(err)
       })
 
-    setLoading(false)
+    setButtonLoading(false)
   }
 
   return (
     <ScrollView>
       <KeyboardAvoidingView style={styles.container}>
-        <Loader isLoading={loading} />
-
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
@@ -119,7 +118,18 @@ export default function Contact() {
           onChangeText={value => setMessage(value)}
         />
 
-        <TouchableOpacity style={styles.contactButton} onPress={handleContact}>
+        <TouchableOpacity
+          disabled={buttonLoading}
+          style={styles.contactButton}
+          onPress={handleContact}
+        >
+          {buttonLoading && (
+            <ActivityIndicator
+              style={styles.buttonLoader}
+              size="small"
+              color={colors['light-secondary']}
+            />
+          )}
           <Text style={styles.contactButtonText}>Enviar</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -179,6 +189,7 @@ const styles = StyleSheet.create({
     width: 100,
     backgroundColor: colors.blue,
     borderRadius: 24,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-end',
@@ -189,5 +200,10 @@ const styles = StyleSheet.create({
     color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
+  },
+
+  buttonLoader: {
+    marginRight: 10,
+    marginLeft: -10
   }
 })

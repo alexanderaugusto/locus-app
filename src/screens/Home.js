@@ -17,20 +17,21 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import { ImovelCard } from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
+import { useLoading } from '../contexts/loading'
 
 import colors from '../constants/colors.json'
 
 export default function Home() {
   const navigation = useNavigation()
   const { signed } = useAuth()
+  const { startLoading, stopLoading, loading } = useLoading()
 
   const [properties, setProperties] = useState([])
   const [fullProperties, setFullProperties] = useState([])
-  const [loading, setLoading] = useState(false)
   const [searchText, setSearchText] = useState('')
+  const [refresh, setRefresh] = useState(false)
 
   const getProperties = async () => {
-    setLoading(true)
     await api
       .get('/properties')
       .then(res => {
@@ -40,7 +41,9 @@ export default function Home() {
       .catch(err => {
         console.error(err)
       })
-    setLoading(false)
+
+    stopLoading()
+    setRefresh(false)
   }
 
   const onChangeFavorite = (item, favorite) => {
@@ -87,6 +90,7 @@ export default function Home() {
 
   useEffect(() => {
     setSearchText('')
+    startLoading()
     getProperties()
   }, [signed])
 
@@ -125,8 +129,11 @@ export default function Home() {
           data={properties}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
-          onRefresh={() => getProperties()}
-          refreshing={loading}
+          onRefresh={() => {
+            setRefresh(true)
+            getProperties()
+          }}
+          refreshing={refresh}
           ListEmptyComponent={!loading ? emptyList : <></>}
           renderItem={({ item }) => {
             return (

@@ -6,10 +6,11 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  Platform
+  Platform,
+  ActivityIndicator
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { InputArea, Loader } from '../components'
+import { InputArea } from '../components'
 import { useAuth } from '../contexts/auth'
 
 import logo from '../../assets/logo-text.png'
@@ -19,13 +20,14 @@ export default function SignIn() {
   const navigation = useNavigation()
   const { signIn } = useAuth()
 
-  const [loading, setLoading] = useState(false)
+  const [buttonLoading, setButtonLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
   const login = async () => {
-    setLoading(true)
+    setButtonLoading(true)
+
     await signIn(email, password)
       .then(() => {
         navigation.goBack()
@@ -34,7 +36,8 @@ export default function SignIn() {
         setErrorMessage('Algo deu errado, tente novamente!')
         console.log(err)
       })
-    setLoading(false)
+
+    setButtonLoading(false)
   }
 
   return (
@@ -43,8 +46,6 @@ export default function SignIn() {
       behavior="padding"
       enabled={Platform.OS === 'ios'}
     >
-      <Loader isLoading={loading} />
-
       <View style={styles.containerLogo}>
         <Image style={styles.logo} source={logo}></Image>
       </View>
@@ -72,6 +73,7 @@ export default function SignIn() {
       />
 
       <TouchableOpacity
+        disabled={buttonLoading}
         testID={'signIn-button'}
         style={styles.button}
         onPress={() => {
@@ -80,6 +82,13 @@ export default function SignIn() {
             : login()
         }}
       >
+        {buttonLoading && (
+          <ActivityIndicator
+            style={styles.buttonLoader}
+            size="small"
+            color={colors['light-secondary']}
+          />
+        )}
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
       <View style={styles.signUpContainer}>
@@ -136,6 +145,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
     borderRadius: 24,
     marginTop: 20,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch'
@@ -145,6 +155,11 @@ const styles = StyleSheet.create({
     color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
+  },
+
+  buttonLoader: {
+    marginRight: 10,
+    marginLeft: -10
   },
 
   signUpContainer: {
