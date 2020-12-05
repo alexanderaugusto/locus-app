@@ -13,6 +13,16 @@ jest.mock('@react-navigation/native', () => {
     })
   }
 })
+jest.mock('../../../src/contexts/loading', () => {
+  return {
+    ...jest.requireActual('../../../src/contexts/loading'),
+    useLoading: () => ({
+      startLoading: jest.fn(),
+      stopLoading: jest.fn(),
+      loading: jest.fn()
+    })
+  }
+})
 
 describe('Favorite snapshot test', () => {
   it('render Favorite screen correctly when signed=false', () => {

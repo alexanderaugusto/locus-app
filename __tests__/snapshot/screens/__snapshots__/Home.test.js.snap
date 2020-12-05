@@ -298,10 +298,10 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       refreshControl={
         <RefreshControlMock
           onRefresh={[Function]}
-          refreshing={true}
+          refreshing={false}
         />
       }
-      refreshing={true}
+      refreshing={false}
       removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}

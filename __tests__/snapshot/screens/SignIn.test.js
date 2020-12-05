@@ -11,6 +11,16 @@ jest.mock('@react-navigation/native', () => {
     })
   }
 })
+jest.mock('../../../src/contexts/loading', () => {
+  return {
+    ...jest.requireActual('../../../src/contexts/loading'),
+    useLoading: () => ({
+      startLoading: jest.fn(),
+      stopLoading: jest.fn(),
+      loading: jest.fn()
+    })
+  }
+})
 
 describe('SignIn snapshot snapshot test', () => {
   it('render SignIn screen correctly', () => {

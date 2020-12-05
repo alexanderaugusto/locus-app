@@ -15,6 +15,16 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 jest.mock('../../../src/services/api')
+jest.mock('../../../src/contexts/loading', () => {
+  return {
+    ...jest.requireActual('../../../src/contexts/loading'),
+    useLoading: () => ({
+      startLoading: jest.fn(),
+      stopLoading: jest.fn(),
+      loading: jest.fn()
+    })
+  }
+})
 
 describe('Home snapshot test', () => {
   api.get.mockResolvedValue({ data: mockedProperties })

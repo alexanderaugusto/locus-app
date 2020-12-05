@@ -478,6 +478,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
               "alignSelf": "center",
               "backgroundColor": "#0565FC",
               "borderRadius": 24,
+              "flexDirection": "row",
               "height": 35,
               "justifyContent": "center",
               "marginTop": 30,

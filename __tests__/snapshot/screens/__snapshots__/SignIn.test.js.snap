@@ -189,6 +189,7 @@ exports[`SignIn snapshot snapshot test render SignIn screen correctly 1`] = `
         "alignSelf": "stretch",
         "backgroundColor": "#0565FC",
         "borderRadius": 24,
+        "flexDirection": "row",
         "height": 45,
         "justifyContent": "center",
         "marginTop": 20,

@@ -1,28 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader snapshot test render Loader component correctly when isLoading is false 1`] = `null`;
+exports[`Loader snapshot test render Loader component correctly when isLoading is false 1`] = `
+<Modal
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.2)",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      animated={true}
+      animationConfig={
+        Object {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={true}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(5, 101, 252, 0.3)",
+            "borderColor": "#0565FC",
+            "borderRadius": 4,
+            "borderWidth": 0,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0565FC",
+            "height": 5,
+            "transform": Array [
+              Object {
+                "translateX": -0,
+              },
+              Object {
+                "translateX": -0,
+              },
+              Object {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</Modal>
+`;
 
 exports[`Loader snapshot test render Loader component correctly when isLoading is true 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "rgba(20, 33, 61, 0.4)",
-      "bottom": -35,
-      "justifyContent": "center",
-      "left": -35,
-      "position": "absolute",
-      "right": -35,
-      "top": -35,
-      "zIndex": 2,
-    }
-  }
+<Modal
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
 >
-  <ActivityIndicator
-    animating={true}
-    color="#2C3E50"
-    hidesWhenStopped={true}
-    size="large"
-  />
-</View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.2)",
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      animated={true}
+      animationConfig={
+        Object {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={true}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(5, 101, 252, 0.3)",
+            "borderColor": "#0565FC",
+            "borderRadius": 4,
+            "borderWidth": 0,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0565FC",
+            "height": 5,
+            "transform": Array [
+              Object {
+                "translateX": -0,
+              },
+              Object {
+                "translateX": -0,
+              },
+              Object {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</Modal>
 `;

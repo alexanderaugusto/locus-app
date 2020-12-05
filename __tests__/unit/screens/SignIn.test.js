@@ -31,6 +31,16 @@ jest.mock('../../../src/contexts/auth', () => {
     })
   }
 })
+jest.mock('../../../src/contexts/loading', () => {
+  return {
+    ...jest.requireActual('../../../src/contexts/loading'),
+    useLoading: () => ({
+      startLoading: jest.fn(),
+      stopLoading: jest.fn(),
+      loading: jest.fn()
+    })
+  }
+})
 
 describe('SignIn unit test', () => {
   it('email value should be empty', () => {
