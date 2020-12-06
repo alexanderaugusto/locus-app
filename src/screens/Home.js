@@ -27,8 +27,7 @@ export default function Home() {
   const { startLoading, stopLoading, loading } = useLoading()
 
   const [properties, setProperties] = useState([])
-  const [fullProperties, setFullProperties] = useState([])
-  const [searchText, setSearchText] = useState('')
+  const [searchText] = useState('Santa Rita do Sapucaí, MG')
   const [refresh, setRefresh] = useState(false)
 
   const getProperties = async () => {
@@ -36,7 +35,6 @@ export default function Home() {
       .get('/properties')
       .then(res => {
         setProperties(res.data)
-        setFullProperties(res.data)
       })
       .catch(err => {
         console.error(err)
@@ -54,29 +52,6 @@ export default function Home() {
     })
   }
 
-  const onSearchChange = text => {
-    setSearchText(text)
-    if (!text.length) {
-      setProperties(fullProperties)
-    } else {
-      const newItems = []
-      properties.forEach(item => {
-        const fullAddress = `${item.street} ${item.neighborhood} ${item.city} ${item.state} ${item.country}`
-        if (
-          fullAddress
-            .toString()
-            .toLowerCase()
-            .includes(text.toString().toLowerCase())
-        ) {
-          newItems.push(item)
-          setProperties(newItems)
-        } else {
-          setProperties([])
-        }
-      })
-    }
-  }
-
   const emptyList = () => {
     return (
       <View style={styles.emptyContainer}>
@@ -89,7 +64,6 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setSearchText('')
     startLoading()
     getProperties()
   }, [signed])
@@ -118,12 +92,23 @@ export default function Home() {
           placeholder="Pesquise por localidade..."
           placeholderTextColor="#999"
           value={searchText}
-          onChangeText={value => onSearchChange(value)}
+          editable={false}
         />
         <TouchableOpacity style={{ alignSelf: 'center' }}>
           <Icon name="search" size={16} color={colors.blue} />
         </TouchableOpacity>
       </View>
+      <View style={styles.filter}>
+        <View>
+          <Text style={styles.filterTitle}>Imóveis para alugar</Text>
+          <Text style={styles.filterCity}>{searchText}</Text>
+        </View>
+        <TouchableOpacity style={styles.filterButton}>
+          <Icon name="filter" size={16} color={colors['light-secondary']} />
+          <Text style={styles.filterButtonText}>Filtrar</Text>
+        </TouchableOpacity>
+      </View>
+
       <SafeAreaView style={{ flex: 1 }}>
         <FlatList
           data={properties}
@@ -160,7 +145,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],
-    paddingVertical: 10,
     paddingHorizontal: 30
   },
 
@@ -204,6 +188,42 @@ const styles = StyleSheet.create({
       width: 0
     },
     elevation: 2
+  },
+
+  filter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    marginVertical: 10
+  },
+
+  filterTitle: {
+    color: colors.h1,
+    fontSize: 17
+  },
+
+  filterCity: {
+    color: colors.h2,
+    fontSize: 16,
+    fontStyle: 'italic'
+  },
+
+  filterButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.blue,
+    borderRadius: 25,
+    height: 33,
+    paddingHorizontal: 20
+  },
+
+  filterButtonText: {
+    justifyContent: 'space-between',
+    color: colors['light-secondary'],
+    marginLeft: 7,
+    fontSize: 16,
+    fontWeight: 'bold'
   },
 
   emptyContainer: {
