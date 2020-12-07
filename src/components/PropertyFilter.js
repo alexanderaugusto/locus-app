@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native'
-import { InputArea } from '../components'
+import InputArea from './InputArea'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import colors from '../constants/colors.json'
 
