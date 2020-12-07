@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import api from '../../../src/services/api'
-import { ImovelCard } from '../../../src/components'
+import { PropertyCard } from '../../../src/components'
 
 import mockedProperty from '../../mocks/constants/property.json'
 
@@ -16,13 +16,13 @@ jest.mock('@react-navigation/native', () => {
 })
 jest.mock('../../../src/services/api')
 
-describe('ImovelCard unit test', () => {
+describe('PropertyCard unit test', () => {
   it('should add favorite property', async () => {
     const mockCallback = jest.fn()
     api.put.mockResolvedValue()
 
     const tree = create(
-      <ImovelCard
+      <PropertyCard
         favorite={false}
         item={mockedProperty}
         onChangeFavorite={mockCallback}
@@ -39,7 +39,7 @@ describe('ImovelCard unit test', () => {
     api.delete.mockResolvedValue()
 
     const tree = create(
-      <ImovelCard
+      <PropertyCard
         favorite={true}
         item={mockedProperty}
         onChangeFavorite={mockCallback}

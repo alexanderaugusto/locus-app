@@ -1,6 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { ImovelCard } from '../../../src/components'
+import { PropertyCard } from '../../../src/components'
 
 import mockedProperty from '../../mocks/constants/property.json'
 
@@ -14,9 +14,9 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-describe('ImovelCard snapshot test', () => {
-  it('render ImovelCard component correctly', () => {
-    const tree = create(<ImovelCard favorite={false} item={mockedProperty} />)
+describe('PropertyCard snapshot test', () => {
+  it('render PropertyCard component correctly', () => {
+    const tree = create(<PropertyCard favorite={false} item={mockedProperty} />)
 
     expect(tree.toJSON()).toMatchSnapshot()
   })

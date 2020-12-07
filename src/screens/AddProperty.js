@@ -245,7 +245,7 @@ export default function AddProperty() {
                 value={data.bathrooms}
                 onChangeText={value => onChange('bathrooms', value)}
               />
-              <Text style={styles.label}>Area (m3)</Text>
+              <Text style={styles.label}>Area m²</Text>
               <InputArea
                 testID="area-input"
                 keyboardType={'number-pad'}

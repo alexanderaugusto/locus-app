@@ -12,7 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import api from '../services/api'
-import { ImovelCard } from '../components'
+import { PropertyCard } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
 
@@ -113,7 +113,7 @@ export default function Favorite() {
                 onPress={() => navigation.navigate('PropertyDetail', { item })}
               >
                 <View>
-                  <ImovelCard
+                  <PropertyCard
                     item={item}
                     favorite={true}
                     onChangeFavorite={onChangeFavorite}

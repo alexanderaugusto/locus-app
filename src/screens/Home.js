@@ -14,7 +14,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { ImovelCard } from '../components'
+import { PropertyCard, PropertyFilter } from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
@@ -28,11 +28,17 @@ export default function Home() {
 
   const [properties, setProperties] = useState([])
   const [searchText] = useState('Santa Rita do Sapucaí, MG')
+  const [filterOpen, setFilterOpen] = useState(false)
+  const [filters, setFilters] = useState({})
   const [refresh, setRefresh] = useState(false)
 
-  const getProperties = async () => {
+  const getProperties = async (params = {}) => {
+    const config = {
+      params
+    }
+
     await api
-      .get('/properties')
+      .get('/properties', config)
       .then(res => {
         setProperties(res.data)
       })
@@ -65,7 +71,7 @@ export default function Home() {
 
   useEffect(() => {
     startLoading()
-    getProperties()
+    getProperties(filters)
   }, [signed])
 
   return (
@@ -86,6 +92,17 @@ export default function Home() {
         />
       </View>
 
+      <PropertyFilter
+        isOpen={filterOpen}
+        toggle={() => setFilterOpen(false)}
+        applyFilters={filters => {
+          setFilters(filters)
+          setFilterOpen(false)
+          startLoading()
+          getProperties(filters)
+        }}
+      />
+
       <View style={styles.inputContainer}>
         <TextInput
           style={{ padding: 5 }}
@@ -103,7 +120,10 @@ export default function Home() {
           <Text style={styles.filterTitle}>Imóveis para alugar</Text>
           <Text style={styles.filterCity}>{searchText}</Text>
         </View>
-        <TouchableOpacity style={styles.filterButton}>
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => setFilterOpen(true)}
+        >
           <Icon name="filter" size={16} color={colors['light-secondary']} />
           <Text style={styles.filterButtonText}>Filtrar</Text>
         </TouchableOpacity>
@@ -116,7 +136,7 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
           onRefresh={() => {
             setRefresh(true)
-            getProperties()
+            getProperties(filters)
           }}
           refreshing={refresh}
           ListEmptyComponent={!loading ? emptyList : <></>}
@@ -126,7 +146,7 @@ export default function Home() {
                 onPress={() => navigation.navigate('PropertyDetail', { item })}
               >
                 <View>
-                  <ImovelCard
+                  <PropertyCard
                     item={item}
                     favorite={item.favorite}
                     onChangeFavorite={onChangeFavorite}

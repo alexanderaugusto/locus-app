@@ -18,7 +18,7 @@ import colors from '../constants/colors.json'
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
-export default function ImovelCard({ item, favorite, onChangeFavorite }) {
+export default function PropertyCard({ item, favorite, onChangeFavorite }) {
   const navigation = useNavigation()
 
   const addFavorite = async () => {
