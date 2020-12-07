@@ -1,6 +1,5 @@
 import PropertyCard from './PropertyCard'
 import PropertyFilter from './PropertyFilter'
-import ModalContact from './Modal'
 import FloatButton from './FloatButton'
 import InputArea from './InputArea'
 import InputSelect from './InputSelect'
@@ -11,7 +10,6 @@ import Loader from './Loader'
 export {
   PropertyCard,
   PropertyFilter,
-  ModalContact,
   FloatButton,
   InputArea,
   InputSelect,
