@@ -259,7 +259,7 @@ exports[`PropertyCard snapshot test render PropertyCard component correctly 1`] 
           }
         }
       >
-        Aluguel
+        Aluguel 
         R$ 2.143,00
       </Text>
     </View>

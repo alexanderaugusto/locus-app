@@ -9,7 +9,6 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
         "backgroundColor": "#F0F0F0",
         "flex": 1,
         "paddingHorizontal": 30,
-        "paddingVertical": 10,
       },
       Object {
         "paddingBottom": 0,
@@ -80,7 +79,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
-      onChangeText={[Function]}
+      editable={false}
       placeholder="Pesquise por localidade..."
       placeholderTextColor="#999"
       rejectResponderTermination={true}
@@ -90,7 +89,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
         }
       }
       underlineColorAndroid="transparent"
-      value=""
+      value="Santa Rita do Sapucaí, MG"
     />
     <View
       accessible={true}
@@ -114,6 +113,82 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
         name="search"
         size={16}
       />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginVertical": 10,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#2C3E50",
+            "fontSize": 17,
+          }
+        }
+      >
+        Imóveis para alugar
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#7F8C8D",
+            "fontSize": 16,
+            "fontStyle": "italic",
+          }
+        }
+      >
+        Santa Rita do Sapucaí, MG
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#0565FC",
+          "borderRadius": 25,
+          "flexDirection": "row",
+          "height": 33,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Icon
+        color="#FFFFFF"
+        name="filter"
+        size={16}
+      />
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "justifyContent": "space-between",
+            "marginLeft": 7,
+          }
+        }
+      >
+        Filtrar
+      </Text>
     </View>
   </View>
   <RCTSafeAreaView
