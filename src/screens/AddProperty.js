@@ -107,7 +107,7 @@ export default function AddProperty() {
         >
           <Icon name={'arrow-left'} size={20} color={colors.h1} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Novo anuncio</Text>
+        <Text style={styles.headerTitle}>Novo anúncio</Text>
       </View>
 
       <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'}>

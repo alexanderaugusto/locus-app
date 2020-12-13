@@ -1,7 +1,7 @@
 import React from 'react'
 import * as auth from '../../../src/contexts/auth'
 import api from '../../../src/services/api'
-import { create } from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import Home from '../../../src/screens/Home'
 
 import mockedProperties from '../../mocks/constants/properties.json'
@@ -39,11 +39,12 @@ describe('Home unit test', () => {
 
     const tree = create(<Home />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
-
     const home = tree.root.findByProps({ testID: 'home' })
     expect(home).toBeDefined()
   })

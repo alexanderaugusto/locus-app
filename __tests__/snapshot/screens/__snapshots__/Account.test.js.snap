@@ -207,7 +207,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
           style={
             Object {
               "alignSelf": "center",
-              "color": "#7F8C8D",
+              "color": "#2C3E50",
               "fontSize": 18,
               "fontWeight": "500",
               "marginTop": 5,

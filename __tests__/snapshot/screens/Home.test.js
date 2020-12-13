@@ -1,6 +1,6 @@
 import React from 'react'
 import api from '../../../src/services/api'
-import { create } from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import Home from '../../../src/screens/Home'
 
 import mockedProperties from '../../mocks/constants/properties.json'
@@ -32,9 +32,11 @@ describe('Home snapshot test', () => {
   it('render Home screen correctly', async () => {
     const tree = create(<Home />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     expect(tree.toJSON()).toMatchSnapshot()

@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 18,
     fontWeight: '500',
-    color: colors.h2,
+    color: colors.h1,
     alignSelf: 'center'
   },
 

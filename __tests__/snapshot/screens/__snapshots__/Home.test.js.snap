@@ -212,7 +212,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
             "country": "Brasil",
             "createdAt": "2020-10-18T13: 59: 30.708Z",
             "description": "Aconchegante casa para alugar com 3 quartos e 1 banheiro no total. É bem localizado, próximo a pontos de interesse de Liberdade, tais como Estação Liberdade, Estação Sé. etc",
-            "id": 2,
+            "id": 1,
             "images": Array [
               Object {
                 "createdAt": "2020-10-18T13: 59: 30.771Z",

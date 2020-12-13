@@ -63,7 +63,7 @@ exports[`AddProperty snapshot test render AddProperty screen correctly 1`] = `
           }
         }
       >
-        Novo anuncio
+        Novo anúncio
       </Text>
     </View>
     <View

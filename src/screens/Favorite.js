@@ -35,7 +35,6 @@ export default function Favorite() {
       .catch(err => {
         console.error(err)
       })
-
     stopLoading()
     setRefresh(false)
   }

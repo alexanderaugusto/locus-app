@@ -1,7 +1,7 @@
 import React from 'react'
 import * as auth from '../../../src/contexts/auth'
 import api from '../../../src/services/api'
-import { create } from 'react-test-renderer'
+import { create, act } from 'react-test-renderer'
 import Favorite from '../../../src/screens/Favorite'
 
 import mockedProperties from '../../mocks/constants/properties.json'
@@ -39,9 +39,11 @@ describe('Favorite unit test', () => {
 
     const tree = create(<Favorite />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     const favorites = tree.root.findByProps({ testID: 'favorites' })

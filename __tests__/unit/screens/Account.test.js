@@ -41,9 +41,11 @@ describe('Account unit test', () => {
 
     const tree = create(<Account />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     const account = tree.root.findByProps({ testID: 'account' })
@@ -80,9 +82,11 @@ describe('Account unit test', () => {
     }))
     const tree = create(<Account />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     const name = tree.root.findByProps({ testID: 'account-input-name' }).props
@@ -95,9 +99,11 @@ describe('Account unit test', () => {
     }))
     const tree = create(<Account />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     const email = tree.root.findByProps({ testID: 'account-input-email' }).props
@@ -110,9 +116,11 @@ describe('Account unit test', () => {
     }))
     const tree = create(<Account />)
 
-    await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000)
-      jest.runAllTimers()
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
     })
 
     const phone = tree.root.findByProps({ testID: 'account-input-phone' }).props
