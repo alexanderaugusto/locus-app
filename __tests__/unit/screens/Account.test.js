@@ -127,7 +127,7 @@ describe('Account unit test', () => {
     expect(phone.value).toBe(mockedUser.phone)
   })
 
-  it('should show a specific error message when press button with empty name, email or phone values', () => {
+  it('should show a specific error message when press button with empty name, email or phone values', async () => {
     jest.spyOn(auth, 'useAuth').mockImplementation(() => ({
       signed: true
     }))
@@ -146,6 +146,13 @@ describe('Account unit test', () => {
     const button = tree.root.findByProps({ testID: 'account-save-button' })
       .props
     act(() => button.onPress())
+
+    await act(async () => {
+      await new Promise(resolve => {
+        setTimeout(() => resolve(), 2000)
+        jest.runAllTimers()
+      })
+    })
 
     const errorMessageText = tree.root.findByProps({
       testID: 'account-errorMessageText'
