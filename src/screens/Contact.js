@@ -59,7 +59,6 @@ export default function Contact() {
 
         <Image
           style={styles.ownerAvatar}
-          resizeMode="contain"
           source={{
             uri: STORAGE_URL + '/user/' + route.params?.item.owner.avatar
           }}
@@ -149,12 +148,13 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: '600',
     color: colors.h1,
-    textAlign: 'left'
+    textAlign: 'center',
+    paddingTop: 15
   },
 
   ownerAvatar: {
-    width: 150,
-    height: 150,
+    width: 140,
+    height: 140,
     borderRadius: 150,
     alignSelf: 'center',
     marginVertical: 15

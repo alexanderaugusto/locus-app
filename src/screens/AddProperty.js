@@ -94,7 +94,6 @@ export default function AddProperty() {
       .catch(err => {
         console.error(err)
       })
-
     stopLoading()
   }
 

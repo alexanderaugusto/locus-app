@@ -42,7 +42,8 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
             "color": "#2C3E50",
             "fontSize": 23,
             "fontWeight": "600",
-            "textAlign": "left",
+            "paddingTop": 15,
+            "textAlign": "center",
             "width": 300,
           }
         }
@@ -50,7 +51,6 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
         Contatar dono do Imóvel
       </Text>
       <Image
-        resizeMode="contain"
         source={
           Object {
             "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/user/undefined",
@@ -60,9 +60,9 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
           Object {
             "alignSelf": "center",
             "borderRadius": 150,
-            "height": 150,
+            "height": 140,
             "marginVertical": 15,
-            "width": 150,
+            "width": 140,
           }
         }
       />
