@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home snapshot test render Home screen correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#F0F0F0",
+          "flex": 1,
+          "padding": 30,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Icon
+          color="#2C3E50"
+          name="arrow-left"
+          size={20}
+        />
+      </View>
+      <Text
+        numberOfLiner={2}
+        style={
+          Object {
+            "color": "#2C3E50",
+            "fontSize": 23,
+            "fontWeight": "600",
+            "textAlign": "left",
+            "width": 300,
+          }
+        }
+      >
+        Contatar dono do Imóvel
+      </Text>
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/user/undefined",
+          }
+        }
+        style={
+          Object {
+            "alignSelf": "center",
+            "borderRadius": 150,
+            "height": 150,
+            "marginVertical": 15,
+            "width": 150,
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Icon
+          color="#7F8C8D"
+          name="phone"
+          size={25}
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#7F8C8D",
+                "fontSize": 17,
+                "marginLeft": 15,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Icon
+          color="#7F8C8D"
+          name="envelope"
+          size={25}
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#7F8C8D",
+                "fontSize": 17,
+                "marginLeft": 15,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Icon
+          color="#7F8C8D"
+          name="map-marker-alt"
+          size={25}
+        />
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#7F8C8D",
+                "fontSize": 17,
+                "marginLeft": 15,
+              }
+            }
+          >
+            undefined, undefined
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#7F8C8D",
+                "fontSize": 17,
+                "marginLeft": 15,
+              }
+            }
+          >
+            undefined - undefined
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#2C3E50",
+            "fontSize": 18,
+            "fontWeight": "600",
+            "paddingTop": 20,
+          }
+        }
+      >
+        Mensagem
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#0565FC",
+              "borderRadius": 25,
+              "borderWidth": 1,
+              "elevation": 2,
+              "flexDirection": "row",
+              "marginTop": 15,
+              "paddingHorizontal": 12,
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.2,
+              "shadowRadius": 2,
+            },
+            undefined,
+          ]
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Sua mensagem para o vendedor..."
+          placeholderTextColor="#AAADB3"
+          rejectResponderTermination={true}
+          secureTextEntry={false}
+          style={
+            Array [
+              Object {
+                "color": "#2C3E50",
+                "height": 46,
+                "paddingHorizontal": 8,
+                "paddingVertical": 10,
+                "width": "100%",
+              },
+              Object {
+                "height": 150,
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+          testID="message-input"
+          textAlignVertical="top"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "flex-end",
+            "backgroundColor": "#0565FC",
+            "borderRadius": 24,
+            "flexDirection": "row",
+            "height": 35,
+            "justifyContent": "center",
+            "marginVertical": 20,
+            "opacity": 1,
+            "width": 100,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Enviar
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
