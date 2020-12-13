@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
         .catch(err => {
           console.error(err)
           api.defaults.headers.Authorization = ''
+          AsyncStorage.clear()
         })
       await SplashScreen.hideAsync()
     } else {

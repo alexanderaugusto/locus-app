@@ -89,7 +89,7 @@ export default function AddProperty() {
     await api
       .post('/user/property', formData, config)
       .then(res => {
-        navigation.navigate('Anúnciar', { reload: true })
+        navigation.navigate('Anunciar', { reload: true })
       })
       .catch(err => {
         console.error(err)
