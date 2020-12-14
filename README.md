@@ -15,7 +15,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  IMovel - em desenvolvimento 🚧
+	✅ IMovel - Concluído ✅
 </h4>
 
 <p align="center">
@@ -31,9 +31,9 @@
 
 ## 💻 Sobre o projeto
 
-IMovel - é uma forma de conectar clientes e proprietários, tornando a escolha de alugar ou comprar um novo imóvel mais agradável e simples. 
+IMovel - é uma forma de conectar clientes e proprietários, tornando a escolha de alugar ou comprar um novo imóvel mais agradável e simples.
 
-Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo de aplicar os conhecimentos adquiridos durante o curso.
+Este projeto foi desenvolvido para a disciplina de Engenharia de Software, com o objetivo de aplicar os conhecimentos adquiridos durante o curso.
 
 ---
 
@@ -48,8 +48,7 @@ Projeto desenvolvido para a disciplina de Engenharia de Software, com o objetivo
 	  - [x] Listar
 	  - [x] Favoritar  
 	  - [x] Pesquisar
-    - [ ] Editar
-    - [ ] Deletar  
+    - [x] Deletar  
 ---
 
 ## 🚀 Como executar o projeto
@@ -247,6 +246,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
   -   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
   -   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
   -   **[Swiper](https://github.com/leecade/react-native-swiper)**
+  -   **[Swiper](https://github.com/leecade/react-native-swiper)**
+  -   **[Progress](https://github.com/oblador/react-native-progress)**
   
 - **Dependências de Desenvolvimento**:
   -   **[Jest Expo](https://docs.expo.io/guides/testing-with-jest/)**
