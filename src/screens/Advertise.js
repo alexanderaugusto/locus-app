@@ -5,13 +5,13 @@ import {
   StyleSheet,
   SafeAreaView,
   FlatList,
-  TouchableWithoutFeedback,
   TouchableOpacity,
   View,
   Image
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
+import Swipeable from 'react-native-swipeable'
 import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 import { FloatButton } from '../components'
@@ -40,6 +40,21 @@ export default function Advertise() {
       })
 
     stopLoading()
+  }
+
+  const removeProperty = async item => {
+    api
+      .delete(`/user/property/${item.id}`)
+      .then(res => {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Anunciar' }],
+          key: 'Home'
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
   useEffect(() => {
@@ -93,7 +108,6 @@ export default function Advertise() {
           data={createRows(properties, 2)}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
-          numColumns={2}
           onRefresh={() => {
             setRefresh(true)
             getProperties()
@@ -113,7 +127,20 @@ export default function Advertise() {
             }
 
             return (
-              <TouchableWithoutFeedback onPress={() => console.log('clicou')}>
+              <Swipeable
+                style={[styles.card, { marginTop: 10 }]}
+                rightButtonWidth={75}
+                rightButtons={[
+                  <View style={styles.deleteContainer} key={item.id.toString()}>
+                    <TouchableOpacity
+                      style={styles.deleteButton}
+                      onPress={() => removeProperty(item)}
+                    >
+                      <Text style={styles.deleteText}>Deletar</Text>
+                    </TouchableOpacity>
+                  </View>
+                ]}
+              >
                 <View style={styles.card}>
                   <Image
                     style={styles.cardImage}
@@ -124,15 +151,15 @@ export default function Advertise() {
                   />
                   <View style={styles.detailContainer}>
                     <Text
-                      numberOfLines={1}
+                      numberOfLines={2}
                       ellipsizeMode="tail"
                       style={styles.cardTitle}
                     >
                       {item.title}
                     </Text>
-                    <View style={{ flexDirection: 'row', flex: 1 }}>
+                    <View>
                       <Text
-                        numberOfLines={4}
+                        numberOfLines={3}
                         ellipsizeMode="tail"
                         style={styles.cardDescription}
                       >
@@ -144,7 +171,7 @@ export default function Advertise() {
                     </Text>
                   </View>
                 </View>
-              </TouchableWithoutFeedback>
+              </Swipeable>
             )
           }}
         />
@@ -223,31 +250,28 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    flexGrow: 1,
-    flexBasis: 0,
+    display: 'flex',
+    flexDirection: 'row',
     backgroundColor: colors['light-secondary'],
-    borderRadius: 10,
-    margin: 3,
-    paddingHorizontal: 8,
-    paddingVertical: 5,
-    justifyContent: 'center',
-    shadowColor: colors.h1,
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.8,
+    borderRadius: 12,
     elevation: 1,
-    height: 250
+    height: 120,
+    width: '100%'
   },
 
   detailContainer: {
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
-    flex: 1
+    flex: 1,
+    padding: 5
   },
 
   cardImage: {
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    width: '100%',
-    height: 120
+    borderTopLeftRadius: 12,
+    borderBottomLeftRadius: 12,
+    width: 120,
+    height: '100%',
+    marginRight: 5
   },
 
   cardTitle: {
@@ -257,6 +281,7 @@ const styles = StyleSheet.create({
   },
 
   cardDescription: {
+    paddingTop: 3,
     fontSize: 14,
     color: colors.h2
   },
@@ -265,6 +290,30 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     color: 'green',
-    marginTop: 5
+    margin: 5,
+    alignSelf: 'flex-end'
+  },
+
+  deleteContainer: {
+    flex: 1,
+    height: '100%',
+    width: 75
+  },
+
+  deleteButton: {
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    height: '100%',
+    width: 75,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: 'red'
+  },
+
+  deleteText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: colors['light-primary']
   }
 })
