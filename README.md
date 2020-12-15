@@ -21,7 +21,7 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
-<!--  <a href="#-layout">Layout</a> •  -->
+ <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
@@ -49,6 +49,14 @@ Este projeto foi desenvolvido para a disciplina de Engenharia de Software, com o
 	  - [x] Favoritar  
 	  - [x] Pesquisar
     - [x] Deletar  
+---
+
+## 🎨 Layout
+
+<p >
+  <img alt="IMovel Cadastro e Login - ios" src="https://user-images.githubusercontent.com/57146734/102154881-1cbb9900-3e59-11eb-9035-64429058a829.gif" width="25%;">
+</p>
+
 ---
 
 ## 🚀 Como executar o projeto
