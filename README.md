@@ -53,8 +53,9 @@ Este projeto foi desenvolvido para a disciplina de Engenharia de Software, com o
 
 ## 🎨 Layout
 
-<p >
-  <img alt="IMovel Cadastro e Login - ios" src="https://user-images.githubusercontent.com/57146734/102154881-1cbb9900-3e59-11eb-9035-64429058a829.gif" width="25%;">
+<p align="center">
+  <img alt="IMovel Cadastro e Login - ios" src="https://user-images.githubusercontent.com/57146734/102154881-1cbb9900-3e59-11eb-9035-64429058a829.gif" width="30%;">
+  <img alt="IMovel - Android" src="https://user-images.githubusercontent.com/57146734/102157727-c81b1c80-3e5e-11eb-9867-025b3d6e0e27.gif" width="30%;">
 </p>
 
 ---
