@@ -255,7 +255,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
   -   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
   -   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
   -   **[Swiper](https://github.com/leecade/react-native-swiper)**
-  -   **[Swiper](https://github.com/leecade/react-native-swiper)**
   -   **[Progress](https://github.com/oblador/react-native-progress)**
   
 - **Dependências de Desenvolvimento**:
