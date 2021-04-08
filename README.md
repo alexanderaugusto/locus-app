@@ -33,8 +33,6 @@
 
 IMovel - é uma forma de conectar clientes e proprietários, tornando a escolha de alugar ou comprar um novo imóvel mais agradável e simples.
 
-Este projeto foi desenvolvido para a disciplina de Engenharia de Software, com o objetivo de aplicar os conhecimentos adquiridos durante o curso.
-
 ---
 
 ## ⚙️ Funcionalidades
