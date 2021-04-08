@@ -62,7 +62,7 @@ IMovel - é uma forma de conectar clientes e proprietários, tornando a escolha 
 
 Este projeto é dividido em três partes:
 1. [Backend](https://github.com/alexanderaugusto/imovel-api.git)
-2. [Frontend - Web](https://github.com/alexanderaugusto/imovel-app.git)
+2. [Frontend - Web](https://github.com/alexanderaugusto/imovel-web.git)
 3. Frontend - Mobile (Neste repositório)
 
 ### Pré-requisitos
