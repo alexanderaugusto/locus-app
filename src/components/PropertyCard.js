@@ -23,7 +23,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
 
   const addFavorite = async () => {
     api
-      .put(`/user/favorite/${item.id}`, null)
+      .put(`/property/${item.id}/favorite`, null)
       .then(res => {
         if (onChangeFavorite) {
           onChangeFavorite(item, true)
@@ -36,7 +36,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
 
   const removeFavorite = async () => {
     api
-      .delete(`/user/favorite/${item.id}`)
+      .delete(`/property/${item.id}/favorite`)
       .then(res => {
         if (onChangeFavorite) {
           onChangeFavorite(item, false)
@@ -95,7 +95,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
         </View>
 
         <Text style={styles.address} numberOfLines={3}>
-          {`${item.street}, ${item.neighborhood} - ${item.city} (${item.state})`}
+          {`${item.address.street}, ${item.address.neighborhood} - ${item.address.city} (${item.address.state})`}
         </Text>
       </View>
     </View>

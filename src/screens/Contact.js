@@ -32,7 +32,7 @@ export default function Contact() {
     setButtonLoading(true)
 
     await api
-      .post(`/user/property/${route.params?.item.id}/owner/contact`, data)
+      .post(`/property/${route.params?.item.id}/owner/contact`, data)
       .then(res => {
         navigation.goBack()
       })
@@ -101,7 +101,9 @@ export default function Contact() {
                 route.params?.item.neighborhood}
             </Text>
             <Text style={styles.contactText}>
-              {route.params?.item.city + ' - ' + route.params?.item.state}
+              {route.params?.item.address.city +
+                ' - ' +
+                route.params?.item.address.state}
             </Text>
           </View>
         </View>

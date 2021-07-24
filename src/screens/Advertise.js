@@ -44,7 +44,7 @@ export default function Advertise() {
 
   const removeProperty = async item => {
     api
-      .delete(`/user/property/${item.id}`)
+      .delete(`/property/${item.id}`)
       .then(res => {
         navigation.reset({
           index: 0,

@@ -14,7 +14,7 @@ import {
 import { InputArea, ImagePickerFunction, InputSelect } from '../components'
 import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
-import { createRows } from '../utils/util'
+import { createRows, formatZipcode } from '../utils/util'
 import api from '../services/api'
 import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
@@ -31,19 +31,22 @@ export default function AddProperty() {
   const [data, setData] = useState({
     title: '',
     description: '',
-    street: '',
-    neighborhood: '',
-    city: '',
-    state: 'MG',
-    country: 'Brasil',
     price: '',
     bedrooms: '',
     bathrooms: '',
     area: '',
     place: '',
+    garage: '',
     animal: true,
     type: 'Casa',
-    images: []
+    images: [],
+    street: '',
+    neighborhood: '',
+    number: '',
+    city: '',
+    state: 'MG',
+    country: 'Brasil',
+    zipcode: ''
   })
   const [activeStep, setActiveStep] = useState(0)
 
@@ -64,21 +67,27 @@ export default function AddProperty() {
     }
 
     const formData = new FormData()
+    const address = {
+      street: data.street,
+      neighborhood: data.neighborhood,
+      number: parseInt(data.number, 10),
+      city: data.city,
+      state: data.state,
+      country: data.country,
+      zipcode: data.zipcode
+    }
 
     formData.append('title', data.title)
     formData.append('description', data.description)
-    formData.append('street', data.street)
-    formData.append('neighborhood', data.neighborhood)
-    formData.append('city', data.city)
-    formData.append('state', data.state)
-    formData.append('country', data.country)
     formData.append('price', parseFloat(data.price.replace(',', '.')))
     formData.append('bedrooms', parseInt(data.bedrooms, 10))
     formData.append('bathrooms', parseInt(data.bathrooms, 10))
     formData.append('area', parseFloat(data.area.replace(',', '.')))
     formData.append('place', parseInt(data.place, 10))
+    formData.append('garage', parseInt(data.place, 10))
     formData.append('animal', data.animal)
     formData.append('type', data.type)
+    formData.append('address', JSON.stringify(address))
 
     data.images.forEach(image => {
       formData.append('files', image)
@@ -87,7 +96,7 @@ export default function AddProperty() {
     startLoading()
 
     await api
-      .post('/user/property', formData, config)
+      .post('/property', formData, config)
       .then(res => {
         navigation.navigate('Anunciar', { reload: true })
       })
@@ -172,6 +181,13 @@ export default function AddProperty() {
               <Text style={styles.message}>
                 Onde seu imóvel está localizado?
               </Text>
+              <Text style={styles.label}>CEP</Text>
+              <InputArea
+                testID="zipcode-input"
+                placeholder={'CEP do imóvel...'}
+                value={formatZipcode(data.zipcode)}
+                onChangeText={value => onChange('zipcode', value)}
+              />
               <Text style={styles.label}>Rua</Text>
               <InputArea
                 testID="street-input"
@@ -185,6 +201,13 @@ export default function AddProperty() {
                 placeholder={'Bairro do imóvel...'}
                 value={data.neighborhood}
                 onChangeText={value => onChange('neighborhood', value)}
+              />
+              <Text style={styles.label}>Número</Text>
+              <InputArea
+                testID="number-input"
+                placeholder={'Número do imóvel...'}
+                value={data.number}
+                onChangeText={value => onChange('number', value)}
               />
               <Text style={styles.label}>Cidade</Text>
               <InputArea
@@ -259,6 +282,14 @@ export default function AddProperty() {
                 placeholder={'É um imóvel para quantas pessoas?'}
                 value={data.place}
                 onChangeText={value => onChange('place', value)}
+              />
+              <Text style={styles.label}>Vagas na garagem</Text>
+              <InputArea
+                testID="garage-input"
+                keyboardType={'number-pad'}
+                placeholder={'Possui garagem? Se sim, quantas vagas?'}
+                value={data.garage}
+                onChangeText={value => onChange('garage', value)}
               />
               <Text style={styles.label}>Animal</Text>
               <InputSelect

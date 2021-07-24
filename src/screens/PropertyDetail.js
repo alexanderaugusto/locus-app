@@ -54,10 +54,12 @@ export default function PropertyDetail() {
             {route.params?.item.title}
           </Text>
           <Text style={styles.address}>
-            {route.params?.item.street}, {route.params?.item.neighborhood}
+            {route.params?.item.address.street},{' '}
+            {route.params?.item.address.neighborhood}
           </Text>
           <Text style={styles.address}>
-            {route.params?.item.city} - {route.params?.item.state}
+            {route.params?.item.address.city} -{' '}
+            {route.params?.item.address.state}
           </Text>
 
           <Text style={styles.label}>Sobre esse imóvel:</Text>
