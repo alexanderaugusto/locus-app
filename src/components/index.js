@@ -6,6 +6,7 @@ import InputSelect from './InputSelect'
 import ImagePickerFunction from './ImagePicker'
 import SwiperImage from './SwiperImage'
 import Loader from './Loader'
+import StepProgress from './StepProgress'
 
 export {
   PropertyCard,
@@ -15,5 +16,6 @@ export {
   InputSelect,
   ImagePickerFunction,
   SwiperImage,
-  Loader
+  Loader,
+  StepProgress
 }

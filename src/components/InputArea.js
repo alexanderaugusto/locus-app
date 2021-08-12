@@ -70,13 +70,17 @@ export default function InputArea({
 const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: colors['light-secondary'],
-    alignSelf: 'stretch',
+
     borderWidth: 1,
     borderColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
+
     marginTop: 15,
     paddingHorizontal: 12,
+
     flexDirection: 'row',
+    alignSelf: 'stretch',
+
     shadowOpacity: 0.2,
     shadowRadius: 2,
     shadowOffset: {

@@ -11,11 +11,17 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native'
-import { InputArea, ImagePickerFunction, InputSelect } from '../components'
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
+import {
+  InputArea,
+  ImagePickerFunction,
+  InputSelect,
+  StepProgress
+} from '../components'
+import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import { createRows, formatZipcode } from '../utils/util'
-import api from '../services/api'
+import api, { zipcodeAPI } from '../services/api'
+
 import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { useLoading } from '../contexts/loading'
@@ -106,6 +112,33 @@ export default function AddProperty() {
     stopLoading()
   }
 
+  const searchZipcode = async zipcode => {
+    const validZipCode = /^[0-9]{8}$/
+
+    if (validZipCode.test(zipcode)) {
+      await zipcodeAPI
+        .get(`/${zipcode}/json`)
+        .then(res => {
+          if (res.data.erro) {
+            // Printar mensagem de erro para usuário
+            console.log('Por favor, entre com um CEP válido!')
+          }
+
+          setData({
+            ...data,
+            zipcode: zipcode,
+            street: res.data.logradouro,
+            neighborhood: res.data.bairro,
+            city: res.data.localidade,
+            state: res.data.uf
+          })
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
+  }
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
@@ -130,12 +163,10 @@ export default function AddProperty() {
           completedStepIconColor={colors.blue}
           completedCheckColor={colors['light-secondary']}
         >
-          <ProgressStep
+          <StepProgress
             key={0}
             testID="next-button-1"
-            nextBtnText={'Próximo'}
-            nextBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
           >
@@ -144,6 +175,7 @@ export default function AddProperty() {
                 Primeiramente, nos diga as informações que você gostaria de
                 conter no seu anúncio
               </Text>
+
               <Text style={styles.label}>Título</Text>
               <InputArea
                 testID="title-input"
@@ -151,6 +183,7 @@ export default function AddProperty() {
                 value={data.title}
                 onChangeText={value => onChange('title', value)}
               />
+
               <Text style={styles.label}>Descrição</Text>
               <InputArea
                 testID="description-input"
@@ -162,17 +195,13 @@ export default function AddProperty() {
                 onChangeText={value => onChange('description', value)}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={1}
             testID="next-button-2"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
+            previousBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
@@ -181,27 +210,34 @@ export default function AddProperty() {
               <Text style={styles.message}>
                 Onde seu imóvel está localizado?
               </Text>
+
               <Text style={styles.label}>CEP</Text>
               <InputArea
                 testID="zipcode-input"
                 placeholder={'CEP do imóvel...'}
                 value={formatZipcode(data.zipcode)}
-                onChangeText={value => onChange('zipcode', value)}
+                onChangeText={value => {
+                  onChange('zipcode', value)
+                  searchZipcode(value)
+                }}
               />
+
               <Text style={styles.label}>Rua</Text>
               <InputArea
                 testID="street-input"
                 placeholder={'Rua do imóvel...'}
                 value={data.street}
-                onChangeText={value => onChange('street', value)}
+                editable={false}
               />
+
               <Text style={styles.label}>Bairro</Text>
               <InputArea
                 testID="neighborhood-input"
                 placeholder={'Bairro do imóvel...'}
                 value={data.neighborhood}
-                onChangeText={value => onChange('neighborhood', value)}
+                editable={false}
               />
+
               <Text style={styles.label}>Número</Text>
               <InputArea
                 testID="number-input"
@@ -209,13 +245,15 @@ export default function AddProperty() {
                 value={data.number}
                 onChangeText={value => onChange('number', value)}
               />
+
               <Text style={styles.label}>Cidade</Text>
               <InputArea
                 testID="city-input"
                 placeholder={'Cidade do imóvel...'}
                 value={data.city}
-                onChangeText={value => onChange('city', value)}
+                editable={false}
               />
+
               <Text style={styles.label}>Estado</Text>
               <InputSelect
                 testID="state-input"
@@ -224,17 +262,13 @@ export default function AddProperty() {
                 onChange={item => onChange('state', item.value)}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={2}
             testID="next-button-3"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
+            previousBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
@@ -243,6 +277,7 @@ export default function AddProperty() {
               <Text style={styles.message}>
                 Precisamos de mais algumas informações do seu imóvel
               </Text>
+
               <Text style={styles.label}>Tipo</Text>
               <InputSelect
                 testID="type-input"
@@ -251,6 +286,7 @@ export default function AddProperty() {
                 menuTitle="Qual o tipo de imóve?"
                 onChange={item => onChange('type', item.value)}
               />
+
               <Text style={styles.label}>Quartos</Text>
               <InputArea
                 testID="bedrooms-input"
@@ -259,6 +295,7 @@ export default function AddProperty() {
                 value={data.bedrooms}
                 onChangeText={value => onChange('bedrooms', value)}
               />
+
               <Text style={styles.label}>Banheiros</Text>
               <InputArea
                 testID="bathrooms-input"
@@ -267,6 +304,7 @@ export default function AddProperty() {
                 value={data.bathrooms}
                 onChangeText={value => onChange('bathrooms', value)}
               />
+
               <Text style={styles.label}>Area m²</Text>
               <InputArea
                 testID="area-input"
@@ -275,6 +313,7 @@ export default function AddProperty() {
                 value={data.area}
                 onChangeText={value => onChange('area', value)}
               />
+
               <Text style={styles.label}>Vagas</Text>
               <InputArea
                 testID="place-input"
@@ -283,6 +322,7 @@ export default function AddProperty() {
                 value={data.place}
                 onChangeText={value => onChange('place', value)}
               />
+
               <Text style={styles.label}>Vagas na garagem</Text>
               <InputArea
                 testID="garage-input"
@@ -291,6 +331,7 @@ export default function AddProperty() {
                 value={data.garage}
                 onChangeText={value => onChange('garage', value)}
               />
+
               <Text style={styles.label}>Animal</Text>
               <InputSelect
                 testID="animal-input"
@@ -303,17 +344,13 @@ export default function AddProperty() {
                 onChange={item => onChange('animal', item.value)}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={3}
             testID="next-button-4"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
+            previousBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
@@ -365,17 +402,13 @@ export default function AddProperty() {
                 />
               </SafeAreaView>
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={4}
             testID="submit-button"
-            previousBtnText={'Anterior'}
-            finishBtnText={'Finalizar'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            previousBtnText={true}
+            finishBtnText={true}
             scrollable={false}
             onSubmit={() => addProperty()}
             onPrevious={() => setActiveStep(activeStep - 1)}
@@ -394,7 +427,7 @@ export default function AddProperty() {
                 onChangeText={value => onChange('price', value)}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
         </ProgressSteps>
       </KeyboardAvoidingView>
     </ScrollView>
@@ -413,7 +446,7 @@ const styles = StyleSheet.create({
   },
 
   textArea: {
-    height: 100,
+    height: 130,
     justifyContent: 'flex-start'
   },
 
@@ -466,21 +499,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     color: colors.h2
-  },
-
-  button: {
-    height: 35,
-    width: 90,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  buttonText: {
-    color: colors['light-secondary'],
-    fontWeight: 'bold',
-    fontSize: 16
   },
 
   imageContainer: {

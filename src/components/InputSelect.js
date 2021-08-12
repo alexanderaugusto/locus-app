@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     borderWidth: 1,
     borderColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
     marginTop: 15,
     paddingHorizontal: 20,
     flexDirection: 'row',
