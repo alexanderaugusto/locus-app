@@ -14,7 +14,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { PropertyCard, PropertyFilter } from '../components'
+import { PropertyCard, PropertyFilter, Warning } from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
@@ -56,12 +56,7 @@ export default function Home() {
 
   const emptyList = () => {
     return (
-      <View style={styles.emptyContainer}>
-        <Icon name="frown" size={120} color={colors.blue} />
-        <Text style={styles.emptyList}>
-          Ops, nenhuma propriedade encontrada!
-        </Text>
-      </View>
+      <Warning title={'Ops, nenhuma propriedade encontrada!'} icon={'frown'} />
     )
   }
 
@@ -240,22 +235,5 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     fontSize: 16,
     fontWeight: 'bold'
-  },
-
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyList: {
-    marginTop: 15,
-    color: '#333740',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
   }
 })

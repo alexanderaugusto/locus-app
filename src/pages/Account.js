@@ -10,9 +10,7 @@ import {
   ScrollView,
   ActivityIndicator
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import Icon from '@expo/vector-icons/FontAwesome5'
-import { InputArea, ImagePickerFunction } from '../components'
+import { InputArea, ImagePickerFunction, Warning } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { formatPhoneNumber } from '../utils/util'
@@ -21,7 +19,6 @@ import { useLoading } from '../contexts/loading'
 import colors from '../utils/constants/colors.json'
 
 export default function Account() {
-  const navigation = useNavigation()
   const { signed, signOut } = useAuth()
   const { startLoading, stopLoading } = useLoading()
 
@@ -108,29 +105,16 @@ export default function Account() {
 
   if (!signed) {
     return (
-      <KeyboardAvoidingView
-        testID="empty-message"
-        style={styles.emptyContainer}
-      >
-        <Icon name="user-alt" size={120} color={colors.blue} />
-
-        <View>
-          <Text style={styles.emptyTitle}>
-            Você ainda não está logado em uma conta!
-          </Text>
-          <Text style={styles.emptyDescription}>
-            Faça o login no aplicativo para poder acessar os dados da sua conta.
-          </Text>
-        </View>
-
-        <TouchableOpacity
-          testID={'account-empty-button'}
-          style={styles.emptyButton}
-          onPress={() => navigation.navigate('SignIn')}
-        >
-          <Text style={styles.emptyButtonText}>Entrar</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <Warning
+        title={'Você ainda não está logado em uma conta!'}
+        description={
+          'Faça o login no aplicativo para poder acessar os dados da sua conta.'
+        }
+        icon={'user-alt'}
+        isBtnVisible={true}
+        btnRoute={'SignIn'}
+        btnText={'Entrar'}
+      />
     )
   }
 
@@ -224,45 +208,6 @@ export default function Account() {
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyTitle: {
-    color: colors.h1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-
-  emptyDescription: {
-    color: colors.p,
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 15
-  },
-
-  emptyButton: {
-    height: 40,
-    width: 130,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    paddingHorizontal: 25,
-    marginVertical: 10
-  },
-
-  emptyButtonText: {
-    color: colors['light-secondary']
-  },
-
   scrollContainer: {
     flex: 1,
     backgroundColor: colors['light-primary']

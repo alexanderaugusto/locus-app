@@ -7,6 +7,7 @@ import ImagePickerFunction from './ImagePicker'
 import SwiperImage from './SwiperImage'
 import Loader from './Loader'
 import StepProgress from './StepProgress'
+import Warning from './Warning'
 
 export {
   PropertyCard,
@@ -17,5 +18,6 @@ export {
   ImagePickerFunction,
   SwiperImage,
   Loader,
-  StepProgress
+  StepProgress,
+  Warning
 }
