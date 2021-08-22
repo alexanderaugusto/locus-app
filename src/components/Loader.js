@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Modal } from 'react-native'
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 import ProgressBar from 'react-native-progress/Bar'
 
 export default function Loader({ loading }) {

@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27

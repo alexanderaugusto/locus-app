@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text } from 'react-native'
 import Swiper from 'react-native-swiper'
 import { STORAGE_URL } from '../services/api'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function SwiperImage({ images }) {
   if (images.length) {

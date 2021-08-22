@@ -17,7 +17,7 @@ import api, { STORAGE_URL } from '../services/api'
 import { formatPhoneNumber, formatCPF } from '../utils/util'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function SignUp() {
   const navigation = useNavigation()

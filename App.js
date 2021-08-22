@@ -2,10 +2,13 @@ import 'react-native-gesture-handler'
 import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
 import * as Updates from 'expo-updates'
+
+// Contexts
 import { AuthProvider } from './src/contexts/auth'
 import { LoadingProvider } from './src/contexts/loading'
+
 import Routes from './src/routes'
-import colors from './src/constants/colors.json'
+import colors from './src/utils/constants/colors.json'
 
 export default function App() {
   useEffect(() => {

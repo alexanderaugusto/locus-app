@@ -16,7 +16,7 @@ import { PropertyCard } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function Favorite() {
   const navigation = useNavigation()

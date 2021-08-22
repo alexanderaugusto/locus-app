@@ -14,7 +14,7 @@ import { InputArea } from '../components'
 import { useAuth } from '../contexts/auth'
 
 import logo from '../../assets/logo-text.png'
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function SignIn() {
   const navigation = useNavigation()

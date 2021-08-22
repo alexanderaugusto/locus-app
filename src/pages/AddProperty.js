@@ -26,9 +26,9 @@ import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
-import states from '../constants/states.json'
-import types from '../constants/types.json'
+import colors from '../utils/constants/colors.json'
+import states from '../utils/constants/states.json'
+import types from '../utils/constants/types.json'
 
 export default function AddProperty() {
   const navigation = useNavigation()

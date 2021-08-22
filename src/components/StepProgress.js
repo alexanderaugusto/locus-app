@@ -3,7 +3,7 @@ import React from 'react'
 import { ProgressStep } from 'react-native-progress-steps'
 import { StyleSheet } from 'react-native'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function StepProgress({
   children,

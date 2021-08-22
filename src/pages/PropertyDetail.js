@@ -13,7 +13,7 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 import { useAuth } from '../contexts/auth'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function PropertyDetail() {
   const navigation = useNavigation()
