@@ -667,7 +667,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
     width: 120,
     height: 40
   },

@@ -6,11 +6,10 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  Platform,
-  ActivityIndicator
+  Platform
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { InputArea } from '../components'
+import { InputArea, Button } from '../components'
 import { useAuth } from '../contexts/auth'
 
 import logo from '../../assets/logo-text.png'
@@ -61,36 +60,34 @@ export default function SignIn() {
         placeholder={'Entre com o seu email'}
         keyboardType={'email-address'}
         value={email}
-        onChangeText={value => setEmail(value)}
+        onChangeText={value => {
+          setErrorMessage('')
+          setEmail(value)
+        }}
       />
+
       <InputArea
         testID={'signIn-password'}
         password={true}
         prefixIcon={'lock'}
         placeholder={'Entre com a sua senha'}
         value={password}
-        onChangeText={value => setPassword(value)}
+        onChangeText={value => {
+          setErrorMessage('')
+          setPassword(value)
+        }}
       />
 
-      <TouchableOpacity
-        disabled={buttonLoading}
-        testID={'signIn-button'}
-        style={styles.button}
+      <Button
+        btnText={'Entrar'}
         onPress={() => {
           email === '' || password === ''
             ? setErrorMessage('Preencha todos os campos corretamente!')
             : login()
         }}
-      >
-        {buttonLoading && (
-          <ActivityIndicator
-            style={styles.buttonLoader}
-            size="small"
-            color={colors['light-secondary']}
-          />
-        )}
-        <Text style={styles.buttonText}>Entrar</Text>
-      </TouchableOpacity>
+        buttonLoading={buttonLoading}
+      />
+
       <View style={styles.signUpContainer}>
         <Text style={styles.signUpText}>Ainda não possui conta?</Text>
         <TouchableOpacity
@@ -138,28 +135,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: colors.danger,
     textAlign: 'center'
-  },
-
-  button: {
-    height: 45,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    marginTop: 20,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
-
-  buttonText: {
-    color: colors['light-secondary'],
-    fontWeight: 'bold',
-    fontSize: 16
-  },
-
-  buttonLoader: {
-    marginRight: 10,
-    marginLeft: -10
   },
 
   signUpContainer: {

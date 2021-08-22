@@ -1,14 +1,8 @@
 import React from 'react'
-import {
-  KeyboardAvoidingView,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native'
+import { KeyboardAvoidingView, Text, View, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-
+import Button from './Button'
 import colors from '../utils/constants/colors.json'
 
 export default function Warning({
@@ -32,13 +26,10 @@ export default function Warning({
       </View>
 
       {isBtnVisible && (
-        <TouchableOpacity
-          testID={'empty-button'}
-          style={styles.emptyButton}
+        <Button
+          btnText={btnText}
           onPress={() => navigation.navigate(btnRoute)}
-        >
-          <Text style={styles.emptyButtonText}>{btnText}</Text>
-        </TouchableOpacity>
+        />
       )}
     </KeyboardAvoidingView>
   )
@@ -67,24 +58,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     marginTop: 15
-  },
-
-  emptyButton: {
-    height: 40,
-    minWidth: 150,
-    width: 'auto',
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    paddingHorizontal: 25,
-    marginVertical: 10
-  },
-
-  emptyButtonText: {
-    color: colors['light-secondary'],
-    fontWeight: '600',
-    fontSize: 16
   }
 })

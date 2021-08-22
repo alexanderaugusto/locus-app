@@ -29,7 +29,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
       .put(`/property/${item.id}/favorite`, null)
       .then(res => {
         if (onChangeFavorite) {
-          onChangeFavorite(item, true)
+          onChangeFavorite()
         }
       })
       .catch(err => {
@@ -42,7 +42,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
       .delete(`/property/${item.id}/favorite`)
       .then(res => {
         if (onChangeFavorite) {
-          onChangeFavorite(item, false)
+          onChangeFavorite()
         }
       })
       .catch(err => {

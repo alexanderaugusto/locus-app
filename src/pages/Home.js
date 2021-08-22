@@ -50,7 +50,8 @@ export default function Home() {
     setRefresh(false)
   }
 
-  const onChangeFavorite = (item, favorite) => {
+  const onChangeFavorite = () => {
+    startLoading()
     getProperties(filters)
   }
 
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     minHeight: 46,
     borderWidth: 1,
     borderColor: colors.blue,
-    borderRadius: 4,
+    borderRadius: 8,
     paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
     height: 33,
     paddingHorizontal: 20
   },

@@ -38,11 +38,8 @@ export default function Favorite() {
   }
 
   const onChangeFavorite = item => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Favoritos' }],
-      key: 'Home'
-    })
+    startLoading()
+    getFavorites()
   }
 
   useEffect(() => {
@@ -107,44 +104,6 @@ export default function Favorite() {
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyTitle: {
-    color: colors.h1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-
-  emptyDescription: {
-    color: colors.p,
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 15
-  },
-
-  emptyButton: {
-    height: 40,
-    width: 130,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    marginVertical: 10
-  },
-
-  emptyButtonText: {
-    color: colors['light-secondary']
-  },
-
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],

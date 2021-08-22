@@ -7,10 +7,9 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
-  ActivityIndicator
+  ScrollView
 } from 'react-native'
-import { InputArea, ImagePickerFunction, Warning } from '../components'
+import { InputArea, ImagePickerFunction, Warning, Button } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { formatPhoneNumber } from '../utils/util'
@@ -157,6 +156,7 @@ export default function Account() {
           <Text testID={'account-errorMessageText'} style={styles.errorMessage}>
             {errorMessage}
           </Text>
+
           <InputArea
             testID={'account-input-name'}
             label={'Nome: '}
@@ -164,6 +164,7 @@ export default function Account() {
             value={userInfo.name}
             onChangeText={value => onChange('name', value)}
           />
+
           <InputArea
             testID={'account-input-email'}
             label={'E-mail: '}
@@ -172,6 +173,7 @@ export default function Account() {
             keyboardType={'email-address'}
             onChangeText={value => onChange('email', value)}
           />
+
           <InputArea
             testID={'account-input-phone'}
             label={'Celular: '}
@@ -180,10 +182,9 @@ export default function Account() {
             keyboardType={'phone-pad'}
             onChangeText={value => onChange('phone', value)}
           />
-          <TouchableOpacity
-            disabled={buttonLoading}
-            testID={'account-save-button'}
-            style={styles.button}
+
+          <Button
+            btnText={'Salvar'}
             onPress={() =>
               userInfo.name === '' ||
               userInfo.email === '' ||
@@ -191,16 +192,8 @@ export default function Account() {
                 ? setErrorMessage('Preencha todos os campos corretamente!')
                 : updateInfo()
             }
-          >
-            {buttonLoading && (
-              <ActivityIndicator
-                style={styles.buttonLoader}
-                size="small"
-                color={colors['light-secondary']}
-              />
-            )}
-            <Text style={styles.buttonText}>Salvar</Text>
-          </TouchableOpacity>
+            buttonLoading={buttonLoading}
+          />
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
@@ -244,7 +237,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 8,
     backgroundColor: colors['light-secondary'],
-    borderRadius: 24,
+    borderRadius: 8,
     shadowColor: colors.h1,
     shadowOffset: {
       width: 0,
@@ -280,35 +273,17 @@ const styles = StyleSheet.create({
     height: 30,
     width: 100,
     backgroundColor: colors.blue,
-    borderRadius: 24,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
     marginVertical: 10
   },
 
-  button: {
-    height: 35,
-    width: 150,
-    maxWidth: 200,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    marginTop: 30
-  },
-
   buttonText: {
     color: colors['light-secondary'],
     fontWeight: 'bold',
     fontSize: 16
-  },
-
-  buttonLoader: {
-    marginRight: 10,
-    marginLeft: -10
   },
 
   form: {
