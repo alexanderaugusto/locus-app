@@ -53,6 +53,12 @@ export default function Home() {
   const onChangeFavorite = () => {
     startLoading()
     getProperties(filters)
+
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+      key: 'Favoritos'
+    })
   }
 
   const emptyList = () => {

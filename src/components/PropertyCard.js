@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 1,
-    borderRadius: 20,
+    borderRadius: 12,
     overflow: 'hidden',
     backgroundColor: colors['light-secondary'],
     marginVertical: 10

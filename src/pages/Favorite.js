@@ -40,6 +40,11 @@ export default function Favorite() {
   const onChangeFavorite = item => {
     startLoading()
     getFavorites()
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Favoritos' }],
+      key: 'Home'
+    })
   }
 
   useEffect(() => {
