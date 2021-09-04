@@ -2,6 +2,7 @@ import PropertyCard from './PropertyCard'
 import PropertyFilter from './PropertyFilter'
 import FloatButton from './FloatButton'
 import Button from './Button'
+import Error from './Error'
 import InputArea from './InputArea'
 import InputSelect from './InputSelect'
 import ImagePickerFunction from './ImagePicker'
@@ -15,6 +16,7 @@ export {
   PropertyFilter,
   FloatButton,
   Button,
+  Error,
   InputArea,
   InputSelect,
   ImagePickerFunction,

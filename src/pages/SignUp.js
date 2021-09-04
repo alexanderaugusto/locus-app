@@ -9,7 +9,12 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
-import { InputArea, ImagePickerFunction, StepProgress } from '../components'
+import {
+  InputArea,
+  ImagePickerFunction,
+  StepProgress,
+  Error
+} from '../components'
 import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
@@ -36,7 +41,7 @@ export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0)
   const [emailIsValid, setEmailIsValid] = useState(false)
   const [passwordIsValid, setPasswordIsValid] = useState(false)
-  const [emailErrorMessage, setEmailErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const onChange = (type, value) => {
     setData({ ...data, [type]: value })
@@ -77,24 +82,24 @@ export default function SignUp() {
   const handleEmail = () => {
     if (data.email !== data.confirmEmail) {
       setEmailIsValid(true)
-      setEmailErrorMessage(
+      setErrorMessage(
         'Ops, os e-mails são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
       )
     } else {
       setEmailIsValid(false)
-      setEmailErrorMessage('')
+      setErrorMessage('')
     }
   }
 
   const handlePassword = () => {
     if (data.password !== data.confirmPassword) {
       setPasswordIsValid(true)
-      setEmailErrorMessage(
+      setErrorMessage(
         'Ops, as senha são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
       )
     } else {
       setPasswordIsValid(false)
-      setEmailErrorMessage('')
+      setErrorMessage('')
     }
   }
 
@@ -180,7 +185,7 @@ export default function SignUp() {
             removeBtnRow={emailIsValid}
           >
             <View style={styles.containerInput}>
-              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
+              <Error errorMessage={errorMessage} />
 
               <Text style={styles.label}>E-mail</Text>
               <InputArea
@@ -221,7 +226,7 @@ export default function SignUp() {
                 números, letra maiúscula e minúscula e caracteres especiais.
               </Text>
 
-              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
+              <Error errorMessage={errorMessage} />
 
               <Text style={styles.label}>Senha</Text>
               <InputArea
@@ -332,14 +337,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     color: colors.h2,
-    textAlign: 'center'
-  },
-
-  errorMessage: {
-    paddingTop: 10,
-    fontSize: 14,
-    fontWeight: '500',
-    color: colors.danger,
     textAlign: 'center'
   },
 
