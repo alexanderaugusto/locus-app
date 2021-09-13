@@ -10,6 +10,7 @@ import SwiperImage from './SwiperImage'
 import Loader from './Loader'
 import StepProgress from './StepProgress'
 import Warning from './Warning'
+import OwnerInfoModal from './OwnerInfoModal'
 
 export {
   PropertyCard,
@@ -23,5 +24,6 @@ export {
   SwiperImage,
   Loader,
   StepProgress,
-  Warning
+  Warning,
+  OwnerInfoModal
 }

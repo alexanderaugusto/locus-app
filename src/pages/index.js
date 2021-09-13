@@ -2,7 +2,7 @@ import Home from './Home'
 import Account from './Account'
 import AddProperty from './AddProperty'
 import Advertise from './Advertise'
-import Contact from './Contact'
+import ScheduleVisit from './ScheduleVisit'
 import Favorite from './Favorite'
 import PropertyDetail from './PropertyDetail'
 import SignIn from './SignIn'
@@ -13,7 +13,7 @@ export {
   Account,
   AddProperty,
   Advertise,
-  Contact,
+  ScheduleVisit,
   Favorite,
   PropertyDetail,
   SignIn,

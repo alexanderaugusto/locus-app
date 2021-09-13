@@ -1,7 +1,13 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { SignIn, SignUp, PropertyDetail, Contact, AddProperty } from '../pages'
+import {
+  SignIn,
+  SignUp,
+  PropertyDetail,
+  ScheduleVisit,
+  AddProperty
+} from '../pages'
 import AuthRoutes from './tab.routes'
 
 const stackRoutes = createStackNavigator()
@@ -20,7 +26,7 @@ export default function AppRoutes() {
 
       <stackRoutes.Screen name="PropertyDetail" component={PropertyDetail} />
 
-      <stackRoutes.Screen name="Contact" component={Contact} />
+      <stackRoutes.Screen name="ScheduleVisit" component={ScheduleVisit} />
 
       <stackRoutes.Screen name="AddProperty" component={AddProperty} />
     </stackRoutes.Navigator>
