@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   KeyboardAvoidingView,
   Text,
@@ -6,17 +6,36 @@ import {
   TouchableOpacity,
   ScrollView
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { Button } from '../components'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-// import api from '../services/api'
+import { useLoading } from '../contexts/loading'
+import api from '../services/api'
 
 import colors from '../utils/constants/colors.json'
 
 export default function ScheduleVisit() {
   const navigation = useNavigation()
-  // const route = useRoute()
+  const route = useRoute()
+  const { startLoading, stopLoading, loading } = useLoading()
 
-  // const [buttonLoading, setButtonLoading] = useState(false)
+  const getPropertyVisits = async () => {
+    await api
+      .get(`/property/${route.params.item.id}/visits`)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+    stopLoading()
+  }
+
+  useEffect(() => {
+    startLoading()
+    getPropertyVisits()
+  }, [])
 
   return (
     <ScrollView>
@@ -31,6 +50,23 @@ export default function ScheduleVisit() {
         <Text numberOfLiner={2} style={styles.title}>
           Agendar visita ao imóvel
         </Text>
+
+        <Text style={styles.message}>
+          Agende a melhor data e horário para você visitar o imóvel. Mas
+          atente-se ao horário disponivel pelo proprietário.
+        </Text>
+
+        <Text style={styles.label}>Escolha a melhor data:</Text>
+        {/* ADICIONAR AQUI OPÇÃO PARA SELECIONAR DATA */}
+
+        <Text style={styles.label}>Escolha o melhor horário:</Text>
+        {/* ADICIONAR AQUI OPÇÃO PARA SELECIONAR DATA */}
+
+        <Button
+          btnText="Enviar"
+          // onPress={handleSubmitVisit}
+          disabled={loading}
+        />
 
         {/* <TouchableOpacity
           disabled={buttonLoading}
@@ -67,26 +103,19 @@ const styles = StyleSheet.create({
     paddingTop: 15
   },
 
-  contactButton: {
-    height: 35,
-    width: 100,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-end',
-    marginVertical: 20
+  message: {
+    marginTop: 20,
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.h2,
+    textAlign: 'center'
   },
 
-  contactButtonText: {
-    color: colors['light-secondary'],
-    fontWeight: 'bold',
-    fontSize: 16
-  },
-
-  buttonLoader: {
-    marginRight: 10,
-    marginLeft: -10
+  label: {
+    paddingTop: 20,
+    paddingBottom: 5,
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.h1
   }
 })
