@@ -53,6 +53,7 @@ export default function PropertyDetail() {
             name={'arrow-left'}
             size={20}
             color={colors['light-secondary']}
+            iconStyle={styles.backButtonIcon}
           />
         </TouchableOpacity>
 
@@ -281,8 +282,13 @@ const styles = StyleSheet.create({
 
   backButton: {
     position: 'absolute',
-    left: 15,
+    left: 20,
     top: 15,
-    zIndex: 5
+    zIndex: 5,
+    padding: 6,
+    borderWidth: 0.5,
+    borderColor: colors.h1,
+    borderRadius: 50,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   }
 })
