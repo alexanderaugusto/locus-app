@@ -208,11 +208,11 @@ const styles = StyleSheet.create({
   },
 
   iconsRow: {
-    width: '90%',
+    paddingHorizontal: '5%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20,
-    marginHorizontal: 20
+    paddingTop: 15
   },
 
   iconContainer: {
@@ -237,8 +237,9 @@ const styles = StyleSheet.create({
 
   iconsInfo: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: 140
   },
 
   iconsLabel: {

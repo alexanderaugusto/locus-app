@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 16,
     padding: 25,
-    alignItems: 'center',
+    // alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
   ownerInfo: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 8
+    alignItems: 'flex-start',
+    marginVertical: 10
   },
 
   contactText: {

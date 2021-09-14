@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   KeyboardAvoidingView,
   Text,
@@ -18,11 +18,14 @@ export default function ScheduleVisit() {
   const navigation = useNavigation()
   const route = useRoute()
   const { startLoading, stopLoading, loading } = useLoading()
+  const [propertyVisits, setPropertyVisits] = useState([])
 
   const getPropertyVisits = async () => {
     await api
       .get(`/property/${route.params.item.id}/visits`)
       .then(res => {
+        setPropertyVisits(res.data)
+        console.log(propertyVisits)
         console.log(res.data)
       })
       .catch(err => {
