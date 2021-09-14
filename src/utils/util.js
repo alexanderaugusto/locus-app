@@ -49,10 +49,18 @@ const formatZipcode = text => {
   return str.replace(regex, '$1$2-$3')
 }
 
+const formatDate = text => {
+  // eslint-disable-next-line no-unused-vars
+  const [year, month, restDate] = text.split('-')
+  const [day] = restDate.split('T')
+  return `${day}/${month}`
+}
+
 export {
   formatCurrency,
   createRows,
   formatPhoneNumber,
   formatCPF,
-  formatZipcode
+  formatZipcode,
+  formatDate
 }

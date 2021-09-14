@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     backgroundColor: colors['light-secondary'],
-    borderTopLeftRadius: 30,
+    borderTopLeftRadius: 28,
     marginTop: -22,
     height: '100%'
   },
@@ -286,9 +286,8 @@ const styles = StyleSheet.create({
     left: 20,
     top: 15,
     zIndex: 5,
-    padding: 6,
-    borderWidth: 0.5,
-    borderColor: colors.h1,
+    paddingHorizontal: 5,
+    paddingVertical: 4,
     borderRadius: 50,
     backgroundColor: 'rgba(0, 0, 0, 0.3)'
   }
