@@ -4,14 +4,16 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  SafeAreaView,
+  FlatList
 } from 'react-native'
 import { Button } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { useLoading } from '../contexts/loading'
 import api from '../services/api'
-
+import { formatDate, formatWeekday, formatHour } from '../utils/util'
 import colors from '../utils/constants/colors.json'
 
 export default function ScheduleVisit() {
@@ -19,14 +21,19 @@ export default function ScheduleVisit() {
   const route = useRoute()
   const { startLoading, stopLoading, loading } = useLoading()
   const [propertyVisits, setPropertyVisits] = useState([])
+  const [selectedHour, setSelectedHour] = useState()
+  const [selectedVisit, setSelectedVisit] = useState({
+    available_times: [],
+    date: '',
+    weekday: ''
+  })
 
   const getPropertyVisits = async () => {
     await api
       .get(`/property/${route.params.item.id}/visits`)
       .then(res => {
         setPropertyVisits(res.data)
-        console.log(propertyVisits)
-        console.log(res.data)
+        setSelectedVisit(res.data[0])
       })
       .catch(err => {
         console.error(err)
@@ -34,6 +41,8 @@ export default function ScheduleVisit() {
 
     stopLoading()
   }
+
+  // CRIAR REQUISIÇÃO PARA AGENDAR VISITA
 
   useEffect(() => {
     startLoading()
@@ -60,31 +69,86 @@ export default function ScheduleVisit() {
         </Text>
 
         <Text style={styles.label}>Escolha a melhor data:</Text>
-        {/* ADICIONAR AQUI OPÇÃO PARA SELECIONAR DATA */}
+        <SafeAreaView style={styles.dataContainer}>
+          <FlatList
+            data={propertyVisits}
+            keyExtractor={(item, index) => index.toString()}
+            numColumns={4}
+            numberOfLiner={3}
+            scrollEnabled={false}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => setSelectedVisit(item)}
+                  style={[
+                    styles.optionButton,
+                    selectedVisit.date === item.date
+                      ? styles.optionSelected
+                      : {}
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.optionButtonText,
+                      selectedVisit.date === item.date
+                        ? styles.optionSelectedText
+                        : {}
+                    ]}
+                  >
+                    {formatWeekday(item.weekday)}
+                  </Text>
+                  <Text
+                    style={[
+                      styles.optionButtonText,
+                      selectedVisit.date === item.date
+                        ? styles.optionSelectedText
+                        : {}
+                    ]}
+                  >
+                    {formatDate(item.date)}
+                  </Text>
+                </TouchableOpacity>
+              )
+            }}
+          />
+        </SafeAreaView>
 
         <Text style={styles.label}>Escolha o melhor horário:</Text>
-        {/* ADICIONAR AQUI OPÇÃO PARA SELECIONAR DATA */}
+        <SafeAreaView style={styles.dataContainer}>
+          <FlatList
+            data={selectedVisit.available_times}
+            keyExtractor={(item, index) => index.toString()}
+            numColumns={4}
+            numberOfLiner={3}
+            scrollEnabled={false}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => setSelectedHour(item)}
+                  style={[
+                    styles.optionButton,
+                    selectedHour === item ? styles.optionSelected : {}
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.optionButtonText,
+                      selectedHour === item ? styles.optionSelectedText : {}
+                    ]}
+                  >
+                    {formatHour(item)}
+                  </Text>
+                </TouchableOpacity>
+              )
+            }}
+          />
+        </SafeAreaView>
 
         <Button
           btnText="Enviar"
           // onPress={handleSubmitVisit}
           disabled={loading}
         />
-
-        {/* <TouchableOpacity
-          disabled={buttonLoading}
-          style={styles.contactButton}
-          onPress={handleContact}
-        >
-          {buttonLoading && (
-            <ActivityIndicator
-              style={styles.buttonLoader}
-              size="small"
-              color={colors['light-secondary']}
-            />
-          )}
-          <Text style={styles.contactButtonText}>Enviar</Text>
-        </TouchableOpacity> */}
       </KeyboardAvoidingView>
     </ScrollView>
   )
@@ -120,5 +184,37 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: colors.h1
+  },
+
+  dataContainer: {
+    flex: 1,
+    marginTop: 10
+  },
+
+  optionButton: {
+    borderWidth: 1,
+    borderColor: colors.blue,
+    backgroundColor: colors['light-secondary'],
+    borderRadius: 100,
+    height: 60,
+    width: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 8,
+    marginVertical: 5,
+    padding: 10
+  },
+
+  optionSelected: {
+    backgroundColor: colors.blue
+  },
+
+  optionSelectedText: {
+    color: '#FFF'
+  },
+
+  optionButtonText: {
+    color: colors.h2,
+    fontSize: 13
   }
 })
