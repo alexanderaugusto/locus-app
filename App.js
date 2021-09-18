@@ -6,6 +6,7 @@ import * as Updates from 'expo-updates'
 // Contexts
 import { AuthProvider } from './src/contexts/auth'
 import { LoadingProvider } from './src/contexts/loading'
+import { ResetProvider } from './src/contexts/reset'
 
 import Routes from './src/routes'
 import colors from './src/utils/constants/colors.json'
@@ -32,7 +33,9 @@ export default function App() {
       <StatusBar barStyle="light-content" backgroundColor={colors.blue} />
       <AuthProvider>
         <LoadingProvider>
-          <Routes />
+          <ResetProvider>
+            <Routes />
+          </ResetProvider>
         </LoadingProvider>
       </AuthProvider>
     </>

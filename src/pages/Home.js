@@ -18,6 +18,7 @@ import { PropertyCard, PropertyFilter, Warning } from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 
 import colors from '../utils/constants/colors.json'
 
@@ -25,6 +26,7 @@ export default function Home() {
   const navigation = useNavigation()
   const { signed } = useAuth()
   const { startLoading, stopLoading, loading } = useLoading()
+  const { screens, resetScreen } = useReset()
 
   const [properties, setProperties] = useState([])
   const [searchText] = useState('Santa Rita do Sapucaí, MG')
@@ -51,14 +53,8 @@ export default function Home() {
   }
 
   const onChangeFavorite = () => {
-    startLoading()
     getProperties(filters)
-
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Home' }],
-      key: 'Favoritos'
-    })
+    resetScreen('favorite', true)
   }
 
   const emptyList = () => {
@@ -71,6 +67,13 @@ export default function Home() {
     startLoading()
     getProperties(filters)
   }, [signed])
+
+  useEffect(() => {
+    if (screens.home) {
+      getProperties()
+      resetScreen('home', false)
+    }
+  }, [screens.home])
 
   return (
     <KeyboardAvoidingView

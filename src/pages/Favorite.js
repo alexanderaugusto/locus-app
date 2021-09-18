@@ -13,6 +13,7 @@ import api from '../services/api'
 import { PropertyCard, Warning } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 
 import colors from '../utils/constants/colors.json'
 
@@ -20,6 +21,7 @@ export default function Favorite() {
   const navigation = useNavigation()
   const { signed } = useAuth()
   const { startLoading, stopLoading } = useLoading()
+  const { screens, resetScreen } = useReset()
 
   const [favorites, setFavorites] = useState([])
   const [refresh, setRefresh] = useState(false)
@@ -37,14 +39,9 @@ export default function Favorite() {
     setRefresh(false)
   }
 
-  const onChangeFavorite = item => {
-    startLoading()
+  const onChangeFavorite = () => {
     getFavorites()
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Favoritos' }],
-      key: 'Home'
-    })
+    resetScreen('home', true)
   }
 
   useEffect(() => {
@@ -53,6 +50,13 @@ export default function Favorite() {
       getFavorites()
     }
   }, [signed])
+
+  useEffect(() => {
+    if (screens.favorite) {
+      getFavorites()
+      resetScreen('favorite', false)
+    }
+  }, [screens.favorite])
 
   if (!signed || !favorites.length) {
     return (
