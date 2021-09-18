@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://imovel-app-1.herokuapp.com'
+  baseURL: 'https://imovel-app.mybluemix.net'
 })
 
 const zipcodeAPI = axios.create({
