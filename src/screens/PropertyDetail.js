@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable prettier/prettier */
+import React from 'react'
 import {
   SafeAreaView,
   View,
@@ -12,9 +13,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 import { useAuth } from '../contexts/auth'
-import MapView from 'react-native-maps';
-import api from '../services/api'
-import { useLoading } from '../contexts/loading'
+import MapView from 'react-native-maps'
 
 import colors from '../constants/colors.json'
 
@@ -23,11 +22,6 @@ export default function PropertyDetail() {
   const route = useRoute()
   const { signed } = useAuth()
 
-  const [latitude, setLatitude] = useState([])
-  const [longitude, setLongitude] = useState([])
-  const { startLoading, stopLoading, loading } = useLoading()
-  const [refresh, setRefresh] = useState(false)
-
   const goToContact = () => {
     if (signed) {
       navigation.navigate('Contact', route.params)
@@ -35,30 +29,6 @@ export default function PropertyDetail() {
       navigation.navigate('SignIn')
     }
   }
-
-  const getAddress = async (params = {}) => {
-    const config = {
-      params
-    }
-
-    await api
-      .get('/properties', config)
-      .then(() => {
-        setLatitude(parseFloat(route.params.item.address.latitude))
-        setLongitude(parseFloat(route.params.item.address.longitude))
-      })
-      .catch(err => {
-        console.error(err)
-      })
-
-    stopLoading()
-    setRefresh(false)
-  }
-
-  useEffect(() => {
-    startLoading()
-    getAddress()
-  }, [signed])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -138,27 +108,27 @@ export default function PropertyDetail() {
               </Text>
             </View>
           </View>
-          <MapView
-            initialRegion={{
-              latitude: refresh ? latitude : 0,
-              longitude: refresh ? longitude : 0,
-              latitudeDelta: 0.005,
-              longitudeDelta: 0.0038,
-            }}
-            onRefresh={() => {
-              setRefresh(true)
-              getAddress()
-            }}
-            style={styles.mapView}
-            rotateEnabled={false}
-          >
-            <MapView.Marker
-              coordinate={{
-                latitude: refresh ? latitude : 0,
-                longitude: refresh ? longitude : 0
-              }} />
 
-          </MapView>
+          {route.params?.item.address?.latitude &&
+            route.params?.item.address?.longitude && (
+              <MapView
+                initialRegion={{
+                  latitude: parseFloat(route.params.item.address.latitude),
+                  longitude: parseFloat(route.params.item.address.longitude),
+                  latitudeDelta: 0.005,
+                  longitudeDelta: 0.0038
+                }}
+                style={styles.mapView}
+                rotateEnabled={false}
+              >
+                <MapView.Marker
+                  coordinate={{
+                    latitude: parseFloat(route.params.item.address.latitude),
+                    longitude: parseFloat(route.params.item.address.longitude)
+                  }}
+                />
+              </MapView>
+          )}
 
           <View style={styles.footer}>
             <View style={styles.price}>
@@ -174,7 +144,7 @@ export default function PropertyDetail() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView >
+    </SafeAreaView>
   )
 }
 
