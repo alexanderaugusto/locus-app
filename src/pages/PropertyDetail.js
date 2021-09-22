@@ -1,4 +1,9 @@
+<<<<<<< HEAD:src/screens/PropertyDetail.js
+/* eslint-disable prettier/prettier */
+import React from 'react'
+=======
 import React, { useState } from 'react'
+>>>>>>> master:src/pages/PropertyDetail.js
 import {
   SafeAreaView,
   View,
@@ -12,6 +17,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 import { useAuth } from '../contexts/auth'
+import MapView from 'react-native-maps'
 
 import colors from '../utils/constants/colors.json'
 
@@ -126,6 +132,27 @@ export default function PropertyDetail() {
             </View>
           </View>
 
+          {route.params?.item.address?.latitude &&
+            route.params?.item.address?.longitude && (
+              <MapView
+                initialRegion={{
+                  latitude: parseFloat(route.params.item.address.latitude),
+                  longitude: parseFloat(route.params.item.address.longitude),
+                  latitudeDelta: 0.005,
+                  longitudeDelta: 0.0038
+                }}
+                style={styles.mapView}
+                rotateEnabled={false}
+              >
+                <MapView.Marker
+                  coordinate={{
+                    latitude: parseFloat(route.params.item.address.latitude),
+                    longitude: parseFloat(route.params.item.address.longitude)
+                  }}
+                />
+              </MapView>
+          )}
+
           <View style={styles.footer}>
             <View style={styles.price}>
               <Text style={styles.label}>Aluguel:</Text>
@@ -205,6 +232,11 @@ const styles = StyleSheet.create({
     color: colors.p,
     textAlign: 'justify',
     marginBottom: 10
+  },
+
+  mapView: {
+    marginTop: 20,
+    height: 200
   },
 
   iconsRow: {
