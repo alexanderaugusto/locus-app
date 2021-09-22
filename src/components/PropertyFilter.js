@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import InputArea from './InputArea'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function PropertyFilter({ isOpen, toggle, applyFilters }) {
   const [options, setOptions] = useState({
@@ -667,7 +667,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
     width: 120,
     height: 40
   },

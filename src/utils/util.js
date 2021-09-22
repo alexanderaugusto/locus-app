@@ -1,3 +1,5 @@
+/* eslint-disable quote-props */
+/* eslint-disable prettier/prettier */
 const formatCurrency = number => {
   if (number === undefined || number === null) {
     return ''
@@ -49,10 +51,40 @@ const formatZipcode = text => {
   return str.replace(regex, '$1$2-$3')
 }
 
+const formatDate = text => {
+  // eslint-disable-next-line no-unused-vars
+  const [year, month, restDate] = text.split('-')
+  const [day] = restDate.split('T')
+  return `${day}/${month}`
+}
+
+const formatWeekday = text => {
+  // eslint-disable-next-line no-unused-vars
+  const weekdaysObj = {
+    'sunday': 'Dom',
+    'monday': 'Seg',
+    'tuesday': 'Ter',
+    'wednesday': 'Qua',
+    'thursday': 'Qui',
+    'friday': 'Sex',
+    'saturday': 'Sab'
+  }
+
+  return weekdaysObj[text]
+}
+
+const formatHour = text => {
+  const [hour, min] = text.split(':')
+  return `${hour}:${min}`
+}
+
 export {
   formatCurrency,
   createRows,
   formatPhoneNumber,
   formatCPF,
-  formatZipcode
+  formatZipcode,
+  formatDate,
+  formatWeekday,
+  formatHour
 }

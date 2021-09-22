@@ -15,7 +15,8 @@ import {
   InputArea,
   ImagePickerFunction,
   InputSelect,
-  StepProgress
+  StepProgress,
+  Error
 } from '../components'
 import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
@@ -26,14 +27,14 @@ import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
-import states from '../constants/states.json'
-import types from '../constants/types.json'
+import colors from '../utils/constants/colors.json'
+import states from '../utils/constants/states.json'
+import types from '../utils/constants/types.json'
 
 export default function AddProperty() {
   const navigation = useNavigation()
   const { startLoading, stopLoading } = useLoading()
-
+  const [errorMessage, setErrorMessage] = useState('')
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -114,14 +115,16 @@ export default function AddProperty() {
 
   const searchZipcode = async zipcode => {
     const validZipCode = /^[0-9]{8}$/
+    setErrorMessage('')
 
     if (validZipCode.test(zipcode)) {
       await zipcodeAPI
         .get(`/${zipcode}/json`)
         .then(res => {
           if (res.data.erro) {
-            // Printar mensagem de erro para usuário
-            console.log('Por favor, entre com um CEP válido!')
+            setErrorMessage(
+              'Ops, este CEP é inválido !\nPara prosseguir, é necessário preencher o campo corretamente!'
+            )
           }
 
           setData({
@@ -211,6 +214,8 @@ export default function AddProperty() {
                 Onde seu imóvel está localizado?
               </Text>
 
+              <Error errorMessage={errorMessage} />
+
               <Text style={styles.label}>CEP</Text>
               <InputArea
                 testID="zipcode-input"
@@ -227,7 +232,7 @@ export default function AddProperty() {
                 testID="street-input"
                 placeholder={'Rua do imóvel...'}
                 value={data.street}
-                editable={false}
+                onChangeText={value => onChange('street', value)}
               />
 
               <Text style={styles.label}>Bairro</Text>
@@ -235,7 +240,7 @@ export default function AddProperty() {
                 testID="neighborhood-input"
                 placeholder={'Bairro do imóvel...'}
                 value={data.neighborhood}
-                editable={false}
+                onChangeText={value => onChange('neighbothood', value)}
               />
 
               <Text style={styles.label}>Número</Text>

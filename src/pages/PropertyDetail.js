@@ -1,5 +1,9 @@
+<<<<<<< HEAD:src/screens/PropertyDetail.js
 /* eslint-disable prettier/prettier */
 import React from 'react'
+=======
+import React, { useState } from 'react'
+>>>>>>> master:src/pages/PropertyDetail.js
 import {
   SafeAreaView,
   View,
@@ -8,23 +12,24 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native'
-import { SwiperImage } from '../components'
+import { SwiperImage, Button, OwnerInfoModal } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 import { useAuth } from '../contexts/auth'
 import MapView from 'react-native-maps'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function PropertyDetail() {
   const navigation = useNavigation()
   const route = useRoute()
   const { signed } = useAuth()
+  const [openModal, setOpenModal] = useState(false)
 
-  const goToContact = () => {
+  const goToScheduleVisitPage = () => {
     if (signed) {
-      navigation.navigate('Contact', route.params)
+      navigation.navigate('ScheduleVisit', route.params)
     } else {
       navigation.navigate('SignIn')
     }
@@ -38,6 +43,14 @@ export default function PropertyDetail() {
         scrollsToTop={true}
         showsVerticalScrollIndicator={false}
       >
+        <OwnerInfoModal
+          isVisible={openModal}
+          toggle={() => {
+            setOpenModal(false)
+          }}
+          dataInfos={route.params.item}
+        />
+
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.navigate('Home')}
@@ -46,6 +59,7 @@ export default function PropertyDetail() {
             name={'arrow-left'}
             size={20}
             color={colors['light-secondary']}
+            iconStyle={styles.backButtonIcon}
           />
         </TouchableOpacity>
 
@@ -75,7 +89,7 @@ export default function PropertyDetail() {
                 <Icon name={'bed'} size={18} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.bedrooms} quartos
+                {route.params?.item.bedrooms} quarto(s)
               </Text>
             </View>
 
@@ -84,7 +98,7 @@ export default function PropertyDetail() {
                 <Icon name={'bath'} size={20} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.bathrooms} banheiro
+                {route.params?.item.bathrooms} banheiro(s)
               </Text>
             </View>
           </View>
@@ -98,6 +112,15 @@ export default function PropertyDetail() {
                 {route.params?.item.area} m²
               </Text>
             </View>
+
+            {/* <View style={styles.iconsInfo}>
+              <View style={styles.iconContainer}>
+                <Icon name={'car'} size={19} color={colors.h2} />
+              </View>
+              <Text style={styles.iconsLabel}>
+                {route.params?.item.garage} vaga(s)
+              </Text>
+            </View> */}
 
             <View style={styles.iconsInfo}>
               <View style={styles.iconContainer}>
@@ -138,8 +161,18 @@ export default function PropertyDetail() {
               </Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={goToContact}>
-              <Text style={styles.buttonText}>Entrar em contato</Text>
+            <Button btnText="Agendar visita" onPress={goToScheduleVisitPage} />
+          </View>
+
+          <View style={styles.footer}>
+            <TouchableOpacity
+              style={styles.btnContainer}
+              onPress={() => setOpenModal(true)}
+            >
+              <Icon name={'info-circle'} size={16} color={colors.h2} />
+              <Text style={styles.btnText}>
+                Informações sobre o proprietário
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -162,8 +195,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     backgroundColor: colors['light-secondary'],
-    borderTopLeftRadius: 50,
-    marginTop: -15,
+    borderTopLeftRadius: 28,
+    marginTop: -22,
     height: '100%'
   },
 
@@ -207,11 +240,11 @@ const styles = StyleSheet.create({
   },
 
   iconsRow: {
-    width: '80%',
+    paddingHorizontal: '5%',
+    width: '100%',
     flexDirection: 'row',
-    marginTop: 20,
-    marginHorizontal: 20,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingTop: 15
   },
 
   iconContainer: {
@@ -236,8 +269,9 @@ const styles = StyleSheet.create({
 
   iconsInfo: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: 140
   },
 
   iconsLabel: {
@@ -264,26 +298,29 @@ const styles = StyleSheet.create({
     color: colors.p
   },
 
-  button: {
-    height: 35,
-    width: 160,
-    backgroundColor: colors.blue,
-    borderRadius: 8,
-    alignItems: 'center',
+  btnContainer: {
+    display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: 'flex-end'
+    alignItems: 'center',
+    paddingBottom: 5
   },
 
-  buttonText: {
-    color: colors['light-secondary'],
-    fontWeight: 'bold',
-    fontSize: 16
+  btnText: {
+    paddingLeft: 8,
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.h1
   },
 
   backButton: {
     position: 'absolute',
-    left: 15,
+    left: 20,
     top: 15,
-    zIndex: 5
+    zIndex: 5,
+    paddingHorizontal: 5,
+    paddingVertical: 4,
+    borderRadius: 50,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   }
 })

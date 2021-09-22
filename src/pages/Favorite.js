@@ -6,22 +6,22 @@ import {
   Text,
   SafeAreaView,
   FlatList,
-  TouchableWithoutFeedback,
-  TouchableOpacity
+  TouchableWithoutFeedback
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import Icon from '@expo/vector-icons/FontAwesome5'
 import api from '../services/api'
-import { PropertyCard } from '../components'
+import { PropertyCard, Warning } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function Favorite() {
   const navigation = useNavigation()
   const { signed } = useAuth()
   const { startLoading, stopLoading } = useLoading()
+  const { screens, resetScreen } = useReset()
 
   const [favorites, setFavorites] = useState([])
   const [refresh, setRefresh] = useState(false)
@@ -39,19 +39,9 @@ export default function Favorite() {
     setRefresh(false)
   }
 
-  const onChangeFavorite = item => {
-    // const newProperties = []
-    // favorites.forEach(property => {
-    //   if (property.id !== item.id) {
-    //     newProperties.push(property)
-    //   }
-    // })
-    // setFavorites(newProperties)
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Favoritos' }],
-      key: 'Home'
-    })
+  const onChangeFavorite = () => {
+    getFavorites()
+    resetScreen('home', true)
   }
 
   useEffect(() => {
@@ -61,30 +51,25 @@ export default function Favorite() {
     }
   }, [signed])
 
+  useEffect(() => {
+    if (screens.favorite) {
+      getFavorites()
+      resetScreen('favorite', false)
+    }
+  }, [screens.favorite])
+
   if (!signed || !favorites.length) {
     return (
-      <KeyboardAvoidingView
-        testID="empty-message"
-        style={styles.emptyContainer}
-      >
-        <Icon name="heart-broken" size={120} color={colors.blue} />
-
-        <View>
-          <Text style={styles.emptyTitle}>
-            Você ainda não possui imóveis favoritos
-          </Text>
-          <Text style={styles.emptyDescription}>
-            Vá para tela principal para visualizar os imóveis e favoritá-los!
-          </Text>
-        </View>
-
-        <TouchableOpacity
-          style={styles.emptyButton}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Text style={styles.emptyButtonText}>Tela inicial</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <Warning
+        title={'Você ainda não possui imóveis favoritos'}
+        description={
+          'Vá para tela principal para visualizar os imóveis e favoritá-los!'
+        }
+        icon={'heart-broken'}
+        isBtnVisible={true}
+        btnRoute={'Home'}
+        btnText={'Tela inicial'}
+      />
     )
   }
 
@@ -128,44 +113,6 @@ export default function Favorite() {
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyTitle: {
-    color: colors.h1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-
-  emptyDescription: {
-    color: colors.p,
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 15
-  },
-
-  emptyButton: {
-    height: 40,
-    width: 130,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    marginVertical: 10
-  },
-
-  emptyButtonText: {
-    color: colors['light-secondary']
-  },
-
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],

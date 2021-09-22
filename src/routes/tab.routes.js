@@ -1,19 +1,15 @@
 import React from 'react'
-import Icon from '@expo/vector-icons/MaterialIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
-import Home from '../screens/Home'
-import Favorite from '../screens/Favorite'
-import Advertise from '../screens/Advertise'
-import Account from '../screens/Account'
+import { Home, Favorite, Account, Advertise } from '../pages'
+import colors from '../utils/constants/colors.json'
 
-import colors from '../constants/colors.json'
+const tabRoutes = createBottomTabNavigator()
 
-const Tab = createBottomTabNavigator()
-
-export default function TabMenu() {
+export default function AuthRoutes() {
   return (
-    <Tab.Navigator
+    <tabRoutes.Navigator
       screenOptions={({ route }) => ({
         // eslint-disable-next-line react/display-name
         tabBarIcon: ({ color, size }) => {
@@ -38,10 +34,10 @@ export default function TabMenu() {
         }
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Favoritos" component={Favorite} />
-      <Tab.Screen name="Anunciar" component={Advertise} />
-      <Tab.Screen name="Minha conta" component={Account} />
-    </Tab.Navigator>
+      <tabRoutes.Screen name="Home" component={Home} />
+      <tabRoutes.Screen name="Favoritos" component={Favorite} />
+      <tabRoutes.Screen name="Anunciar" component={Advertise} />
+      <tabRoutes.Screen name="Minha conta" component={Account} />
+    </tabRoutes.Navigator>
   )
 }

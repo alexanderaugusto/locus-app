@@ -14,17 +14,19 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { PropertyCard, PropertyFilter } from '../components'
+import { PropertyCard, PropertyFilter, Warning } from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function Home() {
   const navigation = useNavigation()
   const { signed } = useAuth()
   const { startLoading, stopLoading, loading } = useLoading()
+  const { screens, resetScreen } = useReset()
 
   const [properties, setProperties] = useState([])
   const [searchText] = useState('Santa Rita do Sapucaí, MG')
@@ -50,22 +52,14 @@ export default function Home() {
     setRefresh(false)
   }
 
-  const onChangeFavorite = (item, favorite) => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Home' }],
-      key: 'Favoritos'
-    })
+  const onChangeFavorite = () => {
+    getProperties(filters)
+    resetScreen('favorite', true)
   }
 
   const emptyList = () => {
     return (
-      <View style={styles.emptyContainer}>
-        <Icon name="frown" size={120} color={colors.blue} />
-        <Text style={styles.emptyList}>
-          Ops, nenhuma propriedade encontrada!
-        </Text>
-      </View>
+      <Warning title={'Ops, nenhuma propriedade encontrada!'} icon={'frown'} />
     )
   }
 
@@ -73,6 +67,13 @@ export default function Home() {
     startLoading()
     getProperties(filters)
   }, [signed])
+
+  useEffect(() => {
+    if (screens.home) {
+      getProperties()
+      resetScreen('home', false)
+    }
+  }, [screens.home])
 
   return (
     <KeyboardAvoidingView
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     minHeight: 46,
     borderWidth: 1,
     borderColor: colors.blue,
-    borderRadius: 4,
+    borderRadius: 8,
     paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.blue,
-    borderRadius: 25,
+    borderRadius: 8,
     height: 33,
     paddingHorizontal: 20
   },
@@ -244,22 +245,5 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     fontSize: 16,
     fontWeight: 'bold'
-  },
-
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyList: {
-    marginTop: 15,
-    color: '#333740',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
   }
 })

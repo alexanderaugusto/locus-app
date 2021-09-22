@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import {
   View,
@@ -12,21 +13,23 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
+import { useAuth } from '../contexts/auth'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.84
 const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 
 export default function PropertyCard({ item, favorite, onChangeFavorite }) {
   const navigation = useNavigation()
+  const { signed } = useAuth()
 
   const addFavorite = async () => {
     api
       .put(`/property/${item.id}/favorite`, null)
       .then(res => {
         if (onChangeFavorite) {
-          onChangeFavorite(item, true)
+          onChangeFavorite()
         }
       })
       .catch(err => {
@@ -39,7 +42,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
       .delete(`/property/${item.id}/favorite`)
       .then(res => {
         if (onChangeFavorite) {
-          onChangeFavorite(item, false)
+          onChangeFavorite()
         }
       })
       .catch(err => {
@@ -78,7 +81,13 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
         <TouchableOpacity
           testID="btn-favorite"
           style={styles.button}
-          onPress={() => (favorite ? removeFavorite() : addFavorite())}
+          onPress={() =>
+            signed
+              ? favorite
+                  ? removeFavorite()
+                  : addFavorite()
+              : navigation.navigate('SignIn')
+          }
         >
           <Icon
             name="heart"
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 1,
-    borderRadius: 20,
+    borderRadius: 12,
     overflow: 'hidden',
     backgroundColor: colors['light-secondary'],
     marginVertical: 10

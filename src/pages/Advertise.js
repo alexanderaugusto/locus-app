@@ -10,15 +10,14 @@ import {
   Image
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import Icon from '@expo/vector-icons/FontAwesome5'
 import Swipeable from 'react-native-swipeable'
 import { formatCurrency, createRows } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
-import { FloatButton } from '../components'
+import { FloatButton, Warning } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function Advertise() {
   const navigation = useNavigation()
@@ -72,26 +71,16 @@ export default function Advertise() {
 
   if (!signed || !properties.length) {
     return (
-      <KeyboardAvoidingView
-        testID="empty-message"
-        style={styles.emptyContainer}
-      >
-        <Icon name="house-damage" size={120} color={colors.blue} />
-
-        <View>
-          <Text style={styles.emptyTitle}>Você não possui nenhum imóvel!</Text>
-          <Text style={styles.emptyDescription}>
-            Para cadastrar o seu primeiro imóvel, clique no botão abaixo.
-          </Text>
-        </View>
-
-        <TouchableOpacity
-          style={styles.emptyButton}
-          onPress={() => navigation.navigate(signed ? 'AddProperty' : 'SignIn')}
-        >
-          <Text style={styles.emptyButtonText}>Meu primeiro imóvel</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <Warning
+        title={'Você não possui nenhum imóvel!'}
+        description={
+          'Para cadastrar o seu primeiro imóvel, clique no botão abaixo.'
+        }
+        icon={'house-damage'}
+        isBtnVisible={true}
+        btnRoute={signed ? 'AddProperty' : 'SignIn'}
+        btnText={'Meu primeiro imóvel'}
+      />
     )
   }
 
@@ -183,45 +172,6 @@ export default function Advertise() {
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: '10%',
-    paddingVertical: '25%'
-  },
-
-  emptyTitle: {
-    color: colors.h1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-
-  emptyDescription: {
-    color: colors.p,
-    fontSize: 18,
-    textAlign: 'center',
-    marginTop: 15
-  },
-
-  emptyButton: {
-    height: 40,
-    width: 'auto',
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    paddingHorizontal: 25,
-    marginVertical: 10
-  },
-
-  emptyButtonText: {
-    color: colors['light-secondary']
-  },
-
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],

@@ -9,15 +9,20 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
-import { InputArea, ImagePickerFunction } from '../components'
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps'
+import {
+  InputArea,
+  ImagePickerFunction,
+  StepProgress,
+  Error
+} from '../components'
+import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
 import { formatPhoneNumber, formatCPF } from '../utils/util'
 import { useLoading } from '../contexts/loading'
 
-import colors from '../constants/colors.json'
+import colors from '../utils/constants/colors.json'
 
 export default function SignUp() {
   const navigation = useNavigation()
@@ -36,7 +41,7 @@ export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0)
   const [emailIsValid, setEmailIsValid] = useState(false)
   const [passwordIsValid, setPasswordIsValid] = useState(false)
-  const [emailErrorMessage, setEmailErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const onChange = (type, value) => {
     setData({ ...data, [type]: value })
@@ -77,24 +82,24 @@ export default function SignUp() {
   const handleEmail = () => {
     if (data.email !== data.confirmEmail) {
       setEmailIsValid(true)
-      setEmailErrorMessage(
+      setErrorMessage(
         'Ops, os e-mails são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
       )
     } else {
       setEmailIsValid(false)
-      setEmailErrorMessage('')
+      setErrorMessage('')
     }
   }
 
   const handlePassword = () => {
     if (data.password !== data.confirmPassword) {
       setPasswordIsValid(true)
-      setEmailErrorMessage(
+      setErrorMessage(
         'Ops, as senha são diferentes!\nPara prosseguir, é necessário preencher os campos corretamente!'
       )
     } else {
       setPasswordIsValid(false)
-      setEmailErrorMessage('')
+      setErrorMessage('')
     }
   }
 
@@ -129,13 +134,11 @@ export default function SignUp() {
           completedStepIconColor={colors.blue}
           completedCheckColor={colors['light-secondary']}
         >
-          <ProgressStep
+          <StepProgress
             key={0}
             testID="signUp-next-button-1"
-            nextBtnText={'Próximo'}
             label="Pessoal"
-            nextBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
           >
@@ -147,6 +150,7 @@ export default function SignUp() {
                 value={data.name}
                 onChangeText={value => onChange('name', value)}
               />
+
               <Text style={styles.label}>CPF</Text>
               <InputArea
                 testID="signUp-cpf-input"
@@ -155,6 +159,7 @@ export default function SignUp() {
                 onChangeText={value => onChange('cpf', value)}
                 keyboardType={'numeric'}
               />
+
               <Text style={styles.label}>Celular</Text>
               <InputArea
                 testID="signUp-phone-input"
@@ -166,25 +171,22 @@ export default function SignUp() {
                 keyboardType={'phone-pad'}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={1}
             testID="signUp-next-button-2"
             label="Login"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            previousBtnText={true}
+            nextBtnText={true}
             scrollable={false}
-            onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
+            onNext={() => setActiveStep(activeStep + 1)}
             removeBtnRow={emailIsValid}
           >
             <View style={styles.containerInput}>
-              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
+              <Error errorMessage={errorMessage} />
+
               <Text style={styles.label}>E-mail</Text>
               <InputArea
                 testID="signUp-email-input"
@@ -194,6 +196,7 @@ export default function SignUp() {
                 onChangeText={value => onChange('email', value)}
                 onEndEditing={() => handleEmail()}
               />
+
               <Text style={styles.label}>Confirmar e-mail</Text>
               <InputArea
                 testID="signUp-confirmEmail-input"
@@ -204,18 +207,14 @@ export default function SignUp() {
                 onEndEditing={() => handleEmail()}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={2}
-            testID="signUp-next-button-3"
+            testID="signUp-next-button-2"
             label="Senha"
-            nextBtnText={'Próximo'}
-            previousBtnText={'Anterior'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            nextBtnText={true}
+            previousBtnText={true}
             scrollable={false}
             onNext={() => setActiveStep(activeStep + 1)}
             onPrevious={() => setActiveStep(activeStep - 1)}
@@ -226,7 +225,9 @@ export default function SignUp() {
                 Para sua segurança, a senha deve ter no mínimo 8 caracteres, com
                 números, letra maiúscula e minúscula e caracteres especiais.
               </Text>
-              <Text style={styles.errorMessage}>{emailErrorMessage}</Text>
+
+              <Error errorMessage={errorMessage} />
+
               <Text style={styles.label}>Senha</Text>
               <InputArea
                 testID="signUp-password-input"
@@ -236,6 +237,7 @@ export default function SignUp() {
                 onChangeText={value => onChange('password', value)}
                 onEndEditing={() => handlePassword()}
               />
+
               <Text style={styles.label}>Confirmar senha</Text>
               <InputArea
                 testID="signUp-confirmPassword-input"
@@ -246,21 +248,17 @@ export default function SignUp() {
                 onEndEditing={() => handlePassword()}
               />
             </View>
-          </ProgressStep>
+          </StepProgress>
 
-          <ProgressStep
+          <StepProgress
             key={3}
-            testID="signUp-submit-button"
+            testID="signUp-next-button-3"
             label="Foto"
-            previousBtnText={'Anterior'}
-            finishBtnText={'Finalizar'}
-            nextBtnStyle={styles.button}
-            previousBtnStyle={styles.button}
-            nextBtnTextStyle={styles.buttonText}
-            previousBtnTextStyle={styles.buttonText}
+            previousBtnText={true}
+            finishBtnText={true}
             scrollable={false}
-            onSubmit={() => signUp()}
             onPrevious={() => setActiveStep(activeStep - 1)}
+            onSubmit={() => signUp()}
           >
             <View style={styles.containerInput}>
               <ImagePickerFunction
@@ -281,7 +279,7 @@ export default function SignUp() {
                 <Text style={styles.avatarText}>Alterar</Text>
               </ImagePickerFunction>
             </View>
-          </ProgressStep>
+          </StepProgress>
         </ProgressSteps>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -342,14 +340,6 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
 
-  errorMessage: {
-    paddingTop: 10,
-    fontSize: 14,
-    fontWeight: '500',
-    color: colors.danger,
-    textAlign: 'center'
-  },
-
   label: {
     marginTop: 15,
     marginBottom: -10,
@@ -357,21 +347,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     color: colors.h2
-  },
-
-  button: {
-    height: 35,
-    width: 90,
-    backgroundColor: colors.blue,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  buttonText: {
-    color: colors['light-secondary'],
-    fontWeight: 'bold',
-    fontSize: 16
   },
 
   avatar: {
