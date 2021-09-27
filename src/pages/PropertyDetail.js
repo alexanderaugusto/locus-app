@@ -1,9 +1,4 @@
-<<<<<<< HEAD:src/screens/PropertyDetail.js
-/* eslint-disable prettier/prettier */
-import React from 'react'
-=======
 import React, { useState } from 'react'
->>>>>>> master:src/pages/PropertyDetail.js
 import {
   SafeAreaView,
   View,
