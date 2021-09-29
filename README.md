@@ -272,6 +272,7 @@ Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/bl
 <table>
   <tr>
     <td align="center"><a href="https://github.com/alexanderaugusto/"><img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/51683816?v=4" width="100px;" alt=""/><br /><sub><b>Alexander Augusto</b></sub></a></td>
+    <td align="center"><a href="https://github.com/pedroblimaa"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/46970693?v=4" width="100px;" alt=""/><br /><sub><b>Pedro Bonfilio</b></sub></a></td>
     <td align="center"><a href="https://github.com/vanessaSwerts/"><img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/57146734?v=4" width="100px;" alt=""/><br /><sub><b>Vanessa Swerts</b></sub></a></td>
   </tr>
 </table>
