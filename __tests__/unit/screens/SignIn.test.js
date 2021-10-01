@@ -21,7 +21,7 @@ jest.mock('../../../src/contexts/auth', () => {
     useAuth: () => ({
       signIn: (email, password) => {
         return new Promise((resolve, reject) => {
-          if (email === 'user@imovel.com' && password === '12345678') {
+          if (email === 'user@locus.com' && password === '12345678') {
             resolve()
           } else {
             reject(new Error())
@@ -71,7 +71,7 @@ describe('SignIn unit test', () => {
     const tree = create(<SignIn />)
 
     const email = tree.root.findByProps({ testID: 'signIn-email' }).props
-    act(() => email.onChangeText('user@imovel.com'))
+    act(() => email.onChangeText('user@locus.com'))
 
     const password = tree.root.findByProps({ testID: 'signIn-password' }).props
     act(() => password.onChangeText('12345678'))
@@ -86,7 +86,7 @@ describe('SignIn unit test', () => {
     const tree = create(<SignIn />)
 
     const email = tree.root.findByProps({ testID: 'signIn-email' }).props
-    act(() => email.onChangeText('user@imovel.com'))
+    act(() => email.onChangeText('user@locus.com'))
 
     const password = tree.root.findByProps({ testID: 'signIn-password' }).props
     act(() => password.onChangeText('incorrectPassword'))

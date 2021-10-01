@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "IMovel",
-    "slug": "IMovel",
+    "name": "Locus",
+    "slug": "Locus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -18,11 +18,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.inatel.imovel",
+      "bundleIdentifier": "com.inatel.locus",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.inatel.imovel",
+      "package": "com.inatel.locus",
       "versionCode": 1
     },
     "web": {
