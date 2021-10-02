@@ -89,7 +89,7 @@ export default function Home() {
         <Image
           style={styles.logo}
           resizeMode="contain"
-          source={require('../../assets/logo-black.png')}
+          source={require('../../assets/logo-black-mini.png')}
         />
       </View>
 

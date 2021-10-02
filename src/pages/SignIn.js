@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 import { InputArea, Button } from '../components'
 import { useAuth } from '../contexts/auth'
 
-import logo from '../../assets/logo-text.png'
+import logo from '../../assets/logo-blue.png'
 import colors from '../utils/constants/colors.json'
 
 export default function SignIn() {
