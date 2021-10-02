@@ -1,13 +1,13 @@
 
 <p align="center">
-  <img alt="Travis CI" src="https://travis-ci.org/alexanderaugusto/imovel-app.svg?branch=master" />
+  <img alt="Travis CI" src="https://travis-ci.org/alexanderaugusto/locus-app.svg?branch=master" />
 
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alexanderaugusto/imovel-app?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alexanderaugusto/locus-app?color=%2304D361">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/alexanderaugusto/imovel-app">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/alexanderaugusto/locus-app">
 
-  <a href="https://github.com/alexanderaugusto/imovel-app/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alexanderaugusto/imovel-app">
+  <a href="https://github.com/alexanderaugusto/locus-app/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alexanderaugusto/locus-app">
   </a>
 
    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
@@ -53,8 +53,8 @@ Locus - é uma forma de conectar clientes e proprietários, tornando a escolha d
 ## 🎨 Layout
 
 <p align="center">
-  <img alt="IMovel Cadastro e Login - ios" src="https://user-images.githubusercontent.com/57146734/102159074-8c358680-3e61-11eb-9aca-3c41911756c4.gif" width="30%;">
-  <img alt="IMovel - Android" src="https://user-images.githubusercontent.com/57146734/102159236-e5051f00-3e61-11eb-83f7-fb9278ee4fa7.gif" width="30%;">
+  <img alt="Locus Cadastro e Login - ios" src="https://user-images.githubusercontent.com/57146734/102159074-8c358680-3e61-11eb-9aca-3c41911756c4.gif" width="30%;">
+  <img alt="Locus - Android" src="https://user-images.githubusercontent.com/57146734/102159236-e5051f00-3e61-11eb-83f7-fb9278ee4fa7.gif" width="30%;">
 </p>
 
 ---
@@ -62,8 +62,8 @@ Locus - é uma forma de conectar clientes e proprietários, tornando a escolha d
 ## 🚀 Como executar o projeto
 
 Este projeto é dividido em três partes:
-1. [Backend](https://github.com/alexanderaugusto/imovel-api.git)
-2. [Frontend - Web](https://github.com/alexanderaugusto/imovel-web.git)
+1. [Backend](https://github.com/alexanderaugusto/locus-api.git)
+2. [Frontend - Web](https://github.com/alexanderaugusto/locus-web.git)
 3. Frontend - Mobile (Neste repositório)
 
 ### Pré-requisitos
@@ -263,7 +263,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
   -   **[ESlint](https://eslint.org)**
   -   **[Prettier](https://prettier.io)**
 
-Veja o arquivo  [package.json](https://github.com/alexanderaugusto/imovel-app/blob/master/package.json)
+Veja o arquivo  [package.json](https://github.com/alexanderaugusto/locus-app/blob/master/package.json)
 
 ---
 
