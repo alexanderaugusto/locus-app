@@ -115,7 +115,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
               }
             }
             style={
@@ -152,7 +152,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
               }
             }
             style={
@@ -189,7 +189,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/b0881d860264b258b075452ecdc8611f-property1_img2.jpg",
               }
             }
             style={
@@ -226,7 +226,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/3b8f454f5ec946176577ab1e73c17b27-property1_img3.jpg",
               }
             }
             style={
@@ -263,7 +263,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/27c1852232a894cf4956c90e8e172ef5-property1_img4.jpg",
               }
             }
             style={
@@ -300,7 +300,7 @@ exports[`SwiperImage snapshot test render SwiperImage component correctly when h
             resizeMode="cover"
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/property/44787f89b5bddb4ed318cadd74b11b13-property1_img1.jpg",
               }
             }
             style={

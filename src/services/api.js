@@ -8,7 +8,7 @@ const zipcodeAPI = axios.create({
   baseURL: 'https://viacep.com.br/ws'
 })
 
-const STORAGE_URL = 'https://res.cloudinary.com/imovel/image/upload/v1602331961'
+const STORAGE_URL = 'https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus'
 
 export default api
 

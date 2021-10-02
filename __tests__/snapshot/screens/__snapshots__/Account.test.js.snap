@@ -189,7 +189,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
           <Image
             source={
               Object {
-                "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/user/default-avatar.png",
+                "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/user/default-avatar.png",
               }
             }
             style={
@@ -215,7 +215,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
           }
           testID="account-name"
         >
-          
+
         </Text>
         <View
           accessible={true}
@@ -275,7 +275,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
           }
           testID="account-errorMessageText"
         >
-          
+
         </Text>
         <View
           style={
@@ -310,7 +310,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
               }
             }
           >
-            Nome: 
+            Nome:
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -371,7 +371,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
               }
             }
           >
-            E-mail: 
+            E-mail:
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -433,7 +433,7 @@ exports[`Account unit test render Account screen correctly when signed=true 1`] 
               }
             }
           >
-            Celular: 
+            Celular:
           </Text>
           <TextInput
             allowFontScaling={true}

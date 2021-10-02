@@ -53,7 +53,7 @@ exports[`Home snapshot test render Home screen correctly 1`] = `
       <Image
         source={
           Object {
-            "uri": "https://res.cloudinary.com/imovel/image/upload/v1602331961/user/undefined",
+            "uri": "https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus/user/undefined",
           }
         }
         style={
