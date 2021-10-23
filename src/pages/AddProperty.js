@@ -67,6 +67,42 @@ export default function AddProperty() {
   }
 
   const addProperty = async () => {
+    const propertyData = {
+      title: data.title,
+      description: data.description,
+      price: data.price,
+      bedrooms: data.bedrooms,
+      bathrooms: data.bathrooms,
+      area: data.area,
+      place: data.place,
+      garage: data.garage,
+      animal: data.animal,
+      type: data.type,
+      address: {
+        street: data.street,
+        neighborhood: data.neighborhood,
+        number: parseInt(data.number, 10),
+        city: data.city,
+        state: data.state,
+        country: data.country,
+        zipcode: data.zipcode
+      }
+    }
+
+    startLoading()
+
+    await api
+      .post('/property', propertyData)
+      .then(res => {
+        addImages(res.data.id)
+      })
+      .catch(err => {
+        stopLoading()
+        console.error(err)
+      })
+  }
+
+  const addImages = async propertyId => {
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -74,27 +110,6 @@ export default function AddProperty() {
     }
 
     const formData = new FormData()
-    const address = {
-      street: data.street,
-      neighborhood: data.neighborhood,
-      number: parseInt(data.number, 10),
-      city: data.city,
-      state: data.state,
-      country: data.country,
-      zipcode: data.zipcode
-    }
-
-    formData.append('title', data.title)
-    formData.append('description', data.description)
-    formData.append('price', parseFloat(data.price.replace(',', '.')))
-    formData.append('bedrooms', parseInt(data.bedrooms, 10))
-    formData.append('bathrooms', parseInt(data.bathrooms, 10))
-    formData.append('area', parseFloat(data.area.replace(',', '.')))
-    formData.append('place', parseInt(data.place, 10))
-    formData.append('garage', parseInt(data.place, 10))
-    formData.append('animal', data.animal)
-    formData.append('type', data.type)
-    formData.append('address', JSON.stringify(address))
 
     data.images.forEach(image => {
       formData.append('files', image)
@@ -103,13 +118,14 @@ export default function AddProperty() {
     startLoading()
 
     await api
-      .post('/property', formData, config)
-      .then(res => {
+      .post(`/property/${propertyId}/images`, formData, config)
+      .then(() => {
         navigation.navigate('Anunciar', { reload: true })
       })
       .catch(err => {
         console.error(err)
       })
+
     stopLoading()
   }
 
