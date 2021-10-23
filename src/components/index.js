@@ -11,7 +11,7 @@ import Loader from './Loader'
 import StepProgress from './StepProgress'
 import Warning from './Warning'
 import OwnerInfoModal from './OwnerInfoModal'
-
+import CategoryCard from './CategoryCard'
 export {
   PropertyCard,
   PropertyFilter,
@@ -25,5 +25,6 @@ export {
   Loader,
   StepProgress,
   Warning,
-  OwnerInfoModal
+  OwnerInfoModal,
+  CategoryCard
 }
