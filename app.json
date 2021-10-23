@@ -23,7 +23,12 @@
     },
     "android": {
       "package": "com.inatel.locus",
-      "versionCode": 1
+      "versionCode": 1,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAxGDqsho71F15ozi1ZKiCxsS8e8dOf190"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/icon.png"
