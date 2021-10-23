@@ -240,7 +240,7 @@ export default function AddProperty() {
                 testID="neighborhood-input"
                 placeholder={'Bairro do imóvel...'}
                 value={data.neighborhood}
-                onChangeText={value => onChange('neighbothood', value)}
+                onChangeText={value => onChange('neighborhood', value)}
               />
 
               <Text style={styles.label}>Número</Text>
