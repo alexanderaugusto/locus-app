@@ -38,6 +38,7 @@ export default function Advertise() {
         console.error(err)
       })
 
+    setRefresh(false)
     stopLoading()
   }
 
@@ -122,6 +123,12 @@ export default function Advertise() {
                 rightButtons={[
                   <View style={styles.deleteContainer} key={item.id.toString()}>
                     <TouchableOpacity
+                      style={styles.editButton}
+                      onPress={() => navigation.navigate('EditProperty')}
+                    >
+                      <Text style={styles.deleteText}>Editar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
                       style={styles.deleteButton}
                       onPress={() => removeProperty(item)}
                     >
@@ -140,7 +147,7 @@ export default function Advertise() {
                   />
                   <View style={styles.detailContainer}>
                     <Text
-                      numberOfLines={2}
+                      numberOfLines={1}
                       ellipsizeMode="tail"
                       style={styles.cardTitle}
                     >
@@ -148,16 +155,18 @@ export default function Advertise() {
                     </Text>
                     <View>
                       <Text
-                        numberOfLines={3}
+                        numberOfLines={2}
                         ellipsizeMode="tail"
                         style={styles.cardDescription}
                       >
                         {item.description}
                       </Text>
                     </View>
-                    <Text style={styles.cardPrice}>
-                      {formatCurrency(item.price)}
-                    </Text>
+                    <View style={styles.cardPriceContainer}>
+                      <Text style={styles.cardPrice}>
+                        {formatCurrency(item.price)}
+                      </Text>
+                    </View>
                   </View>
                 </View>
               </Swipeable>
@@ -211,7 +220,6 @@ const styles = StyleSheet.create({
 
   detailContainer: {
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
     flex: 1,
     padding: 5
   },
@@ -236,12 +244,18 @@ const styles = StyleSheet.create({
     color: colors.h2
   },
 
+  cardPriceContainer: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    width: '100%',
+    padding: 5
+  },
+
   cardPrice: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: 'green',
-    margin: 5,
-    alignSelf: 'flex-end'
+    color: 'green'
   },
 
   deleteContainer: {
@@ -251,14 +265,23 @@ const styles = StyleSheet.create({
   },
 
   deleteButton: {
-    borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
-    height: '100%',
     width: 75,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    backgroundColor: 'red'
+    backgroundColor: colors.danger,
+    flex: 1
+  },
+
+  editButton: {
+    borderTopRightRadius: 10,
+    width: 75,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: colors.blue,
+    flex: 1
   },
 
   deleteText: {
