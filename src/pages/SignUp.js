@@ -67,8 +67,6 @@ export default function SignUp() {
 
     startLoading()
 
-    console.log(formData);
-
     await api
       .post('/user', formData, config)
       .then(res => {

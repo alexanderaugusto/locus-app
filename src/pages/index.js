@@ -7,6 +7,7 @@ import Favorite from './Favorite'
 import PropertyDetail from './PropertyDetail'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import EditProperty from './EditProperty'
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   Favorite,
   PropertyDetail,
   SignIn,
-  SignUp
+  SignUp,
+  EditProperty
 }
