@@ -54,7 +54,7 @@ export default function EditInfo() {
     startLoading()
 
     await api
-      .patch('/property/' + item.id, propertyData)
+      .patch(`/property/${item.id}`, propertyData)
       .then(res => {
         updateItemInfo(res.data)
         stopLoading()

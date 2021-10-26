@@ -10,6 +10,7 @@ import SignUp from './SignUp'
 import EditProperty from './EditProperty'
 import EditAddress from './EditAddress'
 import EditInfo from './EditInfo'
+import AddVisitPeriod from './AddVisitPeriod'
 
 export {
   Home,
@@ -23,5 +24,6 @@ export {
   SignUp,
   EditProperty,
   EditAddress,
-  EditInfo
+  EditInfo,
+  AddVisitPeriod
 }

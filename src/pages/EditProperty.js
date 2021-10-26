@@ -39,7 +39,12 @@ export default function EditProperty() {
           <CategoryCard icon="images" text="Images"></CategoryCard>
         </View>
         <View style={styles.cardItem}>
-          <CategoryCard icon="calendar-alt" text="Visit"></CategoryCard>
+          <CategoryCard
+            icon="calendar-alt"
+            text="Visit"
+            navigateTo="AddVisitPeriod"
+            item={item}
+          ></CategoryCard>
         </View>
       </View>
     </KeyboardAvoidingView>

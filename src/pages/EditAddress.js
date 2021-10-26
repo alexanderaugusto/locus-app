@@ -42,7 +42,7 @@ export default function EditAddress() {
     startLoading()
 
     await api
-      .patch('/property/' + item.id + '/address', propertyData)
+      .patch(`/property/${item.id}/address`, propertyData)
       .then(res => {
         item.address = res.data
         stopLoading()
