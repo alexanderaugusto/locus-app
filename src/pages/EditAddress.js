@@ -17,13 +17,13 @@ export default function EditAddress() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const [data, setData] = useState({
-    street: '',
-    neighborhood: '',
-    number: '',
-    city: '',
+    street: item.address.street,
+    neighborhood: item.address.neighborhood,
+    number: item.address.number.toFixed(0),
+    city: item.address.city,
     state: 'MG',
     country: 'Brasil',
-    zipcode: ''
+    zipcode: item.address.zipcode
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })

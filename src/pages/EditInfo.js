@@ -21,17 +21,15 @@ export default function EditInfo() {
   const route = useRoute()
   const item = route.params?.item
 
-  console.log(item)
-
   const [data, setData] = useState({
-    title: '',
-    description: '',
-    price: '',
-    bedrooms: '',
-    bathrooms: '',
-    area: '',
-    place: '',
-    garage: '',
+    title: item.title,
+    description: item.description,
+    price: item.price.toFixed(2),
+    bedrooms: item.bedrooms.toFixed(0),
+    bathrooms: item.bathrooms.toFixed(0),
+    area: item.area.toFixed(0),
+    place: item.place.toFixed(0),
+    garage: item.garage.toFixed(0),
     animal: item.animal,
     type: item.type
   })
@@ -165,6 +163,16 @@ export default function EditInfo() {
             onChange={item => onChange('animal', item.value)}
           />
 
+          <Text style={styles.label}>Preço</Text>
+          <InputArea
+            testID="price-input"
+            keyboardType={'number-pad'}
+            label="R$"
+            placeholder={'0,00'}
+            value={data.price}
+            onChangeText={value => onChange('price', value)}
+          />
+
           <Button btnText={'Finalizar'} onPress={() => sendEditInfo()} />
         </View>
       </ScrollView>
@@ -203,5 +211,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     color: colors.h2
+  },
+
+  textArea: {
+    height: 130,
+    justifyContent: 'flex-start'
   }
 })
