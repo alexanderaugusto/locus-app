@@ -21,6 +21,8 @@ export default function EditInfo() {
   const route = useRoute()
   const item = route.params?.item
 
+  console.log(item)
+
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -30,8 +32,8 @@ export default function EditInfo() {
     area: '',
     place: '',
     garage: '',
-    animal: true,
-    type: 'Casa'
+    animal: item.animal,
+    type: item.type
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
