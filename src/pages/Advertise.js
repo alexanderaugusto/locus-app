@@ -124,7 +124,9 @@ export default function Advertise() {
                   <View style={styles.deleteContainer} key={item.id.toString()}>
                     <TouchableOpacity
                       style={styles.editButton}
-                      onPress={() => navigation.navigate('EditProperty')}
+                      onPress={() =>
+                        navigation.navigate('EditProperty', { item })
+                      }
                     >
                       <Text style={styles.deleteText}>Editar</Text>
                     </TouchableOpacity>

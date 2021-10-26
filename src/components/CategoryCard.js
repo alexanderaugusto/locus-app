@@ -2,10 +2,15 @@ import React from 'react'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 import colors from '../utils/constants/colors.json'
 import Icon from '@expo/vector-icons/FontAwesome5'
+import { useNavigation } from '@react-navigation/native'
 
-export default function CategoryCard({ icon, text }) {
+export default function CategoryCard({ icon, text, navigateTo, item }) {
+  const navigation = useNavigation()
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate(navigateTo, { item })}
+    >
       <View>
         <Icon
           style={styles.cardIcon}

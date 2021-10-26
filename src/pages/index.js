@@ -8,6 +8,7 @@ import PropertyDetail from './PropertyDetail'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import EditProperty from './EditProperty'
+import EditAddress from './EditAddress'
 
 export {
   Home,
@@ -19,5 +20,6 @@ export {
   PropertyDetail,
   SignIn,
   SignUp,
-  EditProperty
+  EditProperty,
+  EditAddress
 }

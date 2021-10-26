@@ -1,10 +1,14 @@
 import React from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
+import { useRoute } from '@react-navigation/native'
 import { CategoryCard } from '../components'
 
 import colors from '../utils/constants/colors.json'
 
 export default function EditProperty() {
+  const route = useRoute()
+  const item = route.params.item
+
   return (
     <KeyboardAvoidingView testID="edit-property" style={styles.container}>
       <View style={styles.header}>
@@ -14,7 +18,12 @@ export default function EditProperty() {
       </View>
       <View style={styles.cardContainer}>
         <View style={styles.cardItem}>
-          <CategoryCard icon="map" text="Address"></CategoryCard>
+          <CategoryCard
+            icon="map"
+            text="Address"
+            navigateTo="EditAddress"
+            item={item}
+          ></CategoryCard>
         </View>
         <View style={styles.cardItem}>
           <CategoryCard icon="building" text="Info"></CategoryCard>

@@ -7,7 +7,8 @@ import {
   PropertyDetail,
   ScheduleVisit,
   AddProperty,
-  EditProperty
+  EditProperty,
+  EditAddress
 } from '../pages'
 import AuthRoutes from './tab.routes'
 
@@ -32,6 +33,8 @@ export default function AppRoutes() {
       <stackRoutes.Screen name="AddProperty" component={AddProperty} />
 
       <stackRoutes.Screen name="EditProperty" component={EditProperty} />
+
+      <stackRoutes.Screen name="EditAddress" component={EditAddress} />
     </stackRoutes.Navigator>
   )
 }
