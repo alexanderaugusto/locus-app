@@ -119,14 +119,13 @@ export default function AddProperty() {
 
     await api
       .post(`/property/${propertyId}/images`, formData, config)
-      .then(() => {
-        navigation.navigate('Anunciar', { reload: true })
-      })
+      .then(() => {})
       .catch(err => {
         console.error(err)
       })
 
     stopLoading()
+    navigation.navigate('Anunciar', { reload: true })
   }
 
   const searchZipcode = async zipcode => {
