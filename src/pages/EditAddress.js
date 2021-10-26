@@ -43,11 +43,27 @@ export default function EditAddress() {
 
     await api
       .patch('/property/' + item.id + '/address', propertyData)
-      .then(navigation.navigate('PropertyDetail', { item }))
+      .then(res => {
+        item.address = res.data
+        stopLoading()
+        navigation.navigate('PropertyDetail', { item })
+      })
       .catch(err => {
         stopLoading()
         console.error(err)
       })
+  }
+
+  const validateFields = dataFields => {
+    let validField = true
+
+    Object.keys(dataFields).forEach(function (key) {
+      if (dataFields[key].length <= 0) {
+        validField = false
+      }
+    })
+
+    return validField
   }
 
   const searchZipcode = async zipcode => {
@@ -140,7 +156,14 @@ export default function EditAddress() {
         onChange={item => onChange('state', item.value)}
       />
 
-      <Button btnText={'Finalizar'} onPress={() => sendAddress()} />
+      <Button
+        btnText={'Finalizar'}
+        onPress={() =>
+          validateFields(data)
+            ? sendAddress()
+            : setErrorMessage('Preencha todos os campos antes de prosseguir')
+        }
+      />
     </KeyboardAvoidingView>
   )
 }

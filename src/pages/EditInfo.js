@@ -19,7 +19,7 @@ export default function EditInfo() {
   const navigation = useNavigation()
   const { startLoading, stopLoading } = useLoading()
   const route = useRoute()
-  const item = route.params.item
+  const item = route.params?.item
 
   const [data, setData] = useState({
     title: '',
@@ -31,38 +31,35 @@ export default function EditInfo() {
     place: '',
     garage: '',
     animal: true,
-    type: 'Casa',
-    images: [],
-    street: '',
-    neighborhood: '',
-    number: '',
-    city: '',
-    state: 'MG',
-    country: 'Brasil',
-    zipcode: ''
+    type: 'Casa'
   })
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
+  const updateItemInfo = resData => {
+    Object.keys(resData).forEach(function (key) {
+      item[key] = resData[key]
+    })
+  }
+
   const sendEditInfo = async () => {
-    const propertyData = {
-      title: data.title,
-      description: data.description,
-      price: data.price,
-      bedrooms: data.bedrooms,
-      bathrooms: data.bathrooms,
-      area: data.area,
-      place: data.place,
-      garage: data.garage,
-      animal: data.animal,
-      type: data.type
-    }
+    const propertyData = {}
+
+    Object.keys(data).forEach(function (key) {
+      if (data[key] !== '') {
+        propertyData[key] = data[key]
+      }
+    })
 
     startLoading()
 
     await api
-      .put('/property/' + item.id, propertyData)
-      .then(navigation.navigate('PropertyDetail', { item }))
+      .patch('/property/' + item.id, propertyData)
+      .then(res => {
+        updateItemInfo(res.data)
+        stopLoading()
+        navigation.navigate('PropertyDetail', { item })
+      })
       .catch(err => {
         stopLoading()
         console.error(err)

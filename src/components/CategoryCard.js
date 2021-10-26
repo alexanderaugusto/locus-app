@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 
 export default function CategoryCard({ icon, text, navigateTo, item }) {
   const navigation = useNavigation()
+
   return (
     <TouchableOpacity
       style={styles.card}

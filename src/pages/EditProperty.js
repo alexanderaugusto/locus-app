@@ -7,7 +7,7 @@ import colors from '../utils/constants/colors.json'
 
 export default function EditProperty() {
   const route = useRoute()
-  const item = route.params.item
+  const item = route.params?.item
 
   return (
     <KeyboardAvoidingView testID="edit-property" style={styles.container}>
@@ -26,7 +26,12 @@ export default function EditProperty() {
           ></CategoryCard>
         </View>
         <View style={styles.cardItem}>
-          <CategoryCard icon="building" text="Info"></CategoryCard>
+          <CategoryCard
+            icon="building"
+            text="Info"
+            navigateTo="EditInfo"
+            item={item}
+          ></CategoryCard>
         </View>
       </View>
       <View style={styles.cardContainer}>
