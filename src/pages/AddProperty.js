@@ -180,6 +180,7 @@ export default function AddProperty() {
           completedLabelColor={colors.blue}
           completedStepIconColor={colors.blue}
           completedCheckColor={colors['light-secondary']}
+          labelFontSize={2}
         >
           <StepProgress
             key={0}
@@ -458,7 +459,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors['light-primary'],
-    paddingHorizontal: 30
+    paddingHorizontal: 20
   },
 
   containerInput: {
