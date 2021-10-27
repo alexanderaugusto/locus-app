@@ -16,6 +16,7 @@ import api, { STORAGE_URL } from '../services/api'
 import { FloatButton, Warning } from '../components'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 
 import colors from '../utils/constants/colors.json'
 
@@ -24,6 +25,7 @@ export default function Advertise() {
   const route = useRoute()
   const { signed } = useAuth()
   const { startLoading, stopLoading } = useLoading()
+  const { resetScreen } = useReset()
 
   const [properties, setProperties] = useState([])
   const [refresh, setRefresh] = useState(false)
@@ -41,6 +43,13 @@ export default function Advertise() {
     setRefresh(false)
     stopLoading()
   }
+
+  useEffect(() => {
+    if (route.params?.reload) {
+      resetScreen('Anunciar')
+    }
+    console.log('Reload: ', route.params.reload)
+  }, [route.params?.reload])
 
   // const removeProperty = async item => {
   //   api

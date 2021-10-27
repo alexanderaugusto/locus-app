@@ -414,7 +414,7 @@ export default function AddProperty() {
                         </ImagePickerFunction>
                       )
                     }
-
+                    console.log(item)
                     return (
                       <Image source={{ uri: item.uri }} style={styles.image} />
                     )

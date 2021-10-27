@@ -47,11 +47,13 @@ export default function AddVisitPeriod() {
   const sendEditInfo = async data => {
     startLoading()
 
+    const reload = true
+
     await api
       .post(`/property/${item.id}/visit`, data)
       .then(res => {
         stopLoading()
-        navigation.navigate('EditProperty', { item })
+        navigation.navigate('Anunciar', { reload })
       })
       .catch(err => {
         stopLoading()

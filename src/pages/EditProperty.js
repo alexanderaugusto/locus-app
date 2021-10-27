@@ -36,7 +36,12 @@ export default function EditProperty() {
       </View>
       <View style={styles.cardContainer}>
         <View style={styles.cardItem}>
-          <CategoryCard icon="images" text="Images"></CategoryCard>
+          <CategoryCard
+            icon="images"
+            text="Images"
+            navigateTo="EditImages"
+            item={item}
+          ></CategoryCard>
         </View>
         <View style={styles.cardItem}>
           <CategoryCard

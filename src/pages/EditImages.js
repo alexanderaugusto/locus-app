@@ -1,29 +1,35 @@
 import React, { useState } from 'react'
 import {
+  KeyboardAvoidingView,
   StyleSheet,
   Text,
   View,
   SafeAreaView,
   FlatList,
-  Image
+  Image,
+  ScrollView,
+  TouchableOpacity
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 import { ImagePickerFunction, Button } from '../components'
 import colors from '../utils/constants/colors.json'
-import { FontAwesome } from 'react-native-vector-icons'
-import api from '../services/api'
+import api, { STORAGE_URL } from '../services/api'
 import { createRows } from '../utils/util'
 import { useLoading } from '../contexts/loading'
 
+import { FontAwesome } from 'react-native-vector-icons'
+import Icon from '@expo/vector-icons/FontAwesome5'
 export default function EditAddress() {
   const navigation = useNavigation()
   const { startLoading, stopLoading } = useLoading()
   const route = useRoute()
-  const item = route.params?.item
+  const routeItem = route.params?.item
+
+  const [removeIds, setRemoveIds] = useState([])
 
   const [data, setData] = useState({
-    images: []
+    images: routeItem.images
   })
 
   const onChangeImages = image => {
@@ -33,64 +39,150 @@ export default function EditAddress() {
     })
   }
 
-  const addImage = async image => {
+  const addImageToRemove = image => {
+    if ('path' in image) {
+      setRemoveIds([...removeIds, image.id])
+    }
+
+    const index = data.images.indexOf(image)
+    data.images.splice(index, 1)
+    setData({
+      images: data.images
+    })
+  }
+
+  const removeImages = async () => {
     startLoading()
 
+    if (removeIds.length <= 0) {
+      return
+    }
+
     await api
-      .post(`/property/${item.id}/images`, data.images)
-      .then(res => {
-        item.address = res.data
-        stopLoading()
-        navigation.navigate('PropertyDetail', { item })
+      .delete(`/property/${routeItem.id}/image`, {
+        data: { images_ids: removeIds }
       })
+      .then(res => {})
       .catch(err => {
-        stopLoading()
         console.error(err)
       })
+
+    stopLoading()
+  }
+
+  const addImages = async () => {
+    startLoading()
+
+    const formData = new FormData()
+
+    data.images.forEach(image => {
+      if ('uri' in image) {
+        formData.append('files', image)
+      }
+    })
+
+    const reload = true
+
+    if (formData._parts.length <= 0) {
+      navigation.navigate('Anunciar', { reload })
+      stopLoading()
+      return
+    }
+
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+
+    await api
+      .post(`/property/${routeItem.id}/images`, formData, config)
+      .then(() => {
+        navigation.navigate('Anunciar', { reload })
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+    stopLoading()
   }
 
   return (
-    <View style={styles.containerInput}>
-      <Text style={styles.message}>
-        Selecione algumas imagens do seu imóvel para deixa-lo mais apresentável
-      </Text>
-      <SafeAreaView style={styles.imageContainer}>
-        <FlatList
-          data={createRows([...data.images, { imagePicker: true }], 2)}
-          keyExtractor={(item, index) => index.toString()}
-          numColumns={2}
-          scrollEnabled={false}
-          renderItem={({ item }) => {
-            if (item.empty) {
-              return (
-                <View
-                  style={{
-                    ...styles.image,
-                    backgroundColor: 'transparent'
-                  }}
-                />
-              )
-            }
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <KeyboardAvoidingView testID="edit-property" style={styles.container}>
+        <View style={styles.containerInput}>
+          <View style={styles.header}>
+            <Text numberOfLiner={2} style={styles.headerTitle}>
+              Editar Imagens
+            </Text>
+          </View>
+          <SafeAreaView style={styles.imageContainer}>
+            <FlatList
+              data={createRows([...data.images, { imagePicker: true }], 2)}
+              keyExtractor={(item, index) => index.toString()}
+              numColumns={2}
+              scrollEnabled={false}
+              renderItem={({ item }) => {
+                if (item.empty) {
+                  return (
+                    <View
+                      style={{
+                        ...styles.image,
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  )
+                }
 
-            if (item.imagePicker) {
-              return (
-                <ImagePickerFunction
-                  style={styles.image}
-                  onChange={image => onChangeImages(image)}
-                >
-                  <View style={styles.addIcon}>
-                    <FontAwesome name="plus" color={colors.blue} size={20} />
+                if (item.imagePicker) {
+                  return (
+                    <ImagePickerFunction
+                      style={styles.image}
+                      onChange={image => onChangeImages(image)}
+                    >
+                      <View style={styles.addIcon}>
+                        <FontAwesome
+                          name="plus"
+                          color={colors.blue}
+                          size={20}
+                        />
+                      </View>
+                    </ImagePickerFunction>
+                  )
+                }
+
+                let url = item.uri
+                if ('path' in item) {
+                  url = `${STORAGE_URL}/property/${item.path}`
+                }
+
+                return (
+                  <View style={styles.imageCard}>
+                    <Image source={{ uri: url }} style={styles.image} />
+                    <View style={styles.favoriteIcon}>
+                      <TouchableOpacity
+                        testID="btn-favorite"
+                        style={styles.button}
+                        onPress={() => addImageToRemove(item)}
+                      >
+                        <Icon name="minus" size={15} color={colors.blue} />
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </ImagePickerFunction>
-              )
-            }
-
-            return <Image source={{ uri: item.uri }} style={styles.image} />
-          }}
-        />
-        <Button btnText={'Salvar'} onPress={() => addImage(data)} />
-      </SafeAreaView>
-    </View>
+                )
+              }}
+            />
+            <Button
+              btnText={'Salvar'}
+              onPress={() => {
+                removeImages()
+                addImages()
+              }}
+            />
+          </SafeAreaView>
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   )
 }
 
@@ -125,5 +217,55 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     color: colors.h2
+  },
+
+  imageContainer: {
+    flex: 1,
+    marginTop: 10
+  },
+
+  image: {
+    flexGrow: 1,
+    flexBasis: 0,
+    backgroundColor: colors['light-secondary'],
+    borderRadius: 10,
+    margin: 3,
+    justifyContent: 'center',
+    height: 170
+  },
+
+  imageCard: {
+    flexGrow: 1,
+    flexBasis: 0
+  },
+
+  addIcon: {
+    alignSelf: 'center'
+  },
+
+  favoriteIcon: {
+    margin: 10,
+    alignSelf: 'flex-end',
+    position: 'absolute'
+  },
+
+  button: {
+    width: 27,
+    height: 27,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: colors['light-primary'],
+    backgroundColor: '#FFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 7,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
   }
 })

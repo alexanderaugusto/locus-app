@@ -53,12 +53,14 @@ export default function EditInfo() {
 
     startLoading()
 
+    const reload = true
+
     await api
       .patch(`/property/${item.id}`, propertyData)
       .then(res => {
         updateItemInfo(res.data)
         stopLoading()
-        navigation.navigate('PropertyDetail', { item })
+        navigation.navigate('Anunciar', { reload })
       })
       .catch(err => {
         stopLoading()

@@ -41,12 +41,14 @@ export default function EditAddress() {
 
     startLoading()
 
+    const reload = true
+
     await api
       .patch(`/property/${item.id}/address`, propertyData)
       .then(res => {
         item.address = res.data
         stopLoading()
-        navigation.navigate('PropertyDetail', { item })
+        navigation.navigate('Anunciar', { reload })
       })
       .catch(err => {
         stopLoading()

@@ -11,6 +11,7 @@ import EditProperty from './EditProperty'
 import EditAddress from './EditAddress'
 import EditInfo from './EditInfo'
 import AddVisitPeriod from './AddVisitPeriod'
+import EditImages from './EditImages'
 
 export {
   Home,
@@ -25,5 +26,6 @@ export {
   EditProperty,
   EditAddress,
   EditInfo,
-  AddVisitPeriod
+  AddVisitPeriod,
+  EditImages
 }
