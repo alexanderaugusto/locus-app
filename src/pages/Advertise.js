@@ -48,7 +48,6 @@ export default function Advertise() {
     if (route.params?.reload) {
       resetScreen('Anunciar')
     }
-    console.log('Reload: ', route.params.reload)
   }, [route.params?.reload])
 
   // const removeProperty = async item => {
