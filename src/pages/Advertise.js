@@ -147,38 +147,45 @@ export default function Advertise() {
                   </View>
                 ]}
               >
-                <View style={styles.card}>
-                  <Image
-                    style={styles.cardImage}
-                    resizeMode="cover"
-                    source={{
-                      uri: `${STORAGE_URL}/property/${item.images[0]?.path}`
-                    }}
-                  />
-                  <View style={styles.detailContainer}>
-                    <Text
-                      numberOfLines={1}
-                      ellipsizeMode="tail"
-                      style={styles.cardTitle}
-                    >
-                      {item.title}
-                    </Text>
-                    <View>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate('PropertyDetail', { item })
+                  }
+                  activeOpacity={1}
+                >
+                  <View style={styles.card}>
+                    <Image
+                      style={styles.cardImage}
+                      resizeMode="cover"
+                      source={{
+                        uri: `${STORAGE_URL}/property/${item.images[0]?.path}`
+                      }}
+                    />
+                    <View style={styles.detailContainer}>
                       <Text
-                        numberOfLines={2}
+                        numberOfLines={1}
                         ellipsizeMode="tail"
-                        style={styles.cardDescription}
+                        style={styles.cardTitle}
                       >
-                        {item.description}
+                        {item.title}
                       </Text>
-                    </View>
-                    <View style={styles.cardPriceContainer}>
-                      <Text style={styles.cardPrice}>
-                        {formatCurrency(item.price)}
-                      </Text>
+                      <View>
+                        <Text
+                          numberOfLines={2}
+                          ellipsizeMode="tail"
+                          style={styles.cardDescription}
+                        >
+                          {item.description}
+                        </Text>
+                      </View>
+                      <View style={styles.cardPriceContainer}>
+                        <Text style={styles.cardPrice}>
+                          {formatCurrency(item.price)}
+                        </Text>
+                      </View>
                     </View>
                   </View>
-                </View>
+                </TouchableOpacity>
               </Swipeable>
             )
           }}
