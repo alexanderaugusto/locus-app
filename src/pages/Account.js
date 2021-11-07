@@ -72,7 +72,16 @@ export default function Account() {
 
     await api
       .put('/user', data)
-      .then(res => {})
+      .then(res => {
+        showMessage({
+          message: 'Sucesso',
+          description: 'Seus dados foram atualizado com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+      })
       .catch(err => {
         console.error(err)
 
@@ -105,6 +114,14 @@ export default function Account() {
       .put('/user/avatar', data, config)
       .then(res => {
         setUserInfo({ ...userInfo, avatar: image.uri })
+        showMessage({
+          message: 'Sucesso',
+          description: 'Sua foto de perfil foi atualizada com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
       .catch(err => {
         console.error(err)
