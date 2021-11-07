@@ -2360,9 +2360,10 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^1.1.3"
 
-"@react-native-async-storage/async-storage@react-native-async-storage/async-storage":
-  version "1.13.0"
-  resolved "https://codeload.github.com/react-native-async-storage/async-storage/tar.gz/8dfd16d48e217ad366a144d6249fb39537384c3f"
+"@react-native-async-storage/async-storage@^1.15.11":
+  version "1.15.11"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.15.11.tgz#da625b906529076414c32fd337d813b565149858"
+  integrity sha512-l/I+PK+lh5M25QSdk44aX+UR63ian2d2CSx6WbydwU+RUZmKP7eOEPe+OeaTWgfOFSVtlEqEcP2AbW2YM7ukMA==
   dependencies:
     merge-options "^3.0.4"
 
@@ -6447,6 +6448,14 @@ expo-modules-core@~0.4.4:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
+expo-modules-core@~0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.4.7.tgz#1ea4de95bb4ac1ee125efe50b6f25055c36d86c6"
+  integrity sha512-boEbB3tAYO7WkgcaXToQLY8IUeEGOZeDF+StTL38FA0l8jzJwwQLU7TaWjWEMGfxvvn7KP7V7kFudJKc7dak3g==
+  dependencies:
+    compare-versions "^3.4.0"
+    invariant "^2.2.4"
+
 expo-pwa@0.0.101:
   version "0.0.101"
   resolved "https://registry.yarnpkg.com/expo-pwa/-/expo-pwa-0.0.101.tgz#8401f84f5ef8c2bd3207d99d80e7f27dabfc388d"
@@ -6458,14 +6467,14 @@ expo-pwa@0.0.101:
     commander "2.20.0"
     update-check "1.5.3"
 
-expo-splash-screen@~0.13.4:
-  version "0.13.4"
-  resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.13.4.tgz#70de5dcbb5bbd3ce88185e830d84f123c8afafe1"
-  integrity sha512-xcRCx07WlPGP8+qKxqAW4KP1+j7/a9H+xn8/cmpKAmzYbs/ttTRzDEQzEq8BvVqyoBPS6Qo7Hwl1BHDpssjftw==
+expo-splash-screen@^0.13.5:
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.13.5.tgz#ece76c092f2ce88e4660a70e532ed47909a01ddd"
+  integrity sha512-L/L0XlmmxSoyuooCVvbPBO4xUF9kAs+F0+fML3pf7miBOnTd/v9j5riKSmaDthNtM4AarXxgi0AXzSHQ1M3rZg==
   dependencies:
     "@expo/configure-splash-screen" "^0.6.0"
     "@expo/prebuild-config" "^3.0.6"
-    expo-modules-core "~0.4.4"
+    expo-modules-core "~0.4.7"
 
 expo-status-bar@~1.1.0:
   version "1.1.0"
@@ -6482,16 +6491,16 @@ expo-updates-interface@~0.4.0:
   resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.4.0.tgz#20961f2cb4bd068a74c29434affa08791dbaa240"
   integrity sha512-EUJaLnDAePikGEQT8w6gjCY3m/dlGgjZKVn5XBaxZMkHzOy3PDQo6QOcK/bcMdkA3CyNrvo6NCe+/7RHrgmK4A==
 
-expo-updates@~0.10.5:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.10.5.tgz#7e177e258f4dad5725b783767fe7b864b3380a08"
-  integrity sha512-1WDVTmi/sVrlUngBEqWsgcx+SLY+YTluGBmfxsHtROgnU66nneZtuclLIu2h+/RGcHKtfGoxjeo2RzsoYn+9zg==
+expo-updates@^0.10.13:
+  version "0.10.13"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.10.13.tgz#8e4eb506f7e78ed6fcd97bd4d18bce6f0637bf5b"
+  integrity sha512-IrEIvitWtxJkxbcWQidUmHvZAn9sPIXQq7gJXuaeXAa7aNQEj6kK0KLHqD4IoPSHEJ2oYdonXEnePNgwCl8XwA==
   dependencies:
     "@expo/config" "^5.0.9"
     "@expo/config-plugins" "^4.0.2"
     "@expo/metro-config" "~0.1.84"
     expo-manifests "~0.2.2"
-    expo-modules-core "~0.4.4"
+    expo-modules-core "~0.4.7"
     expo-structured-headers "~2.0.0"
     expo-updates-interface "~0.4.0"
     fbemitter "^2.1.1"
