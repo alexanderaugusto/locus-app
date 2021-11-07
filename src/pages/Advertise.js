@@ -60,20 +60,29 @@ export default function Advertise() {
     }
   }, [route.params?.reload])
 
-  // const removeProperty = async item => {
-  //   api
-  //     .delete(`/property/${item.id}`)
-  //     .then(res => {
-  //       navigation.reset({
-  //         index: 0,
-  //         routes: [{ name: 'Anunciar' }],
-  //         key: 'Home'
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.error(err)
-  //     })
-  // }
+  const removeProperty = async item => {
+    api
+      .delete(`/property/${item.id}`)
+      .then(res => {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Anunciar' }],
+          key: 'Home'
+        })
+      })
+      .catch(err => {
+        console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.description,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+      })
+  }
 
   useEffect(() => {
     if (signed) {
@@ -150,7 +159,7 @@ export default function Advertise() {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.deleteButton}
-                      onPress={() => navigation.navigate('EditProperty')}
+                      onPress={() => removeProperty(item)}
                     >
                       <Text style={styles.deleteText}>Deletar</Text>
                     </TouchableOpacity>
