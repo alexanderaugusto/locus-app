@@ -38,7 +38,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
 
         showMessage({
           message: 'Algo deu errado :(',
-          description: err.response?.data.message,
+          description: err.response?.data.description,
           type: err.response.status >= 500 ? 'danger' : 'warning',
           autoHide: true,
           icon: 'auto',
@@ -60,7 +60,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
 
         showMessage({
           message: 'Algo deu errado :(',
-          description: err.response?.data.message,
+          description: err.response?.data.description,
           type: err.response.status >= 500 ? 'danger' : 'warning',
           autoHide: true,
           icon: 'auto',
