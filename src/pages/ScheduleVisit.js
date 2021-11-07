@@ -15,6 +15,7 @@ import { useLoading } from '../contexts/loading'
 import api from '../services/api'
 import { formatDate, formatWeekday, formatHour } from '../utils/util'
 import colors from '../utils/constants/colors.json'
+import { showMessage } from 'react-native-flash-message'
 
 export default function ScheduleVisit() {
   const navigation = useNavigation()
@@ -37,6 +38,15 @@ export default function ScheduleVisit() {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()

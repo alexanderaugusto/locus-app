@@ -19,6 +19,7 @@ import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
 import { useReset } from '../contexts/reset'
+import { showMessage } from 'react-native-flash-message'
 
 import colors from '../utils/constants/colors.json'
 
@@ -46,6 +47,15 @@ export default function Home() {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()

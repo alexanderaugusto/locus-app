@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native'
 import { formatCurrency } from '../utils/util'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
+import { showMessage } from 'react-native-flash-message'
 
 import colors from '../utils/constants/colors.json'
 
@@ -34,6 +35,15 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 
@@ -47,6 +57,15 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 

@@ -11,6 +11,7 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { InputArea, Button } from '../components'
 import { useAuth } from '../contexts/auth'
+import { showMessage } from 'react-native-flash-message'
 
 import logo from '../../assets/logo-blue.png'
 import colors from '../utils/constants/colors.json'
@@ -22,7 +23,6 @@ export default function SignIn() {
   const [buttonLoading, setButtonLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
 
   const login = async () => {
     setButtonLoading(true)
@@ -32,8 +32,16 @@ export default function SignIn() {
         navigation.goBack()
       })
       .catch(err => {
-        setErrorMessage('Algo deu errado, tente novamente!')
         console.log(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     setButtonLoading(false)
@@ -49,10 +57,6 @@ export default function SignIn() {
         <Image style={styles.logo} source={logo}></Image>
       </View>
 
-      <Text testID={'errorMessageText'} style={styles.errorMessage}>
-        {errorMessage}
-      </Text>
-
       <InputArea
         testID={'signIn-email'}
         secureTextEntry={false}
@@ -61,7 +65,6 @@ export default function SignIn() {
         keyboardType={'email-address'}
         value={email}
         onChangeText={value => {
-          setErrorMessage('')
           setEmail(value)
         }}
       />
@@ -73,7 +76,6 @@ export default function SignIn() {
         placeholder={'Entre com a sua senha'}
         value={password}
         onChangeText={value => {
-          setErrorMessage('')
           setPassword(value)
         }}
       />
@@ -82,7 +84,14 @@ export default function SignIn() {
         btnText={'Entrar'}
         onPress={() => {
           email === '' || password === ''
-            ? setErrorMessage('Preencha todos os campos corretamente!')
+            ? showMessage({
+                message: 'Algo deu errado :(',
+                description: 'Os campos de e-mail e senha não podem ser vazios',
+                type: 'warning',
+                autoHide: true,
+                icon: 'auto',
+                duration: 3000
+              })
             : login()
         }}
         buttonLoading={buttonLoading}
@@ -92,7 +101,6 @@ export default function SignIn() {
         <Text style={styles.signUpText}>Ainda não possui conta?</Text>
         <TouchableOpacity
           onPress={() => {
-            setErrorMessage('')
             navigation.navigate('SignUp')
           }}
         >

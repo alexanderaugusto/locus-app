@@ -8,6 +8,7 @@ import states from '../utils/constants/states.json'
 import api, { zipcodeAPI } from '../services/api'
 import { formatZipcode } from '../utils/util'
 import { useLoading } from '../contexts/loading'
+import { showMessage } from 'react-native-flash-message'
 
 export default function EditAddress() {
   const navigation = useNavigation()
@@ -53,6 +54,15 @@ export default function EditAddress() {
       .catch(err => {
         stopLoading()
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 
@@ -93,6 +103,15 @@ export default function EditAddress() {
         })
         .catch(err => {
           console.error(err)
+
+          showMessage({
+            message: 'Algo deu errado :(',
+            description: err.response?.data.message,
+            type: err.response.status >= 500 ? 'danger' : 'warning',
+            autoHide: true,
+            icon: 'auto',
+            duration: 3000
+          })
         })
     }
   }

@@ -22,6 +22,7 @@ import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
 import { createRows, formatZipcode } from '../utils/util'
 import api, { zipcodeAPI } from '../services/api'
+import { showMessage } from 'react-native-flash-message'
 
 import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
@@ -99,6 +100,15 @@ export default function AddProperty() {
       .catch(err => {
         stopLoading()
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 
@@ -122,6 +132,15 @@ export default function AddProperty() {
       .then(() => {})
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()
@@ -153,6 +172,15 @@ export default function AddProperty() {
         })
         .catch(err => {
           console.error(err)
+
+          showMessage({
+            message: 'Algo deu errado :(',
+            description: err.response?.data.message,
+            type: err.response.status >= 500 ? 'danger' : 'warning',
+            autoHide: true,
+            icon: 'auto',
+            duration: 3000
+          })
         })
     }
   }

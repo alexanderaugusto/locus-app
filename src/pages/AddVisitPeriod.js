@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
+import { showMessage } from 'react-native-flash-message'
 
 import { InputArea, InputSelect, Button } from '../components'
 import colors from '../utils/constants/colors.json'
@@ -58,6 +59,15 @@ export default function AddVisitPeriod() {
       .catch(err => {
         stopLoading()
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 

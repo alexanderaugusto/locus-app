@@ -2,6 +2,7 @@ import 'react-native-gesture-handler'
 import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
 import * as Updates from 'expo-updates'
+import FlashMessage from 'react-native-flash-message'
 
 // Contexts
 import { AuthProvider } from './src/contexts/auth'
@@ -38,6 +39,7 @@ export default function App() {
           </ResetProvider>
         </LoadingProvider>
       </AuthProvider>
+      <FlashMessage position="top" />
     </>
   )
 }

@@ -21,6 +21,7 @@ import Icon from '@expo/vector-icons/FontAwesome5'
 import api, { STORAGE_URL } from '../services/api'
 import { formatPhoneNumber, formatCPF } from '../utils/util'
 import { useLoading } from '../contexts/loading'
+import { showMessage } from 'react-native-flash-message'
 
 import colors from '../utils/constants/colors.json'
 
@@ -74,6 +75,15 @@ export default function SignUp() {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()

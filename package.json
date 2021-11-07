@@ -26,6 +26,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
     "react-native-async-storage": "^0.0.1",
+    "react-native-flash-message": "^0.2.0",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-maps": "0.28.0",
     "react-native-modal-datetime-picker": "^13.0.0",

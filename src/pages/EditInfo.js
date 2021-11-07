@@ -11,6 +11,7 @@ import { InputArea, InputSelect, Button } from '../components'
 import types from '../utils/constants/types.json'
 import colors from '../utils/constants/colors.json'
 import api from '../services/api'
+import { showMessage } from 'react-native-flash-message'
 
 import { useLoading } from '../contexts/loading'
 import { useNavigation, useRoute } from '@react-navigation/native'
@@ -65,6 +66,15 @@ export default function EditInfo() {
       .catch(err => {
         stopLoading()
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
   }
 

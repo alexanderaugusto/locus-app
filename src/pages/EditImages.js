@@ -17,6 +17,7 @@ import colors from '../utils/constants/colors.json'
 import api, { STORAGE_URL } from '../services/api'
 import { createRows } from '../utils/util'
 import { useLoading } from '../contexts/loading'
+import { showMessage } from 'react-native-flash-message'
 
 import { FontAwesome } from 'react-native-vector-icons'
 import Icon from '@expo/vector-icons/FontAwesome5'
@@ -65,6 +66,15 @@ export default function EditAddress() {
       .then(res => {})
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()
@@ -102,6 +112,15 @@ export default function EditAddress() {
       })
       .catch(err => {
         console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.message,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
       })
 
     stopLoading()
