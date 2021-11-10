@@ -52,7 +52,42 @@ export default function ScheduleVisit() {
     stopLoading()
   }
 
-  // CRIAR REQUISIÇÃO PARA AGENDAR VISITA
+  const handleSubmitVisit = async () => {
+    startLoading()
+
+    const data = {
+      property_id: route.params.item.id,
+      date: selectedVisit.date
+    }
+
+    await api
+      .post('/user/visit', data)
+      .then(res => {
+        navigation.navigate('Home')
+        showMessage({
+          message: 'Agendamento realizado com sucesso!',
+          description: 'Agora você pode agendar outra visita.',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+      })
+      .catch(err => {
+        console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.description,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+      })
+
+    stopLoading()
+  }
 
   useEffect(() => {
     startLoading()
@@ -156,7 +191,7 @@ export default function ScheduleVisit() {
 
         <Button
           btnText="Enviar"
-          // onPress={handleSubmitVisit}
+          onPress={handleSubmitVisit}
           disabled={loading}
         />
       </KeyboardAvoidingView>
