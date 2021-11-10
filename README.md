@@ -43,7 +43,7 @@ Locus - é uma forma de conectar clientes e proprietários, tornando a escolha d
 	  - [x] Editar dados
   - Imóveis:
 	  - [x] Cadastrar
-	  - [ ] Atualizar dados
+	  - [x] Atualizar dados
 	  - [x] Listar
 	  - [x] Favoritar
 	  - [x] Pesquisar
