@@ -10,6 +10,25 @@ const formatCurrency = number => {
   return value.join(',')
 }
 
+const formatCurrencyInput = value => {
+  value = parseInt(value.replace(/[\D]+/g, '')).toString()
+  value = value.replace(/([0-9]{2})$/g, ',$1')
+
+  if (value.length > 6) {
+    value = value.replace(/([0-9]{3}),([0-9]{2}$)/g, '.$1,$2')
+  }
+
+  if (value.length > 9) {
+    value = value.replace(/([0-9]{3}).([0-9]{3}),([0-9]{2}$)/g, '.$1.$2,$3')
+  }
+
+  if (value === 'NaN') {
+    return ''
+  }
+
+  return value
+}
+
 const createRows = (data, columns = 2) => {
   const array = data.filter(item => item)
 
@@ -80,6 +99,7 @@ const formatHour = text => {
 
 export {
   formatCurrency,
+  formatCurrencyInput,
   createRows,
   formatPhoneNumber,
   formatCPF,

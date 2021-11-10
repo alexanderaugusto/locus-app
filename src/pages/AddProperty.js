@@ -20,7 +20,7 @@ import {
 } from '../components'
 import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
-import { createRows, formatZipcode } from '../utils/util'
+import { createRows, formatZipcode, formatCurrencyInput } from '../utils/util'
 import api, { zipcodeAPI } from '../services/api'
 import { showMessage } from 'react-native-flash-message'
 
@@ -473,7 +473,10 @@ export default function AddProperty() {
                 label="R$"
                 placeholder={'0,00'}
                 value={data.price}
-                onChangeText={value => onChange('price', value)}
+                maxLength={13}
+                onChangeText={value =>
+                  onChange('price', formatCurrencyInput(value))
+                }
               />
             </View>
           </StepProgress>
