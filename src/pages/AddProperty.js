@@ -60,7 +60,6 @@ export default function AddProperty() {
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
-  stopLoading()
   const onChangeImages = image => {
     setData({
       ...data,
