@@ -3,13 +3,15 @@ import React, { createContext, useContext, useState } from 'react'
 const ResetContext = createContext({
   screens: {
     home: false,
-    favorite: false
+    favorite: false,
+    account: false
   }
 })
 
 export const ResetProvider = ({ children }) => {
   const [home, setHome] = useState(false)
   const [favorite, setFavorite] = useState(false)
+  const [account, setAccount] = useState(false)
 
   const resetScreen = (screenName, reload) => {
     switch (screenName) {
@@ -19,12 +21,16 @@ export const ResetProvider = ({ children }) => {
       case 'favorite':
         setFavorite(reload)
         break
+      case 'account':
+        setAccount(reload)
+        break
     }
   }
 
   const screens = {
     home,
-    favorite
+    favorite,
+    account
   }
 
   return (

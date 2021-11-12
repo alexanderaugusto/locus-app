@@ -1,5 +1,6 @@
+/* eslint-disable camelcase */
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   SafeAreaView,
   View,
@@ -13,7 +14,10 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { formatCurrency } from '../utils/util'
 import { useAuth } from '../contexts/auth'
+import { useLoading } from '../contexts/loading'
+import { showMessage } from 'react-native-flash-message'
 import MapView from 'react-native-maps'
+import api from '../services/api'
 
 import colors from '../utils/constants/colors.json'
 
@@ -21,7 +25,14 @@ export default function PropertyDetail() {
   const navigation = useNavigation()
   const route = useRoute()
   const { signed } = useAuth()
+  const { startLoading, stopLoading } = useLoading()
+
   const [openModal, setOpenModal] = useState(false)
+  const [property, setProperty] = useState({
+    address: {},
+    images: [],
+    owner: {}
+  })
 
   const goToScheduleVisitPage = () => {
     if (signed) {
@@ -30,6 +41,35 @@ export default function PropertyDetail() {
       navigation.navigate('SignIn')
     }
   }
+
+  const getProperty = async (property_id) => {
+    startLoading()
+
+    await api.get(`/property/${property_id}`)
+      .then(res => {
+        setProperty(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+
+        showMessage({
+          message: 'Algo deu errado :(',
+          description: err.response?.data.description,
+          type: err.response.status >= 500 ? 'danger' : 'warning',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+      })
+
+    stopLoading()
+  }
+
+  useEffect(() => {
+    if (route.params.item) {
+      getProperty(route.params.item.id)
+    }
+  }, [route.params.item])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -44,7 +84,7 @@ export default function PropertyDetail() {
           toggle={() => {
             setOpenModal(false)
           }}
-          dataInfos={route.params.item}
+          dataInfos={property}
         />
 
         <TouchableOpacity
@@ -59,24 +99,24 @@ export default function PropertyDetail() {
           />
         </TouchableOpacity>
 
-        <SwiperImage images={route.params ? route.params.item.images : []} />
+        <SwiperImage images={property.images} />
 
         <View style={styles.body}>
           <Text style={styles.title} numberOfLines={2}>
-            {route.params?.item.title}
+            {property.title}
           </Text>
           <Text style={styles.address}>
-            {route.params?.item.address.street},{' '}
-            {route.params?.item.address.neighborhood}
+            {property.address.street},{' '}
+            {property.neighborhood}
           </Text>
           <Text style={styles.address}>
-            {route.params?.item.address.city} -{' '}
-            {route.params?.item.address.state}
+            {property.city} -{' '}
+            {property.state}
           </Text>
 
           <Text style={styles.label}>Sobre esse imóvel:</Text>
           <Text style={styles.descriptionInfo} numberOfLines={5}>
-            {route.params?.item.description}
+            {property.description}
           </Text>
 
           <View style={styles.iconsRow}>
@@ -85,7 +125,7 @@ export default function PropertyDetail() {
                 <Icon name={'bed'} size={18} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.bedrooms} quarto(s)
+                {property.bedrooms} quarto(s)
               </Text>
             </View>
 
@@ -94,7 +134,7 @@ export default function PropertyDetail() {
                 <Icon name={'bath'} size={20} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.bathrooms} banheiro(s)
+                {property.bathrooms} banheiro(s)
               </Text>
             </View>
           </View>
@@ -105,7 +145,7 @@ export default function PropertyDetail() {
                 <Icon name={'ruler-horizontal'} size={18} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.area} m²
+                {property.area} m²
               </Text>
             </View>
 
@@ -114,7 +154,7 @@ export default function PropertyDetail() {
                 <Icon name={'car'} size={19} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.garage} vaga(s)
+                {property.garage} vaga(s)
               </Text>
             </View> */}
 
@@ -123,17 +163,17 @@ export default function PropertyDetail() {
                 <Icon name={'dog'} size={19} color={colors.h2} />
               </View>
               <Text style={styles.iconsLabel}>
-                {route.params?.item.animal ? 'Aceita pet' : 'Não aceita pet'}
+                {property.animal ? 'Aceita pet' : 'Não aceita pet'}
               </Text>
             </View>
           </View>
 
-          {route.params?.item.address?.latitude &&
-            route.params?.item.address?.longitude && (
+          {property.address?.latitude &&
+            property.address?.longitude && (
               <MapView
                 initialRegion={{
-                  latitude: parseFloat(route.params.item.address.latitude),
-                  longitude: parseFloat(route.params.item.address.longitude),
+                  latitude: parseFloat(property.address.latitude),
+                  longitude: parseFloat(property.address.longitude),
                   latitudeDelta: 0.005,
                   longitudeDelta: 0.0038
                 }}
@@ -142,8 +182,8 @@ export default function PropertyDetail() {
               >
                 <MapView.Marker
                   coordinate={{
-                    latitude: parseFloat(route.params.item.address.latitude),
-                    longitude: parseFloat(route.params.item.address.longitude)
+                    latitude: parseFloat(property.address.latitude),
+                    longitude: parseFloat(property.address.longitude)
                   }}
                 />
               </MapView>
@@ -153,7 +193,7 @@ export default function PropertyDetail() {
             <View style={styles.price}>
               <Text style={styles.label}>Aluguel:</Text>
               <Text style={styles.priceInfo} numberOfLines={5}>
-                {formatCurrency(route.params?.item.price)}
+                {formatCurrency(property.price)}
               </Text>
             </View>
 

@@ -11,7 +11,9 @@ import {
   EditAddress,
   EditInfo,
   AddVisitPeriod,
-  EditImages
+  EditImages,
+  EditUser,
+  EditVisit
 } from '../pages'
 import AuthRoutes from './tab.routes'
 
@@ -44,6 +46,10 @@ export default function AppRoutes() {
       <stackRoutes.Screen name="AddVisitPeriod" component={AddVisitPeriod} />
 
       <stackRoutes.Screen name="EditImages" component={EditImages} />
+
+      <stackRoutes.Screen name="EditUser" component={EditUser} />
+
+      <stackRoutes.Screen name="EditVisit" component={EditVisit} />
     </stackRoutes.Navigator>
   )
 }

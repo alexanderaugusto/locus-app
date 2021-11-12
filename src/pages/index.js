@@ -1,5 +1,7 @@
 import Home from './Home'
 import Account from './Account'
+import EditUser from './EditUser'
+import EditVisit from './EditVisit'
 import AddProperty from './AddProperty'
 import Advertise from './Advertise'
 import ScheduleVisit from './ScheduleVisit'
@@ -16,6 +18,8 @@ import EditImages from './EditImages'
 export {
   Home,
   Account,
+  EditUser,
+  EditVisit,
   AddProperty,
   Advertise,
   ScheduleVisit,

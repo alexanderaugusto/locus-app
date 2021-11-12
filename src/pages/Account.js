@@ -9,31 +9,30 @@ import {
   Platform,
   ScrollView
 } from 'react-native'
-import { InputArea, ImagePickerFunction, Warning, Button } from '../components'
+import { ImagePickerFunction, Warning } from '../components'
 import api, { STORAGE_URL } from '../services/api'
 import { useAuth } from '../contexts/auth'
-import { formatPhoneNumber } from '../utils/util'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 import { showMessage } from 'react-native-flash-message'
+import { useNavigation } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/FontAwesome5'
+import { formatDate } from '../utils/util'
 
 import colors from '../utils/constants/colors.json'
 
 export default function Account() {
   const { signed, signOut } = useAuth()
   const { startLoading, stopLoading } = useLoading()
+  const navigation = useNavigation()
+  const { screens, resetScreen } = useReset()
 
-  const [errorMessage, setErrorMessage] = useState('')
   const [userInfo, setUserInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
     avatar: `${STORAGE_URL}/user/default-avatar.png`
   })
-  const [buttonLoading, setButtonLoading] = useState(false)
+  const [userVisits, setUserVisits] = useState([])
 
   const getUser = async () => {
-    setErrorMessage('')
-
     startLoading()
 
     await api
@@ -60,27 +59,13 @@ export default function Account() {
     stopLoading()
   }
 
-  const updateInfo = async () => {
-    setErrorMessage('')
-
-    const data = {
-      name: userInfo.name,
-      phone: userInfo.phone
-    }
-
-    setButtonLoading(true)
+  const getUserVisits = async () => {
+    startLoading()
 
     await api
-      .put('/user', data)
+      .get('/user/visits')
       .then(res => {
-        showMessage({
-          message: 'Sucesso',
-          description: 'Seus dados foram atualizado com sucesso',
-          type: 'success',
-          autoHide: true,
-          icon: 'auto',
-          duration: 3000
-        })
+        setUserVisits(res.data)
       })
       .catch(err => {
         console.error(err)
@@ -95,7 +80,7 @@ export default function Account() {
         })
       })
 
-    setButtonLoading(false)
+    stopLoading()
   }
 
   const updateAvatar = async image => {
@@ -139,13 +124,20 @@ export default function Account() {
     stopLoading()
   }
 
-  const onChange = (type, value) => setUserInfo({ ...userInfo, [type]: value })
-
   useEffect(() => {
     if (signed) {
       getUser()
+      getUserVisits()
     }
   }, [signed])
+
+  useEffect(() => {
+    if (screens.account) {
+      getUser()
+      getUserVisits()
+      resetScreen('account', false)
+    }
+  }, [screens.account])
 
   if (!signed) {
     return (
@@ -197,48 +189,35 @@ export default function Account() {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.form}>
-          <Text testID={'account-errorMessageText'} style={styles.errorMessage}>
-            {errorMessage}
-          </Text>
+        <View style={styles.menu}>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => navigation.navigate('EditUser')}
+          >
+            <Icon name="user-edit" size={24} color={colors.blue} />
 
-          <InputArea
-            testID={'account-input-name'}
-            label={'Nome: '}
-            placeholder={'Seu nome...'}
-            value={userInfo.name}
-            onChangeText={value => onChange('name', value)}
-          />
+            <View style={styles.menuText}>
+              <Text style={styles.menuItemTitle}>Informações de perfil</Text>
+              <Text style={styles.menuItemDescription}>
+                {userInfo.updatedAt
+                  ? `Modificado ${formatDate(userInfo.updatedAt)}`
+                  : 'Nenhuma modificação'}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => navigation.navigate('EditVisit')}
+          >
+            <Icon name="calendar-alt" size={24} color={colors.blue} />
 
-          <InputArea
-            testID={'account-input-email'}
-            label={'E-mail: '}
-            placeholder={'Seu email...'}
-            value={userInfo.email}
-            keyboardType={'email-address'}
-            onChangeText={value => onChange('email', value)}
-          />
-
-          <InputArea
-            testID={'account-input-phone'}
-            label={'Celular: '}
-            placeholder={'Seu celular...'}
-            value={formatPhoneNumber(userInfo.phone)}
-            keyboardType={'phone-pad'}
-            onChangeText={value => onChange('phone', value)}
-          />
-
-          <Button
-            btnText={'Salvar'}
-            onPress={() =>
-              userInfo.name === '' ||
-              userInfo.email === '' ||
-              userInfo.phone === ''
-                ? setErrorMessage('Preencha todos os campos corretamente!')
-                : updateInfo()
-            }
-            buttonLoading={buttonLoading}
-          />
+            <View style={styles.menuText}>
+              <Text style={styles.menuItemTitle}>Visitas agendadas</Text>
+              <Text
+                style={styles.menuItemDescription}
+              >{`${userVisits.length} visitas agendadas`}</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
@@ -331,17 +310,41 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
 
-  form: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    flex: 1
+  menu: {
+    paddingHorizontal: 30,
+    marginTop: 10
   },
 
-  errorMessage: {
-    paddingTop: 10,
-    fontSize: 14,
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors['light-secondary'],
+    marginVertical: 10,
+    padding: 20,
+    borderRadius: 8,
+    shadowColor: colors.h1,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 1
+  },
+
+  menuText: {
+    marginLeft: 20
+  },
+
+  menuItemTitle: {
+    fontSize: 16,
     fontWeight: '500',
-    color: colors.danger,
-    textAlign: 'center'
+    color: colors.h1
+  },
+
+  menuItemDescription: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: colors.h2
   }
 })

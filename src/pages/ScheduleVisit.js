@@ -12,6 +12,7 @@ import { Button } from '../components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
 import { useLoading } from '../contexts/loading'
+import { useReset } from '../contexts/reset'
 import api from '../services/api'
 import { formatDate, formatWeekday, formatHour } from '../utils/util'
 import colors from '../utils/constants/colors.json'
@@ -28,6 +29,7 @@ export default function ScheduleVisit() {
     date: '',
     weekday: ''
   })
+  const { resetScreen } = useReset()
 
   const getPropertyVisits = async () => {
     await api
@@ -55,14 +57,20 @@ export default function ScheduleVisit() {
   const handleSubmitVisit = async () => {
     startLoading()
 
+    const dateFormatter = new Date(selectedVisit.date)
+    dateFormatter.setHours(selectedHour.split(':')[0])
+    dateFormatter.setMinutes(selectedHour.split(':')[1])
+    dateFormatter.setSeconds(0)
+
     const data = {
       property_id: route.params.item.id,
-      date: selectedVisit.date
+      date: dateFormatter
     }
 
     await api
       .post('/user/visit', data)
       .then(res => {
+        resetScreen('account', true)
         navigation.navigate('Home')
         showMessage({
           message: 'Agendamento realizado com sucesso!',
