@@ -60,6 +60,7 @@ export default function AddProperty() {
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
 
+  stopLoading()
   const onChangeImages = image => {
     setData({
       ...data,
@@ -95,7 +96,19 @@ export default function AddProperty() {
     await api
       .post('/property', propertyData)
       .then(res => {
-        addImages(res.data.id)
+        if (data.images.length > 0) {
+          addImages(res.data.id)
+        } else {
+          stopLoading()
+          showMessage({
+            message: 'Seu imóvel foi inserido com sucesso',
+            type: 'success',
+            autoHide: true,
+            icon: 'auto',
+            duration: 3000
+          })
+          navigation.navigate('Anunciar', { reload: true })
+        }
       })
       .catch(err => {
         stopLoading()
@@ -144,6 +157,13 @@ export default function AddProperty() {
       })
 
     stopLoading()
+    showMessage({
+      message: 'Seu imóvel foi inserido com sucesso',
+      type: 'success',
+      autoHide: true,
+      icon: 'auto',
+      duration: 3000
+    })
     navigation.navigate('Anunciar', { reload: true })
   }
 
