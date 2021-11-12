@@ -72,9 +72,8 @@ const formatZipcode = text => {
 
 const formatDate = text => {
   // eslint-disable-next-line no-unused-vars
-  const [year, month, restDate] = text.split('-')
-  const [day] = restDate.split('T')
-  return `${day}/${month}`
+  const date = new Date(text)
+  return `${date.getDate()}/${date.getMonth() + 1}`
 }
 
 const formatWeekday = text => {
