@@ -1,3 +1,5 @@
+import MONTHS from './constants/months.json'
+
 /* eslint-disable quote-props */
 /* eslint-disable prettier/prettier */
 const formatCurrency = number => {
@@ -76,6 +78,11 @@ const formatDate = text => {
   return `${date.getDate()}/${date.getMonth() + 1}`
 }
 
+const formatFullTextDate = date => {
+  const dateFormatter = new Date(date)
+  return `${dateFormatter.getDate()} de ${MONTHS[dateFormatter.getMonth()]} de ${dateFormatter.getFullYear()}`
+}
+
 const formatWeekday = text => {
   // eslint-disable-next-line no-unused-vars
   const weekdaysObj = {
@@ -96,6 +103,13 @@ const formatHour = text => {
   return `${hour}:${min}`
 }
 
+const formatTime = date => {
+  const dateFormatter = new Date(date)
+  const hour = dateFormatter.getHours() === 0 ? '00' : dateFormatter.getHours()
+  const min = dateFormatter.getMinutes() === 0 ? '00' : dateFormatter.getMinutes()
+  return `${hour}:${min}`
+}
+
 export {
   formatCurrency,
   formatCurrencyInput,
@@ -104,6 +118,8 @@ export {
   formatCPF,
   formatZipcode,
   formatDate,
+  formatFullTextDate,
   formatWeekday,
-  formatHour
+  formatHour,
+  formatTime
 }
