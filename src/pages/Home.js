@@ -51,7 +51,7 @@ export default function Home() {
         showMessage({
           message: 'Algo deu errado :(',
           description: err.response?.data.description,
-          type: err.response.status >= 500 ? 'danger' : 'warning',
+          type: err.response?.status >= 500 ? 'danger' : 'warning',
           autoHide: true,
           icon: 'auto',
           duration: 3000
