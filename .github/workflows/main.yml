@@ -11,6 +11,8 @@ jobs:
       API_URL: ${{ secrets.API_URL }}
       STORAGE_URL: ${{ secrets.STORAGE_URL }}
       ZIPCODE_API_URL: https://viacep.com.br/ws
+      GOOGLE_AUTH_ANDROID_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_ANDROID_CLIENT_ID }}
+      GOOGLE_AUTH_IOS_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_IOS_CLIENT_ID }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
