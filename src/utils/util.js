@@ -52,6 +52,10 @@ const createRows = (data, columns = 2) => {
 }
 
 const formatPhoneNumber = text => {
+  if (!text) {
+    return ''
+  }
+
   const regex = /^([0-9]{2})([0-9]{4,5})([0-9]{4})$/
   const str = text.replace(/[^0-9]/g, '').slice(0, 11)
 
@@ -59,6 +63,10 @@ const formatPhoneNumber = text => {
 }
 
 const formatCPF = text => {
+  if (!text) {
+    return ''
+  }
+
   const regex = /^([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})$/
   const str = text.replace(/[^0-9]/g, '').slice(0, 11)
 
