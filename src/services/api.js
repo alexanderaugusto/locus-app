@@ -1,17 +1,15 @@
 import axios from 'axios'
+import Constants from 'expo-constants'
 
 const api = axios.create({
-  baseURL: 'https://locus-app.mybluemix.net'
-  // baseURL: 'http://192.168.0.147:5000'
+  baseURL: Constants.manifest.extra.apiUrl
 })
 
 const zipcodeAPI = axios.create({
-  baseURL: 'https://viacep.com.br/ws'
+  baseURL: Constants.manifest.extra.zipcodeApiUrl
 })
 
-// const STORAGE_URL = 'http://192.168.0.147:5000/storage'
-const STORAGE_URL =
-  'https://res.cloudinary.com/alexanderaugusto/image/upload/v1633174373/locus'
+const STORAGE_URL = Constants.manifest.extra.storageUrl
 
 export default api
 

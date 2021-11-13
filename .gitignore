@@ -16,3 +16,5 @@ __tests__/coverage
 
 # macOS
 .DS_Store
+
+.env
