@@ -1,0 +1,24 @@
+name: Build
+
+on: [push]
+
+jobs:
+  deploy:
+    name: Install and publish
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+      API_URL: ${{ secrets.API_URL }}
+      STORAGE_URL: ${{ secrets.STORAGE_URL }}
+      ZIPCODE_API_URL: https://viacep.com.br/ws
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: expo/expo-github-action@v6
+        with:
+          expo-version: 4.x
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: yarn install
+      - run: expo publish
