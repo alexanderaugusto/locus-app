@@ -39,7 +39,9 @@ export default function OwnerInfoModal({ isVisible, toggle, dataInfos }) {
             <Image
               style={styles.ownerAvatar}
               source={{
-                uri: STORAGE_URL + '/user/' + dataInfos.owner.avatar
+                uri: dataInfos.owner.is_oauth_user
+                  ? dataInfos.owner.avatar
+                  : `${STORAGE_URL}/user/${dataInfos.owner.avatar}`
               }}
             />
 

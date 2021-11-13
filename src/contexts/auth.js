@@ -71,6 +71,29 @@ export const AuthProvider = ({ children }) => {
     })
   }
 
+  const signInWithGoogle = async accessToken => {
+    return new Promise((resolve, reject) => {
+      api
+        .post('/auth/login/google', { access_token: accessToken })
+        .then(async res => {
+          const { token, ...userData } = res.data
+
+          api.defaults.headers.Authorization = `Bearer ${token}`
+
+          setUser(userData)
+
+          resolve(res)
+
+          await AsyncStorage.setItem('user-token', token)
+          await AsyncStorage.setItem('user-data', JSON.stringify(userData))
+        })
+        .catch(err => {
+          reject(err)
+          console.error(err)
+        })
+    })
+  }
+
   const signOut = async () => {
     await AsyncStorage.clear()
 
@@ -80,7 +103,9 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ signed: !!user, user, signIn, signInWithGoogle, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   )

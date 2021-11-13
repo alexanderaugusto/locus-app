@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "574394277326",
+    "project_id": "locus-328823",
+    "storage_bucket": "locus-328823.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574394277326:android:9ebd66550faac34feadf9f",
+        "android_client_info": {
+          "package_name": "com.inatel.locus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574394277326-3clmegabsiq7uuohq8j7qfnjpot0smvq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inatel.locus",
+            "certificate_hash": "13a74b0a1f14fc1e92d79de4510858a1ccac9182"
+          }
+        },
+        {
+          "client_id": "574394277326-1e54h5630a0e0fhfem4maivifb6qmed8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxGDqsho71F15ozi1ZKiCxsS8e8dOf190"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574394277326-1e54h5630a0e0fhfem4maivifb6qmed8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "574394277326-e194l3uqsqtliha97prpctr77fe9d6a1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.inatel.locus"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
