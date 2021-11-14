@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img alt="Travis CI" src="https://travis-ci.org/alexanderaugusto/locus-app.svg?branch=master" />
+  <img alt="Github Actions" src="https://github.com/alexanderaugusto/locus-app/actions/workflows/main.yml/badge.svg" />
 
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alexanderaugusto/locus-app?color=%2304D361">
 
