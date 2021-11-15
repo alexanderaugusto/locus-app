@@ -23,6 +23,7 @@
  <a href="#-funcionalidades">Funcionalidades</a> •
  <a href="#-layout">Layout</a> •
  <a href="#-como-executar-o-projeto">Como executar</a> •
+ <a href="#-estrutura-de-arquivos">Estrutura de arquivos</a> • 
  <a href="#-tecnologias">Tecnologias</a> •
  <a href="#-autores">Autores</a> •
  <a href="#user-content--licença">Licença</a>
@@ -93,7 +94,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ---
 
-## 📁 Estrutura de Arquivos
+## 📁 Estrutura de arquivos
 
 Atualizado 15/11/2021
 
