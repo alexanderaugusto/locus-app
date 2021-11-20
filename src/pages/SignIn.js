@@ -235,10 +235,9 @@ const styles = StyleSheet.create({
   },
 
   googleIcon: {
-    width: 20,
-    height: 20,
-    resizeMode: 'contain',
-    marginRight: 10
+    width: 40,
+    height: 40,
+    resizeMode: 'contain'
   },
 
   googleButtonText: {
