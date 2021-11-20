@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img alt="Travis CI" src="https://travis-ci.org/alexanderaugusto/locus-app.svg?branch=master" />
+  <img alt="Github Actions" src="https://github.com/alexanderaugusto/locus-app/actions/workflows/main.yml/badge.svg" />
 
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/alexanderaugusto/locus-app?color=%2304D361">
 
@@ -23,6 +23,7 @@
  <a href="#-funcionalidades">Funcionalidades</a> •
  <a href="#-layout">Layout</a> •
  <a href="#-como-executar-o-projeto">Como executar</a> •
+ <a href="#-estrutura-de-arquivos">Estrutura de arquivos</a> • 
  <a href="#-tecnologias">Tecnologias</a> •
  <a href="#-autores">Autores</a> •
  <a href="#user-content--licença">Licença</a>
@@ -43,7 +44,7 @@ Locus - é uma forma de conectar clientes e proprietários, tornando a escolha d
 	  - [x] Editar dados
   - Imóveis:
 	  - [x] Cadastrar
-	  - [x] Atualizar dados
+	  - [x] Editar dados
 	  - [x] Listar
 	  - [x] Favoritar
 	  - [x] Pesquisar
@@ -71,156 +72,6 @@ Este projeto é dividido em três partes:
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Expo](https://expo.io).
 
-Caso você já tenha estas ferramentas instaladas, <a href="#executando-o-projeto">clique aqui</a> para seguir ao próximo passo.
-
-#### Instalações
-
-##### 1) Windows:
-  No Windows, vamos instalar com o [chocolatey](https://chocolatey.org)
-
-- Instalar chocolatey: Primeiro, abra o powershell como administrador.
-
-  ```bash
-  # Rode esse comando para checar se você tem permissão para instalar dependências com o terminal.
-  $ Get-ExecutionPolicy
-
-  # Se o retorno for diferente de "Restricted" pule para o próximo comando. Senão, rode este comando:
-  $ Set-ExecutionPolicy AllSigned
-
-  # Finalmente, instale o chocolatey.
-  $ Set-ExecutionPolicy Bypass -Scope Process -
-  Force; [System.Net.ServicePointManager]::SecurityProtocol =
-  [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex
-  ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-  # Agora, teste a instalação executando no terminal (Não pode retornar nenhum erro):
-  $ choco
-  ```
-
-- Instalar nodejs e yarn:
-  ```bash
-  # Basta executar este comando para instalar o nodejs:
-  $ choco install -y nodejs-lts yarn
-
-  # Reinicie seu terminal e tente executar (todas as dependências devem retornar a versão do pacote):
-  $ node -v
-  $ npm -v
-  $ yarn -v
-  ```
-
-- Instalar expo-cli:
-  ```bash
-  # Basta executar este comando para instalar o expo-cli:
-  $ npm install expo-cli ou yarn add expo-cli
-  ```
-
-- Instalar Expo App:
-	- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
-	- [IOS](https://apps.apple.com/br/app/expo-client/id982107779)
-
-
- ##### 2) Linux:
-
-###### - Ubuntu (Debian):
-
-  - Instalar Curl:
-    ```bash
-     # Verifique se você instalou o Curl:
-     $ sudo  apt-get  install  curl
-     ```
-
-  - Instalar nodejs: Neste tutorial, a instalação é com curl, se você deseja instalar com um gerenciador de pacotes, tente isto: [nvm](https://github.com/nvm-sh/nvm#about).
-
-    ```bash
-    # Agora, se o curl estiver instalado, execute este comando:
-
-    # Usando Ubuntu:
-    $ curl -sL https://deb.nodesource.com/setup_12.x |
-    sudo -E bash - sudo apt-get install -y nodejs
-
-    # Usando Debian, with root
-    $ curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    apt-get install -y nodejs
-    ```
-
-- Instalar yarn:
-  ```bash
-  # Configure o repositório yarn em seu sistema:
-  $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - echo
-    "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-  # Execute este comando para instalar o yarn:
-  $ sudo apt update && sudo apt install --no-install-recommends yarn
-
-  # Agora, verifique as instalações:
-  $ node -v
-  $ npm -v
-  $ yarn -v
-  ```
-
-- Instalar expo-cli:
-  ```bash
-  # Basta executar este comando para instalar o expo-cli:
-  $ npm install expo-cli ou yarn add expo-cli
-  ```
-
-- Instalar Expo App:
-	- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
-	- [IOS](https://apps.apple.com/br/app/expo-client/id982107779)
-
-###### - Arch Linux:
-
-- Instalar nodejs e yarn:
-  ```bash
-  $ sudo pacman -S nodejs yarn
-
-  # ou
-
-  $ sudo pacman -S nodejs npm
-  ```
-
-- Instalar expo-cli:
-  ```bash
-  # Basta executar este comando para instalar o expo-cli:
-  $ npm install expo-cli ou yarn add expo-cli
-  ```
-
-- Instalar Expo App:
-	- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
-	- [IOS](https://apps.apple.com/br/app/expo-client/id982107779)
-
-##### 3) Mac:
-No mac, vamos instalar com o Homebrew.
-
-- Instalar Homebrew:
-  ```bash
-  # Basta executar este comando para instalar o homebrew:
-  $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  ```
-
-- Instalar nodejs e yarn:
-  ```bash
-  # Com o homebew, vamos instalar o nodejs e yarn:
-  $ brew install node
-  $brew install yarn
-
-  # Reinicie seu terminal e tente executar (todas as dependências devem retornar a versão do pacote):
-  $ node -v
-  $ npm -v
-  $ yarn -v
-  ```
-
-- Instalar expo-cli:
-  ```bash
-  # Basta executar este comando para instalar o expo-cli:
-  $ npm install expo-cli ou yarn add expo-cli
-  ```
-
-- Instalar Expo App:
-	- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
-	- [IOS](https://apps.apple.com/br/app/expo-client/id982107779)
-
-
 #### Executando o projeto
 
 ##### 🧭 Rodando a aplicação Frontend
@@ -233,14 +84,167 @@ No mac, vamos instalar com o Homebrew.
     $ cd focus-app
 
     # Instale as dependências
-    $ yarn install ou npm install ou expo install
+    $ yarn install
 
     # Execute a aplicação
-    $ yarn start ou npm start ou expo start
+    $ yarn start
 
     # Acesse o aplicativo expo e veja o projeto em execução, clique no aplicativo em execução.
    ```
 
+---
+
+## 📁 Estrutura de arquivos
+
+Atualizado 15/11/2021
+
+```
+locus-app
+├─ .editorconfig
+├─ .eslintignore
+├─ .eslintrc.json
+├─ .expo-shared
+│  └─ assets.json
+├─ .gitignore
+├─ .travis.yml
+├─ app.config.js
+├─ App.js
+├─ assets
+│  ├─ google-icon.png
+│  ├─ icon.png
+│  ├─ logo-black-mini.png
+│  ├─ logo-blue-mini.png
+│  ├─ logo-blue.png
+│  └─ splash.png
+├─ babel.config.js
+├─ config
+│  ├─ google-services.json
+│  └─ GoogleService-Info.plist
+├─ jest.config.js
+├─ LICENSE
+├─ node_modules
+│  └─ .yarn-integrity
+├─ package-lock.json
+├─ package.json
+├─ prettier.config.js
+├─ README.md
+├─ src
+│  ├─ components
+│  │  ├─ Button.js
+│  │  ├─ CategoryCard.js
+│  │  ├─ Error.js
+│  │  ├─ FloatButton.js
+│  │  ├─ ImagePicker.js
+│  │  ├─ index.js
+│  │  ├─ InputArea.js
+│  │  ├─ InputSelect.js
+│  │  ├─ Loader.js
+│  │  ├─ OwnerInfoModal.js
+│  │  ├─ PropertyCard.js
+│  │  ├─ PropertyFilter.js
+│  │  ├─ StepProgress.js
+│  │  ├─ SwiperImage.js
+│  │  └─ Warning.js
+│  ├─ contexts
+│  │  ├─ auth.js
+│  │  ├─ loading.js
+│  │  └─ reset.js
+│  ├─ pages
+│  │  ├─ Account.js
+│  │  ├─ AddProperty.js
+│  │  ├─ AddVisitPeriod.js
+│  │  ├─ Advertise.js
+│  │  ├─ EditAddress.js
+│  │  ├─ EditImages.js
+│  │  ├─ EditInfo.js
+│  │  ├─ EditProperty.js
+│  │  ├─ EditUser.js
+│  │  ├─ EditVisit.js
+│  │  ├─ Favorite.js
+│  │  ├─ Home.js
+│  │  ├─ index.js
+│  │  ├─ PropertyDetail.js
+│  │  ├─ ScheduleVisit.js
+│  │  ├─ SignIn.js
+│  │  └─ SignUp.js
+│  ├─ routes
+│  │  ├─ index.js
+│  │  ├─ stack.routes.js
+│  │  └─ tab.routes.js
+│  ├─ services
+│  │  ├─ api.js
+│  │  └─ auth
+│  │     └─ google.js
+│  └─ utils
+│     ├─ constants
+│     │  ├─ colors.json
+│     │  ├─ months.json
+│     │  ├─ states.json
+│     │  ├─ types.json
+│     │  └─ weekdays.json
+│     └─ util.js
+├─ yarn.lock
+└─ __tests__
+   ├─ jestSetup.js
+   ├─ mocks
+   │  └─ constants
+   │     ├─ properties.json
+   │     ├─ property.json
+   │     └─ user.json
+   ├─ snapshot
+   │  ├─ components
+   │  │  ├─ FloatButton.test.js
+   │  │  ├─ ImagePicker.test.js
+   │  │  ├─ ImovelCard.test.js
+   │  │  ├─ InputArea.test.js
+   │  │  ├─ InputSelect.test.js
+   │  │  ├─ Loader.test.js
+   │  │  ├─ SwiperImage.test.js
+   │  │  └─ __snapshots__
+   │  │     ├─ FloatButton.test.js.snap
+   │  │     ├─ ImagePicker.test.js.snap
+   │  │     ├─ ImovelCard.test.js.snap
+   │  │     ├─ InputArea.test.js.snap
+   │  │     ├─ InputSelect.test.js.snap
+   │  │     ├─ Loader.test.js.snap
+   │  │     └─ SwiperImage.test.js.snap
+   │  └─ screens
+   │     ├─ Account.test.js
+   │     ├─ AddProperty.test.js
+   │     ├─ Advertise.test.js
+   │     ├─ Contact.test.js
+   │     ├─ Favorite.test.js
+   │     ├─ Home.test.js
+   │     ├─ PropertyDetail.test.js
+   │     ├─ SignIn.test.js
+   │     ├─ SignUp.test.js
+   │     └─ __snapshots__
+   │        ├─ Account.test.js.snap
+   │        ├─ AddProperty.test.js.snap
+   │        ├─ Advertise.test.js.snap
+   │        ├─ Contact.test.js.snap
+   │        ├─ Favorite.test.js.snap
+   │        ├─ Home.test.js.snap
+   │        ├─ PropertyDetail.test.js.snap
+   │        ├─ SignIn.test.js.snap
+   │        └─ SignUp.test.js.snap
+   └─ unit
+      ├─ components
+      │  ├─ ImovelCard.test.js
+      │  ├─ InputSelect.test.js
+      │  └─ SwiperImage.test.js
+      ├─ screens
+      │  ├─ Account.test.js
+      │  ├─ AddProperty.test.js
+      │  ├─ Advertise.test.js
+      │  ├─ Favorite.test.js
+      │  ├─ Home.test.js
+      │  ├─ SignIn.test.js
+      │  └─ SignUp.test.js
+      └─ utils
+         └─ util.test.js
+
+```
 ---
 
 ## 🛠 Tecnologias
@@ -249,13 +253,16 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 #### **Mobile**  ([React Native](http://www.reactnative.com/))
 - **Dependências**:
-  -   **[Expo](https://expo.io/)**
-  -   **[React Navigation](https://reactnavigation.org/)**
   -   **[Axios](https://github.com/axios/axios)**
-  -   **[Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
+  -   **[Expo](https://expo.io/)**
+  -   **[Expo App Auth](https://github.com/expo/expo/tree/master/packages/expo-app-auth)**
   -   **[Expo Image Picker](https://docs.expo.io/versions/latest/sdk/imagepicker/)**
-  -   **[Swiper](https://github.com/leecade/react-native-swiper)**
-  -   **[Progress](https://github.com/oblador/react-native-progress)**
+  -   **[React Navigation](https://reactnavigation.org/)**
+  -   **[React Native Maps](https://github.com/react-native-maps/react-native-maps)**
+  -   **[React Native Progress](https://github.com/oblador/react-native-progress)**
+  -   **[React Native Progress Steps](https://github.com/colbymillerdev/react-native-progress-steps)**
+  -   **[React Native Swipeable](https://github.com/jshanson7/react-native-swipeable)**
+  -   **[React Native Swiper](https://github.com/leecade/react-native-swiper)**
 
 - **Dependências de Desenvolvimento**:
   -   **[Jest Expo](https://docs.expo.io/guides/testing-with-jest/)**
