@@ -62,7 +62,7 @@ export default function OwnerInfoModal({ isVisible, toggle, dataInfos }) {
               <TouchableOpacity
                 onPress={() =>
                   Linking.openURL(
-                    `mailto:${dataInfos.owner.email}?subject=Locus - Aluguel de imóvel&body=Olá, ${dataInfos.owner.name}! \n\n Estou interessado no seu imóvel de título: ${dataInfos.title} \n\n Poderia me passar mais informações?`
+                    `mailto:${dataInfos.owner.email}?subject=Locus - Venda de imóvel&body=Olá, ${dataInfos.owner.name}! \n\n Estou interessado no seu imóvel de título: ${dataInfos.title} \n\n Poderia me passar mais informações?`
                   )
                 }
               >

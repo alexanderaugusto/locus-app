@@ -191,7 +191,7 @@ export default function PropertyDetail() {
 
           <View style={styles.footer}>
             <View style={styles.price}>
-              <Text style={styles.label}>Aluguel:</Text>
+              <Text style={styles.label}>Venda:</Text>
               <Text style={styles.priceInfo} numberOfLines={5}>
                 {formatCurrency(property.price)}
               </Text>

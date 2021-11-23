@@ -103,8 +103,8 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
           onPress={() =>
             signed
               ? favorite
-                  ? removeFavorite()
-                  : addFavorite()
+                ? removeFavorite()
+                : addFavorite()
               : navigation.navigate('SignIn')
           }
         >
@@ -119,7 +119,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
 
       <View style={styles.infoContainer}>
         <View style={styles.infoHeader}>
-          <Text style={styles.price}>Aluguel {formatCurrency(item.price)}</Text>
+          <Text style={styles.price}>Venda {formatCurrency(item.price)}</Text>
         </View>
 
         <Text style={styles.address} numberOfLines={3}>
