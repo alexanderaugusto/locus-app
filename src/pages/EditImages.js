@@ -11,7 +11,6 @@ import {
   TouchableOpacity
 } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
-
 import { ImagePickerFunction, Button } from '../components'
 import colors from '../utils/constants/colors.json'
 import api, { STORAGE_URL } from '../services/api'
@@ -131,10 +130,17 @@ export default function EditAddress() {
       <KeyboardAvoidingView testID="edit-property" style={styles.container}>
         <View style={styles.containerInput}>
           <View style={styles.header}>
+            <TouchableOpacity
+              style={styles.goBack}
+              onPress={() => navigation.goBack()}
+            >
+              <Icon name={'arrow-left'} size={20} color={colors.h1} />
+            </TouchableOpacity>
             <Text numberOfLiner={2} style={styles.headerTitle}>
-              Editar Imagens
+              Editar Imgens
             </Text>
           </View>
+
           <SafeAreaView style={styles.imageContainer}>
             <FlatList
               data={createRows([...data.images, { imagePicker: true }], 2)}
@@ -227,6 +233,15 @@ const styles = StyleSheet.create({
     color: colors.h1,
     alignSelf: 'center',
     opacity: 0.8
+  },
+
+  goBack: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0
   },
 
   label: {

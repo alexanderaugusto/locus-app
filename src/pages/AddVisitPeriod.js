@@ -9,7 +9,7 @@ import {
 import { useNavigation, useRoute } from '@react-navigation/native'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
 import { showMessage } from 'react-native-flash-message'
-
+import Icon from '@expo/vector-icons/FontAwesome5'
 import { InputArea, InputSelect, Button } from '../components'
 import colors from '../utils/constants/colors.json'
 import weekdays from '../utils/constants/weekdays.json'
@@ -74,6 +74,12 @@ export default function AddVisitPeriod() {
   return (
     <KeyboardAvoidingView testID="edit-property" style={styles.container}>
       <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.goBack}
+          onPress={() => navigation.goBack()}
+        >
+          <Icon name={'arrow-left'} size={20} color={colors.h1} />
+        </TouchableOpacity>
         <Text numberOfLiner={2} style={styles.headerTitle}>
           Agendar Visita
         </Text>
@@ -134,6 +140,15 @@ const styles = StyleSheet.create({
     color: colors.h1,
     alignSelf: 'center',
     opacity: 0.8
+  },
+
+  goBack: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0
   },
 
   label: {
