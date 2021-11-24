@@ -30,41 +30,34 @@ export default function EditProperty() {
         </Text>
       </View>
 
-      <View style={styles.cardContainer}>
-        <View style={styles.cardItem}>
-          <CategoryCard
-            icon="map"
-            text="Address"
-            navigateTo="EditAddress"
-            item={item}
-          ></CategoryCard>
-        </View>
-        <View style={styles.cardItem}>
-          <CategoryCard
-            icon="building"
-            text="Info"
-            navigateTo="EditInfo"
-            item={item}
-          ></CategoryCard>
-        </View>
-      </View>
-      <View style={styles.cardContainer}>
-        <View style={styles.cardItem}>
-          <CategoryCard
-            icon="images"
-            text="Images"
-            navigateTo="EditImages"
-            item={item}
-          ></CategoryCard>
-        </View>
-        <View style={styles.cardItem}>
-          <CategoryCard
-            icon="calendar-alt"
-            text="Visit"
-            navigateTo="AddVisitPeriod"
-            item={item}
-          ></CategoryCard>
-        </View>
+      <View style={styles.menu}>
+        <CategoryCard
+          icon="map"
+          text="Endereço"
+          navigateTo="EditAddress"
+          item={item}
+        />
+
+        <CategoryCard
+          icon="building"
+          text="Características"
+          navigateTo="EditInfo"
+          item={item}
+        />
+
+        <CategoryCard
+          icon="images"
+          text="Imagens"
+          navigateTo="EditImages"
+          item={item}
+        />
+
+        <CategoryCard
+          icon="calendar-alt"
+          text="Horários para visitação"
+          navigateTo="AddVisitPeriod"
+          item={item}
+        />
       </View>
     </KeyboardAvoidingView>
   )
@@ -103,13 +96,8 @@ const styles = StyleSheet.create({
     left: 0
   },
 
-  cardContainer: {
-    justifyContent: 'space-between',
-    flexDirection: 'row'
-  },
-
-  cardItem: {
-    flex: 1,
-    margin: 5
+  menu: {
+    paddingHorizontal: 15,
+    marginTop: 10
   }
 })

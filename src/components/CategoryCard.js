@@ -9,37 +9,43 @@ export default function CategoryCard({ icon, text, navigateTo, item }) {
 
   return (
     <TouchableOpacity
-      style={styles.card}
+      style={styles.menuItem}
       onPress={() => navigation.navigate(navigateTo, { item })}
     >
-      <View>
-        <Icon
-          style={styles.cardIcon}
-          name={icon}
-          color={colors.blue}
-          size={30}
-        />
-        <Text style={styles.cardText}>{text}</Text>
+      <Icon name={icon} size={30} color={colors.blue} />
+
+      <View style={styles.menuText}>
+        <Text style={styles.menuItemTitle}>{text}</Text>
       </View>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  card: {
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: colors['light-secondary'],
-    borderRadius: 12,
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 20,
-    paddingRight: 20,
+    marginVertical: 12,
+    padding: 22,
+    borderRadius: 8,
+    shadowColor: colors.h1,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
     elevation: 1
   },
-  cardIcon: {
-    marginLeft: 5
+
+  menuText: {
+    marginLeft: 20
   },
-  cardText: {
-    fontSize: 22,
-    margin: 2
+
+  menuItemTitle: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: colors.h1
   }
 })
