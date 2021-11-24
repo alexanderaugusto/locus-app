@@ -4,7 +4,6 @@ import {
   View,
   Platform,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
   Text,
   SafeAreaView,
@@ -14,7 +13,12 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from '@expo/vector-icons/FontAwesome5'
-import { PropertyCard, PropertyFilter, Warning } from '../components'
+import {
+  DropdownSelect,
+  PropertyCard,
+  PropertyFilter,
+  Warning
+} from '../components'
 import api from '../services/api'
 import { useAuth } from '../contexts/auth'
 import { useLoading } from '../contexts/loading'
@@ -30,10 +34,27 @@ export default function Home() {
   const { screens, resetScreen } = useReset()
 
   const [properties, setProperties] = useState([])
+  const [cities, setCities] = useState([])
   const [searchText] = useState('Santa Rita do Sapucaí, MG')
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
   const [refresh, setRefresh] = useState(false)
+
+  const getCities = async () => {
+    await api
+      .get('/cities')
+      .then(response => {
+        setCities(response.data)
+      })
+      .catch(error => {
+        showMessage({
+          message: 'Erro ao carregar cidades',
+          type: 'danger',
+          icon: 'danger'
+        })
+        console.log(error)
+      })
+  }
 
   const getProperties = async (params = {}) => {
     const config = {
@@ -76,6 +97,7 @@ export default function Home() {
   useEffect(() => {
     startLoading()
     getProperties(filters)
+    getCities()
   }, [signed])
 
   useEffect(() => {
@@ -113,19 +135,16 @@ export default function Home() {
           getProperties(filters)
         }}
       />
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={{ padding: 5 }}
-          placeholder="Pesquise por localidade..."
-          placeholderTextColor="#999"
-          value={searchText}
-          editable={false}
-        />
-        <TouchableOpacity style={{ alignSelf: 'center' }}>
-          <Icon name="search" size={16} color={colors.blue} />
-        </TouchableOpacity>
-      </View>
+      <DropdownSelect
+        items={cities}
+        placeholder="Pesquise por localidade..."
+        applyFilters={filters => {
+          setFilters(filters)
+          setFilterOpen(false)
+          startLoading()
+          getProperties(filters)
+        }}
+      />
       <View style={styles.filter}>
         <View>
           <Text style={styles.filterTitle}>Imóveis para alugar</Text>

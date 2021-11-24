@@ -12,6 +12,7 @@ import StepProgress from './StepProgress'
 import Warning from './Warning'
 import OwnerInfoModal from './OwnerInfoModal'
 import CategoryCard from './CategoryCard'
+import DropdownSelect from './DropdownSelect'
 export {
   PropertyCard,
   PropertyFilter,
@@ -26,5 +27,6 @@ export {
   StepProgress,
   Warning,
   OwnerInfoModal,
-  CategoryCard
+  CategoryCard,
+  DropdownSelect
 }
