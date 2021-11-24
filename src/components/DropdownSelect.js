@@ -10,33 +10,6 @@ export default function DropdownSelect({ items, applyFilters }) {
 
   return (
     <View style={styles.pickerContainer}>
-      {/* <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.selectContainer}
-          onPress={() => setMenu(true)}
-        >
-          <Text testID={'inputSelect-label'} style={styles.selectText}>
-            {inputText}
-          </Text>
-          <Icon name="search" size={16} color={colors.blue} />
-        </TouchableOpacity>
-        {menu && (
-          <View style={styles.listContainer}>
-            {items.map(item => (
-              <TouchableOpacity
-                key={item.city}
-                style={styles.listItem}
-                onPress={() => {
-                  changeCity(item.city, item.state)
-                }}
-              >
-                <Text>{`${item.city} - ${item.state}`}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        )}
-      </View> */}
-
       <Picker
         style={styles.picker}
         selectedValue={selectedItem}
@@ -75,12 +48,15 @@ const styles = StyleSheet.create({
     height: 46,
     backgroundColor: '#fff'
   },
+
   picker: {
     width: '90%'
   },
+
   pickerItems: {
     backgroundColor: '#000'
   },
+
   placeholder: {
     color: '#ccc'
   }
