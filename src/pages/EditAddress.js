@@ -53,6 +53,15 @@ export default function EditAddress() {
     await api
       .patch(`/property/${item.id}/address`, propertyData)
       .then(res => {
+        showMessage({
+          message: 'Sucesso',
+          description: 'Seus dados foram atualizado com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+
         item.address = res.data
         stopLoading()
         navigation.navigate('Anunciar', { reload })

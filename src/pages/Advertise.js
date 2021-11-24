@@ -64,6 +64,15 @@ export default function Advertise() {
     api
       .delete(`/property/${item.id}`)
       .then(res => {
+        showMessage({
+          message: 'Sucesso',
+          description: 'Seu imóvel foi deletado com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+
         navigation.reset({
           index: 0,
           routes: [{ name: 'Anunciar' }],
@@ -119,6 +128,10 @@ export default function Advertise() {
           Anunciar
         </Text>
       </View>
+
+      <Text style={styles.message}>
+        Para editar ou deletar algum imóvel, arraste o card para a esquerda.
+      </Text>
 
       <SafeAreaView style={styles.listContainer}>
         <FlatList
@@ -229,7 +242,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    marginBottom: 30
+    marginBottom: 15
   },
 
   headerTitle: {
@@ -238,6 +251,14 @@ const styles = StyleSheet.create({
     color: colors.h1,
     alignSelf: 'center',
     opacity: 0.8
+  },
+
+  message: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.p,
+    textAlign: 'center',
+    marginBottom: 15
   },
 
   listContainer: {

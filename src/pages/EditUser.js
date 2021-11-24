@@ -72,7 +72,7 @@ export default function EditUser() {
       .then(res => {
         showMessage({
           message: 'Sucesso',
-          description: 'Seus dados foram atualizado com sucesso',
+          description: 'Seus dados foram atualizados com sucesso',
           type: 'success',
           autoHide: true,
           icon: 'auto',

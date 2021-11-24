@@ -53,6 +53,16 @@ export default function AddVisitPeriod() {
     await api
       .post(`/property/${item.id}/visit`, data)
       .then(res => {
+        showMessage({
+          message: 'Sucesso',
+          description:
+            'Os horários para visitação foram atualizados com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+
         stopLoading()
         navigation.navigate('Anunciar', { reload })
       })

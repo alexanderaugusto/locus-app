@@ -60,6 +60,15 @@ export default function EditInfo() {
     await api
       .patch(`/property/${item.id}`, propertyData)
       .then(res => {
+        showMessage({
+          message: 'Sucesso',
+          description: 'Seus dados foram atualizados com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+
         updateItemInfo(res.data)
         stopLoading()
         navigation.navigate('Anunciar', { reload })

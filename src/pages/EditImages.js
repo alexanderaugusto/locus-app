@@ -107,6 +107,15 @@ export default function EditAddress() {
     await api
       .post(`/property/${routeItem.id}/images`, formData, config)
       .then(() => {
+        showMessage({
+          message: 'Sucesso',
+          description: 'As imagens foram atualizados com sucesso',
+          type: 'success',
+          autoHide: true,
+          icon: 'auto',
+          duration: 3000
+        })
+
         navigation.navigate('Anunciar', { reload })
       })
       .catch(err => {
