@@ -40,6 +40,13 @@ export default function Home() {
   const [filters, setFilters] = useState({})
   const [refresh, setRefresh] = useState(false)
 
+  const searchWithFilters = newFilters => {
+    setFilters(newFilters)
+    setFilterOpen(false)
+    startLoading()
+    getProperties(newFilters)
+  }
+
   const getCities = async () => {
     await api
       .get('/cities')
@@ -128,22 +135,12 @@ export default function Home() {
       <PropertyFilter
         isOpen={filterOpen}
         toggle={() => setFilterOpen(false)}
-        applyFilters={filters => {
-          setFilters(filters)
-          setFilterOpen(false)
-          startLoading()
-          getProperties(filters)
-        }}
+        applyFilters={newFilters => searchWithFilters(newFilters)}
       />
       <DropdownSelect
         items={cities}
         placeholder="Pesquise por localidade..."
-        applyFilters={filters => {
-          setFilters(filters)
-          setFilterOpen(false)
-          startLoading()
-          getProperties(filters)
-        }}
+        applyFilters={newFilters => searchWithFilters(newFilters)}
       />
       <View style={styles.filter}>
         <View>
