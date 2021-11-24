@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -24,8 +24,10 @@ const CARD_HEIGHT = Dimensions.get('window').height * 0.27
 export default function PropertyCard({ item, favorite, onChangeFavorite }) {
   const navigation = useNavigation()
   const { signed } = useAuth()
+  const [favoriteToggle, setFavoriteToggle] = useState(favorite)
 
   const addFavorite = async () => {
+    setFavoriteToggle(true)
     api
       .put(`/property/${item.id}/favorite`, null)
       .then(res => {
@@ -48,6 +50,7 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
   }
 
   const removeFavorite = async () => {
+    setFavoriteToggle(false)
     api
       .delete(`/property/${item.id}/favorite`)
       .then(res => {
@@ -103,16 +106,16 @@ export default function PropertyCard({ item, favorite, onChangeFavorite }) {
           onPress={() =>
             signed
               ? favorite
-                ? removeFavorite()
-                : addFavorite()
+                  ? removeFavorite()
+                  : addFavorite()
               : navigation.navigate('SignIn')
           }
         >
           <Icon
             name="heart"
-            solid={favorite}
+            solid={favoriteToggle}
             size={18}
-            color={favorite ? colors.danger : colors.blue}
+            color={favoriteToggle ? colors.danger : colors.blue}
           />
         </TouchableOpacity>
       </View>
