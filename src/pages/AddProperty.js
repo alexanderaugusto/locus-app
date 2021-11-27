@@ -20,8 +20,15 @@ import {
 } from '../components'
 import { ProgressSteps } from 'react-native-progress-steps'
 import { useNavigation } from '@react-navigation/native'
-import { createRows, formatZipcode, formatCurrencyInput } from '../utils/util'
+import {
+  createRows,
+  formatZipcode,
+  formatCurrencyInput,
+  formatCurrency
+} from '../utils/util'
 import api, { zipcodeAPI } from '../services/api'
+import stackPositionApi from '../services/positionStackApi'
+import housingPredictorApi from '../services/housingPredictorApi'
 import { showMessage } from 'react-native-flash-message'
 
 import { FontAwesome } from 'react-native-vector-icons'
@@ -56,6 +63,7 @@ export default function AddProperty() {
     country: 'Brasil',
     zipcode: ''
   })
+  const [estimatedPrice, setEstimatedPrice] = useState('')
   const [activeStep, setActiveStep] = useState(0)
 
   const onChange = (type, value) => setData({ ...data, [type]: value })
@@ -204,6 +212,79 @@ export default function AddProperty() {
     }
   }
 
+  const getGeolocationByAddress = async () => {
+    const { street, number, neighborhood, city, state, zipcode } = data
+
+    const config = {
+      params: {
+        query: `${street} ${number}, ${neighborhood}, ${city} - ${state} - ${zipcode}`
+      }
+    }
+
+    startLoading()
+
+    await stackPositionApi
+      .get('/forward', config)
+      .then(res => {
+        setData({
+          ...data,
+          latitude: res.data.data[0].latitude,
+          longitude: res.data.data[0].longitude
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+    setActiveStep(activeStep + 1)
+    stopLoading()
+  }
+
+  const getEstimatedPropertyPrice = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    }
+
+    const features = [
+      data.type,
+      data.area,
+      data.bedrooms,
+      data.bathrooms,
+      data.garage,
+      data.latitude,
+      data.longitude
+    ]
+
+    const requestData = {
+      data: [features]
+    }
+
+    startLoading()
+
+    await housingPredictorApi
+      .post('/predict', requestData, config)
+      .then(res => {
+        setEstimatedPrice(res.data.prediction[0])
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+    setActiveStep(activeStep + 1)
+    stopLoading()
+  }
+
+  const copyEstimatedPrice = () => {
+    const formatedPrice = parseFloat(estimatedPrice).toFixed(2)
+    setData({
+      ...data,
+      price: formatCurrencyInput(formatedPrice.toString())
+    })
+  }
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
@@ -269,7 +350,7 @@ export default function AddProperty() {
             nextBtnText={true}
             previousBtnText={true}
             scrollable={false}
-            onNext={() => setActiveStep(activeStep + 1)}
+            onNext={() => getGeolocationByAddress()}
             onPrevious={() => setActiveStep(activeStep - 1)}
           >
             <View style={styles.containerInput}>
@@ -338,7 +419,7 @@ export default function AddProperty() {
             nextBtnText={true}
             previousBtnText={true}
             scrollable={false}
-            onNext={() => setActiveStep(activeStep + 1)}
+            onNext={() => getEstimatedPropertyPrice()}
             onPrevious={() => setActiveStep(activeStep - 1)}
           >
             <View style={styles.containerInput}>
@@ -497,6 +578,30 @@ export default function AddProperty() {
                   onChange('price', formatCurrencyInput(value))
                 }
               />
+              {estimatedPrice && (
+                <View style={styles.estimatedPriceContainer}>
+                  <Text style={styles.estimatedPriceTitle}>
+                    Calculamos um preço estimado para seu imóvel com base nas
+                    caracteristicas informadas
+                  </Text>
+                  <View style={styles.estimatedPriceCopy}>
+                    <Text style={styles.estimatedPrice}>
+                      {formatCurrency(estimatedPrice)}
+                    </Text>
+                    <TouchableOpacity
+                      style={styles.estimatedPriceCopyButton}
+                      onPress={() => copyEstimatedPrice()}
+                    >
+                      <Icon
+                        name={'copy'}
+                        size={20}
+                        color={colors.h2}
+                        solid={true}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )}
             </View>
           </StepProgress>
         </ProgressSteps>
@@ -592,5 +697,35 @@ const styles = StyleSheet.create({
 
   addIcon: {
     alignSelf: 'center'
+  },
+
+  estimatedPriceContainer: {
+    marginTop: 20,
+    flex: 1
+  },
+
+  estimatedPriceTitle: {
+    fontSize: 14,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: colors.h2
+  },
+
+  estimatedPriceCopy: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+    flex: 1
+  },
+
+  estimatedPrice: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: colors.h2
+  },
+
+  estimatedPriceCopyButton: {
+    padding: 10
   }
 })

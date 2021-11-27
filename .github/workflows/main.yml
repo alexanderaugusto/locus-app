@@ -13,6 +13,12 @@ jobs:
       ZIPCODE_API_URL: https://viacep.com.br/ws
       GOOGLE_AUTH_ANDROID_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_ANDROID_CLIENT_ID }}
       GOOGLE_AUTH_IOS_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_IOS_CLIENT_ID }}
+      POSITION_STACK_API_URL: 'http://api.positionstack.com/v1'
+      POSITION_STACK_ACCESS_KEY: ${{ secrets.POSITION_STACK_ACCESS_KEY }}
+      WML_GET_TOKEN_URL: 'https://iam.cloud.ibm.com/identity/token'
+      WML_API_URL: ${{ secrets.WML_API_URL }}
+      WML_API_KEY: ${{ secrets.WML_API_KEY }}
+      HOUSING_PREDICTOR_API_URL: ${{ secrets.HOUSING_PREDICTOR_API_URL }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1

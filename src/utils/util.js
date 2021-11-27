@@ -28,6 +28,10 @@ const formatCurrencyInput = value => {
     return ''
   }
 
+  if (value.substr(0, 1) === ',' || value.substr(0, 1) === '.') {
+    return value.substr(1)
+  }
+
   return value
 }
 

@@ -49,7 +49,13 @@ export default {
       storageUrl: process.env.STORAGE_URL,
       zipcodeApiUrl: process.env.ZIPCODE_API_URL,
       googleAuthAndroidClientId: process.env.GOOGLE_AUTH_ANDROID_CLIENT_ID,
-      googleAuthIosClientId: process.env.GOOGLE_AUTH_IOS_CLIENT_ID
+      googleAuthIosClientId: process.env.GOOGLE_AUTH_IOS_CLIENT_ID,
+      positionStackApiUrl: process.env.POSITION_STACK_API_URL,
+      positionStackAccessKey: process.env.POSITION_STACK_ACCESS_KEY,
+      wmlApiUrl: process.env.WML_API_URL,
+      wmlApikey: process.env.WML_API_KEY,
+      wmlGetTokenUrl: process.env.WML_GET_TOKEN_URL,
+      housingPredictorApiUrl: process.env.HOUSING_PREDICTOR_API_URL
     }
   }
 }
