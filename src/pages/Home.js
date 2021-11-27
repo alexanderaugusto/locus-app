@@ -61,6 +61,8 @@ export default function Home() {
         })
         console.log(error)
       })
+
+    setRefresh(false)
   }
 
   const getProperties = async (params = {}) => {
@@ -164,6 +166,7 @@ export default function Home() {
           onRefresh={() => {
             setRefresh(true)
             getProperties(filters)
+            getCities()
           }}
           refreshing={refresh}
           ListEmptyComponent={!loading ? emptyList : <></>}
