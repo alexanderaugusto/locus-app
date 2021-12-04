@@ -27,7 +27,6 @@ import {
   formatCurrency
 } from '../utils/util'
 import api, { zipcodeAPI } from '../services/api'
-import stackPositionApi from '../services/positionStackApi'
 import housingPredictorApi from '../services/housingPredictorApi'
 import { showMessage } from 'react-native-flash-message'
 
@@ -61,7 +60,9 @@ export default function AddProperty() {
     city: '',
     state: 'MG',
     country: 'Brasil',
-    zipcode: ''
+    zipcode: '',
+    latitude: '',
+    longitude: ''
   })
   const [estimatedPrice, setEstimatedPrice] = useState('')
   const [activeStep, setActiveStep] = useState(0)
@@ -94,7 +95,9 @@ export default function AddProperty() {
         city: data.city,
         state: data.state,
         country: data.country,
-        zipcode: data.zipcode
+        zipcode: data.zipcode,
+        latitude: data.latitude,
+        longitude: data.longitude
       }
     }
 
@@ -217,19 +220,24 @@ export default function AddProperty() {
 
     const config = {
       params: {
-        query: `${street} ${number}, ${neighborhood}, ${city} - ${state} - ${zipcode}`
+        street,
+        number,
+        neighborhood,
+        city,
+        state,
+        zipcode
       }
     }
 
     startLoading()
 
-    await stackPositionApi
-      .get('/forward', config)
+    await api
+      .get('/external/geolocation', config)
       .then(res => {
         setData({
           ...data,
-          latitude: res.data.data[0].latitude,
-          longitude: res.data.data[0].longitude
+          latitude: res.data.latitude,
+          longitude: res.data.longitude
         })
       })
       .catch(err => {
